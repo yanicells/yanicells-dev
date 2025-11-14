@@ -12,6 +12,7 @@ const navLinks = [
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,13 +30,14 @@ export default function Navigation() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMenuOpen(false); // Close menu after navigation
     }
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMenuOpen
           ? "bg-[#1e1e2e]/95 backdrop-blur-sm shadow-lg"
           : "bg-transparent"
       }`}
@@ -62,9 +64,36 @@ export default function Navigation() {
               </a>
             ))}
           </div>
-          {/* Mobile menu button - simplified for now */}
-          <div className="md:hidden text-[#cdd6f4]">
-            <span className="text-sm font-mono">Menu</span>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-[#cdd6f4] hover:text-[#89b4fa] transition-colors duration-200"
+            aria-label="Toggle menu"
+          >
+            <span className="text-sm font-mono">{isMenuOpen ? "Close" : "Menu"}</span>
+          </button>
+        </div>
+        {/* Mobile dropdown menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            isMenuOpen
+              ? "max-h-96 opacity-100"
+              : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="border-t border-[#45475a]/50 py-4">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  className="text-sm font-sans text-[#cdd6f4] hover:text-[#89b4fa] transition-colors duration-200 py-2"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
