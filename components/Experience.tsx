@@ -32,15 +32,15 @@ const experiences: ExperienceItem[] = [
       "Designed and maintained server-side applications, databases, and APIs ensuring secure and scalable data handling. Collaborated with front-end developers to integrate user-facing features with back-end logic. Monitored and optimized system performance to maintain reliability and speed.",
   },
   {
-    company: "CompSAt (Computer Science Association)",
+    company: "Computer Society of the Ateneo",
     role: "Geekshop Documentation Core Team",
     dateRange: "July 2025 - Present",
     description:
       "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for the computer science community.",
   },
   {
-    company: "SOSE Newsletter",
-    role: "Writing Assistant (ARISE)",
+    company: "ARISE - SOSE Newsletter",
+    role: "Writing Assistant",
     dateRange: "2025 - Present",
     description:
       "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for the college community.",

@@ -20,20 +20,20 @@ const projects: Project[] = [
     image: "/projects/redemption.png",
   },
   {
+    title: "MISAyang Samahan",
+    description:
+      "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
+    tech: ["Node.js", "Express.js", "PostgreSQL", "TailwindCSS"],
+    link: "https://family.misa.org.ph",
+    image: "/projects/misayang.png",
+  },
+  {
     title: "CityCraft",
     description:
       "An interactive 2D animated cityscape with dual-player control, dynamic weather, fireworks, and environmental sound effects.",
-    tech: ["Java", "Swing", "AWT", "Audio Programming"],
+    tech: ["Java", "Swing", "AWT", "Multithreading"],
     link: "https://github.com/yanicells/CityCraft",
     image: "/projects/citycraft.png",
-  },
-  {
-    title: "NASA APIs Explorer",
-    description:
-      "A web app that integrates multiple NASA APIs to display astronomy images, media libraries, and Mars rover data.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "REST APIs"],
-    link: "https://github.com/yanicells/NASA-APIs",
-    image: "/projects/nasa.png",
   },
   {
     title: "Musicells",
@@ -44,20 +44,12 @@ const projects: Project[] = [
     image: "/projects/musicells.png",
   },
   {
-    title: "UniSort",
+    title: "NASA APIs Explorer",
     description:
-      "A personality quiz that sorts users into universities based on their answers, with authentication and result storage.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
-    link: "https://github.com/yanicells/Big-4-Sorter",
-    image: "/projects/unisort.png",
-  },
-  {
-    title: "MISAyang Samahan",
-    description:
-      "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
-    tech: ["Node.js", "Express.js", "PostgreSQL", "TailwindCSS"],
-    link: "https://family.misa.org.ph",
-    image: "/projects/misayang.png",
+      "A web app that integrates multiple NASA APIs to display astronomy images, media libraries, and Mars rover data.",
+    tech: ["Node.js", "Express.js", "TailwindCSS", "REST APIs"],
+    link: "https://github.com/yanicells/NASA-APIs",
+    image: "/projects/nasa.png",
   },
   {
     title: "Blogcells",
@@ -74,6 +66,14 @@ const projects: Project[] = [
     tech: ["Node.js", "Express.js", "Bootstrap", "PostgreSQL"],
     link: "https://github.com/yanicells/Travel-Tracker",
     image: "/projects/travel.png",
+  },
+  {
+    title: "UniSort",
+    description:
+      "A personality quiz that sorts users into universities based on their answers, with authentication and result storage.",
+    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
+    link: "https://github.com/yanicells/Big-4-Sorter",
+    image: "/projects/unisort.png",
   },
 ];
 
