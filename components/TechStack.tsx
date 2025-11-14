@@ -1,26 +1,50 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 
-interface TechCategory {
-  category: string;
-  technologies: string[];
-}
-
-const techStack: TechCategory[] = [
-  {
-    category: 'Frontend',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Vue.js', 'Tailwind CSS'],
-  },
-  {
-    category: 'Backend',
-    technologies: ['Node.js', 'Express', 'Python', 'PostgreSQL', 'MongoDB'],
-  },
-  {
-    category: 'Tools & Others',
-    technologies: ['Git', 'Docker', 'AWS', 'Linux', 'Figma'],
-  },
+const technologies = [
+  "Java",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "HTML/CSS",
+  "SQL",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Express.js",
+  "Vite",
+  "TailwindCSS",
+  "Bootstrap",
+  "REST APIs",
+  "Git",
+  "Vercel",
 ];
+
+// Helper function to map technology names to devicon names
+function getIconName(tech: string): string {
+  const iconMap: { [key: string]: string } = {
+    Java: "java",
+    Python: "python",
+    JavaScript: "javascript",
+    TypeScript: "typescript",
+    "HTML/CSS": "html5",
+    SQL: "postgresql",
+    React: "react",
+    "Next.js": "nextjs",
+    "Node.js": "nodejs",
+    "Express.js": "express",
+    Vite: "vitejs",
+    TailwindCSS: "tailwindcss",
+    Bootstrap: "bootstrap",
+    "REST APIs": "fastapi",
+    Git: "git",
+    Vercel: "vercel",
+  };
+
+  return iconMap[tech] || tech.toLowerCase().replace(/[.\s]/g, "");
+}
 
 export default function TechStack() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -31,13 +55,16 @@ export default function TechStack() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up', 'opacity-0');
+            contentRef.current.classList.remove(
+              "animate-slide-up",
+              "opacity-0"
+            );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
-            contentRef.current.classList.add('animate-slide-up');
+            contentRef.current.classList.add("animate-slide-up");
           } else if (contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up');
-            contentRef.current.classList.add('opacity-0');
+            contentRef.current.classList.remove("animate-slide-up");
+            contentRef.current.classList.add("opacity-0");
           }
         });
       },
@@ -62,33 +89,33 @@ export default function TechStack() {
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-20"
     >
-      <div ref={contentRef} className="max-w-6xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700">
+      <div
+        ref={contentRef}
+        className="max-w-6xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
+      >
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
           Tech Stack
         </h2>
-        <div className="space-y-12">
-          {techStack.map((category, categoryIndex) => (
-            <div key={categoryIndex}>
-              <h3 className="text-xl font-semibold text-[#89b4fa] mb-6 font-sans text-center">
-                {category.category}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-                {category.technologies.map((tech, techIndex) => (
-                  <div
-                    key={techIndex}
-                    className="flex flex-col items-center group cursor-pointer"
-                  >
-                    {/* Icon placeholder */}
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-[#313244] border-2 border-[#45475a] flex items-center justify-center mb-3 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-110">
-                      <span className="text-2xl font-mono text-[#89b4fa] font-bold">
-                        {tech.charAt(0)}
-                      </span>
-                    </div>
-                    <span className="text-sm text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300">
-                      {tech}
-                    </span>
-                  </div>
-                ))}
+        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-8 gap-3">
+          {technologies.map((tech, techIndex) => (
+            <div
+              key={techIndex}
+              className="flex flex-col items-center group cursor-pointer"
+            >
+              <div className="w-32 h-32 rounded-lg bg-[#313244] border-2 border-[#45475a] flex flex-col items-center justify-center p-3 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-105">
+                <Image
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${getIconName(
+                    tech
+                  )}/${getIconName(tech)}-original.svg`}
+                  alt={tech}
+                  width={64}
+                  height={64}
+                  className="w-14 h-14 sm:w-16 sm:h-16 mb-2"
+                  unoptimized
+                />
+                <span className="text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300">
+                  {tech}
+                </span>
               </div>
             </div>
           ))}
@@ -97,4 +124,3 @@ export default function TechStack() {
     </section>
   );
 }
-

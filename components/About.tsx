@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -11,13 +11,16 @@ export default function About() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up', 'opacity-0');
+            contentRef.current.classList.remove(
+              "animate-slide-up",
+              "opacity-0"
+            );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
-            contentRef.current.classList.add('animate-slide-up');
+            contentRef.current.classList.add("animate-slide-up");
           } else if (contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up');
-            contentRef.current.classList.add('opacity-0');
+            contentRef.current.classList.remove("animate-slide-up");
+            contentRef.current.classList.add("opacity-0");
           }
         });
       },
@@ -40,9 +43,12 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-20"
+      className="flex items-center justify-center px-6 sm:px-8 lg:px-12 py-12"
     >
-      <div ref={contentRef} className="max-w-3xl mx-auto opacity-0 translate-y-8 transition-all duration-700">
+      <div
+        ref={contentRef}
+        className="max-w-3xl mx-auto opacity-0 translate-y-8 transition-all duration-700"
+      >
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-8 font-sans text-center">
           About Me
         </h2>
@@ -60,13 +66,12 @@ export default function About() {
             practices.
           </p>
           <p>
-            When I&apos;m not coding, you can find me exploring new technologies,
-            contributing to open source projects, or sharing knowledge with the
-            developer community.
+            When I&apos;m not coding, you can find me exploring new
+            technologies, contributing to open source projects, or sharing
+            knowledge with the developer community.
           </p>
         </div>
       </div>
     </section>
   );
 }
-

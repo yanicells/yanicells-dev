@@ -44,7 +44,7 @@ export default function Navigation() {
             onClick={(e) => handleClick(e, '#home')}
             className="text-xl font-mono font-semibold text-[#cdd6f4] hover:text-[#89b4fa] transition-colors duration-200"
           >
-            {'<yanicells />'}
+            {'<yanicells / >'}
           </a>
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (

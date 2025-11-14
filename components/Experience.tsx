@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface ExperienceItem {
   company: string;
@@ -11,32 +11,46 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: 'Tech Innovations Inc.',
-    role: 'Senior Full Stack Developer',
-    dateRange: '2022 - Present',
+    company: "MISA (Management Information Systems Association)",
+    role: "IT Skills & Development Officer",
+    dateRange: "August 2025 - Present",
     description:
-      'Leading development of scalable web applications using modern frameworks. Mentoring junior developers and implementing best practices for code quality and performance.',
+      "Organize technical skill trainings and workshops for students interested in information systems and technology. Assist in developing and maintaining organizational websites and systems to support association activities.",
   },
   {
-    company: 'Digital Solutions Co.',
-    role: 'Full Stack Developer',
-    dateRange: '2020 - 2022',
+    company: "Computer Society of the Ateneo",
+    role: "Developer",
+    dateRange: "October 2025 - Present",
     description:
-      'Developed and maintained multiple client-facing applications. Collaborated with cross-functional teams to deliver high-quality software solutions on time.',
+      "Developed and deployed software solutions for organizational events and client projects including websites and web applications. Ensured software implementations met professional standards and served project requirements effectively.",
   },
   {
-    company: 'StartupXYZ',
-    role: 'Frontend Developer',
-    dateRange: '2019 - 2020',
+    company: "Google Developer Groups on Campus Loyola",
+    role: "Backend Developer",
+    dateRange: "September 2025 - Present",
     description:
-      'Built responsive user interfaces and improved user experience across web and mobile platforms. Worked closely with designers to implement pixel-perfect designs.',
+      "Designed and maintained server-side applications, databases, and APIs ensuring secure and scalable data handling. Collaborated with front-end developers to integrate user-facing features with back-end logic. Monitored and optimized system performance to maintain reliability and speed.",
   },
   {
-    company: 'Freelance',
-    role: 'Web Developer',
-    dateRange: '2018 - 2019',
+    company: "CompSAt (Computer Science Association)",
+    role: "Geekshop Documentation Core Team",
+    dateRange: "July 2025 - Present",
     description:
-      'Delivered custom web solutions for various clients. Managed projects from conception to deployment, ensuring client satisfaction and timely delivery.',
+      "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for the computer science community.",
+  },
+  {
+    company: "SOSE Newsletter",
+    role: "Writing Assistant (ARISE)",
+    dateRange: "2025 - Present",
+    description:
+      "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for the college community.",
+  },
+  {
+    company: "Supreme Student Government",
+    role: "STEM Strand Vice Governor",
+    dateRange: "2023 - 2024",
+    description:
+      "Oversaw events such as Sportsfest, La Salle Fair, Jumpstart, and House Cup at La Salle Academy. Developed leadership, logistics, time management, and project coordination skills through event management.",
   },
 ];
 
@@ -49,13 +63,16 @@ export default function Experience() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up', 'opacity-0');
+            contentRef.current.classList.remove(
+              "animate-slide-up",
+              "opacity-0"
+            );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
-            contentRef.current.classList.add('animate-slide-up');
+            contentRef.current.classList.add("animate-slide-up");
           } else if (contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up');
-            contentRef.current.classList.add('opacity-0');
+            contentRef.current.classList.remove("animate-slide-up");
+            contentRef.current.classList.add("opacity-0");
           }
         });
       },
@@ -80,7 +97,10 @@ export default function Experience() {
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-20"
     >
-      <div ref={contentRef} className="max-w-4xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700">
+      <div
+        ref={contentRef}
+        className="max-w-4xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
+      >
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
           Experience
         </h2>
@@ -121,4 +141,3 @@ export default function Experience() {
     </section>
   );
 }
-

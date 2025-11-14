@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Project {
   title: string;
@@ -10,40 +10,40 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'E-Commerce Platform',
+    title: "E-Commerce Platform",
     description:
-      'A full-featured e-commerce solution with payment integration, inventory management, and admin dashboard.',
-    tech: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+      "A full-featured e-commerce solution with payment integration, inventory management, and admin dashboard.",
+    tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
   },
   {
-    title: 'Task Management App',
+    title: "Task Management App",
     description:
-      'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-    tech: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+      "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+    tech: ["React", "Node.js", "Socket.io", "MongoDB"],
   },
   {
-    title: 'Weather Dashboard',
+    title: "Weather Dashboard",
     description:
-      'A beautiful weather dashboard that displays current conditions, forecasts, and interactive maps with location-based data.',
-    tech: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Tailwind CSS'],
+      "A beautiful weather dashboard that displays current conditions, forecasts, and interactive maps with location-based data.",
+    tech: ["Vue.js", "Chart.js", "OpenWeather API", "Tailwind CSS"],
   },
   {
-    title: 'Social Media Analytics',
+    title: "Social Media Analytics",
     description:
-      'Analytics platform for tracking social media metrics, generating reports, and visualizing engagement data across multiple platforms.',
-    tech: ['Next.js', 'Python', 'D3.js', 'Redis'],
+      "Analytics platform for tracking social media metrics, generating reports, and visualizing engagement data across multiple platforms.",
+    tech: ["Next.js", "Python", "D3.js", "Redis"],
   },
   {
-    title: 'Learning Management System',
+    title: "Learning Management System",
     description:
-      'An educational platform for creating courses, managing students, tracking progress, and delivering interactive content.',
-    tech: ['React', 'Express', 'PostgreSQL', 'AWS S3'],
+      "An educational platform for creating courses, managing students, tracking progress, and delivering interactive content.",
+    tech: ["React", "Express", "PostgreSQL", "AWS S3"],
   },
   {
-    title: 'Portfolio Website',
+    title: "Portfolio Website",
     description:
-      'A modern, responsive portfolio website showcasing projects, skills, and experience with smooth animations and clean design.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      "A modern, responsive portfolio website showcasing projects, skills, and experience with smooth animations and clean design.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
   },
 ];
 
@@ -56,13 +56,16 @@ export default function Projects() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up', 'opacity-0');
+            contentRef.current.classList.remove(
+              "animate-slide-up",
+              "opacity-0"
+            );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
-            contentRef.current.classList.add('animate-slide-up');
+            contentRef.current.classList.add("animate-slide-up");
           } else if (contentRef.current) {
-            contentRef.current.classList.remove('animate-slide-up');
-            contentRef.current.classList.add('opacity-0');
+            contentRef.current.classList.remove("animate-slide-up");
+            contentRef.current.classList.add("opacity-0");
           }
         });
       },
@@ -85,9 +88,12 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-20"
+      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-12"
     >
-      <div ref={contentRef} className="max-w-7xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700">
+      <div
+        ref={contentRef}
+        className="max-w-7xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
+      >
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
           Projects
         </h2>
@@ -120,4 +126,3 @@ export default function Projects() {
     </section>
   );
 }
-
