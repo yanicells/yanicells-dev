@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -163,14 +163,19 @@ export default function Hero() {
           {/* Right Side - Profile Image */}
           <div className="flex-shrink-0">
             <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-[#45475a] hover:border-[#6c7086] hover:scale-105">
-              <Image
+              <img
+                src="/yani.png"
+                alt="Edrian Miguel E. Capistrano"
+                className="w-full h-full object-cover"
+              />
+              {/* <Image
                 src="/yani.png"
                 alt="Edrian Miguel E. Capistrano"
                 width={384}
                 height={384}
                 className="w-full h-full object-cover"
                 priority
-              />
+              /> */}
             </div>
           </div>
         </div>
