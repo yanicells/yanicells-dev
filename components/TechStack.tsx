@@ -96,13 +96,13 @@ export default function TechStack() {
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
           Tech Stack
         </h2>
-        <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-8 gap-3">
+        <div className="grid grid-cols-4 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-8 gap-6">
           {technologies.map((tech, techIndex) => (
             <div
               key={techIndex}
-              className="flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center justify-center group cursor-pointer"
             >
-              <div className="w-32 h-32 rounded-lg bg-[#313244] border-2 border-[#45475a] flex flex-col items-center justify-center p-3 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-105">
+              <div className="w-full aspect-square max-w-[128px] rounded-lg bg-[#313244] border-2 border-[#45475a] flex flex-col items-center justify-center p-3 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-105">
                 <Image
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${getIconName(
                     tech
@@ -110,7 +110,7 @@ export default function TechStack() {
                   alt={tech}
                   width={64}
                   height={64}
-                  className="w-14 h-14 sm:w-16 sm:h-16 mb-2"
+                  className="w-12 h-12 sm:w-14 sm:h-14 mb-2"
                   unoptimized
                 />
                 <span className="text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300">

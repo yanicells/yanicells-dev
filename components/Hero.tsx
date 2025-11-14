@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -49,13 +50,13 @@ export default function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 pt-16"
+      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 pt-16 pb-32"
     >
       <div
         ref={contentRef}
         className="max-w-6xl mx-auto opacity-0 translate-y-8 transition-all duration-700"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Left Side - Text Content */}
           <div className="flex-1 text-center lg:text-left">
             {/* Name and Tagline */}
@@ -161,10 +162,15 @@ export default function Hero() {
 
           {/* Right Side - Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-[#89b4fa] to-[#cba6f7] flex items-center justify-center shadow-2xl hover:shadow-3xl transition-shadow duration-300">
-              <span className="text-8xl sm:text-9xl lg:text-[12rem] font-mono text-[#1e1e2e] font-bold">
-                Y
-              </span>
+            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-[#45475a] hover:border-[#6c7086] hover:scale-105">
+              <Image
+                src="/profile.jpg"
+                alt="Edrian Miguel E. Capistrano"
+                width={384}
+                height={384}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
