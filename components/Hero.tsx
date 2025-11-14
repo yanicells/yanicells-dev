@@ -67,7 +67,7 @@ export default function Hero() {
               Full Stack Developer
             </p>
             <p className="text-base sm:text-lg text-[#a6adc8] font-mono mb-8">
-              Aura Coder
+              Aura Coder | ADMU 2 BS CS
             </p>
 
             {/* CV Button */}
