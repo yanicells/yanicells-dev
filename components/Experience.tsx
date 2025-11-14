@@ -1,0 +1,124 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+
+interface ExperienceItem {
+  company: string;
+  role: string;
+  dateRange: string;
+  description: string;
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    company: 'Tech Innovations Inc.',
+    role: 'Senior Full Stack Developer',
+    dateRange: '2022 - Present',
+    description:
+      'Leading development of scalable web applications using modern frameworks. Mentoring junior developers and implementing best practices for code quality and performance.',
+  },
+  {
+    company: 'Digital Solutions Co.',
+    role: 'Full Stack Developer',
+    dateRange: '2020 - 2022',
+    description:
+      'Developed and maintained multiple client-facing applications. Collaborated with cross-functional teams to deliver high-quality software solutions on time.',
+  },
+  {
+    company: 'StartupXYZ',
+    role: 'Frontend Developer',
+    dateRange: '2019 - 2020',
+    description:
+      'Built responsive user interfaces and improved user experience across web and mobile platforms. Worked closely with designers to implement pixel-perfect designs.',
+  },
+  {
+    company: 'Freelance',
+    role: 'Web Developer',
+    dateRange: '2018 - 2019',
+    description:
+      'Delivered custom web solutions for various clients. Managed projects from conception to deployment, ensuring client satisfaction and timely delivery.',
+  },
+];
+
+export default function Experience() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && contentRef.current) {
+            contentRef.current.classList.remove('animate-slide-up', 'opacity-0');
+            // Trigger reflow to restart animation
+            void contentRef.current.offsetWidth;
+            contentRef.current.classList.add('animate-slide-up');
+          } else if (contentRef.current) {
+            contentRef.current.classList.remove('animate-slide-up');
+            contentRef.current.classList.add('opacity-0');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  return (
+    <section
+      id="experience"
+      ref={sectionRef}
+      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-20"
+    >
+      <div ref={contentRef} className="max-w-4xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
+          Experience
+        </h2>
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-[#45475a] hidden md:block" />
+
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="relative pl-0 md:pl-20 hover:translate-x-2 transition-transform duration-300"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-6 top-2 w-4 h-4 bg-[#89b4fa] rounded-full border-4 border-[#1e1e2e] hidden md:block z-10" />
+
+                <div className="bg-[#313244] rounded-lg p-6 hover:bg-[#45475a] transition-all duration-300 hover:shadow-lg border border-[#45475a] hover:border-[#89b4fa]">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                    <h3 className="text-xl font-semibold text-[#cdd6f4] font-sans">
+                      {exp.role}
+                    </h3>
+                    <span className="text-sm text-[#89b4fa] font-mono mt-1 sm:mt-0">
+                      {exp.dateRange}
+                    </span>
+                  </div>
+                  <p className="text-[#bac2de] font-semibold mb-2 font-sans">
+                    {exp.company}
+                  </p>
+                  <p className="text-[#bac2de] font-sans text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
