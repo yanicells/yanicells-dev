@@ -164,7 +164,7 @@ export default function Hero() {
           <div className="flex-shrink-0">
             <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-[#45475a] hover:border-[#6c7086] hover:scale-105">
               <Image
-                src="/profile.jpg"
+                src="/yani.png"
                 alt="Edrian Miguel E. Capistrano"
                 width={384}
                 height={384}
