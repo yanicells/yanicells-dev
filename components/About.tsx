@@ -59,14 +59,16 @@ export default function About() {
           <p>
             My first encounter with programming was in{" "}
             <span className="text-[#f5c2e7] font-semibold">Grade 6</span>, where
-            for our <span className="text-[#89dceb]">TLE class</span> we were learning about{" "}
-            <span className="text-[#cba6f7]">Scratch</span>. I vividly remember
-            that for our <span className="text-[#89b4fa]">Performance Task</span> we had to create a simple game. <span className="text-[#eba0ac] italic">Panic
-            kicked in</span> because for that entire quarter, I really didn&apos;t pay
-            attention. All I did in class was roam around the Lab Room, annoying
-            my friends. Honestly, I don&apos;t remember how I even survived, but
-            I am pretty sure my friend (shoutout to Nike) helped me with my
-            game.
+            for our <span className="text-[#89dceb]">TLE class</span> we were
+            learning about <span className="text-[#cba6f7]">Scratch</span>. I
+            vividly remember that for our{" "}
+            <span className="text-[#89b4fa]">Performance Task</span> we had to
+            create a simple game.{" "}
+            <span className="text-[#eba0ac] italic">Panic kicked in</span>{" "}
+            because for that entire quarter, I really didn&apos;t pay attention.
+            All I did in class was roam around the Lab Room, annoying my
+            friends. Honestly, I don&apos;t remember how I even survived, but I
+            am pretty sure my friend (shoutout to Nike) helped me with my game.
           </p>
         </div>
 
@@ -78,21 +80,25 @@ export default function About() {
         >
           <div className="space-y-4 text-[#bac2de] font-sans leading-relaxed mt-4 pt-4 border-t border-[#45475a]">
             <p>
-              It was elementary; I still got a <span className="text-[#a6e3a1]">high grade</span>, I think. My next
-              encounter with it was the next year, again in our{" "}
+              It was elementary; I still got a{" "}
+              <span className="text-[#a6e3a1]">high grade</span>, I think. My
+              next encounter with it was the next year, again in our{" "}
               <span className="text-[#f5c2e7]">TLE class</span>. This time
               around it was with{" "}
               <span className="text-[#fab387]">HTML and CSS</span>. The only
-              thing I remember here was asking for help from my <span className="text-[#cba6f7]">brother</span> to
-              create my website for the{" "}
+              thing I remember here was asking for help from my{" "}
+              <span className="text-[#cba6f7]">brother</span> to create my
+              website for the{" "}
               <span className="text-[#89b4fa]">Performance Task</span>{" "}
               (literally just plain HTML and just editing the font and color, it
-              looked so ahh). Then came the actual <span className="text-[#f5c2e7]">&quot;programming.&quot;</span> Yes,
-              to no one&apos;s surprise, it is in our TLE class once again. This
-              time it was <span className="text-[#89dceb]">C++</span>. I thought
-              learning <span className="text-[#f9e2af]">Java</span> and{" "}
-              <span className="text-[#a6e3a1]">Python</span> was hard as a <span className="text-[#89b4fa]">1st
-              Year</span>; imagine teaching C++ to 9th graders during the{" "}
+              looked so ahh). Then came the actual{" "}
+              <span className="text-[#f5c2e7]">&quot;programming.&quot;</span>{" "}
+              Yes, to no one&apos;s surprise, it is in our TLE class once again.
+              This time it was <span className="text-[#89dceb]">C++</span>. I
+              thought learning <span className="text-[#f9e2af]">Java</span> and{" "}
+              <span className="text-[#a6e3a1]">Python</span> was hard as a{" "}
+              <span className="text-[#89b4fa]">1st Year</span>; imagine teaching
+              C++ to 9th graders during the{" "}
               <span className="text-[#eba0ac]">pandemic</span>, where no one
               paid attention in class. Looking back, I think this was where I
               had a hunch that I would enjoy coding and CS{" "}
