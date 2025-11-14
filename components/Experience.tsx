@@ -11,7 +11,7 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: "MISA (Management Information Systems Association)",
+    company: "Ateneo Management Information Systems Association",
     role: "IT Skills & Development Officer",
     dateRange: "August 2025 - Present",
     description:
