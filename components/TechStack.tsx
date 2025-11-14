@@ -110,10 +110,10 @@ export default function TechStack() {
                   alt={tech}
                   width={64}
                   height={64}
-                  className="w-12 h-12 sm:w-14 sm:h-14 mb-2"
+                  className="w-16 h-16 sm:w-14 sm:h-14 sm:mb-2"
                   unoptimized
                 />
-                <span className="text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300">
+                <span className="text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300 hidden sm:block">
                   {tech}
                 </span>
               </div>
