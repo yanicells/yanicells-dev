@@ -93,27 +93,27 @@ export default function TechStack() {
         ref={contentRef}
         className="max-w-6xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-10 font-sans text-center">
           Tech Stack
         </h2>
-        <div className="grid grid-cols-4 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-8 gap-6">
+        <div className="grid grid-cols-4 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 2xl:grid-cols-8 gap-3 sm:gap-4">
           {technologies.map((tech, techIndex) => (
             <div
               key={techIndex}
               className="flex flex-col items-center justify-center group cursor-pointer"
             >
-              <div className="w-full aspect-square max-w-[128px] rounded-lg bg-[#313244] border-2 border-[#45475a] flex flex-col items-center justify-center p-3 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-105">
+              <div className="w-full aspect-square max-w-[120px] sm:max-w-[140px] md:max-w-[150px] rounded-lg bg-[#313244] border-2 border-[#45475a] flex flex-col items-center justify-center p-3 sm:p-4 group-hover:bg-[#45475a] group-hover:border-[#89b4fa] transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-[#89b4fa]/20">
                 <Image
                   src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${getIconName(
                     tech
                   )}/${getIconName(tech)}-original.svg`}
                   alt={tech}
-                  width={64}
-                  height={64}
-                  className="w-16 h-16 sm:w-14 sm:h-14 sm:mb-2"
+                  width={96}
+                  height={96}
+                  className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 sm:mb-2 transition-transform duration-300 group-hover:scale-110"
                   unoptimized
                 />
-                <span className="text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300 hidden sm:block">
+                <span className="text-[10px] sm:text-xs text-[#bac2de] font-mono text-center group-hover:text-[#89b4fa] transition-colors duration-300 hidden sm:block mt-0.5">
                   {tech}
                 </span>
               </div>

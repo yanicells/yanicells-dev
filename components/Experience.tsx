@@ -36,21 +36,21 @@ const experiences: ExperienceItem[] = [
     role: "Geekshop Documentation Core Team",
     dateRange: "July 2025 - Present",
     description:
-      "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for the computer science community.",
+      "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for Ateneo's computer science community.",
   },
   {
     company: "ARISE - SOSE Newsletter",
     role: "Writing Assistant",
     dateRange: "2025 - Present",
     description:
-      "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for the college community.",
+      "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for Ateneo's SOSE community.",
   },
   {
     company: "Supreme Student Government",
     role: "STEM Strand Vice Governor",
     dateRange: "2023 - 2024",
     description:
-      "Oversaw events such as Sportsfest, La Salle Fair, Jumpstart, and House Cup at La Salle Academy. Developed leadership, logistics, time management, and project coordination skills through event management.",
+      "Assisted events such as Sportsfest, La Salle Fair, and Jumpstart at La Salle Academy. Developed leadership, logistics, time management, and project coordination skills through event management.",
   },
 ];
 

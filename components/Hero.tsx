@@ -54,7 +54,7 @@ export default function Hero() {
     >
       <div
         ref={contentRef}
-        className="max-w-6xl mx-auto opacity-0 translate-y-8 transition-all duration-700"
+        className="max-w-6xl mx-auto opacity-0 translate-y-8 transition-all duration-1300"
       >
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Left Side - Text Content */}
@@ -67,7 +67,7 @@ export default function Hero() {
               Full Stack Developer
             </p>
             <p className="text-base sm:text-lg text-[#a6adc8] font-mono mb-8">
-              Aura Coder | ADMU 2 BS CS
+              <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
             </p>
 
             {/* CV Button */}

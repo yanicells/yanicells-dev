@@ -74,11 +74,17 @@ export default function About() {
 
         {/* Collapsible Full Story */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${
+          className={`overflow-hidden transition-all duration-500 ease-in-out ${
             isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="space-y-4 text-[#bac2de] font-sans leading-relaxed mt-4 pt-4 border-t border-[#45475a]">
+          <div
+            className={`space-y-4 text-[#bac2de] font-sans leading-relaxed mt-4 pt-4 border-t border-[#45475a] transition-all duration-500 ease-in-out ${
+              isExpanded
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-4 opacity-0"
+            }`}
+          >
             <p>
               It was elementary; I still got a{" "}
               <span className="text-[#a6e3a1]">high grade</span>, I think. My
@@ -91,7 +97,10 @@ export default function About() {
               website for the{" "}
               <span className="text-[#89b4fa]">Performance Task</span>{" "}
               (literally just plain HTML and just editing the font and color, it
-              looked so ahh). Then came the actual{" "}
+              looked so ahh).
+            </p>
+            <p>
+              Then came the actual{" "}
               <span className="text-[#f5c2e7]">&quot;programming.&quot;</span>{" "}
               Yes, to no one&apos;s surprise, it is in our TLE class once again.
               This time it was <span className="text-[#89dceb]">C++</span>. I
@@ -102,19 +111,31 @@ export default function About() {
               <span className="text-[#eba0ac]">pandemic</span>, where no one
               paid attention in class. Looking back, I think this was where I
               had a hunch that I would enjoy coding and CS{" "}
-              <span className="text-[#f9e2af] italic">(di pa sure...)</span>. I
-              had fun creating our Performance Tasks (very simple GDP
-              calculator), and while it was stressful, I enjoyed it, seeing a
-              bunch of weird syntax come to life. Now, fast forward to{" "}
+              <span className="text-[#f9e2af] italic">
+                (wehh pag sure ba?...)
+              </span>
+              . I had fun creating our Performance Tasks (very simple{" "}
+              <span className="text-[#f38ba8]">Console GDP calculator</span>),
+              and while it was stressful, I enjoyed it, seeing a bunch of weird
+              syntax come to life.
+            </p>
+            <p>
+              Now, fast forward to{" "}
               <span className="text-[#f5c2e7] font-semibold">Grade 10</span>, we
-              had robotics class. Honestly, that class should have been fun and
-              should have taught me a lot. But my teacher didn&apos;t bother
-              teaching anyone anything at all. We did{" "}
+              had <span className="text-[#f9e2af]">robotics</span> class.
+              Honestly, that class should have been fun and should have taught
+              me a lot. But my teacher didn&apos;t bother teaching anyone
+              anything at all. We did{" "}
               <span className="text-[#94e2d5]">Arduino</span>, where we made a
-              bunch of robots (Line Following, Obstacle Avoidance, Hand/Sensor
-              Following, Bluetooth Control) but I did not learn anything. He
-              just gave us the code and left everything to us. But still, I had
-              fun.
+              bunch of robots (Line Following,{" "}
+              <span className="text-[#fab387]">Obstacle Avoidance</span>,
+              Hand/Sensor Following,{" "}
+              <span className="text-[#a6e3a1]">Bluetooth Control</span>) but I
+              did not learn anything. He just gave us the{" "}
+              <span className="text-[#cba6f7]">code</span> and left everything
+              to us. But still, I had fun (10% dahil sa{" "}
+              <span className="text-[#f9e2af]">robotics</span>, 90% dahil sa
+              groupmate eme).
             </p>
             <p>
               That brings me to the present. I guess I took{" "}
@@ -133,14 +154,14 @@ export default function About() {
               Right now, I&apos;m just working on honing my skills in{" "}
               <span className="text-[#a6e3a1]">Web Dev</span>, mainly with{" "}
               <span className="text-[#cba6f7]">Next.js</span> while also working
-              on personal projects. Praying to get employed (or get an
-              internship) soon.
+              on personal projects. Praying to get a j*b (or get an internship)
+              soon.
             </p>
           </div>
         </div>
 
         {/* Toggle Button */}
-        <div className="mt-7 text-center">
+        <div className="mt-7 mb-6 md:mb-12 text-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
             className="px-6 py-2 bg-[#313244] text-[#cdd6f4] rounded-lg border-2 border-[#45475a] hover:bg-[#45475a] hover:border-[#89b4fa] transition-all duration-300 font-mono text-sm"
