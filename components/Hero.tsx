@@ -59,15 +59,20 @@ export default function Hero() {
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Left Side - Text Content */}
           <div className="flex-1 text-center lg:text-left">
+            {/* Greeting */}
+            <p className="text-xl sm:text-2xl md:text-3xl text-[#89b4fa] mb-2 font-sans font-medium">
+              Halo halo! I&apos;m
+            </p>
             {/* Name and Tagline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#cdd6f4] mb-4 font-sans">
               Edrian Miguel E. Capistrano
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-[#bac2de] mb-2 font-sans">
-              Full Stack Developer
+              Full-Stack Web Developer
             </p>
             <p className="text-base sm:text-lg text-[#a6adc8] font-mono mb-8">
-              <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
+              <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS
+              CS | Bisalog
             </p>
 
             {/* CV Button */}
@@ -162,7 +167,7 @@ export default function Hero() {
 
           {/* Right Side - Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-[#45475a] hover:border-[#6c7086] hover:scale-105">
+            <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-[#45475a] hover:border-[#6c7086] hover:scale-105">
               <img
                 src="/yani.png"
                 alt="Edrian Miguel E. Capistrano"
