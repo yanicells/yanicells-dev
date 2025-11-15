@@ -9,7 +9,7 @@ const technologies = [
   "JavaScript",
   "TypeScript",
   "HTML/CSS",
-  "SQL",
+  "PostgreSQL",
   "React",
   "Next.js",
   "Node.js",

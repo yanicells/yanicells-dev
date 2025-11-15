@@ -72,7 +72,7 @@ export default function Hero() {
             </p>
             <p className="text-base sm:text-lg text-[#a6adc8] font-mono mb-8">
               <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS
-              CS | Bisalog
+              CS
             </p>
 
             {/* CV Button */}
