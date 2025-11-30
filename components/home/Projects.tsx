@@ -28,52 +28,12 @@ const projects: Project[] = [
     image: "/projects/misayang.png",
   },
   {
-    title: "CityCraft",
+    title: "Chika",
     description:
-      "An interactive 2D animated cityscape with dual-player control, dynamic weather, fireworks, and environmental sound effects.",
-    tech: ["Java", "Swing", "AWT", "Multithreading"],
-    link: "https://github.com/yanicells/CityCraft",
-    image: "/projects/citycraft.png",
-  },
-  {
-    title: "Musicells",
-    description:
-      "A music discovery app using Spotify's API to browse albums, view new releases, and save favorites.",
-    tech: ["React", "Zustand", "Vite", "TailwindCSS", "Spotify API"],
-    link: "https://musicells.yanicells.dev",
-    image: "/projects/musicells.png",
-  },
-  {
-    title: "NASA APIs Explorer",
-    description:
-      "A web app that integrates multiple NASA APIs to display astronomy images, media libraries, and Mars rover data.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "REST APIs"],
-    link: "https://github.com/yanicells/NASA-APIs",
-    image: "/projects/nasa.png",
-  },
-  {
-    title: "Blogcells",
-    description:
-      "A blogging platform where users can create posts, leave comments, and like content with a clean interface.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
-    link: "https://github.com/yanicells/Blogcells",
-    image: "/projects/blogcells.png",
-  },
-  {
-    title: "Travel-Tracker",
-    description:
-      "Track and visualize countries you've visited using ISO codes, with user profiles and country management features.",
-    tech: ["Node.js", "Express.js", "Bootstrap", "PostgreSQL"],
-    link: "https://github.com/yanicells/Travel-Tracker",
-    image: "/projects/travel.png",
-  },
-  {
-    title: "UniSort",
-    description:
-      "A personality quiz that sorts users into universities based on their answers, with authentication and result storage.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
-    link: "https://github.com/yanicells/Big-4-Sorter",
-    image: "/projects/unisort.png",
+      "A personalized freedom wall app that allows users to post anonymous messages and interact with others' posts.",
+    tech: ["Next.js", "Neon", "PostgreSQL"],
+    link: "https://chika.yanicells.dev",
+    image: "/projects/chika.png",
   },
 ];
 
