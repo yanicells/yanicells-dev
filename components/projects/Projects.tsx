@@ -126,30 +126,36 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-12"
+      className="min-h-screen flex items-center justify-center px-6 sm:px-8 lg:px-12 py-16 pb-48"
     >
       <div
         ref={contentRef}
         className="max-w-7xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
-          Projects
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[#cdd6f4] mb-4 font-sans">
+            Projects
+          </h2>
+          <p className="text-[#bac2de] font-sans text-sm">
+            All the projects I have worked on, from personal to collaborative.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <a
               key={index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#313244] rounded-lg overflow-hidden hover:bg-[#45475a] transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-[#45475a] hover:border-[#89b4fa] block"
+              className="bg-[#313244] rounded-lg overflow-hidden hover:bg-[#45475a] transition-all duration-300 hover:shadow-xl hover:shadow-[#89b4fa]/10 hover:-translate-y-2 border border-[#45475a] hover:border-[#89b4fa] block group"
             >
               {/* Project Image */}
-              <div className="w-full h-48 bg-[#1e1e2e] flex items-center justify-center overflow-hidden">
+              <div className="w-full h-48 bg-[#1e1e2e] flex items-center justify-center overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e2e] to-transparent opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";

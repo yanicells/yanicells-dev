@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/home/Navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
+        <Navigation />
         <Analytics />
       </body>
     </html>

@@ -8,7 +8,6 @@ import TechStack from '@/components/home/TechStack';
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#1e1e2e]">
-      <Navigation />
       <Hero />
       <About />
       <Projects />

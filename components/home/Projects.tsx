@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -85,13 +85,28 @@ export default function Projects() {
         ref={contentRef}
         className="max-w-7xl mx-auto w-full opacity-0 translate-y-8 transition-all duration-700"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
-          Projects
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-8 font-sans text-center">
+          Featured Projects
         </h2>
-        <Link href="/projects" className="block mb-8">
-          <p className="text-center text-[#bac2de] mb-8 font-sans">
-            View all my projects
-          </p>
+        <Link href="/projects" className="block mb-12 group">
+          <div className="flex items-center justify-center gap-2 text-[#89b4fa] hover:text-[#b4befe] transition-all duration-300">
+            <span className="font-sans text-sm font-medium">
+              View all my projects
+            </span>
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </div>
         </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
