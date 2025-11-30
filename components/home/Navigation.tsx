@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About Me", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Tech Stack", href: "#tech-stack" },
+  { name: "Home", href: "/#home" },
+  { name: "About Me", href: "/#about" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Tech Stack", href: "/#tech-stack" },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,10 +30,19 @@ export default function Navigation() {
     href: string
   ) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMenuOpen(false); // Close menu after navigation
+    setIsMenuOpen(false); // Close menu after navigation
+
+    const [path, hash] = href.split("#");
+
+    // If we're on the same page, just scroll
+    if (pathname === path) {
+      const element = document.querySelector(`#${hash}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // Navigate to the page with hash
+      router.push(href);
     }
   };
 
@@ -70,15 +82,15 @@ export default function Navigation() {
             className="md:hidden text-[#cdd6f4] hover:text-[#89b4fa] transition-colors duration-200"
             aria-label="Toggle menu"
           >
-            <span className="text-sm font-mono">{isMenuOpen ? "Close" : "Menu"}</span>
+            <span className="text-sm font-mono">
+              {isMenuOpen ? "Close" : "Menu"}
+            </span>
           </button>
         </div>
         {/* Mobile dropdown menu */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            isMenuOpen
-              ? "max-h-96 opacity-100"
-              : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="border-t border-[#45475a]/50 py-4">
