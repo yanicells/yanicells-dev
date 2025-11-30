@@ -1,5 +1,6 @@
-"use client";
+"use client"
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 interface Project {
@@ -87,6 +88,11 @@ export default function Projects() {
         <h2 className="text-3xl sm:text-4xl font-bold text-[#cdd6f4] mb-12 font-sans text-center">
           Projects
         </h2>
+        <Link href="/projects" className="block mb-8">
+          <p className="text-center text-[#bac2de] mb-8 font-sans">
+            View all my projects
+          </p>
+        </Link>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <a

@@ -28,6 +28,14 @@ const projects: Project[] = [
     image: "/projects/misayang.png",
   },
   {
+    title: "Chika",
+    description:
+      "A personalized freedom wall app that allows users to post anonymous messages and interact with others' posts.",
+    tech: ["Next.js", "Neon", "PostgreSQL"],
+    link: "https://chika.yanicells.dev",
+    image: "/projects/chika.png",
+  },
+  {
     title: "CityCraft",
     description:
       "An interactive 2D animated cityscape with dual-player control, dynamic weather, fireworks, and environmental sound effects.",
