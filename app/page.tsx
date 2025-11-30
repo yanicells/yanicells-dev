@@ -1,9 +1,9 @@
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Projects from '@/components/Projects';
-import Experience from '@/components/Experience';
-import TechStack from '@/components/TechStack';
+import Navigation from '@/components/home/Navigation';
+import Hero from '@/components/home/Hero';
+import About from '@/components/home/About';
+import Projects from '@/components/home/Projects';
+import Experience from '@/components/home/Experience';
+import TechStack from '@/components/home/TechStack';
 
 export default function Home() {
   return (
