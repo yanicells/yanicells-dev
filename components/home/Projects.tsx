@@ -185,7 +185,7 @@ export default function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#89b4fa] text-[#1e1e2e] rounded-md hover:bg-[#b4befe] transition-all duration-300 text-sm font-sans font-medium"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-[#1e1e2e] text-[#cdd6f4] rounded-md hover:bg-[#89b4fa] hover:text-[#1e1e2e] transition-all duration-300 text-sm font-sans border border-[#45475a] hover:border-[#89b4fa]"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <svg
