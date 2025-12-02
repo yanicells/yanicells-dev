@@ -16,7 +16,7 @@ const projects: Project[] = [
     title: "Redhead Redemption",
     description:
       "A LAN-based multiplayer top-down shooter with custom networking, enemy AI, leveling systems, and hand-drawn pixel art assets.",
-    tech: ["Java", "Sockets", "Multithreading", "OOP"],
+    tech: ["Java", "Sockets", "Multithreading"],
     repo: "https://github.com/yanicells/Redhead-Redemption",
     demo: "https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view",
     image: "/projects/redemption.png",
@@ -25,7 +25,7 @@ const projects: Project[] = [
     title: "MISAyang Samahan",
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
-    tech: ["Node.js", "Express.js", "PostgreSQL", "TailwindCSS"],
+    tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
     repo: "https://github.com/yanicells/MISAyang-Samahan",
     demo: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
@@ -43,7 +43,7 @@ const projects: Project[] = [
     title: "CityCraft",
     description:
       "An interactive 2D animated cityscape with dual-player control, dynamic weather, fireworks, and environmental sound effects.",
-    tech: ["Java", "Swing", "AWT", "Multithreading"],
+    tech: ["Java", "Swing", "Multithreading"],
     repo: "https://github.com/yanicells/CityCraft",
     image: "/projects/citycraft.png",
   },
@@ -51,7 +51,7 @@ const projects: Project[] = [
     title: "Musicells",
     description:
       "A music discovery app using Spotify's API to browse albums, view new releases, and save favorites.",
-    tech: ["React", "Zustand", "Vite", "TailwindCSS", "Spotify API"],
+    tech: ["React", "Zustand", "Spotify API"],
     repo: "https://github.com/yanicells/musicells",
     demo: "https://musicells.yanicells.dev",
     image: "/projects/musicells.png",
@@ -60,7 +60,7 @@ const projects: Project[] = [
     title: "NASA APIs Explorer",
     description:
       "A web app that integrates multiple NASA APIs to display astronomy images, media libraries, and Mars rover data.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "REST APIs"],
+    tech: ["Node.js", "TailwindCSS", "REST APIs"],
     repo: "https://github.com/yanicells/NASA-APIs",
     demo: "https://drive.google.com/file/d/1n3MuIYU4EHJ0Kgk4n10nx89EVc9-OFR8/view",
     image: "/projects/nasa.png",
@@ -69,7 +69,7 @@ const projects: Project[] = [
     title: "Pixcells",
     description:
       "My photography and videography portfolio. Showcasing my work with a clean and responsive design.",
-    tech: ["Next.js", "React", "TailwindCSS", "Vite"],
+    tech: ["Next.js", "React", "TailwindCSS"],
     repo: "https://github.com/yanicells/pixcells",
     demo: "https://pixcells.yanicells.dev",
     image: "/projects/pixcells.png",
@@ -78,7 +78,7 @@ const projects: Project[] = [
     title: "Blogcells",
     description:
       "A blogging platform where users can create posts, leave comments, and like content with a clean interface.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
+    tech: ["Node.js", "TailwindCSS", "PostgreSQL"],
     repo: "https://github.com/yanicells/Blogcells",
     demo: "https://drive.google.com/file/d/1RS3xFCqgAiJHtbu3laanLfSTznuTugma/view",
     image: "/projects/blogcells.png",
@@ -87,7 +87,7 @@ const projects: Project[] = [
     title: "Travel-Tracker",
     description:
       "Track and visualize countries you've visited using ISO codes, with user profiles and country management features.",
-    tech: ["Node.js", "Express.js", "Bootstrap", "PostgreSQL"],
+    tech: ["Node.js", "Bootstrap", "PostgreSQL"],
     repo: "https://github.com/yanicells/Travel-Tracker",
     demo: "https://drive.google.com/file/d/1pqytL2KhTOcpOAdIYb-RZQhJROimU8p3/view",
     image: "/projects/travel.png",
@@ -96,7 +96,7 @@ const projects: Project[] = [
     title: "UniSort",
     description:
       "A personality quiz that sorts users into universities based on their answers, with authentication and result storage.",
-    tech: ["Node.js", "Express.js", "TailwindCSS", "PostgreSQL"],
+    tech: ["Node.js", "TailwindCSS", "PostgreSQL"],
     repo: "https://github.com/yanicells/Big-4-Sorter",
     demo: "https://drive.google.com/file/d/1zgTmGmUjS-H1Qs8V0xA5JWhAP_FVyWA7/view",
     image: "/projects/unisort.png",

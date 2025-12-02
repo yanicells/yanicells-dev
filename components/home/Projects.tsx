@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "Redhead Redemption",
     description:
       "A LAN-based multiplayer top-down shooter with custom networking, enemy AI, leveling systems, and hand-drawn pixel art assets.",
-    tech: ["Java", "Sockets", "Multithreading", "OOP"],
+    tech: ["Java", "Sockets", "Multithreading"],
     repo: "https://github.com/yanicells/Redhead-Redemption",
     demo: "https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view",
     image: "/projects/redemption.png",
@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "MISAyang Samahan",
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
-    tech: ["Node.js", "Express.js", "PostgreSQL", "TailwindCSS"],
+    tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
     repo: "https://github.com/yanicells/MISAyang-Samahan",
     demo: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
