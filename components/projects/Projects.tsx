@@ -60,6 +60,14 @@ const projects: Project[] = [
     image: "/projects/nasa.png",
   },
   {
+    title: "Pixcells",
+    description:
+      "My photography and videography portfolio. Showcasing my work with a clean and responsive design.",
+    tech: ["Next.js", "React", "TailwindCSS", "Vite"],
+    link: "https://github.com/yanicells/pixcells",
+    image: "/projects/pixcells.png",
+  },
+  {
     title: "Blogcells",
     description:
       "A blogging platform where users can create posts, leave comments, and like content with a clean interface.",
