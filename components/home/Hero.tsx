@@ -78,12 +78,20 @@ export default function Hero() {
             {/* CV Button */}
             <div className="mb-10">
               <a
+                href="https://resume.yanicells.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 bg-[#89b4fa] text-[#1e1e2e] font-semibold rounded-lg hover:bg-[#74c7ec] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Resume
+              </a>
+              <a
                 href="https://cv.yanicells.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-[#89b4fa] text-[#1e1e2e] font-semibold rounded-lg hover:bg-[#74c7ec] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                View My Resume
+                CV
               </a>
             </div>
 
