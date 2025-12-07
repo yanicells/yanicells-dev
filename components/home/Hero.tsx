@@ -76,7 +76,7 @@ export default function Hero() {
             </p>
 
             {/* CV Button */}
-            <div className="mb-10">
+            <div className="mb-10 flex justify-center lg:justify-start items-center gap-2 flex-wrap">
               <a
                 href="https://resume.yanicells.dev"
                 target="_blank"
