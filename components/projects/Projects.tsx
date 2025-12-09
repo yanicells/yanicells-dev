@@ -26,7 +26,6 @@ const projects: Project[] = [
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
     tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
-    repo: "https://github.com/yanicells/MISAyang-Samahan",
     demo: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
   },
