@@ -11,6 +11,8 @@ spot listen + receipts
 try to graph it also
 
 Basically chatgpt but customize it like having additional UI stuff and assets
+- maybe customize the chatgpt ui to be more personal rather than strict ai look
+- add some fun animations or graphics
 - Imitate sidebar
     - Chats (are like blogs or about me)
     - GPTs are my experience, skills, certificates, tech stack
