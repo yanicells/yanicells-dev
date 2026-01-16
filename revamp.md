@@ -7,7 +7,7 @@ finalize plan (md plan, md chatgpt explain pages + modify) add pulsoid monitor h
 other data accessible with my watch like sleep or steps
 _petalite on twitter
 maybe do something like my spotify listening activity
-spot listen + receipts
+spot listen + receipts + maybe some albums - songs i want to feature
 try to graph it also
 
 Basically chatgpt but customize it like having additional UI stuff and assets
