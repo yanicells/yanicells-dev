@@ -29,3 +29,8 @@ since spotify api used a lot, maybe just integrate to this or chika since its mo
 AI theme like mostly a copy just some fun details
 Improve SEO and add to google search console 
 ai meta sam3d for 3d generation from picture
+
+some libraries
+- threejs motionjs animejs
+- accernity
+- some ai chat api
