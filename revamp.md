@@ -18,6 +18,7 @@ Basically chatgpt but customize it like having additional UI stuff and assets
     - GPTs are my experience, skills, certificates, tech stack
     - Projects
     - Contact ?
+- music activity, add vinyl, show now playing spinning, add some spotify stats like top artists, top songs, etc. and even recos
 
 And AI tab (say like talk to me in english, bisaya, or tagalog)
 Try to add a 2d or 3d of me
