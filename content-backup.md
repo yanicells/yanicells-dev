@@ -180,37 +180,43 @@ These are additional projects listed on the old homepage `/home`:
 
 ## Experience
 
-### 1. IT Skills & Development Officer
+### 1. Freelance Full-Stack Developer
+
+- **Organization:** Timoga Holiday Resort Iligan City
+- **Date:** December 2025 - Present
+- **Description:** Developing a full-stack POS and management system handling entrance tracking, multi-cottage reservations, and payroll automation. Created a promotional website with online booking, interactive gallery, and AI-powered customer support using Next.js and Drizzle ORM.
+
+### 2. IT Skills & Development Officer
 
 - **Organization:** Ateneo Management Information Systems Association
 - **Date:** August 2025 - Present
 - **Description:** Organize technical skill trainings and workshops for students interested in information systems and technology. Assist in developing and maintaining organizational websites and systems to support association activities.
 
-### 2. Developer
+### 3. Developer
 
 - **Organization:** Computer Society of the Ateneo
 - **Date:** October 2025 - Present
 - **Description:** Developed and deployed software solutions for organizational events and client projects including websites and web applications. Ensured software implementations met professional standards and served project requirements effectively.
 
-### 3. Backend Developer
+### 4. Backend Developer
 
 - **Organization:** Google Developer Groups on Campus Loyola
 - **Date:** September 2025 - Present
 - **Description:** Designed and maintained server-side applications, databases, and APIs ensuring secure and scalable data handling. Collaborated with front-end developers to integrate user-facing features with back-end logic. Monitored and optimized system performance to maintain reliability and speed.
 
-### 4. Geekshop Documentation Core Team
+### 5. Geekshop Documentation Core Team
 
 - **Organization:** Computer Society of the Ateneo
 - **Date:** July 2025 - Present
 - **Description:** Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for Ateneo's computer science community.
 
-### 5. Writing Assistant
+### 6. Writing Assistant
 
 - **Organization:** ARISE - SOSE Newsletter
 - **Date:** 2025 - Present
 - **Description:** Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for Ateneo's SOSE community.
 
-### 6. STEM Strand Vice Governor
+### 7. STEM Strand Vice Governor
 
 - **Organization:** Supreme Student Government
 - **Date:** 2023 - 2024

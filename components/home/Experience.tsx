@@ -11,6 +11,13 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
+    company: "Timoga Holiday Resort Iligan City",
+    role: "Freelance Full-Stack Developer",
+    dateRange: "December 2025 - Present",
+    description:
+      "Developing a full-stack POS and management system handling entrance tracking, multi-cottage reservations, and payroll automation. Created a promotional website with online booking, interactive gallery, and AI-powered customer support using Next.js and Drizzle ORM.",
+  },
+  {
     company: "Ateneo Management Information Systems Association",
     role: "IT Skills & Development Officer",
     dateRange: "August 2025 - Present",
@@ -65,7 +72,7 @@ export default function Experience() {
           if (entry.isIntersecting && contentRef.current) {
             contentRef.current.classList.remove(
               "animate-slide-up",
-              "opacity-0"
+              "opacity-0",
             );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
@@ -76,7 +83,7 @@ export default function Experience() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const currentRef = sectionRef.current;
