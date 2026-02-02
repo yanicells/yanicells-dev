@@ -22,6 +22,15 @@ const projects: Project[] = [
     image: "/projects/redemption.png",
   },
   {
+    title: "UniSort",
+    description:
+      "A university matching platform featuring a weighted multi-dimensional scoring algorithm, research-backed quizzes, and an anonymous Freedom Wall with real-time analytics.",
+    tech: ["Next.js", "Drizzle", "Neon"],
+    repo: "https://github.com/yanicells/UniSort",
+    demo: "https://unisort.ycells.com",
+    image: "/projects/unisort.png",
+  },
+  {
     title: "MISAyang Samahan",
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
@@ -91,15 +100,6 @@ const projects: Project[] = [
     demo: "https://drive.google.com/file/d/1pqytL2KhTOcpOAdIYb-RZQhJROimU8p3/view",
     image: "/projects/travel.png",
   },
-  {
-    title: "UniSort",
-    description:
-      "A personality quiz that sorts users into universities based on their answers, with authentication and result storage.",
-    tech: ["Node.js", "TailwindCSS", "PostgreSQL"],
-    repo: "https://github.com/yanicells/Big-4-Sorter",
-    demo: "https://drive.google.com/file/d/1zgTmGmUjS-H1Qs8V0xA5JWhAP_FVyWA7/view",
-    image: "/projects/unisort.png",
-  },
 ];
 
 export default function Projects() {
@@ -113,7 +113,7 @@ export default function Projects() {
           if (entry.isIntersecting && contentRef.current) {
             contentRef.current.classList.remove(
               "animate-slide-up",
-              "opacity-0"
+              "opacity-0",
             );
             // Trigger reflow to restart animation
             void contentRef.current.offsetWidth;
@@ -124,7 +124,7 @@ export default function Projects() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     const currentRef = sectionRef.current;
@@ -176,7 +176,7 @@ export default function Projects() {
                     const parent = target.parentElement;
                     if (parent) {
                       parent.innerHTML = `<div class="text-[#89b4fa] text-4xl font-bold">${project.title.charAt(
-                        0
+                        0,
                       )}</div>`;
                     }
                   }}
