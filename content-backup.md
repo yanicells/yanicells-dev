@@ -63,12 +63,13 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view
 - **Image:** /projects/redemption.png
 
-### 2. MISAyang Samahan
+### 2. UniSort
 
-- **Description:** A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.
-- **Tech:** Node.js, PostgreSQL, TailwindCSS
-- **Demo:** https://family.misa.org.ph
-- **Image:** /projects/misayang.png
+- **Description:** A university matching platform featuring a weighted multi-dimensional scoring algorithm, research-backed quizzes, and an anonymous Freedom Wall with real-time analytics.
+- **Tech:** Next.js, Drizzle, Neon
+- **Repo:** https://github.com/yanicells/UniSort
+- **Demo:** https://unisort.ycells.com
+- **Image:** /projects/unisort.png
 
 ### 3. Chika
 
@@ -90,14 +91,22 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view
 - **Image:** /projects/redemption.png
 
-### 2. MISAyang Samahan
+### 2. UniSort
+
+- **Description:** A university matching platform featuring a weighted multi-dimensional scoring algorithm, research-backed quizzes, and an anonymous Freedom Wall with real-time analytics.
+- **Tech:** Next.js, Drizzle, Neon
+- **Repo:** https://github.com/yanicells/UniSort
+- **Demo:** https://unisort.ycells.com
+- **Image:** /projects/unisort.png
+
+### 3. MISAyang Samahan
 
 - **Description:** A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.
 - **Tech:** Node.js, PostgreSQL, TailwindCSS
 - **Demo:** https://family.misa.org.ph
 - **Image:** /projects/misayang.png
 
-### 3. Chika
+### 4. Chika
 
 - **Description:** A personalized freedom wall app that allows users to post anonymous messages and interact with others' posts.
 - **Tech:** Next.js, Neon, PostgreSQL
@@ -105,14 +114,14 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://chika.yanicells.dev
 - **Image:** /projects/chika.png
 
-### 4. CityCraft
+### 5. CityCraft
 
 - **Description:** An interactive 2D animated cityscape with dual-player control, dynamic weather, fireworks, and environmental sound effects.
 - **Tech:** Java, Swing, Multithreading
 - **Repo:** https://github.com/yanicells/CityCraft
 - **Image:** /projects/citycraft.png
 
-### 5. Musicells
+### 6. Musicells
 
 - **Description:** A music discovery app using Spotify's API to browse albums, view new releases, and save favorites.
 - **Tech:** React, Zustand, Spotify API
@@ -120,7 +129,7 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://musicells.yanicells.dev
 - **Image:** /projects/musicells.png
 
-### 6. NASA APIs Explorer
+### 7. NASA APIs Explorer
 
 - **Description:** A web app that integrates multiple NASA APIs to display astronomy images, media libraries, and Mars rover data.
 - **Tech:** Node.js, TailwindCSS, REST APIs
@@ -128,7 +137,7 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://drive.google.com/file/d/1n3MuIYU4EHJ0Kgk4n10nx89EVc9-OFR8/view
 - **Image:** /projects/nasa.png
 
-### 7. Pixcells
+### 8. Pixcells
 
 - **Description:** My photography and videography portfolio. Showcasing my work with a clean and responsive design.
 - **Tech:** Next.js, React, TailwindCSS
@@ -136,7 +145,7 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://pixcells.yanicells.dev
 - **Image:** /projects/pixcells.png
 
-### 8. Blogcells
+### 9. Blogcells
 
 - **Description:** A blogging platform where users can create posts, leave comments, and like content with a clean interface.
 - **Tech:** Node.js, TailwindCSS, PostgreSQL
@@ -144,21 +153,13 @@ That brings me to the present. I guess I took **Computer Science** because I tho
 - **Demo:** https://drive.google.com/file/d/1RS3xFCqgAiJHtbu3laanLfSTznuTugma/view
 - **Image:** /projects/blogcells.png
 
-### 9. Travel-Tracker
+### 10. Travel-Tracker
 
 - **Description:** Track and visualize countries you've visited using ISO codes, with user profiles and country management features.
 - **Tech:** Node.js, Bootstrap, PostgreSQL
 - **Repo:** https://github.com/yanicells/Travel-Tracker
 - **Demo:** https://drive.google.com/file/d/1pqytL2KhTOcpOAdIYb-RZQhJROimU8p3/view
 - **Image:** /projects/travel.png
-
-### 10. UniSort
-
-- **Description:** A personality quiz that sorts users into universities based on their answers, with authentication and result storage.
-- **Tech:** Node.js, TailwindCSS, PostgreSQL
-- **Repo:** https://github.com/yanicells/Big-4-Sorter
-- **Demo:** https://drive.google.com/file/d/1zgTmGmUjS-H1Qs8V0xA5JWhAP_FVyWA7/view
-- **Image:** /projects/unisort.png
 
 ---
 
