@@ -335,3 +335,5 @@ These are additional projects listed on the old homepage `/home`:
 
 - Clicking the yanicells-image toggles "ugly mode" (red bg `#ff1a00`, green text `#009b00`)
 - Text: "Art by my kiddo"
+
+// Checkpoint
