@@ -33,8 +33,8 @@ const socialLinks = [
 
 export function HeroSection() {
   return (
-    <section className="flex min-h-screen w-full items-center justify-center px-6 py-12 lg:px-12">
-      <div className="flex w-full max-w-6xl flex-col-reverse items-center gap-12 lg:flex-row lg:justify-between">
+    <section className="flex min-h-screen w-full items-center justify-center px-4 py-8 sm:px-6 sm:py-12 lg:px-12">
+      <div className="flex w-full max-w-6xl flex-col-reverse items-center gap-8 sm:gap-12 lg:flex-row lg:justify-between">
         {/* Text Content */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           {/* Greeting */}
@@ -108,7 +108,7 @@ export function HeroSection() {
 
         {/* Profile Image */}
         <div className="relative">
-          <div className="relative size-64 overflow-hidden rounded-full border-4 border-border lg:size-80">
+          <div className="relative size-48 overflow-hidden rounded-full border-4 border-border sm:size-64 lg:size-80">
             <Image
               src="/profile.jpg"
               alt="Edrian Miguel E. Capistrano"

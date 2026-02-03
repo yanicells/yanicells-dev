@@ -49,11 +49,11 @@ const contactLinks = [
 
 export function ContactInfo() {
   return (
-    <section className="mx-auto max-w-2xl px-6 py-16 lg:px-8">
-      <h1 className="mb-4 text-center text-4xl font-bold text-foreground sm:text-5xl">
+    <section className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
+      <h1 className="mb-4 text-center text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
         Contact
       </h1>
-      <p className="mb-12 text-center text-muted-foreground">
+      <p className="mb-8 text-center text-sm text-muted-foreground sm:mb-12 sm:text-base">
         Feel free to reach out! I&apos;m always open to discussing new projects,
         ideas, or opportunities.
       </p>

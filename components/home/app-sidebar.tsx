@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -12,10 +13,23 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
-import { FolderKanban, User, Layers, Mail, Briefcase } from "lucide-react";
+import {
+  Home,
+  FolderKanban,
+  User,
+  Layers,
+  Mail,
+  Briefcase,
+} from "lucide-react";
 
 const navItems = [
+  {
+    title: "Home",
+    url: "/",
+    icon: Home,
+  },
   {
     title: "About Me",
     url: "/about",
@@ -43,18 +57,35 @@ const navItems = [
   },
 ];
 
+function SidebarLogo() {
+  const { state } = useSidebar();
+
+  return (
+    <Link href="/" className="flex items-center gap-2">
+      {state === "collapsed" ? (
+        <Image
+          src="/logo.png"
+          alt="yanicells"
+          width={32}
+          height={32}
+          className="size-8"
+        />
+      ) : (
+        <span className="font-mono text-lg text-primary transition-colors hover:text-(--ctp-blue-hover)">
+          &lt;yanicells /&gt;
+        </span>
+      )}
+    </Link>
+  );
+}
+
 export function AppSidebar() {
   const pathname = usePathname();
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarHeader className="flex flex-row items-center justify-between p-4">
-        <Link
-          href="/"
-          className="font-mono text-lg text-primary transition-colors hover:text-(--ctp-blue-hover)"
-        >
-          &lt;yanicells /&gt;
-        </Link>
+        <SidebarLogo />
         <SidebarTrigger className="text-sidebar-foreground hover:bg-sidebar-accent" />
       </SidebarHeader>
       <SidebarContent>

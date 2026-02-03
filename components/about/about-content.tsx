@@ -72,8 +72,8 @@ function highlightText(text: string): React.ReactNode {
 
 export function AboutContent() {
   return (
-    <section className="mx-auto max-w-4xl px-6 py-16 lg:px-8">
-      <h1 className="mb-12 text-center text-4xl font-bold text-foreground sm:text-5xl">
+    <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-16 lg:px-8">
+      <h1 className="mb-8 text-center text-3xl font-bold text-foreground sm:mb-12 sm:text-4xl lg:text-5xl">
         About Me
       </h1>
 
