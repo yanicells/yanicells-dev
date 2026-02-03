@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,7 +15,6 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
 import { HelpDialog } from "@/components/shared/help-dialog";
 import {
   Home,
@@ -40,75 +38,56 @@ const navItems = [
 export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
-  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
 
   const isCollapsed = state === "collapsed";
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
-      <SidebarHeader className="flex flex-row items-center justify-between px-3 py-2">
-        {isCollapsed ? (
-          // Collapsed state: show logo, on hover show collapse icon
-          <button
-            type="button"
-            onClick={toggleSidebar}
-            onMouseEnter={() => setIsHeaderHovered(true)}
-            onMouseLeave={() => setIsHeaderHovered(false)}
-            className="relative flex size-8 items-center justify-center rounded-md transition-colors hover:bg-sidebar-accent"
-            aria-label="Expand sidebar"
-          >
-            {isHeaderHovered ? (
-              <PanelLeft className="size-5 text-sidebar-foreground" />
-            ) : (
-              <Image
-                src="/logo.png"
-                alt="yanicells"
-                width={32}
-                height={32}
-                className="size-8"
-              />
-            )}
-          </button>
-        ) : (
-          // Expanded state: logo on left, collapse icon on right
-          <>
-            <Link href="/" className="block">
-              <Image
-                src="/logo.png"
-                alt="yanicells"
-                width={32}
-                height={32}
-                className="size-8 transition-transform hover:scale-105"
-              />
-            </Link>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleSidebar}
-              className="size-8 text-sidebar-foreground hover:bg-sidebar-accent"
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <div
+              className={`flex w-full items-center ${isCollapsed ? "justify-center" : "justify-between"}`}
             >
-              <PanelLeft className="size-5" />
-              <span className="sr-only">Collapse sidebar</span>
-            </Button>
-          </>
-        )}
+              {/* Logo - hidden when collapsed */}
+              {!isCollapsed && (
+                <Link href="/">
+                  <Image
+                    src="/logo.png"
+                    alt="yanicells"
+                    width={32}
+                    height={32}
+                    className="size-8"
+                  />
+                </Link>
+              )}
+              {/* Collapse trigger */}
+              <SidebarMenuButton
+                onClick={toggleSidebar}
+                tooltip="Toggle Sidebar"
+                className="size-8"
+              >
+                <PanelLeft />
+              </SidebarMenuButton>
+            </div>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
 
       <SidebarContent>
-        <SidebarGroup className="py-1">
+        <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu className="gap-0.5">
+            <SidebarMenu>
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     isActive={pathname === item.url}
                     tooltip={item.title}
-                    className="h-10 hover:bg-sidebar-accent [&_svg]:size-5 group-data-[collapsible=icon]:size-10!"
                   >
                     <Link href={item.url}>
                       <item.icon />
-                      <span className="text-base">{item.title}</span>
+                      <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
