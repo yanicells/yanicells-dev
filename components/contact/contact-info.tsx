@@ -6,6 +6,7 @@ import {
   Facebook,
   Instagram,
   MapPin,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -15,14 +16,14 @@ const contactLinks = [
     label: "Email",
     value: "edrianmiguelcapistrano@gmail.com",
     href: "mailto:edrianmiguelcapistrano@gmail.com",
-    color: "text-[var(--ctp-red)]",
+    color: "text-red-400",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "yanicells",
     href: "https://www.linkedin.com/in/yanicells",
-    color: "text-[var(--ctp-blue)]",
+    color: "text-blue-400",
   },
   {
     icon: Github,
@@ -36,14 +37,14 @@ const contactLinks = [
     label: "Facebook",
     value: "Edrian Capistrano",
     href: "https://www.facebook.com/edrian.capistrano.9",
-    color: "text-[var(--ctp-blue)]",
+    color: "text-blue-400",
   },
   {
     icon: Instagram,
     label: "Instagram",
     value: "@yahneyy",
     href: "https://www.instagram.com/yahneyy",
-    color: "text-[var(--ctp-pink)]",
+    color: "text-pink-400",
   },
 ];
 
@@ -76,15 +77,20 @@ export function ContactInfo() {
                 ? undefined
                 : "noopener noreferrer"
             }
-            className="group flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors hover:border-[var(--ctp-blue-hover)]"
+            className="group flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-all hover:border-primary hover:shadow-lg"
           >
-            <div className={`${contact.color}`}>
+            <div
+              className={`${contact.color} transition-transform group-hover:scale-110`}
+            >
               <contact.icon className="size-6" />
             </div>
             <div className="flex-1">
               <p className="text-sm text-muted-foreground">{contact.label}</p>
-              <p className="font-medium text-foreground">{contact.value}</p>
+              <p className="font-medium text-foreground transition-colors group-hover:text-primary">
+                {contact.value}
+              </p>
             </div>
+            <ExternalLink className="size-4 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
           </Link>
         ))}
       </div>
@@ -93,7 +99,7 @@ export function ContactInfo() {
       <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:justify-center">
         <Button
           asChild
-          className="bg-primary text-primary-foreground hover:bg-[var(--ctp-blue-hover)]"
+          className="bg-primary text-primary-foreground transition-all hover:scale-105"
         >
           <Link
             href="https://resume.yanicells.dev"
@@ -106,7 +112,7 @@ export function ContactInfo() {
         <Button
           asChild
           variant="outline"
-          className="border-border bg-transparent"
+          className="border-border bg-transparent transition-all hover:scale-105 hover:border-primary"
         >
           <Link
             href="https://cv.yanicells.dev"

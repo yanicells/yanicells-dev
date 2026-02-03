@@ -7,7 +7,7 @@ import { projects, type Project } from "@/lib/data/projects";
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-[var(--ctp-blue-hover)]">
+    <div className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary hover:shadow-lg">
       {/* Image */}
       <div className="relative aspect-video overflow-hidden bg-muted">
         <Image
@@ -20,7 +20,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-4">
-        <h3 className="mb-2 text-lg font-semibold text-foreground">
+        <h3 className="mb-2 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
           {project.title}
         </h3>
         <p className="mb-4 flex-1 text-sm text-muted-foreground line-clamp-3">
@@ -33,7 +33,7 @@ function ProjectCard({ project }: { project: Project }) {
             <Badge
               key={tech}
               variant="outline"
-              className="border-border bg-transparent font-mono text-xs text-muted-foreground"
+              className="border-border bg-transparent font-mono text-xs text-muted-foreground transition-colors hover:border-primary hover:text-primary"
             >
               {tech}
             </Badge>
@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: Project }) {
               asChild
               variant="outline"
               size="sm"
-              className="border-border bg-transparent"
+              className="border-border bg-transparent transition-all hover:scale-105 hover:border-primary"
             >
               <Link
                 href={project.repo}
@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
               asChild
               variant="outline"
               size="sm"
-              className="border-border bg-transparent"
+              className="border-border bg-transparent transition-all hover:scale-105 hover:border-primary"
             >
               <Link
                 href={project.demo}

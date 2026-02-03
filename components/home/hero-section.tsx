@@ -33,38 +33,39 @@ const socialLinks = [
 
 export function HeroSection() {
   return (
-    <section className="flex min-h-screen w-full items-center justify-center px-4 py-8 sm:px-6 sm:py-12 lg:px-12">
-      <div className="flex w-full max-w-6xl flex-col-reverse items-center gap-8 sm:gap-12 lg:flex-row lg:justify-between">
+    <section className="flex min-h-[calc(100vh-3.5rem)] w-full items-center justify-center px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
+      <div className="flex w-full max-w-7xl flex-col-reverse items-center gap-10 sm:gap-16 lg:flex-row lg:justify-between lg:gap-20">
         {/* Text Content */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           {/* Greeting */}
-          <p className="mb-2 font-sans text-lg italic text-primary">
+          <p className="mb-3 font-sans text-xl italic text-primary sm:text-2xl">
             Halo halo! I&apos;m
           </p>
 
           {/* Name */}
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
             Edrian Miguel E.
             <br />
             Capistrano
           </h1>
 
           {/* Title */}
-          <p className="mb-2 text-xl text-muted-foreground">
+          <p className="mb-3 text-2xl text-muted-foreground sm:text-3xl lg:text-4xl">
             Full-Stack Web Developer
           </p>
 
           {/* Tagline */}
-          <p className="mb-6 font-mono text-sm text-muted-foreground">
+          <p className="mb-8 font-mono text-base text-muted-foreground sm:text-lg lg:text-xl">
             <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
           </p>
 
           {/* Buttons */}
-          <div className="mb-8 flex gap-4">
+          <div className="mb-10 flex gap-4 sm:gap-6">
             <Button
               asChild
               variant="outline"
-              className="border-border bg-transparent px-6 hover:bg-accent hover:text-accent-foreground"
+              size="lg"
+              className="border-border bg-transparent px-8 text-base transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground sm:px-10 sm:text-lg"
             >
               <Link
                 href="https://resume.yanicells.dev"
@@ -77,7 +78,8 @@ export function HeroSection() {
             <Button
               asChild
               variant="outline"
-              className="border-border bg-transparent px-6 hover:bg-accent hover:text-accent-foreground"
+              size="lg"
+              className="border-border bg-transparent px-8 text-base transition-all hover:scale-105 hover:bg-accent hover:text-accent-foreground sm:px-10 sm:text-lg"
             >
               <Link
                 href="https://cv.yanicells.dev"
@@ -90,17 +92,17 @@ export function HeroSection() {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-4">
+          <div className="flex gap-5 sm:gap-6">
             {socialLinks.map((social) => (
               <Link
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground transition-colors hover:text-primary"
+                className="text-foreground transition-all hover:scale-110 hover:text-primary"
                 aria-label={social.label}
               >
-                <social.icon className="size-6" />
+                <social.icon className="size-7 sm:size-8 lg:size-9" />
               </Link>
             ))}
           </div>
@@ -108,7 +110,7 @@ export function HeroSection() {
 
         {/* Profile Image */}
         <div className="relative">
-          <div className="relative size-48 overflow-hidden rounded-full border-4 border-border sm:size-64 lg:size-80">
+          <div className="relative size-56 overflow-hidden rounded-full border-4 border-border transition-all hover:border-primary sm:size-72 lg:size-96 xl:size-[28rem]">
             <Image
               src="/profile.jpg"
               alt="Edrian Miguel E. Capistrano"
@@ -118,7 +120,7 @@ export function HeroSection() {
             />
           </div>
           {/* Decorative ring */}
-          <div className="absolute -inset-2 -z-10 rounded-full border border-border/50" />
+          <div className="absolute -inset-3 -z-10 rounded-full border border-border/50 sm:-inset-4" />
         </div>
       </div>
     </section>

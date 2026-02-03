@@ -70,8 +70,8 @@ const technologies: TechItem[] = [
 
 function TechCard({ tech }: { tech: TechItem }) {
   return (
-    <div className="group flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 transition-colors hover:border-[var(--ctp-blue-hover)] sm:gap-3 sm:p-6">
-      <div className="relative size-10 sm:size-16">
+    <div className="group flex flex-col items-center gap-2 rounded-lg border border-border bg-card p-3 transition-all hover:border-primary hover:shadow-lg sm:gap-3 sm:p-6">
+      <div className="relative size-10 transition-transform group-hover:scale-110 sm:size-16">
         <Image
           src={tech.icon}
           alt={tech.name}
@@ -80,7 +80,7 @@ function TechCard({ tech }: { tech: TechItem }) {
           unoptimized
         />
       </div>
-      <span className="text-sm font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+      <span className="text-xs font-medium text-muted-foreground transition-colors group-hover:text-foreground sm:text-sm">
         {tech.name}
       </span>
     </div>

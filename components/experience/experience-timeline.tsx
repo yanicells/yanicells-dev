@@ -4,23 +4,23 @@ function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <div className="group relative pl-6 sm:pl-8">
       {/* Timeline dot */}
-      <div className="absolute left-0 top-2 size-2.5 rounded-full border-2 border-[var(--ctp-blue)] bg-background sm:size-3" />
+      <div className="absolute left-0 top-2 size-2.5 rounded-full border-2 border-primary bg-background transition-all group-hover:scale-125 sm:size-3" />
 
       {/* Timeline line */}
-      <div className="absolute bottom-0 left-[4px] top-5 w-0.5 bg-border group-last:hidden sm:left-[5px]" />
+      <div className="absolute bottom-0 left-1 top-5 w-0.5 bg-border group-last:hidden sm:left-[5px]" />
 
       {/* Card */}
-      <div className="rounded-lg border border-border bg-card p-4 transition-colors hover:border-[var(--ctp-blue-hover)] sm:p-6">
+      <div className="rounded-lg border border-border bg-card p-4 transition-all hover:border-primary hover:shadow-lg sm:p-6">
         <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-2">
           <div>
-            <h3 className="text-base font-semibold text-foreground sm:text-lg">
+            <h3 className="text-base font-semibold text-foreground transition-colors group-hover:text-primary sm:text-lg">
               {experience.title}
             </h3>
             <p className="text-sm font-medium text-primary">
               {experience.organization}
             </p>
           </div>
-          <span className="shrink-0 font-mono text-xs text-[var(--ctp-teal)] sm:text-sm">
+          <span className="shrink-0 font-mono text-xs text-muted-foreground sm:text-sm">
             {experience.date}
           </span>
         </div>
