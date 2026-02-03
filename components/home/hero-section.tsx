@@ -34,28 +34,28 @@ const socialLinks = [
 export function HeroSection() {
   return (
     <section className="flex min-h-[calc(100vh-3.5rem)] w-full items-center justify-center px-4 py-8 sm:px-8 sm:py-12 lg:px-16">
-      <div className="flex w-full max-w-7xl flex-col-reverse items-center gap-10 sm:gap-16 lg:flex-row lg:justify-between lg:gap-20">
+      <div className="flex w-full max-w-6xl flex-col-reverse items-center gap-10 sm:gap-16 lg:flex-row lg:justify-between lg:gap-10">
         {/* Text Content */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           {/* Greeting */}
-          <p className="mb-3 font-sans text-xl italic text-primary sm:text-2xl">
+          <p className="mb-3 font-sans text-lg italic text-primary sm:text-xl">
             Halo halo! I&apos;m
           </p>
 
           {/* Name */}
-          <h1 className="mb-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
             Edrian Miguel E.
             <br />
             Capistrano
           </h1>
 
           {/* Title */}
-          <p className="mb-3 text-2xl text-muted-foreground sm:text-3xl lg:text-4xl">
+          <p className="mb-3 text-xl text-muted-foreground sm:text-2xl lg:text-3xl">
             Full-Stack Web Developer
           </p>
 
           {/* Tagline */}
-          <p className="mb-8 font-mono text-base text-muted-foreground sm:text-lg lg:text-xl">
+          <p className="mb-8 font-mono text-sm text-muted-foreground sm:text-base lg:text-lg">
             <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
           </p>
 
@@ -102,7 +102,7 @@ export function HeroSection() {
                 className="text-foreground transition-all hover:scale-110 hover:text-primary"
                 aria-label={social.label}
               >
-                <social.icon className="size-7 sm:size-8 lg:size-9" />
+                <social.icon className="size-6 sm:size-7 lg:size-8" />
               </Link>
             ))}
           </div>
@@ -110,7 +110,7 @@ export function HeroSection() {
 
         {/* Profile Image */}
         <div className="relative">
-          <div className="relative size-56 overflow-hidden rounded-full border-4 border-border transition-all hover:border-primary sm:size-72 lg:size-96 xl:size-[28rem]">
+          <div className="relative size-56 overflow-hidden rounded-full border-4 border-border transition-all hover:border-primary sm:size-72 lg:size-80 xl:size-96">
             <Image
               src="/profile.jpg"
               alt="Edrian Miguel E. Capistrano"

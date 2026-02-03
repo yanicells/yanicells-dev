@@ -20,28 +20,37 @@ export function PageLayout({ children }: PageLayoutProps) {
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
       <SidebarInset>
-        {/* Mobile header */}
-        <header className="flex h-14 items-center justify-between border-b border-border px-4 md:hidden">
-          <div className="flex items-center gap-3">
-            <SidebarTrigger />
-            <span className="font-mono text-sm text-primary">
-              &lt;yanicells /&gt;
-            </span>
-          </div>
-          <Link
-            href="/about"
-            className="relative size-8 overflow-hidden rounded-full ring-2 ring-border"
-          >
-            <Image
-              src="/profile.jpg"
-              alt="Profile"
-              fill
-              className="object-cover"
-            />
-          </Link>
-        </header>
+        {/* Mobile header - Simplified since MainHeader handles trigger now? 
+            Actually, MainHeader is desktop only normally, but we can make it adaptable or keep Mobile separate.
+            To match ChatGPT, desktop and mobile share similar trigger logic.
+        */}
+        <div className="md:hidden">
+          <header className="flex h-14 items-center justify-between px-4">
+            <div className="flex items-center gap-3">
+              <SidebarTrigger />
+              <span className="font-mono text-sm text-white">
+                &lt;yanicells /&gt;
+              </span>
+            </div>
+            <Link
+              href="/about"
+              className="relative size-8 overflow-hidden rounded-full ring-2 ring-border"
+            >
+              <Image
+                src="/profile.jpg"
+                alt="Profile"
+                fill
+                className="object-cover"
+              />
+            </Link>
+          </header>
+        </div>
+
         {/* Desktop header */}
-        <MainHeader />
+        <div className="hidden md:block">
+          <MainHeader />
+        </div>
+
         <main className="flex-1">{children}</main>
       </SidebarInset>
     </SidebarProvider>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,49 +40,75 @@ const navItems = [
 export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar } = useSidebar();
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
+
+  const isCollapsed = state === "collapsed";
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
-      <SidebarHeader className="flex flex-row items-center justify-between p-4">
-        {state !== "collapsed" && (
-          <Link href="/" className="block">
-            <Image
-              src="/logo.png"
-              alt="yanicells"
-              width={40}
-              height={40}
-              className="size-10 transition-transform hover:scale-105"
-            />
-          </Link>
+      <SidebarHeader className="flex flex-row items-center justify-between px-3 py-2">
+        {isCollapsed ? (
+          // Collapsed state: show logo, on hover show collapse icon
+          <button
+            type="button"
+            onClick={toggleSidebar}
+            onMouseEnter={() => setIsHeaderHovered(true)}
+            onMouseLeave={() => setIsHeaderHovered(false)}
+            className="relative flex size-8 items-center justify-center rounded-md transition-colors hover:bg-sidebar-accent"
+            aria-label="Expand sidebar"
+          >
+            {isHeaderHovered ? (
+              <PanelLeft className="size-5 text-sidebar-foreground" />
+            ) : (
+              <Image
+                src="/logo.png"
+                alt="yanicells"
+                width={32}
+                height={32}
+                className="size-8"
+              />
+            )}
+          </button>
+        ) : (
+          // Expanded state: logo on left, collapse icon on right
+          <>
+            <Link href="/" className="block">
+              <Image
+                src="/logo.png"
+                alt="yanicells"
+                width={32}
+                height={32}
+                className="size-8 transition-transform hover:scale-105"
+              />
+            </Link>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleSidebar}
+              className="size-8 text-sidebar-foreground hover:bg-sidebar-accent"
+            >
+              <PanelLeft className="size-5" />
+              <span className="sr-only">Collapse sidebar</span>
+            </Button>
+          </>
         )}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleSidebar}
-          className="size-8 text-sidebar-foreground hover:bg-sidebar-accent"
-        >
-          <PanelLeft className="size-4" />
-          <span className="sr-only">
-            {state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"}
-          </span>
-        </Button>
       </SidebarHeader>
 
       <SidebarContent>
-        <SidebarGroup>
+        <SidebarGroup className="py-1">
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="gap-0.5">
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
                     isActive={pathname === item.url}
                     tooltip={item.title}
-                    className="hover:bg-sidebar-accent"
+                    className="h-10 hover:bg-sidebar-accent [&_svg]:size-5 group-data-[collapsible=icon]:size-10!"
                   >
                     <Link href={item.url}>
-                      <item.icon className="size-4" />
-                      <span>{item.title}</span>
+                      <item.icon />
+                      <span className="text-base">{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 /**
  * Main header component with branding and profile image.
@@ -7,14 +8,17 @@ import Link from "next/link";
  */
 export function MainHeader() {
   return (
-    <header className="hidden h-14 items-center justify-between border-b border-border px-6 md:flex">
-      {/* Branding */}
-      <Link
-        href="/"
-        className="font-mono text-lg text-primary transition-colors hover:text-(--ctp-blue-hover)"
-      >
-        &lt;yanicells /&gt;
-      </Link>
+    <header className="flex h-14 items-center justify-between px-4 transition-all duration-300 ease-linear md:px-6">
+      <div className="flex items-center gap-2">
+        {/* Removed SidebarTrigger from here to avoid duplicate if using collapsible="icon" */}
+        {/* Branding */}
+        <Link
+          href="/"
+          className="font-mono text-lg text-white transition-colors hover:text-white/80"
+        >
+          &lt;yanicells /&gt;
+        </Link>
+      </div>
 
       {/* Profile */}
       <Link
