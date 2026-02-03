@@ -108,12 +108,12 @@
   --chart-4: #f5c2e7;
   --chart-5: #fab387;
 
-  /* Sidebar - Catppuccin Mocha */
-  --sidebar: #1e1e2e;
+  /* Sidebar - Catppuccin Mocha with custom bg */
+  --sidebar: #33344b;
   --sidebar-foreground: #cdd6f4;
   --sidebar-primary: #89b4fa;
   --sidebar-primary-foreground: #1e1e2e;
-  --sidebar-accent: #313244;
+  --sidebar-accent: #45475a;
   --sidebar-accent-foreground: #cdd6f4;
   --sidebar-border: #45475a;
   --sidebar-ring: #89b4fa;

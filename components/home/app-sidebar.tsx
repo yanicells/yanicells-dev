@@ -11,19 +11,25 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { FolderKanban, User, Layers, Mail, Briefcase } from "lucide-react";
 
 const navItems = [
+  {
+    title: "About Me",
+    url: "/about",
+    icon: User,
+  },
   {
     title: "Projects",
     url: "/projects",
     icon: FolderKanban,
   },
   {
-    title: "About",
-    url: "/about",
-    icon: User,
+    title: "Experience",
+    url: "/experience",
+    icon: Briefcase,
   },
   {
     title: "Tech Stack",
@@ -35,25 +41,21 @@ const navItems = [
     url: "/contact",
     icon: Mail,
   },
-  {
-    title: "Experience",
-    url: "/experience",
-    icon: Briefcase,
-  },
 ];
 
 export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-border">
-      <SidebarHeader className="p-4">
+    <Sidebar collapsible="icon" className="border-r border-sidebar-border">
+      <SidebarHeader className="flex flex-row items-center justify-between p-4">
         <Link
           href="/"
-          className="font-mono text-lg text-primary hover:text-[var(--ctp-blue-hover)] transition-colors"
+          className="font-mono text-lg text-primary transition-colors hover:text-(--ctp-blue-hover)"
         >
           &lt;yanicells /&gt;
         </Link>
+        <SidebarTrigger className="text-sidebar-foreground hover:bg-sidebar-accent" />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
