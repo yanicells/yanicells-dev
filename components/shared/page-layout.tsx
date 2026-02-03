@@ -27,9 +27,9 @@ export function PageLayout({ children }: PageLayoutProps) {
         <div className="md:hidden">
           <header className="flex h-14 items-center justify-between px-4">
             <div className="flex items-center gap-3">
-              <SidebarTrigger />
-              <span className="font-mono text-sm text-white">
-                &lt;yanicells /&gt;
+              <SidebarTrigger className="" />
+              <span className="font-mono text-lg font-bold">
+                &lt;yanicells / &gt;
               </span>
             </div>
             <Link
