@@ -51,7 +51,7 @@ export function PageLayout({ children }: PageLayoutProps) {
           <MainHeader />
         </div>
 
-        <main className="flex-1">{children}</main>
+        <main className="min-h-0 flex-1">{children}</main>
       </SidebarInset>
     </SidebarProvider>
   );
