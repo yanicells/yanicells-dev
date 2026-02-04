@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,12 +40,16 @@ const navItems = [
 export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar, isMobile } = useSidebar();
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false);
 
   const isCollapsed = state === "collapsed";
 
-  // Mobile uses X to close, desktop uses PanelLeft to collapse
-  const ToggleIcon = isMobile ? X : PanelLeft;
-
+  // Reset hover state when sidebar collapses to ensure logo shows first
+  useEffect(() => {
+    if (isCollapsed) {
+      setIsHeaderHovered(false);
+    }
+  }, [isCollapsed]);
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
       <SidebarHeader>
@@ -53,26 +58,73 @@ export function AppSidebar() {
             <div
               className={`flex w-full items-center ${isCollapsed && !isMobile ? "justify-center" : "justify-between"}`}
             >
-              {/* Logo - hidden when collapsed on desktop, always show on mobile */}
-              {(!isCollapsed || isMobile) && (
-                <Link href="/">
-                  <Image
-                    src="/logo.png"
-                    alt="yanicells"
-                    width={32}
-                    height={32}
-                    className="size-8"
-                  />
-                </Link>
+              {/* When expanded: show logo on left, PanelLeft on right */}
+              {/* When collapsed on desktop: show logo (or PanelLeft on hover) centered */}
+              {/* When on mobile: show logo and X */}
+
+              {!isCollapsed && !isMobile && (
+                <>
+                  <Link href="/">
+                    <Image
+                      src="/logo.png"
+                      alt="yanicells"
+                      width={32}
+                      height={32}
+                      className="size-8"
+                    />
+                  </Link>
+                  <SidebarMenuButton
+                    onClick={toggleSidebar}
+                    tooltip="Collapse Sidebar"
+                    className="size-10"
+                  >
+                    <PanelLeft />
+                  </SidebarMenuButton>
+                </>
               )}
-              {/* Collapse/Close trigger */}
-              <SidebarMenuButton
-                onClick={toggleSidebar}
-                tooltip={isMobile ? "Close Sidebar" : "Toggle Sidebar"}
-                className="size-8"
-              >
-                <ToggleIcon />
-              </SidebarMenuButton>
+
+              {isCollapsed && !isMobile && (
+                <SidebarMenuButton
+                  onClick={toggleSidebar}
+                  tooltip="Expand Sidebar"
+                  className="size-10"
+                  onMouseEnter={() => setIsHeaderHovered(true)}
+                  onMouseLeave={() => setIsHeaderHovered(false)}
+                >
+                  {isHeaderHovered ? (
+                    <PanelLeft />
+                  ) : (
+                    <Image
+                      src="/logo.png"
+                      alt="yanicells"
+                      width={20}
+                      height={20}
+                      className="size-8"
+                    />
+                  )}
+                </SidebarMenuButton>
+              )}
+
+              {isMobile && (
+                <>
+                  <Link href="/">
+                    <Image
+                      src="/logo.png"
+                      alt="yanicells"
+                      width={32}
+                      height={32}
+                      className="size-8"
+                    />
+                  </Link>
+                  <SidebarMenuButton
+                    onClick={toggleSidebar}
+                    tooltip="Close Sidebar"
+                    className="size-10"
+                  >
+                    <X />
+                  </SidebarMenuButton>
+                </>
+              )}
             </div>
           </SidebarMenuItem>
         </SidebarMenu>
