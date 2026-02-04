@@ -26,7 +26,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "16rem";
 const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
+const SIDEBAR_WIDTH_ICON = "3.5rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 // ============================================================================
@@ -285,7 +285,7 @@ function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
       data-slot="sidebar-trigger"
       type="button"
       className={cn(
-        "inline-flex h-8 w-8 items-center justify-center rounded-md text-sidebar-foreground hover:bg-sidebar-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "inline-flex h-10 w-10 items-center justify-center rounded-md text-sidebar-foreground hover:bg-sidebar-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,
       )}
       onClick={(event) => {
@@ -294,7 +294,7 @@ function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
       }}
       {...props}
     >
-      <Menu className="size-4" />
+      <Menu className="size-5" />
       <span className="sr-only">Toggle Sidebar</span>
     </button>
   );
@@ -423,18 +423,18 @@ function SidebarMenuButton({
   const { isMobile, state } = useSidebar();
 
   const buttonClasses = cn(
-    // Base styles - consistent height for both states
-    "flex w-full items-center gap-2 overflow-hidden rounded-md text-left text-sm transition-colors",
-    "h-8 px-2",
+    // Base styles - larger font and height
+    "flex w-full items-center gap-2.5 overflow-hidden rounded-md text-left text-base transition-colors",
+    "h-10 px-2.5",
     // Hover and active states
     "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     // Active styling
     isActive && "bg-sidebar-accent font-medium text-sidebar-accent-foreground",
     // Collapsed state: fixed width, centered content
-    "group-data-[collapsible=icon]:w-8 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center",
-    // Icon styling - consistent size in both states
-    "[&_svg]:size-4 [&_svg]:shrink-0",
+    "group-data-[collapsible=icon]:w-10 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center",
+    // Icon styling - larger icons
+    "[&_svg]:size-5 [&_svg]:shrink-0",
     // Hide text span when collapsed
     "[&>span:last-child]:truncate group-data-[collapsible=icon]:[&>span]:hidden",
     className,
