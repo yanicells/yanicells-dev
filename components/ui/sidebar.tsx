@@ -16,7 +16,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 // ============================================================================
 // Constants
@@ -278,7 +278,10 @@ function Sidebar({
 interface SidebarTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, isMobile, openMobile } = useSidebar();
+
+  // Show X when mobile sidebar is open, Menu otherwise
+  const Icon = isMobile && openMobile ? X : Menu;
 
   return (
     <button
@@ -294,7 +297,7 @@ function SidebarTrigger({ className, onClick, ...props }: SidebarTriggerProps) {
       }}
       {...props}
     >
-      <Menu className="size-5" />
+      <Icon className="size-5" />
       <span className="sr-only">Toggle Sidebar</span>
     </button>
   );

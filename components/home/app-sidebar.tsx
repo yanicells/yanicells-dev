@@ -24,6 +24,7 @@ import {
   Mail,
   Briefcase,
   PanelLeft,
+  X,
 } from "lucide-react";
 
 const navItems = [
@@ -37,9 +38,12 @@ const navItems = [
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const { state, toggleSidebar } = useSidebar();
+  const { state, toggleSidebar, isMobile } = useSidebar();
 
   const isCollapsed = state === "collapsed";
+
+  // Mobile uses X to close, desktop uses PanelLeft to collapse
+  const ToggleIcon = isMobile ? X : PanelLeft;
 
   return (
     <Sidebar collapsible="icon" className="border-r border-sidebar-border">
@@ -47,10 +51,10 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <div
-              className={`flex w-full items-center ${isCollapsed ? "justify-center" : "justify-between"}`}
+              className={`flex w-full items-center ${isCollapsed && !isMobile ? "justify-center" : "justify-between"}`}
             >
-              {/* Logo - hidden when collapsed */}
-              {!isCollapsed && (
+              {/* Logo - hidden when collapsed on desktop, always show on mobile */}
+              {(!isCollapsed || isMobile) && (
                 <Link href="/">
                   <Image
                     src="/logo.png"
@@ -61,13 +65,13 @@ export function AppSidebar() {
                   />
                 </Link>
               )}
-              {/* Collapse trigger */}
+              {/* Collapse/Close trigger */}
               <SidebarMenuButton
                 onClick={toggleSidebar}
-                tooltip="Toggle Sidebar"
+                tooltip={isMobile ? "Close Sidebar" : "Toggle Sidebar"}
                 className="size-8"
               >
-                <PanelLeft />
+                <ToggleIcon />
               </SidebarMenuButton>
             </div>
           </SidebarMenuItem>
