@@ -183,7 +183,7 @@ function Sidebar({
       <div
         data-slot="sidebar"
         className={cn(
-          "flex h-full w-[var(--sidebar-width)] flex-col bg-sidebar text-sidebar-foreground",
+          "flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground",
           className,
         )}
         {...props}
@@ -200,7 +200,7 @@ function Sidebar({
         <SheetContent
           data-slot="sidebar"
           data-mobile="true"
-          className="w-[var(--sidebar-width)] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -233,10 +233,8 @@ function Sidebar({
       <div
         data-slot="sidebar-gap"
         className={cn(
-          "relative w-[var(--sidebar-width)] bg-transparent transition-[width] duration-200 ease-linear",
-          isCollapsed &&
-            collapsible === "icon" &&
-            "w-[var(--sidebar-width-icon)]",
+          "relative w-(--sidebar-width) bg-transparent transition-[width] duration-200 ease-linear",
+          isCollapsed && collapsible === "icon" && "w-(--sidebar-width-icon)",
           isCollapsed && collapsible === "offcanvas" && "w-0",
         )}
       />
@@ -246,12 +244,10 @@ function Sidebar({
         data-slot="sidebar-container"
         data-side={side}
         className={cn(
-          "fixed inset-y-0 z-10 hidden h-svh w-[var(--sidebar-width)] transition-[left,right,width] duration-200 ease-linear md:flex",
+          "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex",
           side === "left" && "left-0 border-r",
           side === "right" && "right-0 border-l",
-          isCollapsed &&
-            collapsible === "icon" &&
-            "w-[var(--sidebar-width-icon)]",
+          isCollapsed && collapsible === "icon" && "w-(--sidebar-width-icon)",
           isCollapsed &&
             collapsible === "offcanvas" &&
             side === "left" &&
@@ -427,18 +423,20 @@ function SidebarMenuButton({
   const { isMobile, state } = useSidebar();
 
   const buttonClasses = cn(
-    // Base styles
-    "flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition-colors",
+    // Base styles - consistent height for both states
+    "flex w-full items-center gap-2 overflow-hidden rounded-md text-left text-sm transition-colors",
+    "h-8 px-2",
     // Hover and active states
     "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     // Active styling
     isActive && "bg-sidebar-accent font-medium text-sidebar-accent-foreground",
-    // Collapsed state: fixed size, centered
-    "group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 group-data-[collapsible=icon]:justify-center",
-    // Icon and text styling
+    // Collapsed state: fixed width, centered content
+    "group-data-[collapsible=icon]:w-8 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center",
+    // Icon styling - consistent size in both states
     "[&_svg]:size-4 [&_svg]:shrink-0",
-    "[&>span:last-child]:truncate",
+    // Hide text span when collapsed
+    "[&>span:last-child]:truncate group-data-[collapsible=icon]:[&>span]:hidden",
     className,
   );
 
