@@ -1,3 +1,2 @@
 backlog
-- the weird hovering shadow in sidebar
-- should not open when in closed mode and click on an item
+- projects, in the carousel add like a title and short desc, maybe title top right, then desc is bot left. then there is a bit of tint for the picture
