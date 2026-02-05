@@ -51,7 +51,7 @@ export function TechStackGrid() {
   );
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-2 sm:gap-10">
       <TechStackHeader />
 
       {/* Sticky search + tabs */}
@@ -74,13 +74,11 @@ export function TechStackGrid() {
           </p>
         </div>
 
-        {/* Centered grid */}
-        <div className="mx-auto max-w-2xl">
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {featuredTech.map((tech) => (
-              <FeaturedTechCard key={tech.name} tech={tech} />
-            ))}
-          </div>
+        {/* Full width grid */}
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          {featuredTech.map((tech) => (
+            <FeaturedTechCard key={tech.name} tech={tech} />
+          ))}
         </div>
       </section>
 

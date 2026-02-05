@@ -10,20 +10,19 @@ import { MainHeader } from "@/components/shared/main-header";
 
 interface PageLayoutProps {
   children: React.ReactNode;
+  /** If true, children will span full width without max-w constraint */
+  fullWidth?: boolean;
 }
 
 /**
  * Shared layout component for all pages with sidebar and headers.
  */
-export function PageLayout({ children }: PageLayoutProps) {
+export function PageLayout({ children, fullWidth = false }: PageLayoutProps) {
   return (
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
       <SidebarInset>
-        {/* Mobile header - Simplified since MainHeader handles trigger now? 
-            Actually, MainHeader is desktop only normally, but we can make it adaptable or keep Mobile separate.
-            To match ChatGPT, desktop and mobile share similar trigger logic.
-        */}
+        {/* Mobile header */}
         <div className="md:hidden">
           <header className="flex h-14 items-center justify-between px-4">
             <div className="flex items-center gap-3">
@@ -52,7 +51,11 @@ export function PageLayout({ children }: PageLayoutProps) {
         </div>
 
         <main className="min-h-0 flex-1">
-          <div className="mx-auto w-full max-w-4xl px-6 py-8">{children}</div>
+          {fullWidth ? (
+            children
+          ) : (
+            <div className="mx-auto w-full max-w-4xl px-6 py-8">{children}</div>
+          )}
         </main>
       </SidebarInset>
     </SidebarProvider>

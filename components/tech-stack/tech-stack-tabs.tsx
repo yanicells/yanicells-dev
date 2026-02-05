@@ -25,20 +25,33 @@ interface TechStackTabsProps {
 
 export function TechStackTabs({ activeTab, onTabChange }: TechStackTabsProps) {
   return (
-    <div className="flex items-center justify-center gap-4">
-      {tabOrder.map((tab) => (
-        <button
-          key={tab}
-          onClick={() => onTabChange(tab)}
-          className={`border-b-2 px-2 py-2 text-sm font-medium transition-colors ${
-            activeTab === tab
-              ? "border-primary text-foreground"
-              : "border-transparent text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {tabLabels[tab]}
-        </button>
-      ))}
+    <div
+      className="overflow-x-auto"
+      style={{
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+      }}
+    >
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+      <div className="flex items-center gap-4 whitespace-nowrap">
+        {tabOrder.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => onTabChange(tab)}
+            className={`shrink-0 border-b-2 px-2 py-2 text-sm font-medium transition-colors ${
+              activeTab === tab
+                ? "border-primary text-foreground"
+                : "border-transparent text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {tabLabels[tab]}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
