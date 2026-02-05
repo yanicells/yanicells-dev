@@ -1,58 +1,39 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ProjectCard } from "./project-card";
-import { type Project, type ProjectCategory } from "@/lib/data/projects";
+import { type ProjectCategory } from "@/lib/data/projects";
 
-const categoryLabels: Record<ProjectCategory, string> = {
+export type TabValue = "featured" | "all" | ProjectCategory;
+
+const tabLabels: Record<TabValue, string> = {
   featured: "Featured",
+  all: "All",
   webdev: "Web Dev",
   java: "Java",
 };
 
+const tabOrder: TabValue[] = ["featured", "all", "webdev", "java"];
+
 interface ProjectsTabsProps {
-  projects: Project[];
-  activeTab: ProjectCategory;
-  onTabChange: (tab: ProjectCategory) => void;
+  activeTab: TabValue;
+  onTabChange: (tab: TabValue) => void;
 }
 
-export function ProjectsTabs({
-  projects,
-  activeTab,
-  onTabChange,
-}: ProjectsTabsProps) {
-  const filteredProjects = projects.filter(
-    (project) => project.category === activeTab,
-  );
-
+export function ProjectsTabs({ activeTab, onTabChange }: ProjectsTabsProps) {
   return (
-    <Tabs
-      value={activeTab}
-      onValueChange={(value) => onTabChange(value as ProjectCategory)}
-      className="w-full"
-    >
-      <TabsList>
-        {(Object.keys(categoryLabels) as ProjectCategory[]).map((cat) => (
-          <TabsTrigger key={cat} value={cat}>
-            {categoryLabels[cat]}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-
-      {(Object.keys(categoryLabels) as ProjectCategory[]).map((cat) => (
-        <TabsContent key={cat} value={cat} className="mt-6">
-          <div className="flex flex-col gap-3">
-            {filteredProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-            {filteredProjects.length === 0 && (
-              <p className="py-8 text-center text-muted-foreground">
-                No projects found matching your search.
-              </p>
-            )}
-          </div>
-        </TabsContent>
+    <div className="flex items-center gap-2">
+      {tabOrder.map((tab) => (
+        <button
+          key={tab}
+          onClick={() => onTabChange(tab)}
+          className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+            activeTab === tab
+              ? "bg-muted text-foreground"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          {tabLabels[tab]}
+        </button>
       ))}
-    </Tabs>
+    </div>
   );
 }

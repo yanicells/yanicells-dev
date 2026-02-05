@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Github, ExternalLink } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { type Project } from "@/lib/data/projects";
 
 interface ProjectCardProps {
@@ -9,9 +9,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-primary hover:bg-accent/50">
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-muted"
+    >
       {/* Project Image */}
-      <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-muted">
+      <div className="relative size-12 shrink-0 overflow-hidden rounded-lg bg-muted">
         <Image
           src={project.image}
           alt={project.title}
@@ -22,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Text content */}
       <div className="min-w-0 flex-1">
-        <h3 className="font-semibold text-foreground transition-colors group-hover:text-primary">
+        <h3 className="font-medium text-foreground transition-colors group-hover:text-primary">
           {project.title}
         </h3>
         <p className="truncate text-sm text-muted-foreground">
@@ -30,32 +33,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* Links */}
-      <div className="flex shrink-0 items-center gap-3">
-        {project.repo && (
-          <Link
-            href={project.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-primary"
-            aria-label={`${project.title} GitHub repository`}
-          >
-            <Github className="size-5" />
-          </Link>
-        )}
-        {project.demo && (
-          <Link
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-primary"
-            aria-label={`${project.title} live demo`}
-          >
-            <ExternalLink className="size-5" />
-          </Link>
-        )}
-        <ChevronRight className="size-5 text-muted-foreground transition-colors group-hover:text-primary" />
-      </div>
-    </div>
+      {/* Chevron */}
+      <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+    </Link>
   );
 }

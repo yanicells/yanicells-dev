@@ -51,7 +51,9 @@ export function PageLayout({ children }: PageLayoutProps) {
           <MainHeader />
         </div>
 
-        <main className="min-h-0 flex-1">{children}</main>
+        <main className="min-h-0 flex-1">
+          <div className="mx-auto w-full max-w-4xl px-6 py-8">{children}</div>
+        </main>
       </SidebarInset>
     </SidebarProvider>
   );

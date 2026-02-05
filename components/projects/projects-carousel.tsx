@@ -31,7 +31,7 @@ export function ProjectsCarousel() {
       <CarouselContent>
         {projectImages.map((image, index) => (
           <CarouselItem key={index} className="basis-full">
-            <div className="relative aspect-[16/7] overflow-hidden rounded-xl bg-muted">
+            <div className="relative aspect-16/7 overflow-hidden rounded-xl bg-muted">
               <Image
                 src={image}
                 alt={`Project ${index + 1}`}
