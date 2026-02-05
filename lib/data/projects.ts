@@ -63,7 +63,7 @@ export const projects: Project[] = [
     demo: "https://chika.yanicells.dev",
     image: "/projects/chika.png",
     category: "webdev",
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     title: "CityCraft",

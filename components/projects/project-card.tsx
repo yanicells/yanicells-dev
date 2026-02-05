@@ -13,8 +13,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       href={`/projects/${project.slug}`}
       className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-muted"
     >
-      {/* Project Image */}
-      <div className="relative size-12 shrink-0 overflow-hidden rounded-lg bg-muted">
+      {/* Project Image - larger */}
+      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
         <Image
           src={project.image}
           alt={project.title}
@@ -28,7 +28,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <h3 className="font-medium text-foreground transition-colors group-hover:text-primary">
           {project.title}
         </h3>
-        <p className="truncate text-sm text-muted-foreground">
+        <p className="line-clamp-2 text-sm text-muted-foreground">
           {project.shortDescription}
         </p>
       </div>
