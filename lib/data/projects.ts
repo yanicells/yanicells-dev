@@ -1,3 +1,5 @@
+export type ProjectCategory = "featured" | "webdev" | "java";
+
 export interface Project {
   title: string;
   description: string;
@@ -5,18 +7,10 @@ export interface Project {
   repo?: string;
   demo?: string;
   image: string;
+  category: ProjectCategory;
 }
 
 export const projects: Project[] = [
-  {
-    title: "Redhead Redemption",
-    description:
-      "A LAN-based multiplayer top-down shooter with custom networking, enemy AI, leveling systems, and hand-drawn pixel art assets.",
-    tech: ["Java", "Sockets", "Multithreading"],
-    repo: "https://github.com/yanicells/Redhead-Redemption",
-    demo: "https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view",
-    image: "/projects/redemption.png",
-  },
   {
     title: "UniSort",
     description:
@@ -25,6 +19,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/UniSort",
     demo: "https://unisort.ycells.com",
     image: "/projects/unisort.png",
+    category: "featured",
   },
   {
     title: "MISAyang Samahan",
@@ -33,6 +28,17 @@ export const projects: Project[] = [
     tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
     demo: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
+    category: "featured",
+  },
+  {
+    title: "Redhead Redemption",
+    description:
+      "A LAN-based multiplayer top-down shooter with custom networking, enemy AI, leveling systems, and hand-drawn pixel art assets.",
+    tech: ["Java", "Sockets", "Multithreading"],
+    repo: "https://github.com/yanicells/Redhead-Redemption",
+    demo: "https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view",
+    image: "/projects/redemption.png",
+    category: "featured",
   },
   {
     title: "Chika",
@@ -42,6 +48,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/chika",
     demo: "https://chika.yanicells.dev",
     image: "/projects/chika.png",
+    category: "webdev",
   },
   {
     title: "CityCraft",
@@ -50,6 +57,7 @@ export const projects: Project[] = [
     tech: ["Java", "Swing", "Multithreading"],
     repo: "https://github.com/yanicells/CityCraft",
     image: "/projects/citycraft.png",
+    category: "java",
   },
   {
     title: "Musicells",
@@ -59,6 +67,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/musicells",
     demo: "https://musicells.yanicells.dev",
     image: "/projects/musicells.png",
+    category: "webdev",
   },
   {
     title: "NASA APIs Explorer",
@@ -68,6 +77,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/NASA-APIs",
     demo: "https://drive.google.com/file/d/1n3MuIYU4EHJ0Kgk4n10nx89EVc9-OFR8/view",
     image: "/projects/nasa.png",
+    category: "webdev",
   },
   {
     title: "Pixcells",
@@ -77,6 +87,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/pixcells",
     demo: "https://pixcells.yanicells.dev",
     image: "/projects/pixcells.png",
+    category: "webdev",
   },
   {
     title: "Blogcells",
@@ -86,6 +97,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/Blogcells",
     demo: "https://drive.google.com/file/d/1RS3xFCqgAiJHtbu3laanLfSTznuTugma/view",
     image: "/projects/blogcells.png",
+    category: "webdev",
   },
   {
     title: "Travel-Tracker",
@@ -95,5 +107,6 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/Travel-Tracker",
     demo: "https://drive.google.com/file/d/1pqytL2KhTOcpOAdIYb-RZQhJROimU8p3/view",
     image: "/projects/travel.png",
+    category: "webdev",
   },
 ];
