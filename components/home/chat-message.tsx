@@ -1,9 +1,9 @@
 "use client";
 
 import { memo } from "react";
+import Image from "next/image";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { User, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -12,9 +12,72 @@ interface ChatMessageProps {
   content: string;
 }
 
+/** Shared markdown component config — hoisted to avoid re-creation. */
+const remarkPlugins = [remarkGfm];
+
+const markdownComponents = {
+  p: ({ children }: { children?: React.ReactNode }) => (
+    <p className="mb-3 last:mb-0">{children}</p>
+  ),
+  ul: ({ children }: { children?: React.ReactNode }) => (
+    <ul className="mb-3 ml-4 list-disc last:mb-0">{children}</ul>
+  ),
+  ol: ({ children }: { children?: React.ReactNode }) => (
+    <ol className="mb-3 ml-4 list-decimal last:mb-0">{children}</ol>
+  ),
+  li: ({ children }: { children?: React.ReactNode }) => (
+    <li className="mb-1">{children}</li>
+  ),
+  code: ({
+    className,
+    children,
+    ...props
+  }: {
+    className?: string;
+    children?: React.ReactNode;
+  }) => {
+    const isInline = !className;
+    return isInline ? (
+      <code
+        className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs"
+        {...props}
+      >
+        {children}
+      </code>
+    ) : (
+      <code
+        className={cn(
+          "block overflow-x-auto rounded-lg bg-secondary p-3 font-mono text-xs",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }: { children?: React.ReactNode }) => (
+    <pre className="mb-3 last:mb-0">{children}</pre>
+  ),
+  strong: ({ children }: { children?: React.ReactNode }) => (
+    <strong className="font-semibold">{children}</strong>
+  ),
+  a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-primary underline underline-offset-2 hover:text-primary/80"
+    >
+      {children}
+    </a>
+  ),
+};
+
 /**
- * Memoized chat message bubble.
- * User messages are right-aligned; model messages are left-aligned with an icon.
+ * Memoized chat message.
+ * User messages: right-aligned bubble, no avatar.
+ * Model messages: left-aligned plain text with profile avatar.
  */
 const ChatMessage = memo(function ChatMessage({
   role,
@@ -22,94 +85,34 @@ const ChatMessage = memo(function ChatMessage({
 }: ChatMessageProps) {
   const isUser = role === "user";
 
-  return (
-    <div
-      className={cn(
-        "flex w-full gap-3",
-        isUser ? "justify-end" : "justify-start"
-      )}
-    >
-      {/* Model avatar */}
-      {!isUser && (
-        <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-          <Sparkles className="size-4" />
-        </div>
-      )}
-
-      <div
-        className={cn(
-          "max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed md:max-w-[70%]",
-          isUser
-            ? "bg-primary text-primary-foreground"
-            : "bg-muted text-foreground"
-        )}
-      >
-        {isUser ? (
+  if (isUser) {
+    return (
+      <div className="flex w-full justify-end">
+        <div className="max-w-[80%] rounded-2xl bg-secondary px-4 py-3 text-sm leading-relaxed text-foreground md:max-w-[70%]">
           <p className="whitespace-pre-wrap">{content}</p>
-        ) : (
-          <Markdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              p: ({ children }) => (
-                <p className="mb-2 last:mb-0">{children}</p>
-              ),
-              ul: ({ children }) => (
-                <ul className="mb-2 ml-4 list-disc last:mb-0">{children}</ul>
-              ),
-              ol: ({ children }) => (
-                <ol className="mb-2 ml-4 list-decimal last:mb-0">{children}</ol>
-              ),
-              li: ({ children }) => <li className="mb-0.5">{children}</li>,
-              code: ({ className, children, ...props }) => {
-                const isInline = !className;
-                return isInline ? (
-                  <code
-                    className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs"
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                ) : (
-                  <code
-                    className={cn(
-                      "block overflow-x-auto rounded-lg bg-secondary p-3 font-mono text-xs",
-                      className
-                    )}
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              },
-              pre: ({ children }) => (
-                <pre className="mb-2 last:mb-0">{children}</pre>
-              ),
-              strong: ({ children }) => (
-                <strong className="font-semibold">{children}</strong>
-              ),
-              a: ({ href, children }) => (
-                <a
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 hover:text-primary/80"
-                >
-                  {children}
-                </a>
-              ),
-            }}
-          >
-            {content}
-          </Markdown>
-        )}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex w-full gap-3">
+      {/* AI avatar — yani.png */}
+      <div className="relative size-7 shrink-0 overflow-hidden rounded-full border border-border">
+        <Image
+          src="/yani.png"
+          alt="Yani AI"
+          fill
+          className="object-cover"
+          sizes="28px"
+        />
       </div>
 
-      {/* User avatar */}
-      {isUser && (
-        <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground">
-          <User className="size-4" />
-        </div>
-      )}
+      <div className="min-w-0 flex-1 text-sm leading-relaxed text-foreground">
+        <Markdown remarkPlugins={remarkPlugins} components={markdownComponents}>
+          {content}
+        </Markdown>
+      </div>
     </div>
   );
 });
@@ -120,13 +123,19 @@ ChatMessage.displayName = "ChatMessage";
 function ChatMessageSkeleton() {
   return (
     <div className="flex w-full gap-3">
-      <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary">
-        <Sparkles className="size-4" />
+      <div className="relative size-7 shrink-0 overflow-hidden rounded-full border border-border">
+        <Image
+          src="/yani.png"
+          alt="Yani AI"
+          fill
+          className="object-cover"
+          sizes="28px"
+        />
       </div>
-      <div className="flex max-w-[70%] flex-col gap-2 rounded-2xl bg-muted px-4 py-3">
-        <Skeleton className="h-3 w-48" />
-        <Skeleton className="h-3 w-36" />
-        <Skeleton className="h-3 w-24" />
+      <div className="flex min-w-0 flex-1 flex-col gap-2 pt-1">
+        <Skeleton className="h-3 w-3/4" />
+        <Skeleton className="h-3 w-1/2" />
+        <Skeleton className="h-3 w-1/3" />
       </div>
     </div>
   );

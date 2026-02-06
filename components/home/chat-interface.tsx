@@ -10,12 +10,99 @@ import {
 } from "react";
 import { SendHorizontal, Plus, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ChatMessage, ChatMessageSkeleton } from "@/components/home/chat-message";
+import {
+  ChatMessage,
+  ChatMessageSkeleton,
+} from "@/components/home/chat-message";
 
 interface Message {
   id: string;
   role: "user" | "model";
   content: string;
+}
+
+/** Input bar — reused in both empty state and chat state. */
+function ChatInputBar({
+  input,
+  isLoading,
+  hasMessages,
+  textareaRef,
+  onSubmit,
+  onChange,
+  onKeyDown,
+  onStop,
+  onNewChat,
+}: {
+  input: string;
+  isLoading: boolean;
+  hasMessages: boolean;
+  textareaRef: React.RefObject<HTMLTextAreaElement | null>;
+  onSubmit: (e: FormEvent) => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onKeyDown: (e: KeyboardEvent<HTMLTextAreaElement>) => void;
+  onStop: () => void;
+  onNewChat: () => void;
+}) {
+  return (
+    <div className="w-full">
+      <form
+        onSubmit={onSubmit}
+        className="mx-auto flex w-full max-w-3xl items-end gap-2"
+      >
+        {hasMessages && (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={onNewChat}
+            aria-label="New chat"
+            className="shrink-0 text-muted-foreground hover:text-foreground"
+          >
+            <Plus className="size-5" />
+          </Button>
+        )}
+
+        <div className="relative flex min-h-[48px] flex-1 items-end rounded-2xl border border-border bg-muted/50 py-1.5 pl-4 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
+          <textarea
+            ref={textareaRef}
+            value={input}
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            placeholder="Ask anything"
+            rows={1}
+            disabled={isLoading}
+            className="my-1 max-h-[200px] w-full resize-none bg-transparent text-sm leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50"
+          />
+          {isLoading ? (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon-sm"
+              onClick={onStop}
+              aria-label="Stop generating"
+              className="shrink-0 text-muted-foreground hover:text-foreground"
+            >
+              <Square className="size-4" />
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              variant="default"
+              size="icon-sm"
+              disabled={!input.trim()}
+              aria-label="Send message"
+              className="shrink-0 rounded-xl"
+            >
+              <SendHorizontal className="size-4" />
+            </Button>
+          )}
+        </div>
+      </form>
+      <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-muted-foreground">
+        Powered by Gemini 2.5 Flash · Responses may not always be accurate
+      </p>
+    </div>
+  );
 }
 
 /**
@@ -45,7 +132,7 @@ export function ChatInterface() {
       textarea.style.height = "auto";
       textarea.style.height = `${Math.min(textarea.scrollHeight, 200)}px`;
     },
-    []
+    [],
   );
 
   const resetTextarea = useCallback(() => {
@@ -119,8 +206,8 @@ export function ChatInterface() {
               prev.map((m) =>
                 m.id === assistantMessage.id
                   ? { ...m, content: m.content + chunk }
-                  : m
-              )
+                  : m,
+              ),
             );
           }
         }
@@ -138,7 +225,7 @@ export function ChatInterface() {
             return prev.map((m) =>
               m.id === assistantMessage.id
                 ? { ...m, content: `⚠️ ${errorContent}` }
-                : m
+                : m,
             );
           }
           // Otherwise add the error as a new assistant message
@@ -152,7 +239,7 @@ export function ChatInterface() {
         setIsLoading(false);
       }
     },
-    [isLoading, messages, resetTextarea]
+    [isLoading, messages, resetTextarea],
   );
 
   const handleSubmit = useCallback(
@@ -160,7 +247,7 @@ export function ChatInterface() {
       e.preventDefault();
       sendMessage(input);
     },
-    [input, sendMessage]
+    [input, sendMessage],
   );
 
   const handleKeyDown = useCallback(
@@ -170,7 +257,7 @@ export function ChatInterface() {
         sendMessage(input);
       }
     },
-    [input, sendMessage]
+    [input, sendMessage],
   );
 
   const handleNewChat = useCallback(() => {
@@ -181,92 +268,62 @@ export function ChatInterface() {
 
   return (
     <div className="flex h-[calc(100vh-3.5rem)] flex-col">
-      {/* Messages area or empty state */}
       {hasMessages ? (
-        <div className="flex-1 overflow-y-auto">
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
-            {messages.map((message) =>
-              message.role === "model" && message.content === "" ? (
-                <ChatMessageSkeleton key={message.id} />
-              ) : (
-                <ChatMessage
-                  key={message.id}
-                  role={message.role}
-                  content={message.content}
-                />
-              )
-            )}
-            <div ref={messagesEndRef} />
+        <>
+          {/* Scrollable messages */}
+          <div className="flex-1 overflow-y-auto">
+            <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
+              {messages.map((message) =>
+                message.role === "model" && message.content === "" ? (
+                  <ChatMessageSkeleton key={message.id} />
+                ) : (
+                  <ChatMessage
+                    key={message.id}
+                    role={message.role}
+                    content={message.content}
+                  />
+                ),
+              )}
+              <div ref={messagesEndRef} />
+            </div>
           </div>
-        </div>
+
+          {/* Bottom input */}
+          <div className="bg-background px-4 pb-4 pt-2">
+            <ChatInputBar
+              input={input}
+              isLoading={isLoading}
+              hasMessages={hasMessages}
+              textareaRef={textareaRef}
+              onSubmit={handleSubmit}
+              onChange={handleTextareaChange}
+              onKeyDown={handleKeyDown}
+              onStop={stopGeneration}
+              onNewChat={handleNewChat}
+            />
+          </div>
+        </>
       ) : (
+        /* Empty state — everything centered */
         <div className="flex flex-1 flex-col items-center justify-center px-4">
           <h1 className="mb-8 text-2xl font-medium text-foreground/80 md:text-3xl">
             What&apos;s on your mind today?
           </h1>
-        </div>
-      )}
-
-      {/* Input bar — sticky bottom */}
-      <div className="border-t border-border/50 bg-background px-4 pb-4 pt-3">
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto flex w-full max-w-3xl items-end gap-2"
-        >
-          {hasMessages && (
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={handleNewChat}
-              aria-label="New chat"
-              className="shrink-0 text-muted-foreground hover:text-foreground"
-            >
-              <Plus className="size-5" />
-            </Button>
-          )}
-
-          <div className="relative flex min-h-[44px] flex-1 items-end rounded-2xl border border-border bg-muted/50 px-4 py-2.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
-            <textarea
-              ref={textareaRef}
-              value={input}
+          <div className="w-full max-w-3xl">
+            <ChatInputBar
+              input={input}
+              isLoading={isLoading}
+              hasMessages={hasMessages}
+              textareaRef={textareaRef}
+              onSubmit={handleSubmit}
               onChange={handleTextareaChange}
               onKeyDown={handleKeyDown}
-              placeholder="Ask anything"
-              rows={1}
-              disabled={isLoading}
-              className="max-h-[200px] w-full resize-none bg-transparent text-sm leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50"
+              onStop={stopGeneration}
+              onNewChat={handleNewChat}
             />
           </div>
-
-          {isLoading ? (
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              onClick={stopGeneration}
-              aria-label="Stop generating"
-              className="shrink-0 text-muted-foreground hover:text-foreground"
-            >
-              <Square className="size-4" />
-            </Button>
-          ) : (
-            <Button
-              type="submit"
-              variant="default"
-              size="icon"
-              disabled={!input.trim()}
-              aria-label="Send message"
-              className="shrink-0"
-            >
-              <SendHorizontal className="size-4" />
-            </Button>
-          )}
-        </form>
-        <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-muted-foreground">
-          Powered by Gemini 2.5 Flash · Responses may not always be accurate
-        </p>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
