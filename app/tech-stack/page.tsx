@@ -5,11 +5,11 @@ import { TechStackGrid } from "@/components/tech-stack/tech-stack-grid";
 export const metadata: Metadata = {
   title: "Tech Stack",
   description:
-    "technologies and tools yanicells uses — next.js, react, tailwindcss, typescript, postgresql, java, python, and more. explore the full stack of a cs student and web developer.",
+    "Technologies and tools Yanicells uses — Next.js, React, TailwindCSS, TypeScript, PostgreSQL, Java, Python, and more. Explore the full stack of a CS student and web developer.",
   openGraph: {
     title: "Tech Stack | Yanicells",
     description:
-      "technologies and tools yanicells uses to build web applications and software projects.",
+      "Technologies and tools Yanicells uses to build web applications and software projects.",
     url: "https://yanicells.dev/tech-stack",
   },
   alternates: {

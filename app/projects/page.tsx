@@ -5,11 +5,11 @@ import { ProjectsGrid } from "@/components/projects/projects-grid";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "explore yanicells' projects — from unisort (university matching platform) to multiplayer games, music apps, and more. built with next.js, react, java, and modern web technologies.",
+    "Explore Yanicells' projects — from UniSort (university matching platform) to multiplayer games, music apps, and more. Built with Next.js, React, Java, and modern web technologies.",
   openGraph: {
     title: "Projects | Yanicells",
     description:
-      "explore yanicells' web development and software projects built with next.js, react, java, and more.",
+      "Explore Yanicells' web development and software projects built with Next.js, React, Java, and more.",
     url: "https://yanicells.dev/projects",
   },
   alternates: {

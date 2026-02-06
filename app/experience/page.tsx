@@ -5,11 +5,11 @@ import { ExperienceTimeline } from "@/components/experience/experience-timeline"
 export const metadata: Metadata = {
   title: "Experience",
   description:
-    "edrian miguel e. capistrano's (yanicells) professional experience and involvement — organizations, roles, and contributions as a cs student and web developer.",
+    "Edrian Miguel E. Capistrano's (Yanicells) professional experience and involvement — organizations, roles, and contributions as a CS student and web developer.",
   openGraph: {
     title: "Experience | Yanicells",
     description:
-      "yanicells' professional experience, organizations, and roles as a cs student and web developer.",
+      "Yanicells' professional experience, organizations, and roles as a CS student and web developer.",
     url: "https://yanicells.dev/experience",
   },
   alternates: {
