@@ -90,28 +90,19 @@ function AboutHero() {
           <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
         </p>
 
-        {/* Buttons */}
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+        {/* Social Links */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
           <a
             href="https://resume.yanicells.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-lg"
+            className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+            aria-label="Resume"
           >
-            Resume
+            <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+            </svg>
           </a>
-          <a
-            href="https://cv.yanicells.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-lg"
-          >
-            CV
-          </a>
-        </div>
-
-        {/* Social Links */}
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
           <a
             href="mailto:edrianmiguelcapistrano@gmail.com"
             className="text-muted-foreground transition-colors duration-300 hover:text-primary"

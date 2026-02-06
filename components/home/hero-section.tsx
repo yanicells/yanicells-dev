@@ -70,28 +70,19 @@ export function HeroSection() {
               CS
             </p>
 
-            {/* CV Button */}
-            <div className="mb-10 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
+            {/* Social Links */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
               <a
                 href="https://resume.yanicells.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-xl"
+                className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+                aria-label="Resume"
               >
-                Resume
+                <svg className="size-7" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
               </a>
-              <a
-                href="https://cv.yanicells.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block rounded-lg bg-primary px-8 py-3 font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:scale-105 hover:bg-primary/90 hover:shadow-xl"
-              >
-                CV
-              </a>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex flex-wrap items-center justify-center gap-6 lg:justify-start">
               <a
                 href="mailto:edrianmiguelcapistrano@gmail.com"
                 className="text-muted-foreground transition-colors duration-300 hover:text-primary"
