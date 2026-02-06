@@ -95,6 +95,8 @@ const ChatMessage = memo(function ChatMessage({
     );
   }
 
+  const isError = !isUser && content.startsWith("⚠️");
+
   return (
     <div className="flex w-full gap-3">
       {/* AI avatar — yani.png */}
@@ -108,11 +110,20 @@ const ChatMessage = memo(function ChatMessage({
         />
       </div>
 
-      <div className="min-w-0 flex-1 text-base leading-relaxed text-foreground">
-        <Markdown remarkPlugins={remarkPlugins} components={markdownComponents}>
-          {content}
-        </Markdown>
-      </div>
+      {isError ? (
+        <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          <span>{content.replace("⚠️ ", "")}</span>
+        </div>
+      ) : (
+        <div className="min-w-0 flex-1 text-base leading-relaxed text-foreground">
+          <Markdown
+            remarkPlugins={remarkPlugins}
+            components={markdownComponents}
+          >
+            {content}
+          </Markdown>
+        </div>
+      )}
     </div>
   );
 });

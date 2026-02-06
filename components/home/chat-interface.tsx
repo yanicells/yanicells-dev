@@ -46,10 +46,7 @@ function ChatInputBar({
 }) {
   return (
     <div className="w-full">
-      <form
-        onSubmit={onSubmit}
-        className="mx-auto flex w-full max-w-3xl"
-      >
+      <form onSubmit={onSubmit} className="mx-auto flex w-full max-w-3xl">
         <div className="relative flex min-h-[48px] flex-1 items-center rounded-full border border-border bg-muted/50 py-1 pl-2 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
           {hasMessages && (
             <Button
@@ -119,9 +116,11 @@ export function ChatInterface() {
 
   const hasMessages = messages.length > 0;
 
-  // Auto-scroll to bottom when messages change
+  // Auto-scroll to bottom when messages change, and re-focus the textarea
+  // (the textarea DOM node changes when switching between empty/chat states)
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    textareaRef.current?.focus();
   }, [messages]);
 
   // Auto-resize textarea
@@ -139,6 +138,7 @@ export function ChatInterface() {
     setInput("");
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
+      textareaRef.current.focus();
     }
   }, []);
 
@@ -186,6 +186,9 @@ export function ChatInterface() {
         });
 
         if (!response.ok) {
+          if (response.status === 429) {
+            throw new Error("RATE_LIMIT");
+          }
           const errorText = await response.text();
           throw new Error(errorText || "Failed to send message");
         }
@@ -216,8 +219,13 @@ export function ChatInterface() {
           // User cancelled — keep partial response
           return;
         }
-        const errorContent =
-          error instanceof Error ? error.message : "Something went wrong";
+        const isRateLimit =
+          error instanceof Error && error.message === "RATE_LIMIT";
+        const errorContent = isRateLimit
+          ? "I've reached my usage limit for now. Please wait a moment and try again! 🙏"
+          : error instanceof Error
+            ? error.message
+            : "Something went wrong";
         setMessages((prev) => {
           // If assistant message was already added, update it
           const hasAssistant = prev.some((m) => m.id === assistantMessage.id);

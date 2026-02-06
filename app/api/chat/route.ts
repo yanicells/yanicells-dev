@@ -27,7 +27,34 @@ export async function POST(req: Request) {
   });
 
   const lastMessage = messages[messages.length - 1];
-  const result = await chat.sendMessageStream(lastMessage.parts[0].text);
+
+  let result;
+  try {
+    result = await chat.sendMessageStream(lastMessage.parts[0].text);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "";
+    if (
+      message.includes("429") ||
+      message.toLowerCase().includes("quota") ||
+      message.toLowerCase().includes("rate")
+    ) {
+      return new Response(
+        JSON.stringify({
+          error: "rate_limit",
+          message:
+            "The AI has reached its usage limit. Please try again in a minute.",
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } },
+      );
+    }
+    return new Response(
+      JSON.stringify({
+        error: "api_error",
+        message: message || "Something went wrong with the AI.",
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
+    );
+  }
 
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
