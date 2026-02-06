@@ -222,7 +222,7 @@ export function ChatInterface() {
         const isRateLimit =
           error instanceof Error && error.message === "RATE_LIMIT";
         const errorContent = isRateLimit
-          ? "I've reached my usage limit for now. Please wait a moment and try again! 🙏"
+          ? "I've reached my usage limit for now. Please wait a moment and try again!"
           : error instanceof Error
             ? error.message
             : "Something went wrong";
