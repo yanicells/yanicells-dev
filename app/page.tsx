@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/shared/page-layout";
-import { HeroSection } from "@/components/home/hero-section";
+import { ChatInterface } from "@/components/home/chat-interface";
 
 export const metadata: Metadata = {
   title: "Home | Yanicells",
@@ -11,47 +11,47 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Edrian Miguel E. Capistrano",
-    alternateName: "yanicells",
-    url: "https://yanicells.dev",
-    image: "https://yanicells.dev/yani.png",
-    jobTitle: "Full-Stack Web Developer",
-    description:
-      "Full-stack web developer and computer science student at Ateneo de Manila University.",
-    sameAs: [
-      "https://github.com/yanicells",
-      "https://www.linkedin.com/in/yanicells",
-      "https://www.instagram.com/yahneyy",
-      "https://www.facebook.com/edrian.capistrano.9",
-    ],
-    alumniOf: {
-      "@type": "CollegeOrUniversity",
-      name: "Ateneo de Manila University",
-    },
-    knowsAbout: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Node.js",
-      "PostgreSQL",
-      "Java",
-      "Python",
-      "Web Development",
-    ],
-  };
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Edrian Miguel E. Capistrano",
+  alternateName: "yanicells",
+  url: "https://yanicells.dev",
+  image: "https://yanicells.dev/yani.png",
+  jobTitle: "Full-Stack Web Developer",
+  description:
+    "Full-stack web developer and computer science student at Ateneo de Manila University.",
+  sameAs: [
+    "https://github.com/yanicells",
+    "https://www.linkedin.com/in/yanicells",
+    "https://www.instagram.com/yahneyy",
+    "https://www.facebook.com/edrian.capistrano.9",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Ateneo de Manila University",
+  },
+  knowsAbout: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "TailwindCSS",
+    "Node.js",
+    "PostgreSQL",
+    "Java",
+    "Python",
+    "Web Development",
+  ],
+};
 
+export default function Page() {
   return (
     <PageLayout fullWidth>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HeroSection />
+      <ChatInterface />
     </PageLayout>
   );
 }
