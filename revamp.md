@@ -3,7 +3,7 @@ plan
 - so those are my blogs or just random thoughts
 - so it is like a saved conversation
 
-finalize plan (md plan, md chatgpt explain pages + modify) add pulsoid monitor heart rate to one of my websites
+add pulsoid monitor heart rate 
 other data accessible with my watch like sleep or steps
 _petalite on twitter
 maybe do something like my spotify listening activity
