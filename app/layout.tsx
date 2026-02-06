@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Yanicells",
   },
   description:
-    "portfolio of edrian miguel e. capistrano (yanicells) — full-stack web developer, cs student at ateneo de manila university. building with next.js, react, and modern web technologies.",
+    "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer, CS student at Ateneo de Manila University. Building with Next.js, React, and modern web technologies.",
   keywords: [
     "yanicells",
     "edrian miguel capistrano",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "yanicells",
     title: "yanicells — full-stack web developer",
     description:
-      "portfolio of edrian miguel e. capistrano (yanicells) — full-stack web developer and cs student at ateneo de manila university.",
+      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer and CS student at Ateneo de Manila University.",
     images: [
       {
         url: "/yanicells-image.png",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "yanicells — full-stack web developer",
     description:
-      "portfolio of edrian miguel e. capistrano (yanicells) — full-stack web developer and cs student at ateneo de manila university.",
+      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer and CS student at Ateneo de Manila University.",
     images: ["/yanicells-image.png"],
     creator: "@yanicells",
   },

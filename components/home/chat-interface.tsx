@@ -9,6 +9,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { SendHorizontal, Plus, Square } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   ChatMessage,
@@ -47,22 +48,21 @@ function ChatInputBar({
     <div className="w-full">
       <form
         onSubmit={onSubmit}
-        className="mx-auto flex w-full max-w-3xl items-end gap-2"
+        className="mx-auto flex w-full max-w-3xl"
       >
-        {hasMessages && (
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            onClick={onNewChat}
-            aria-label="New chat"
-            className="shrink-0 text-muted-foreground hover:text-foreground"
-          >
-            <Plus className="size-5" />
-          </Button>
-        )}
-
-        <div className="relative flex min-h-[48px] flex-1 items-end rounded-2xl border border-border bg-muted/50 py-1.5 pl-4 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
+        <div className="relative flex min-h-[48px] flex-1 items-center rounded-full border border-border bg-muted/50 py-1 pl-2 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
+          {hasMessages && (
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon-sm"
+              onClick={onNewChat}
+              aria-label="New chat"
+              className="shrink-0 rounded-full text-muted-foreground hover:text-foreground"
+            >
+              <Plus className="size-4" />
+            </Button>
+          )}
           <textarea
             ref={textareaRef}
             value={input}
@@ -71,7 +71,10 @@ function ChatInputBar({
             placeholder="Ask anything"
             rows={1}
             disabled={isLoading}
-            className="my-1 max-h-[200px] w-full resize-none bg-transparent text-sm leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50"
+            className={cn(
+              "max-h-[200px] w-full resize-none self-center bg-transparent py-2 text-base leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50",
+              hasMessages ? "pl-1" : "pl-2",
+            )}
           />
           {isLoading ? (
             <Button
@@ -80,7 +83,7 @@ function ChatInputBar({
               size="icon-sm"
               onClick={onStop}
               aria-label="Stop generating"
-              className="shrink-0 text-muted-foreground hover:text-foreground"
+              className="shrink-0 rounded-full text-muted-foreground hover:text-foreground"
             >
               <Square className="size-4" />
             </Button>
@@ -91,16 +94,13 @@ function ChatInputBar({
               size="icon-sm"
               disabled={!input.trim()}
               aria-label="Send message"
-              className="shrink-0 rounded-xl"
+              className="shrink-0 rounded-full"
             >
               <SendHorizontal className="size-4" />
             </Button>
           )}
         </div>
       </form>
-      <p className="mx-auto mt-2 max-w-3xl text-center text-xs text-muted-foreground">
-        Powered by Gemini 2.5 Flash · Responses may not always be accurate
-      </p>
     </div>
   );
 }
@@ -289,7 +289,7 @@ export function ChatInterface() {
           </div>
 
           {/* Bottom input */}
-          <div className="bg-background px-4 pb-4 pt-2">
+          <div className="bg-background px-4 pb-6 pt-2">
             <ChatInputBar
               input={input}
               isLoading={isLoading}

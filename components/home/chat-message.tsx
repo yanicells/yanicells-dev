@@ -88,7 +88,7 @@ const ChatMessage = memo(function ChatMessage({
   if (isUser) {
     return (
       <div className="flex w-full justify-end">
-        <div className="max-w-[80%] rounded-2xl bg-secondary px-4 py-3 text-sm leading-relaxed text-foreground md:max-w-[70%]">
+        <div className="max-w-[80%] rounded-2xl bg-secondary px-4 py-3 text-base leading-relaxed text-foreground md:max-w-[70%]">
           <p className="whitespace-pre-wrap">{content}</p>
         </div>
       </div>
@@ -108,7 +108,7 @@ const ChatMessage = memo(function ChatMessage({
         />
       </div>
 
-      <div className="min-w-0 flex-1 text-sm leading-relaxed text-foreground">
+      <div className="min-w-0 flex-1 text-base leading-relaxed text-foreground">
         <Markdown remarkPlugins={remarkPlugins} components={markdownComponents}>
           {content}
         </Markdown>
