@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,6 +17,40 @@ export async function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: `${project.title} | Yanicells`,
+      description: project.shortDescription,
+      url: `https://yanicells.dev/projects/${project.slug}`,
+      images: project.image
+        ? [
+            {
+              url: project.image,
+              width: 1200,
+              height: 675,
+              alt: project.title,
+            },
+          ]
+        : undefined,
+    },
+    alternates: {
+      canonical: `https://yanicells.dev/projects/${project.slug}`,
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
