@@ -3,6 +3,8 @@ plan
 - so those are my blogs or just random thoughts
 - so it is like a saved conversation
 
+important: add security measures for my api route, specifically the chat, maybe internal rate limits, and some predefined prompts to just click so that it won't generate but just return something predefinied
+
 add pulsoid monitor heart rate 
 other data accessible with my watch like sleep or steps
 _petalite on twitter
