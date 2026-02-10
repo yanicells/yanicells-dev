@@ -15,6 +15,7 @@ import {
   ChatMessage,
   ChatMessageSkeleton,
 } from "@/components/home/chat-message";
+import { quickQuestions } from "@/lib/data/quick-questions";
 
 interface Message {
   id: string;
@@ -47,7 +48,7 @@ function ChatInputBar({
   return (
     <div className="w-full">
       <form onSubmit={onSubmit} className="mx-auto flex w-full max-w-3xl">
-        <div className="relative flex min-h-[48px] flex-1 items-center rounded-full border border-border bg-muted/50 py-1 pl-2 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
+        <div className="relative flex min-h-12 flex-1 items-center rounded-full border border-border bg-muted/50 py-1 pl-2 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
           {hasMessages && (
             <Button
               type="button"
@@ -69,7 +70,7 @@ function ChatInputBar({
             rows={1}
             disabled={isLoading}
             className={cn(
-              "max-h-[200px] w-full resize-none self-center bg-transparent py-2 text-base leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50",
+              "max-h-50 w-full resize-none self-center bg-transparent py-2 text-base leading-relaxed text-foreground outline-none placeholder:text-muted-foreground disabled:opacity-50",
               hasMessages ? "pl-1" : "pl-2",
             )}
           />
@@ -282,6 +283,24 @@ export function ChatInterface() {
     resetTextarea();
   }, [stopGeneration, resetTextarea]);
 
+  /** Handle a quick question click — inject both messages with no API call. */
+  const handleQuickQuestion = useCallback(
+    (question: string, answer: string) => {
+      const userMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "user",
+        content: question,
+      };
+      const modelMsg: Message = {
+        id: crypto.randomUUID(),
+        role: "model",
+        content: answer,
+      };
+      setMessages([userMsg, modelMsg]);
+    },
+    [],
+  );
+
   return (
     <div className="flex h-[calc(100vh-3.5rem)] flex-col">
       {hasMessages ? (
@@ -325,7 +344,7 @@ export function ChatInterface() {
           <h1 className="mb-8 text-2xl font-medium text-foreground/80 md:text-3xl">
             What&apos;s on your mind today?
           </h1>
-          <div className="w-full max-w-3xl">
+          <div className="w-full max-w-3xl space-y-4">
             <ChatInputBar
               input={input}
               isLoading={isLoading}
@@ -337,6 +356,20 @@ export function ChatInterface() {
               onStop={stopGeneration}
               onNewChat={handleNewChat}
             />
+
+            {/* Quick question chips */}
+            <div className="flex flex-wrap justify-center gap-2">
+              {quickQuestions.map((qq) => (
+                <button
+                  key={qq.question}
+                  type="button"
+                  onClick={() => handleQuickQuestion(qq.question, qq.answer)}
+                  className="rounded-full border border-border bg-muted/50 px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  {qq.question}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
