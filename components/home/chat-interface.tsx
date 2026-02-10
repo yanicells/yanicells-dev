@@ -49,18 +49,16 @@ function ChatInputBar({
     <div className="w-full">
       <form onSubmit={onSubmit} className="mx-auto flex w-full max-w-3xl">
         <div className="relative flex min-h-12 flex-1 items-center rounded-full border border-border bg-muted/50 py-1 pl-2 pr-1.5 focus-within:border-ring focus-within:ring-1 focus-within:ring-ring/50">
-          {hasMessages && (
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon-sm"
-              onClick={onNewChat}
-              aria-label="New chat"
-              className="shrink-0 rounded-full text-muted-foreground hover:text-foreground"
-            >
-              <Plus className="size-4" />
-            </Button>
-          )}
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon-sm"
+            onClick={onNewChat}
+            aria-label="New chat"
+            className="shrink-0 rounded-full text-muted-foreground hover:text-foreground"
+          >
+            <Plus className="size-4" />
+          </Button>
           <textarea
             ref={textareaRef}
             value={input}
