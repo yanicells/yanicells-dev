@@ -17,6 +17,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { HelpDialog } from "@/components/shared/help-dialog";
+import { chats } from "@/lib/data/chats";
 import {
   Home,
   FolderKanban,
@@ -24,6 +25,7 @@ import {
   Layers,
   Mail,
   Briefcase,
+  MessageSquare,
   PanelLeft,
   X,
 } from "lucide-react";
@@ -144,6 +146,30 @@ export function AppSidebar() {
                     <Link href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <p className="px-2 py-1 text-xs font-medium text-muted-foreground">
+            Chats
+          </p>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {chats.map((chat) => (
+                <SidebarMenuItem key={chat.slug}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === `/chats/${chat.slug}`}
+                    tooltip={chat.title}
+                  >
+                    <Link href={`/chats/${chat.slug}`}>
+                      <MessageSquare />
+                      <span>{chat.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

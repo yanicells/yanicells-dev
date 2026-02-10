@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/data/projects";
+import { chats } from "@/lib/data/chats";
 
 const siteUrl = "https://yanicells.dev";
 
@@ -41,6 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.7,
     },
+    {
+      url: `${siteUrl}/chats`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
@@ -50,5 +57,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages];
+  const chatPages: MetadataRoute.Sitemap = chats.map((chat) => ({
+    url: `${siteUrl}/chats/${chat.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...projectPages, ...chatPages];
 }
