@@ -18,6 +18,11 @@ assets like this https://vt.tiktok.com/ZS5CH3KhX/
 
 since spotify api used a lot, maybe just integrate to this or chika since its more fun and people will use it and have some fun data etc.
 
+anime section?
+github commit section
+photography section if i want
+maybe if gamay ra akoa ideas - just consolidate them all to about me
+
 Improve SEO and add to google search console 
 ai meta sam3d for 3d generation from picture
 
