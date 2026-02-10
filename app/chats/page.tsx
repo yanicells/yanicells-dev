@@ -4,7 +4,7 @@ import { PageLayout } from "@/components/shared/page-layout";
 import { chats } from "@/lib/data/chats";
 
 export const metadata: Metadata = {
-  title: "Chats | Yanicells",
+  title: "Chats",
   description:
     "Browse through curated conversations — FAQs, behind-the-scenes, and random thoughts from Yanicells.",
 };
@@ -14,12 +14,14 @@ export default function ChatsPage() {
     <PageLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Chats</h1>
-          <p className="mt-1 text-muted-foreground">
+          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">Chats</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
             Curated conversations — FAQs, behind-the-scenes, and random
             thoughts.
           </p>
         </div>
+
+        <hr className="border-border" />
 
         <div className="divide-y divide-border">
           {chats.map((chat) => {

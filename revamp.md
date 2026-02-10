@@ -22,6 +22,8 @@ anime section?
 github commit section
 photography section if i want
 maybe if gamay ra akoa ideas - just consolidate them all to about me
+see perplexity discovery page for ui ideas - maybe consolidate but have link to each page
+(same with contact page - try maybe use discovery page sa perplexity)
 
 Improve SEO and add to google search console 
 ai meta sam3d for 3d generation from picture

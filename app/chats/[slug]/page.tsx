@@ -20,11 +20,11 @@ export async function generateMetadata({
   const chat = getChatBySlug(slug);
 
   if (!chat) {
-    return { title: "Chat Not Found | Yanicells" };
+    return { title: "Chat not found" };
   }
 
   return {
-    title: `${chat.title} | Yanicells`,
+    title: chat.title,
     description: `Read the conversation: ${chat.title}`,
   };
 }

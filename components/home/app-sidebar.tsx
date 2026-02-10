@@ -25,7 +25,6 @@ import {
   Layers,
   Mail,
   Briefcase,
-  MessageSquare,
   PanelLeft,
   X,
 } from "lucide-react";
@@ -171,7 +170,6 @@ export function AppSidebar() {
                     tooltip={chat.title}
                   >
                     <Link href={`/chats/${chat.slug}`}>
-                      <MessageSquare />
                       <span>{chat.title}</span>
                     </Link>
                   </SidebarMenuButton>
