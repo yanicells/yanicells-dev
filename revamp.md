@@ -26,6 +26,7 @@ see perplexity discovery page for ui ideas - maybe consolidate but have link to 
 have about me as the main page for the like about me and some personal stuff
 then add similar to chats, but title discovery which will be there the pages for those found in about me are listed
 note: maybe the about page current content can be for another area? either discover or chats or idk, but make another about me content that is shorter
+music section parts maybe diff for songs, artists, albums, and also some recos
 (same with contact page - try maybe use discovery page sa perplexity)
 
 Improve SEO and add to google search console 
