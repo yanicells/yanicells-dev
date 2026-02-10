@@ -25,6 +25,7 @@ maybe if gamay ra akoa ideas - just consolidate them all to about me
 see perplexity discovery page for ui ideas - maybe consolidate but have link to each page
 have about me as the main page for the like about me and some personal stuff
 then add similar to chats, but title discovery which will be there the pages for those found in about me are listed
+note: maybe the about page current content can be for another area? either discover or chats or idk, but make another about me content that is shorter
 (same with contact page - try maybe use discovery page sa perplexity)
 
 Improve SEO and add to google search console 
