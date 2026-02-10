@@ -116,12 +116,20 @@ export function ChatInterface() {
 
   const hasMessages = messages.length > 0;
 
-  // Auto-scroll to bottom when messages change, and re-focus the textarea
-  // (the textarea DOM node changes when switching between empty/chat states)
+  // Auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    textareaRef.current?.focus();
   }, [messages]);
+
+  // Re-focus the textarea after loading ends or when the textarea DOM node
+  // changes (empty → chat state switch). The browser drops focus from the
+  // textarea when it becomes disabled={isLoading}, so we must explicitly
+  // re-focus once it is re-enabled.
+  useEffect(() => {
+    if (!isLoading) {
+      textareaRef.current?.focus();
+    }
+  }, [isLoading, hasMessages]);
 
   // Auto-resize textarea
   const handleTextareaChange = useCallback(
