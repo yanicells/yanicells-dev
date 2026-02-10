@@ -155,9 +155,12 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-          <p className="px-2 py-1 text-xs font-medium text-muted-foreground">
+          <Link
+            href="/chats"
+            className="px-2 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-sidebar-foreground"
+          >
             Chats
-          </p>
+          </Link>
           <SidebarGroupContent>
             <SidebarMenu>
               {chats.map((chat) => (

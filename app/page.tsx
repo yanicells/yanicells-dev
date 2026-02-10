@@ -11,46 +11,9 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Edrian Miguel E. Capistrano",
-  alternateName: "yanicells",
-  url: "https://yanicells.dev",
-  image: "https://yanicells.dev/yani.png",
-  jobTitle: "Full-Stack Web Developer",
-  description:
-    "Full-stack web developer and computer science student at Ateneo de Manila University.",
-  sameAs: [
-    "https://github.com/yanicells",
-    "https://www.linkedin.com/in/yanicells",
-    "https://www.instagram.com/yahneyy",
-    "https://www.facebook.com/edrian.capistrano.9",
-  ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Ateneo de Manila University",
-  },
-  knowsAbout: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "TailwindCSS",
-    "Node.js",
-    "PostgreSQL",
-    "Java",
-    "Python",
-    "Web Development",
-  ],
-};
-
 export default function Page() {
   return (
     <PageLayout fullWidth>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
       <ChatInterface />
     </PageLayout>
   );

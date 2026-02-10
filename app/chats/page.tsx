@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MessageSquare } from "lucide-react";
 import { PageLayout } from "@/components/shared/page-layout";
 import { chats } from "@/lib/data/chats";
 
@@ -22,17 +21,33 @@ export default function ChatsPage() {
           </p>
         </div>
 
-        <div className="space-y-1">
-          {chats.map((chat) => (
-            <Link
-              key={chat.slug}
-              href={`/chats/${chat.slug}`}
-              className="flex items-center gap-3 rounded-lg px-3 py-3 text-sm transition-colors hover:bg-accent"
-            >
-              <MessageSquare className="size-4 shrink-0 text-muted-foreground" />
-              <span className="truncate">{chat.title}</span>
-            </Link>
-          ))}
+        <div className="divide-y divide-border">
+          {chats.map((chat) => {
+            const firstQuestion =
+              chat.messages.find((m) => m.role === "user")?.content ??
+              chat.title;
+            const firstResponse =
+              chat.messages.find((m) => m.role === "model")?.content ?? "";
+            // Strip markdown bold markers for clean preview
+            const preview = firstResponse
+              .replace(/\*\*/g, "")
+              .replace(/\n/g, " ");
+
+            return (
+              <Link
+                key={chat.slug}
+                href={`/chats/${chat.slug}`}
+                className="group block py-4"
+              >
+                <p className="font-medium text-foreground transition-colors group-hover:text-primary">
+                  {firstQuestion}
+                </p>
+                <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">
+                  {preview}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </PageLayout>
