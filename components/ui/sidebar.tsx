@@ -426,9 +426,9 @@ function SidebarMenuButton({
   const { isMobile, state } = useSidebar();
 
   const buttonClasses = cn(
-    // Base styles - larger font and height
-    "flex w-full items-center gap-2.5 overflow-hidden rounded-md text-left text-base transition-colors",
-    "h-10 px-2.5",
+    // Base styles
+    "flex w-full items-center gap-2.5 overflow-hidden rounded-md text-left text-sm transition-colors",
+    "h-9 px-2.5",
     // Hover and active states
     "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
@@ -436,8 +436,8 @@ function SidebarMenuButton({
     isActive && "bg-sidebar-accent font-medium text-sidebar-accent-foreground",
     // Collapsed state: fixed width, centered content
     "group-data-[collapsible=icon]:w-10 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center",
-    // Icon styling - larger icons
-    "[&_svg]:size-5 [&_svg]:shrink-0",
+    // Icon styling
+    "[&_svg]:size-[1.125rem] [&_svg]:shrink-0",
     // Hide text span when collapsed
     "[&>span:last-child]:truncate group-data-[collapsible=icon]:[&>span]:hidden",
     className,

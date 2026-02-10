@@ -154,7 +154,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarGroup>
+        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
           <p className="px-2 py-1 text-xs font-medium text-muted-foreground">
             Chats
           </p>
