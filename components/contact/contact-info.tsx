@@ -7,7 +7,7 @@ import {
   Instagram,
   MapPin,
   FileText,
-  ExternalLink,
+  ArrowUpRight,
 } from "lucide-react";
 
 const resumeLinks = [
@@ -60,7 +60,7 @@ const contactLinks = [
 
 export function ContactInfo() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-6">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -71,63 +71,56 @@ export function ContactInfo() {
         </p>
       </div>
 
-      {/* Resume & CV - Featured */}
-      <section>
-        <div className="mb-4">
-          <h2 className="text-xl font-bold text-foreground">Resume & CV</h2>
-          <p className="text-sm text-muted-foreground">
-            View my professional documents
-          </p>
-        </div>
+      {/* Location - clean inline */}
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <MapPin className="size-3.5" />
+        <span>Quezon City, Philippines</span>
+      </div>
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="h-px bg-border" />
+
+      {/* Resume & CV */}
+      <section className="space-y-4">
+        <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Documents
+        </h2>
+
+        <div className="flex flex-col gap-2 sm:flex-row">
           {resumeLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-primary"
+              className="group flex flex-1 items-center justify-between rounded-lg border border-border px-4 py-3 transition-colors hover:border-primary"
             >
-              <div className="relative flex size-14 shrink-0 items-center justify-center rounded-lg bg-muted">
-                <link.icon className="size-7 text-primary" />
+              <div className="flex items-center gap-3">
+                <link.icon className="size-4 text-muted-foreground transition-colors group-hover:text-primary" />
+                <div>
+                  <p className="text-sm font-medium text-foreground">
+                    {link.label}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {link.description}
+                  </p>
+                </div>
               </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-foreground">{link.label}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {link.description}
-                </p>
-              </div>
-              <ExternalLink className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+              <ArrowUpRight className="size-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Location */}
-      <section>
-        <div className="mb-4">
-          <h2 className="text-xl font-bold text-foreground">Location</h2>
-          <p className="text-sm text-muted-foreground">Based in</p>
-        </div>
-
-        <div className="flex items-center gap-4 rounded-lg p-3">
-          <MapPin className="size-5 text-muted-foreground" />
-          <span className="text-foreground">Quezon City, Philippines</span>
-        </div>
-      </section>
+      <div className="h-px bg-border" />
 
       {/* Contact Links */}
-      <section>
-        <div className="mb-4">
-          <h2 className="text-xl font-bold text-foreground">Get in Touch</h2>
-          <p className="text-sm text-muted-foreground">
-            Connect with me on these platforms
-          </p>
-        </div>
+      <section className="space-y-4">
+        <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+          Connect
+        </h2>
 
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
-          {contactLinks.map((contact, idx) => (
+        <div className="flex flex-col">
+          {contactLinks.map((contact) => (
             <Link
               key={contact.label}
               href={contact.href}
@@ -137,20 +130,16 @@ export function ContactInfo() {
                   ? undefined
                   : "noopener noreferrer"
               }
-              className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-muted"
+              className="group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 transition-colors hover:bg-muted"
             >
-              <span className="w-4 shrink-0 text-sm text-muted-foreground">
-                {idx + 1}
+              <contact.icon className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+              <span className="w-20 shrink-0 text-sm font-medium text-foreground">
+                {contact.label}
               </span>
-              <div className="text-muted-foreground transition-colors group-hover:text-foreground">
-                <contact.icon className="size-5" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-medium text-foreground">{contact.label}</p>
-                <p className="truncate text-sm text-muted-foreground">
-                  {contact.value}
-                </p>
-              </div>
+              <span className="truncate text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+                {contact.value}
+              </span>
+              <ArrowUpRight className="ml-auto size-3.5 shrink-0 text-muted-foreground/0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-muted-foreground" />
             </Link>
           ))}
         </div>
