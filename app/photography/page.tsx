@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/shared/page-layout";
+import { PhotoHeader } from "@/components/photography/photo-header";
+import { PhotoGear } from "@/components/photography/photo-gear";
+import { PhotoGallery } from "@/components/photography/photo-gallery";
+import { photoCollection } from "@/lib/data/photos";
 
 export const metadata: Metadata = {
   title: "Photography",
   description:
-    "Explore Yanicells' photography — captures, perspectives, and visual stories through the lens.",
+    "Explore Yanicells' photography — a collection of moments, perspectives, and light captured through the lens.",
   openGraph: {
     title: "Photography | Yanicells",
-    description: "Yanicells' photography captures and visual stories.",
+    description:
+      "Yanicells' photography collection — moments, perspectives, and light.",
     url: "https://yanicells.dev/photography",
   },
   alternates: {
@@ -18,13 +23,10 @@ export const metadata: Metadata = {
 export default function PhotographyPage() {
   return (
     <PageLayout>
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Photography
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          Captures, perspectives, and visual stories through the lens.
-        </p>
+      <div className="flex flex-col gap-6">
+        <PhotoHeader />
+        <PhotoGear />
+        <PhotoGallery photos={photoCollection} />
       </div>
     </PageLayout>
   );
