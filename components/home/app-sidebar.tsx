@@ -27,6 +27,10 @@ import {
   Briefcase,
   PanelLeft,
   X,
+  Compass,
+  Clapperboard,
+  Camera,
+  Music,
 } from "lucide-react";
 
 const navItems = [
@@ -35,7 +39,15 @@ const navItems = [
   { title: "Projects", url: "/projects", icon: FolderKanban },
   { title: "Experience", url: "/experience", icon: Briefcase },
   { title: "Tech Stack", url: "/tech-stack", icon: Layers },
+  { title: "Discovery", url: "/discovery", icon: Compass },
   { title: "Contact", url: "/contact", icon: Mail },
+];
+
+/** Items displayed under the "Yani's Cells" sidebar group. */
+const yanisCellsItems = [
+  { title: "Anime", url: "/anime", icon: Clapperboard },
+  { title: "Photography", url: "/photography", icon: Camera },
+  { title: "Music", url: "/music", icon: Music },
 ];
 
 export function AppSidebar() {
@@ -136,6 +148,30 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {navItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === item.url}
+                    tooltip={item.title}
+                  >
+                    <Link href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+          <span className="px-2 py-1 text-xs font-medium text-muted-foreground">
+            Yani&apos;s Cells
+          </span>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {yanisCellsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
