@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: "cdn.jsdelivr.net",
         pathname: "/gh/devicons/devicon/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.myanimelist.net",
+        pathname: "/images/**",
+      },
     ],
   },
 };

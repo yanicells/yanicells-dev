@@ -1,0 +1,1323 @@
+{
+  "20": {
+    "mal_id": 20,
+    "title": "Naruto",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1141/142503.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1141/142503l.webp",
+    "type": "TV",
+    "episodes": 220,
+    "score": 8.02,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "studio": "Studio Pierrot",
+    "year": 2002
+  },
+  "1519": {
+    "mal_id": 1519,
+    "title": "Black Lagoon: The Second Barrage",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1701/152849.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1701/152849l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.17,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Madhouse",
+    "year": 2006
+  },
+  "1535": {
+    "mal_id": 1535,
+    "title": "Death Note",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1079/138100.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1079/138100l.webp",
+    "type": "TV",
+    "episodes": 37,
+    "score": 8.62,
+    "genres": [
+      "Supernatural",
+      "Suspense"
+    ],
+    "studio": "Madhouse",
+    "year": 2006
+  },
+  "1689": {
+    "mal_id": 1689,
+    "title": "Byousoku 5 Centimeter",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1410/112994.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1410/112994l.webp",
+    "type": "Movie",
+    "episodes": 3,
+    "score": 7.55,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "CoMix Wave Films",
+    "year": null
+  },
+  "1735": {
+    "mal_id": 1735,
+    "title": "Naruto: Shippuuden",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1565/111305.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1565/111305l.webp",
+    "type": "TV",
+    "episodes": 500,
+    "score": 8.29,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "studio": "Studio Pierrot",
+    "year": 2007
+  },
+  "4224": {
+    "mal_id": 4224,
+    "title": "Toradora!",
+    "image_url": "https://cdn.myanimelist.net/images/anime/13/22128.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/13/22128l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.04,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "J.C.Staff",
+    "year": 2008
+  },
+  "9989": {
+    "mal_id": 9989,
+    "title": "Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.",
+    "image_url": "https://cdn.myanimelist.net/images/anime/5/79697.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/5/79697l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 8.29,
+    "genres": [
+      "Drama",
+      "Supernatural"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2011
+  },
+  "10408": {
+    "mal_id": 10408,
+    "title": "Hotarubi no Mori e",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1599/112267.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1599/112267l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.26,
+    "genres": [
+      "Award Winning",
+      "Drama",
+      "Romance",
+      "Supernatural"
+    ],
+    "studio": "Brain's Base",
+    "year": null
+  },
+  "11061": {
+    "mal_id": 11061,
+    "title": "Hunter x Hunter (2011)",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1337/99013.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1337/99013l.webp",
+    "type": "TV",
+    "episodes": 148,
+    "score": 9.03,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "studio": "Madhouse",
+    "year": 2011
+  },
+  "13759": {
+    "mal_id": 13759,
+    "title": "Sakura-sou no Pet na Kanojo",
+    "image_url": "https://cdn.myanimelist.net/images/anime/4/43643.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/4/43643l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.04,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "J.C.Staff",
+    "year": 2012
+  },
+  "14227": {
+    "mal_id": 14227,
+    "title": "Tonari no Kaibutsu-kun",
+    "image_url": "https://cdn.myanimelist.net/images/anime/4/39779.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/4/39779l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.45,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Brain's Base",
+    "year": 2012
+  },
+  "14813": {
+    "mal_id": 14813,
+    "title": "Yahari Ore no Seishun Love Comedy wa Machigatteiru.",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1786/120117.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1786/120117l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Brain's Base",
+    "year": 2013
+  },
+  "16498": {
+    "mal_id": 16498,
+    "title": "Shingeki no Kyojin",
+    "image_url": "https://cdn.myanimelist.net/images/anime/10/47347.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/10/47347l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.57,
+    "genres": [
+      "Action",
+      "Award Winning",
+      "Drama",
+      "Suspense"
+    ],
+    "studio": "Wit Studio",
+    "year": 2013
+  },
+  "16592": {
+    "mal_id": 16592,
+    "title": "Danganronpa: Kibou no Gakuen to Zetsubou no Koukousei The Animation",
+    "image_url": "https://cdn.myanimelist.net/images/anime/4/51463.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/4/51463l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.19,
+    "genres": [
+      "Horror",
+      "Mystery",
+      "Suspense"
+    ],
+    "studio": "Lerche",
+    "year": 2013
+  },
+  "16782": {
+    "mal_id": 16782,
+    "title": "Kotonoha no Niwa",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1597/112995.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1597/112995l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 7.85,
+    "genres": [
+      "Award Winning",
+      "Drama",
+      "Romance"
+    ],
+    "studio": "CoMix Wave Films",
+    "year": null
+  },
+  "20507": {
+    "mal_id": 20507,
+    "title": "Noragami",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1886/128266.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1886/128266l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.94,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "Bones",
+    "year": 2014
+  },
+  "21647": {
+    "mal_id": 21647,
+    "title": "Tamako Love Story",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1417/91333.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1417/91333l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 7.91,
+    "genres": [
+      "Award Winning",
+      "Romance"
+    ],
+    "studio": "Kyoto Animation",
+    "year": null
+  },
+  "21995": {
+    "mal_id": 21995,
+    "title": "Ao Haru Ride",
+    "image_url": "https://cdn.myanimelist.net/images/anime/8/64813.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/8/64813l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.63,
+    "genres": [
+      "Romance"
+    ],
+    "studio": "Production I.G",
+    "year": 2014
+  },
+  "22199": {
+    "mal_id": 22199,
+    "title": "Akame ga Kill!",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1429/95946.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1429/95946l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 7.48,
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "studio": "White Fox",
+    "year": 2014
+  },
+  "22319": {
+    "mal_id": 22319,
+    "title": "Tokyo Ghoul",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1498/134443.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1498/134443l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.79,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Horror",
+      "Suspense"
+    ],
+    "studio": "Studio Pierrot",
+    "year": 2014
+  },
+  "22535": {
+    "mal_id": 22535,
+    "title": "Kiseijuu: Sei no Kakuritsu",
+    "image_url": "https://cdn.myanimelist.net/images/anime/3/73178.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/3/73178l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.32,
+    "genres": [
+      "Action",
+      "Horror",
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "studio": "Madhouse",
+    "year": 2014
+  },
+  "23273": {
+    "mal_id": 23273,
+    "title": "Shigatsu wa Kimi no Uso",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1405/143284.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1405/143284l.webp",
+    "type": "TV",
+    "episodes": 22,
+    "score": 8.64,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2014
+  },
+  "23277": {
+    "mal_id": 23277,
+    "title": "Saenai Heroine no Sodatekata",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1329/142757.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1329/142757l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.47,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Ecchi"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2015
+  },
+  "28851": {
+    "mal_id": 28851,
+    "title": "Koe no Katachi",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1122/96435.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1122/96435l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.93,
+    "genres": [
+      "Award Winning",
+      "Drama"
+    ],
+    "studio": "Kyoto Animation",
+    "year": null
+  },
+  "28999": {
+    "mal_id": 28999,
+    "title": "Charlotte",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1826/147276.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1826/147276l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.76,
+    "genres": [
+      "Drama"
+    ],
+    "studio": "P.A. Works",
+    "year": 2015
+  },
+  "29803": {
+    "mal_id": 29803,
+    "title": "Overlord",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1945/136600.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1945/136600l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.9,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "studio": "Madhouse",
+    "year": 2015
+  },
+  "30015": {
+    "mal_id": 30015,
+    "title": "ReLIFE",
+    "image_url": "https://cdn.myanimelist.net/images/anime/3/82149.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/3/82149l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.96,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "TMS Entertainment",
+    "year": 2016
+  },
+  "30276": {
+    "mal_id": 30276,
+    "title": "One Punch Man",
+    "image_url": "https://cdn.myanimelist.net/images/anime/12/76049.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/12/76049l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.48,
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "studio": "Madhouse",
+    "year": 2015
+  },
+  "31043": {
+    "mal_id": 31043,
+    "title": "Boku dake ga Inai Machi",
+    "image_url": "https://cdn.myanimelist.net/images/anime/10/77957.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/10/77957l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.3,
+    "genres": [
+      "Mystery",
+      "Suspense"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2016
+  },
+  "31240": {
+    "mal_id": 31240,
+    "title": "Re:Zero kara Hajimeru Isekai Seikatsu",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1522/128039.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1522/128039l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.24,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Suspense"
+    ],
+    "studio": "White Fox",
+    "year": 2016
+  },
+  "32281": {
+    "mal_id": 32281,
+    "title": "Kimi no Na wa.",
+    "image_url": "https://cdn.myanimelist.net/images/anime/5/87048.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/5/87048l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.83,
+    "genres": [
+      "Award Winning",
+      "Drama"
+    ],
+    "studio": "CoMix Wave Films",
+    "year": null
+  },
+  "32729": {
+    "mal_id": 32729,
+    "title": "Orange",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1415/102477.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1415/102477l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.63,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "studio": "Telecom Animation Film",
+    "year": 2016
+  },
+  "33352": {
+    "mal_id": 33352,
+    "title": "Violet Evergarden",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1795/95088.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1795/95088l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.69,
+    "genres": [
+      "Drama"
+    ],
+    "studio": "Kyoto Animation",
+    "year": 2018
+  },
+  "34403": {
+    "mal_id": 34403,
+    "title": "Hajimete no Gal",
+    "image_url": "https://cdn.myanimelist.net/images/anime/9/86826.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/9/86826l.webp",
+    "type": "TV",
+    "episodes": 10,
+    "score": 6.27,
+    "genres": [
+      "Comedy",
+      "Romance",
+      "Ecchi"
+    ],
+    "studio": "NAZ",
+    "year": 2017
+  },
+  "34614": {
+    "mal_id": 34614,
+    "title": "Teekyuu 8 Specials",
+    "image_url": "https://cdn.myanimelist.net/images/anime/7/83506.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/7/83506l.webp",
+    "type": "Special",
+    "episodes": 2,
+    "score": 5.97,
+    "genres": [
+      "Comedy",
+      "Sports"
+    ],
+    "studio": "Millepensee",
+    "year": null
+  },
+  "34822": {
+    "mal_id": 34822,
+    "title": "Tsuki ga Kirei",
+    "image_url": "https://cdn.myanimelist.net/images/anime/2/85592.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/2/85592l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.02,
+    "genres": [
+      "Romance"
+    ],
+    "studio": "feel.",
+    "year": 2017
+  },
+  "34902": {
+    "mal_id": 34902,
+    "title": "Tsurezure Children",
+    "image_url": "https://cdn.myanimelist.net/images/anime/12/86676.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/12/86676l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.53,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Studio Gokumi",
+    "year": 2017
+  },
+  "35507": {
+    "mal_id": 35507,
+    "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
+    "image_url": "https://cdn.myanimelist.net/images/anime/5/86830.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/5/86830l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.83,
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "studio": "Lerche",
+    "year": 2017
+  },
+  "35790": {
+    "mal_id": 35790,
+    "title": "Tate no Yuusha no Nariagari",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1490/101365.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1490/101365l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 7.91,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama",
+      "Fantasy"
+    ],
+    "studio": "Kinema Citrus",
+    "year": 2019
+  },
+  "35849": {
+    "mal_id": 35849,
+    "title": "Darling in the FranXX",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1614/90408.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1614/90408l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 7.2,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Sci-Fi"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2018
+  },
+  "36098": {
+    "mal_id": 36098,
+    "title": "Kimi no Suizou wo Tabetai",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1768/93291.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1768/93291l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.55,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "Studio VOLN",
+    "year": null
+  },
+  "36231": {
+    "mal_id": 36231,
+    "title": "Hinomaru!",
+    "image_url": "https://cdn.myanimelist.net/images/anime/3/88484.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/3/88484l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": null,
+    "genres": [
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "studio": null,
+    "year": 2017
+  },
+  "37450": {
+    "mal_id": 37450,
+    "title": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1301/93586.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1301/93586l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.23,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Supernatural"
+    ],
+    "studio": "CloverWorks",
+    "year": 2018
+  },
+  "37521": {
+    "mal_id": 37521,
+    "title": "Vinland Saga",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1500/103005.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1500/103005l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.78,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama"
+    ],
+    "studio": "Wit Studio",
+    "year": 2019
+  },
+  "37779": {
+    "mal_id": 37779,
+    "title": "Yakusoku no Neverland",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1830/118780.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1830/118780l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.47,
+    "genres": [
+      "Mystery",
+      "Suspense"
+    ],
+    "studio": "CloverWorks",
+    "year": 2019
+  },
+  "37982": {
+    "mal_id": 37982,
+    "title": "Domestic na Kanojo",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1021/95670.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1021/95670l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 6.62,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "Diomedéa",
+    "year": 2019
+  },
+  "37999": {
+    "mal_id": 37999,
+    "title": "Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1295/106551.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1295/106551l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.4,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2019
+  },
+  "38000": {
+    "mal_id": 38000,
+    "title": "Kimetsu no Yaiba",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1286/99889.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1286/99889l.webp",
+    "type": "TV",
+    "episodes": 26,
+    "score": 8.41,
+    "genres": [
+      "Action",
+      "Award Winning",
+      "Supernatural"
+    ],
+    "studio": "ufotable",
+    "year": 2019
+  },
+  "38101": {
+    "mal_id": 38101,
+    "title": "5-toubun no Hanayome",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1819/97947.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1819/97947l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.62,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Tezuka Productions",
+    "year": 2019
+  },
+  "38691": {
+    "mal_id": 38691,
+    "title": "Dr. Stone",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1613/102576.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1613/102576l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.26,
+    "genres": [
+      "Adventure",
+      "Comedy"
+    ],
+    "studio": "TMS Entertainment",
+    "year": 2019
+  },
+  "38826": {
+    "mal_id": 38826,
+    "title": "Tenki no Ko",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1880/101146.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1880/101146l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.27,
+    "genres": [
+      "Award Winning",
+      "Drama",
+      "Romance",
+      "Supernatural"
+    ],
+    "studio": "CoMix Wave Films",
+    "year": null
+  },
+  "39535": {
+    "mal_id": 39535,
+    "title": "Mushoku Tensei: Isekai Ittara Honki Dasu",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1530/117776.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1530/117776l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 8.33,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy",
+      "Ecchi"
+    ],
+    "studio": "Studio Bind",
+    "year": 2021
+  },
+  "40748": {
+    "mal_id": 40748,
+    "title": "Jujutsu Kaisen",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1171/109222.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1171/109222l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.52,
+    "genres": [
+      "Action",
+      "Award Winning",
+      "Supernatural"
+    ],
+    "studio": "MAPPA",
+    "year": 2020
+  },
+  "40787": {
+    "mal_id": 40787,
+    "title": "Josee to Tora to Sakana-tachi",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1714/108892.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1714/108892l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.38,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "Bones",
+    "year": null
+  },
+  "40839": {
+    "mal_id": 40839,
+    "title": "Kanojo, Okarishimasu",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1902/128382.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1902/128382l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 6.85,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "TMS Entertainment",
+    "year": 2020
+  },
+  "40938": {
+    "mal_id": 40938,
+    "title": "Hige wo Soru. Soshite Joshikousei wo Hirou.",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1146/113477.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1146/113477l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.26,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "Project No.9",
+    "year": 2021
+  },
+  "41389": {
+    "mal_id": 41389,
+    "title": "Tonikaku Kawaii",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1613/108722.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1613/108722l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.84,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Seven Arcs",
+    "year": 2020
+  },
+  "41457": {
+    "mal_id": 41457,
+    "title": "86",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1987/117507.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1987/117507l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 8.34,
+    "genres": [
+      "Drama",
+      "Sci-Fi"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2021
+  },
+  "42249": {
+    "mal_id": 42249,
+    "title": "Tokyo Revengers",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1839/122012.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1839/122012l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 7.83,
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "studio": "LIDENFILMS",
+    "year": 2021
+  },
+  "42361": {
+    "mal_id": 42361,
+    "title": "Ijiranaide, Nagatoro-san",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1900/110097.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1900/110097l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.18,
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "Telecom Animation Film",
+    "year": 2021
+  },
+  "42897": {
+    "mal_id": 42897,
+    "title": "Horimiya",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1695/111486.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1695/111486l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.19,
+    "genres": [
+      "Romance"
+    ],
+    "studio": "CloverWorks",
+    "year": 2021
+  },
+  "42938": {
+    "mal_id": 42938,
+    "title": "Fruits Basket: The Final",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1085/114792.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1085/114792l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.94,
+    "genres": [
+      "Drama",
+      "Romance",
+      "Supernatural"
+    ],
+    "studio": "TMS Entertainment",
+    "year": 2021
+  },
+  "44511": {
+    "mal_id": 44511,
+    "title": "Chainsaw Man",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1806/126216.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1806/126216l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.43,
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "studio": "MAPPA",
+    "year": 2022
+  },
+  "46569": {
+    "mal_id": 46569,
+    "title": "Jigokuraku",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1075/131925.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1075/131925l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.09,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Supernatural"
+    ],
+    "studio": "MAPPA",
+    "year": 2023
+  },
+  "47778": {
+    "mal_id": 47778,
+    "title": "Kimetsu no Yaiba: Yuukaku-hen",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1908/120036.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1908/120036l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 8.7,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "ufotable",
+    "year": 2022
+  },
+  "47917": {
+    "mal_id": 47917,
+    "title": "Bocchi the Rock!",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1448/127956.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1448/127956l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.73,
+    "genres": [
+      "Comedy"
+    ],
+    "studio": "CloverWorks",
+    "year": 2022
+  },
+  "48171": {
+    "mal_id": 48171,
+    "title": "Summer Ghost",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1651/117943.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1651/117943l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 7.91,
+    "genres": [
+      "Drama",
+      "Supernatural"
+    ],
+    "studio": "Flat Studio",
+    "year": null
+  },
+  "48561": {
+    "mal_id": 48561,
+    "title": "Jujutsu Kaisen 0 Movie",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1121/119044.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1121/119044l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.38,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "MAPPA",
+    "year": null
+  },
+  "48736": {
+    "mal_id": 48736,
+    "title": "Sono Bisque Doll wa Koi wo Suru",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1179/119897.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1179/119897l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.13,
+    "genres": [
+      "Romance"
+    ],
+    "studio": "CloverWorks",
+    "year": 2022
+  },
+  "49596": {
+    "mal_id": 49596,
+    "title": "Blue Lock",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1258/126929.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1258/126929l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.13,
+    "genres": [
+      "Sports"
+    ],
+    "studio": "8bit",
+    "year": 2022
+  },
+  "50265": {
+    "mal_id": 50265,
+    "title": "Spy x Family",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1441/122795.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1441/122795l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.43,
+    "genres": [
+      "Action",
+      "Award Winning",
+      "Comedy"
+    ],
+    "studio": "Wit Studio",
+    "year": 2022
+  },
+  "51009": {
+    "mal_id": 51009,
+    "title": "Jujutsu Kaisen 2nd Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1792/138022.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1792/138022l.webp",
+    "type": "TV",
+    "episodes": 23,
+    "score": 8.71,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "MAPPA",
+    "year": 2023
+  },
+  "51179": {
+    "mal_id": 51179,
+    "title": "Mushoku Tensei II: Isekai Ittara Honki Dasu",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1898/138005.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1898/138005l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.2,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy",
+      "Ecchi"
+    ],
+    "studio": "Studio Bind",
+    "year": 2023
+  },
+  "51417": {
+    "mal_id": 51417,
+    "title": "Engage Kiss",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1549/125495.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1549/125495l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 6.78,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Romance"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2022
+  },
+  "51552": {
+    "mal_id": 51552,
+    "title": "Watashi no Shiawase na Kekkon",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1147/122444.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1147/122444l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 7.69,
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Romance"
+    ],
+    "studio": "Kinema Citrus",
+    "year": 2023
+  },
+  "52299": {
+    "mal_id": 52299,
+    "title": "Ore dake Level Up na Ken",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1801/142390.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1801/142390l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.19,
+    "genres": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "studio": "A-1 Pictures",
+    "year": 2024
+  },
+  "52588": {
+    "mal_id": 52588,
+    "title": "Kaijuu 8-gou",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1370/140362.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1370/140362l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.23,
+    "genres": [
+      "Action",
+      "Fantasy",
+      "Sci-Fi"
+    ],
+    "studio": "Production I.G",
+    "year": 2024
+  },
+  "52991": {
+    "mal_id": 52991,
+    "title": "Sousou no Frieren",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1015/138006.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1015/138006l.webp",
+    "type": "TV",
+    "episodes": 28,
+    "score": 9.28,
+    "genres": [
+      "Adventure",
+      "Drama",
+      "Fantasy"
+    ],
+    "studio": "Madhouse",
+    "year": 2023
+  },
+  "55701": {
+    "mal_id": 55701,
+    "title": "Kimetsu no Yaiba: Hashira Geiko-hen",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1565/142711.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1565/142711l.webp",
+    "type": "TV",
+    "episodes": 8,
+    "score": 8.03,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "ufotable",
+    "year": 2024
+  },
+  "57181": {
+    "mal_id": 57181,
+    "title": "Ao no Hako",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1496/147108.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1496/147108l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.17,
+    "genres": [
+      "Romance",
+      "Sports"
+    ],
+    "studio": "Telecom Animation Film",
+    "year": 2024
+  },
+  "57334": {
+    "mal_id": 57334,
+    "title": "Dandadan",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1584/143719.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1584/143719l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": 8.43,
+    "genres": [
+      "Action",
+      "Comedy",
+      "Supernatural"
+    ],
+    "studio": "Science SARU",
+    "year": 2024
+  },
+  "57950": {
+    "mal_id": 57950,
+    "title": "Enjou Bokumetsu! Mahou Shoujo Aiko",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1327/153300.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1327/153300l.webp",
+    "type": "TV",
+    "episodes": 12,
+    "score": null,
+    "genres": [
+      "Comedy"
+    ],
+    "studio": null,
+    "year": 2024
+  },
+  "58514": {
+    "mal_id": 58514,
+    "title": "Kusuriya no Hitorigoto 2nd Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1025/147458.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1025/147458l.webp",
+    "type": "TV",
+    "episodes": 24,
+    "score": 8.91,
+    "genres": [
+      "Drama",
+      "Mystery"
+    ],
+    "studio": "OLM",
+    "year": 2025
+  },
+  "58939": {
+    "mal_id": 58939,
+    "title": "Sakamoto Days",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1026/146459.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1026/146459l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 7.59,
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "studio": "TMS Entertainment",
+    "year": 2025
+  },
+  "59845": {
+    "mal_id": 59845,
+    "title": "Kaoru Hana wa Rin to Saku",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1744/150433.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1744/150433l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 8.56,
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "studio": "CloverWorks",
+    "year": 2025
+  },
+  "60489": {
+    "mal_id": 60489,
+    "title": "Takopii no Genzai",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1182/149879.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1182/149879l.webp",
+    "type": "ONA",
+    "episodes": 6,
+    "score": 8.77,
+    "genres": [
+      "Drama",
+      "Sci-Fi"
+    ],
+    "studio": "Enishiya",
+    "year": null
+  }
+}

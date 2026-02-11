@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/shared/page-layout";
+import { AnimeHeader } from "@/components/anime/anime-header";
+import { AnimeStats } from "@/components/anime/anime-stats";
+import { AnimeList } from "@/components/anime/anime-list";
+import { animeList } from "@/lib/data/anime";
+import { getAnimeApiDataMap } from "@/lib/jikan";
 
 export const metadata: Metadata = {
   title: "Anime",
   description:
-    "Explore Yanicells' anime interests — favorite series, recommendations, and thoughts on anime culture.",
+    "Explore Yanicells' anime watchlist — personal ratings, favorites, and thoughts on 70+ anime series and films.",
   openGraph: {
     title: "Anime | Yanicells",
-    description: "Yanicells' anime interests, favorites, and recommendations.",
+    description:
+      "Yanicells' anime watchlist with personal ratings, favorites, and recommendations.",
     url: "https://yanicells.dev/anime",
   },
   alternates: {
@@ -16,15 +22,16 @@ export const metadata: Metadata = {
 };
 
 export default function AnimePage() {
+  // Read cached anime data (pre-fetched via scripts/fetch-anime-cache.ts)
+  const malIds = animeList.map((a) => a.malId);
+  const apiDataMap = getAnimeApiDataMap(malIds);
+
   return (
     <PageLayout>
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Anime
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          My favorite anime series, recommendations, and thoughts on the medium.
-        </p>
+      <div className="flex flex-col gap-6">
+        <AnimeHeader />
+        <AnimeStats />
+        <AnimeList entries={animeList} apiDataMap={apiDataMap} />
       </div>
     </PageLayout>
   );
