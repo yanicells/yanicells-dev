@@ -29,6 +29,9 @@ note: maybe the about page current content can be for another area? either disco
 music section parts maybe diff for songs, artists, albums, and also some recos
 (same with contact page - try maybe use discovery page sa perplexity)
 
+chats
+add bisaya and tagalog chats make the topic actually appropriate for the language
+
 Improve SEO and add to google search console 
 ai meta sam3d for 3d generation from picture
 
