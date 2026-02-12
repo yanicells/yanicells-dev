@@ -1,76 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
-interface AboutContentProps {
-  shortVersion: string;
-  fullStory: string[];
-}
-
-const aboutData: AboutContentProps = {
-  shortVersion: `My first encounter with programming was in Grade 6, where for our TLE class we were learning about Scratch. I vividly remember that for our Performance Task we had to create a simple game. Panic kicked in because for that entire quarter, I really didn't pay attention. All I did in class was roam around the Lab Room, annoying my friends. Honestly, I don't remember how I even survived, but I am pretty sure my friend helped me with my game.`,
-  fullStory: [
-    `It was elementary; I still got a high grade, I think. My next encounter with it was the next year, again in our TLE class. This time around it was with HTML and CSS. The only thing I remember here was asking for help from my brother to create my website for the Performance Task (literally just plain HTML and just editing the font and color, it looked so ahh).`,
-    `Then came the actual "programming." Yes, to no one's surprise, it is in our TLE class once again. This time it was C++. I thought learning Java and Python was hard as a 1st Year; imagine teaching C++ to 9th graders during the pandemic, where no one paid attention in class. Looking back, I think this was where I had a hunch that I would enjoy coding and CS (wehh pag sure ba?...). I had fun creating our Performance Tasks (very simple Console GDP calculator), and while it was stressful, I enjoyed it, seeing a bunch of weird syntax come to life.`,
-    `Now, fast forward to Grade 10, we had robotics class. Honestly, that class should have been fun and should have taught me a lot. But my teacher didn't bother teaching anyone anything at all. We did Arduino, where we made a bunch of robots (Line Following, Obstacle Avoidance, Hand/Sensor Following, Bluetooth Control) but I did not learn anything. He just gave us the code and left everything to us. But still, I had fun (10% dahil sa robotics, 90% dahil sa groupmate eme).`,
-    `That brings me to the present. I guess I took Computer Science because I thought it would be the most fit for me. Ehh, I guess it's not too bad (my QPI says otherwise). Ateneo is where I actually learned how to code, from learning the basics in Python to more difficult concepts in Java, and I don't even know what's happening in Data Strucs but yeah that. Right now, I'm just working on honing my skills in Web Dev, mainly with Next.js while also working on personal projects. Praying to get a j*b (or get an internship) soon.`,
-  ],
-};
-
-function highlightText(text: string): React.ReactNode {
-  const highlights: Record<string, string> = {
-    "Grade 6": "text-[var(--ctp-blue)]",
-    "TLE class": "text-[var(--ctp-teal)]",
-    Scratch: "text-[var(--ctp-lavender)]",
-    "Performance Task": "text-[var(--ctp-pink)]",
-    "Panic kicked in": "italic text-[var(--ctp-red)]",
-    "high grade": "text-[var(--ctp-green)]",
-    "HTML and CSS": "text-[var(--ctp-yellow)]",
-    brother: "text-[var(--ctp-peach)]",
-    "C++": "text-[var(--ctp-blue)]",
-    Java: "text-[var(--ctp-peach)]",
-    Python: "text-[var(--ctp-yellow)]",
-    "1st Year": "text-[var(--ctp-lavender)]",
-    pandemic: "text-[var(--ctp-red)]",
-    "(wehh pag sure ba?...)": "italic text-[var(--ctp-pink)]",
-    "Console GDP calculator": "text-[var(--ctp-teal)]",
-    "Grade 10": "text-[var(--ctp-blue)]",
-    robotics: "text-[var(--ctp-green)]",
-    Arduino: "text-[var(--ctp-teal)]",
-    "Obstacle Avoidance": "text-[var(--ctp-yellow)]",
-    "Bluetooth Control": "text-[var(--ctp-blue)]",
-    "Computer Science": "text-[var(--ctp-blue)]",
-    "(my QPI says otherwise)": "italic text-[var(--ctp-red-pink)]",
-    Ateneo: "text-[var(--ctp-blue)]",
-    "Data Strucs": "text-[var(--ctp-lavender)]",
-    "Web Dev": "text-[var(--ctp-green)]",
-    "Next.js": "text-[var(--ctp-mint)]",
-  };
-
-  let result: (string | React.ReactNode)[] = [text];
-
-  Object.entries(highlights).forEach(([phrase, className]) => {
-    const newResult: (string | React.ReactNode)[] = [];
-    result.forEach((part, i) => {
-      if (typeof part !== "string") {
-        newResult.push(part);
-        return;
-      }
-      const parts = part.split(phrase);
-      parts.forEach((p, j) => {
-        if (j > 0) {
-          newResult.push(
-            <span key={`${phrase}-${i}-${j}`} className={className}>
-              {phrase}
-            </span>,
-          );
-        }
-        if (p) newResult.push(p);
-      });
-    });
-    result = newResult;
-  });
-
-  return result;
-}
+const skills = [
+  { label: "Next.js", color: "text-[var(--ctp-mint)]" },
+  { label: "React", color: "text-[var(--ctp-blue)]" },
+  { label: "TypeScript", color: "text-[var(--ctp-blue)]" },
+  { label: "Tailwind CSS", color: "text-[var(--ctp-teal)]" },
+  { label: "Node.js", color: "text-[var(--ctp-green)]" },
+  { label: "PostgreSQL", color: "text-[var(--ctp-blue)]" },
+  { label: "Python", color: "text-[var(--ctp-yellow)]" },
+  { label: "Java", color: "text-[var(--ctp-peach)]" },
+];
 
 function AboutHero() {
   return (
@@ -78,7 +18,7 @@ function AboutHero() {
       {/* Text Content */}
       <div className="flex-1 text-center sm:text-left">
         <p className="mb-1 text-sm font-medium text-primary sm:text-base">
-          Halo halo! I&apos;m
+          Hi, I&apos;m
         </p>
         <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
           Edrian Miguel E. Capistrano
@@ -87,7 +27,7 @@ function AboutHero() {
           Full-Stack Web Developer
         </p>
         <p className="mt-0.5 font-mono text-xs text-muted-foreground/80 sm:text-sm">
-          <span className="line-through">Vibe</span> Aura Coder | ADMU 2 BS CS
+          BS Computer Science · Ateneo de Manila University
         </p>
 
         {/* Social Links */}
@@ -178,23 +118,75 @@ function AboutHero() {
 export function AboutContent() {
   return (
     <div className="space-y-8">
-      {/* Hero Section (compact) */}
+      {/* Hero Section */}
       <AboutHero />
 
       <hr className="border-border" />
 
-      {/* Story Section */}
+      {/* Professional Summary */}
       <div>
-        <h2 className="mb-4 text-xl font-bold text-foreground sm:text-2xl">
-          My Story
+        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
+          What I Do
         </h2>
-        <div className="space-y-4 text-sm leading-relaxed text-foreground/90 sm:text-base">
-          <p>{highlightText(aboutData.shortVersion)}</p>
+        <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
+          I&apos;m a full-stack web developer specializing in building
+          performant, user-focused applications with{" "}
+          <span className="text-[var(--ctp-mint)]">Next.js</span>,{" "}
+          <span className="text-[var(--ctp-blue)]">TypeScript</span>, and{" "}
+          <span className="text-[var(--ctp-teal)]">Tailwind CSS</span>. I focus
+          on clean architecture, accessible interfaces, and shipping fast.
+        </p>
+      </div>
 
-          {aboutData.fullStory.map((paragraph, index) => (
-            <p key={index}>{highlightText(paragraph)}</p>
+      {/* Skills */}
+      <div>
+        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
+          Technologies
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span
+              key={skill.label}
+              className={`rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium sm:text-sm ${skill.color}`}
+            >
+              {skill.label}
+            </span>
           ))}
         </div>
+      </div>
+
+      {/* Currently */}
+      <div>
+        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
+          Currently
+        </h2>
+        <ul className="space-y-2 text-sm text-foreground/90 sm:text-base">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-green)]" />
+            Studying BS Computer Science at Ateneo de Manila University
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-blue)]" />
+            Building full-stack web apps and working on personal projects
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-peach)]" />
+            Open to internship and freelance opportunities
+          </li>
+        </ul>
+      </div>
+
+      {/* CTA to My Story */}
+      <div className="rounded-lg border border-border bg-card/50 p-4">
+        <p className="text-sm text-muted-foreground">
+          Want the full backstory?{" "}
+          <Link
+            href="/my-story"
+            className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
+          >
+            Read my story &rarr;
+          </Link>
+        </p>
       </div>
     </div>
   );

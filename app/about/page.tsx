@@ -5,11 +5,11 @@ import { AboutContent } from "@/components/about/about-content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Edrian Miguel E. Capistrano (Yanicells) — my journey into programming from Scratch and HTML in grade school to full-stack web development with Next.js at Ateneo de Manila.",
+    "Full-stack web developer specializing in Next.js, TypeScript, and modern web technologies. CS student at Ateneo de Manila University.",
   openGraph: {
     title: "About | Yanicells",
     description:
-      "Learn about Edrian Miguel E. Capistrano (Yanicells) — my journey into programming from grade school to full-stack web development.",
+      "Full-stack web developer specializing in Next.js, TypeScript, and modern web technologies.",
     url: "https://yanicells.dev/about",
   },
   alternates: {
