@@ -9,3 +9,8 @@ backlog
 home
 - please add the avatars or gif
 - add simple like redirects maybe to discovery, about me, and chats so there is a header, then the redirects, then chat, then premade questions
+
+others
+- experience tab
+- contact tab
+- contents, projects, chats, about

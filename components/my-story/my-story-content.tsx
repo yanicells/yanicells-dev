@@ -95,50 +95,12 @@ function highlightText(text: string): React.ReactNode {
 export function MyStoryContent() {
   return (
     <article className="space-y-8">
-      {/* Blog-style Header */}
+      {/* Header */}
       <header className="space-y-4">
-        <Link
-          href="/about"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
-        >
-          <svg
-            className="size-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Back to About
-        </Link>
-
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            My Story
-          </h1>
-          <p className="mt-2 text-base text-muted-foreground sm:text-lg">
+          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
             How I stumbled into programming and somehow ended up here.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-          <div className="relative size-8 overflow-hidden rounded-full ring-2 ring-border">
-            <Image
-              src="/yani.png"
-              alt="Yanicells"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div>
-            <p className="font-medium text-foreground">Yanicells</p>
-            <p className="text-xs">A story in progress</p>
-          </div>
+          </h1>
         </div>
       </header>
 
@@ -175,7 +137,8 @@ export function MyStoryContent() {
       {/* Footer CTA */}
       <div className="rounded-lg border border-border bg-card/50 p-5">
         <p className="text-sm text-muted-foreground">
-          That&apos;s the story so far. Want to see what I&apos;ve been building?{" "}
+          That&apos;s the story so far. Want to see what I&apos;ve been
+          building?{" "}
           <Link
             href="/projects"
             className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
