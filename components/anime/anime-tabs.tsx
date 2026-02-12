@@ -1,6 +1,11 @@
 "use client";
 
-type FilterTab = "all" | "favorites" | "top-rated" | "recent" | "recommendations";
+type FilterTab =
+  | "all"
+  | "favorites"
+  | "top-rated"
+  | "recent"
+  | "recommendations";
 
 const tabs: { value: FilterTab; label: string }[] = [
   { value: "all", label: "All" },

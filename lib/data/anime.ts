@@ -104,7 +104,8 @@ export const animeList: AnimeEntry[] = [
     rating: 10,
     status: ["favorite"],
     recommended: true,
-    comment: "Way deeper than the title suggests — beautiful character writing.",
+    comment:
+      "Way deeper than the title suggests — beautiful character writing.",
     watchedDate: "2021-06-11",
   },
   {

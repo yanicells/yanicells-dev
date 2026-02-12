@@ -9,9 +9,7 @@ import { type AnimeApiData } from "@/lib/jikan";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from "@/components/ui/dialog";
 
 interface AnimeCardProps {
@@ -192,40 +190,49 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
 
       {/* Detail Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="text-lg">{title}</DialogTitle>
-            {type || year ? (
-              <DialogDescription>
-                {[type, year, studio].filter(Boolean).join(" · ")}
-              </DialogDescription>
-            ) : null}
-          </DialogHeader>
+        <DialogContent
+          className="max-h-[90vh] overflow-y-auto sm:max-w-3xl"
+          overlayClassName="bg-black/40 backdrop-blur-md"
+        >
+          <DialogTitle className="sr-only">{title}</DialogTitle>
+          <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
+            {/* Left — Poster */}
+            <div className="shrink-0 sm:w-56">
+              {posterUrl ? (
+                <div className="relative mx-auto aspect-2/3 w-44 overflow-hidden rounded-lg sm:mx-0 sm:w-full">
+                  <Image
+                    src={posterUrl}
+                    alt={title}
+                    fill
+                    sizes="(max-width: 640px) 176px, 224px"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="flex aspect-2/3 w-44 items-center justify-center rounded-lg bg-muted text-sm text-muted-foreground sm:w-full">
+                  No Image
+                </div>
+              )}
+            </div>
 
-          <div className="flex flex-col gap-4">
-            {/* Poster */}
-            {posterUrl ? (
-              <div className="relative mx-auto aspect-2/3 w-48 overflow-hidden rounded-lg">
-                <Image
-                  src={posterUrl}
-                  alt={title}
-                  fill
-                  sizes="192px"
-                  className="object-cover"
-                />
+            {/* Right — Details */}
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
+              {/* Header */}
+              <div className="space-y-1">
+                <h2 className="text-xl font-bold leading-tight text-foreground">
+                  {title}
+                </h2>
+                <p className="text-sm text-muted-foreground">
+                  {[type, year, studio].filter(Boolean).join(" · ")}
+                </p>
               </div>
-            ) : null}
 
-            {/* Ratings */}
-            <div className="flex items-center justify-center gap-6">
-              <div className="flex flex-col items-center gap-1">
-                <span className="text-xs text-muted-foreground">
-                  My Rating
-                </span>
-                <div className="flex items-center gap-1">
+              {/* Ratings row */}
+              <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2">
                   <Star className="size-4 fill-current text-yellow-400" />
                   <span
-                    className={`text-lg font-bold ${getRatingColor(entry.rating)}`}
+                    className={`text-xl font-bold ${getRatingColor(entry.rating)}`}
                   >
                     {entry.rating}
                   </span>
@@ -233,106 +240,100 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
                     <>
                       <span className="text-sm text-muted-foreground">/</span>
                       <span
-                        className={`text-lg font-bold ${getRatingColor(entry.rating2)}`}
+                        className={`text-xl font-bold ${getRatingColor(entry.rating2)}`}
                       >
                         {entry.rating2}
                       </span>
                     </>
                   ) : null}
+                  <span className="text-xs text-muted-foreground">My Rating</span>
                 </div>
+                {malScore ? (
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-bold text-foreground">
+                      {malScore.toFixed(2)}
+                    </span>
+                    <span className="text-xs text-muted-foreground">MAL</span>
+                  </div>
+                ) : null}
               </div>
-              {malScore ? (
-                <div className="flex flex-col items-center gap-1">
-                  <span className="text-xs text-muted-foreground">
-                    MAL Score
-                  </span>
-                  <span className="text-lg font-bold text-foreground">
-                    {malScore.toFixed(2)}
-                  </span>
-                </div>
-              ) : null}
-            </div>
 
-            {/* Info grid */}
-            <div className="grid grid-cols-2 gap-2 text-sm">
-              {episodes ? (
-                <div>
-                  <span className="text-muted-foreground">Episodes: </span>
-                  <span className="font-medium">{episodes}</span>
-                </div>
-              ) : null}
-              {entry.watchedDate ? (
-                <div>
-                  <span className="text-muted-foreground">Watched: </span>
-                  <span className="font-medium">
+              {/* Meta */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                {episodes ? (
+                  <span>{episodes} episodes</span>
+                ) : null}
+                {entry.watchedDate ? (
+                  <span>
+                    Watched{" "}
                     {new Date(entry.watchedDate).toLocaleDateString("en-US", {
                       month: "short",
                       year: "numeric",
                     })}
                   </span>
+                ) : null}
+              </div>
+
+              {/* Genres */}
+              {genres.length > 0 ? (
+                <div className="flex flex-wrap gap-1.5">
+                  {genres.map((genre) => (
+                    <Badge key={genre} variant="secondary" className="text-xs">
+                      {genre}
+                    </Badge>
+                  ))}
                 </div>
               ) : null}
-            </div>
 
-            {/* All genres */}
-            {genres.length > 0 ? (
-              <div className="flex flex-wrap gap-1.5">
-                {genres.map((genre) => (
-                  <Badge key={genre} variant="secondary" className="text-xs">
-                    {genre}
-                  </Badge>
-                ))}
-              </div>
-            ) : null}
-
-            {/* Status badges */}
-            {(entry.status && entry.status.length > 0) || entry.recommended ? (
-              <div className="flex flex-wrap gap-1.5">
-                {entry.recommended ? (
-                  <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium bg-amber-500/15 text-amber-400 border-amber-500/30">
-                    <Sparkles className="size-3" />
-                    Recommended
-                  </span>
-                ) : null}
-                {entry.status?.map((s) => {
-                  const config = statusConfig[s];
-                  return (
-                    <span
-                      key={s}
-                      className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${config.className}`}
-                    >
-                      <config.icon className="size-3" />
-                      {config.label}
+              {/* Status badges */}
+              {(entry.status && entry.status.length > 0) || entry.recommended ? (
+                <div className="flex flex-wrap gap-1.5">
+                  {entry.recommended ? (
+                    <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium bg-amber-500/15 text-amber-400 border-amber-500/30">
+                      <Sparkles className="size-3" />
+                      Recommended
                     </span>
-                  );
-                })}
-              </div>
-            ) : null}
+                  ) : null}
+                  {entry.status?.map((s) => {
+                    const config = statusConfig[s];
+                    return (
+                      <span
+                        key={s}
+                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${config.className}`}
+                      >
+                        <config.icon className="size-3" />
+                        {config.label}
+                      </span>
+                    );
+                  })}
+                </div>
+              ) : null}
 
-            {/* Note */}
-            {entry.note ? (
-              <p className="text-sm italic text-muted-foreground">
-                &ldquo;{entry.note}&rdquo;
-              </p>
-            ) : null}
+              {/* Note */}
+              {entry.note ? (
+                <p className="text-sm italic text-muted-foreground">
+                  &ldquo;{entry.note}&rdquo;
+                </p>
+              ) : null}
 
-            {/* Comment */}
-            {entry.comment ? (
-              <div className="flex gap-2 rounded-lg border border-border bg-muted/50 p-3">
-                <MessageCircle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
-                <p className="text-sm text-foreground">{entry.comment}</p>
-              </div>
-            ) : null}
+              {/* Comment */}
+              {entry.comment ? (
+                <div className="flex gap-2 rounded-lg border border-border bg-muted/50 p-3">
+                  <MessageCircle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+                  <p className="text-sm text-foreground">{entry.comment}</p>
+                </div>
+              ) : null}
 
-            {/* MAL link */}
-            <a
-              href={`https://myanimelist.net/anime/${entry.malId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-            >
-              View on MyAnimeList →
-            </a>
+              {/* MAL link */}
+              <a
+                href={`https://myanimelist.net/anime/${entry.malId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+              >
+                View on MyAnimeList →
+              </a>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
