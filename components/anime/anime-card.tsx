@@ -6,11 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, Eye, Play, Star, Sparkles, MessageCircle } from "lucide-react";
 import { type AnimeEntry } from "@/lib/data/anime";
 import { type AnimeApiData } from "@/lib/jikan";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 interface AnimeCardProps {
   entry: AnimeEntry;
@@ -246,7 +242,9 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
                       </span>
                     </>
                   ) : null}
-                  <span className="text-xs text-muted-foreground">My Rating</span>
+                  <span className="text-xs text-muted-foreground">
+                    My Rating
+                  </span>
                 </div>
                 {malScore ? (
                   <div className="flex items-center gap-2">
@@ -260,9 +258,7 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
 
               {/* Meta */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                {episodes ? (
-                  <span>{episodes} episodes</span>
-                ) : null}
+                {episodes ? <span>{episodes} episodes</span> : null}
                 {entry.watchedDate ? (
                   <span>
                     Watched{" "}
@@ -286,7 +282,8 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
               ) : null}
 
               {/* Status badges */}
-              {(entry.status && entry.status.length > 0) || entry.recommended ? (
+              {(entry.status && entry.status.length > 0) ||
+              entry.recommended ? (
                 <div className="flex flex-wrap gap-1.5">
                   {entry.recommended ? (
                     <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium bg-amber-500/15 text-amber-400 border-amber-500/30">
