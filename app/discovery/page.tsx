@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/shared/page-layout";
+import { DiscoveryContent } from "@/components/discovery/discovery-content";
 
 export const metadata: Metadata = {
   title: "Discovery",
   description:
-    "Discover interesting finds, resources, and things Yanicells has stumbled upon — curated links, tools, and inspiration.",
+    "Explore Yanicells' world — anime, photography, music, projects, and more. A homepage for everything under Yani's Cells.",
   openGraph: {
     title: "Discovery | Yanicells",
     description:
-      "Curated discoveries, resources, and interesting finds from Yanicells.",
+      "Explore Yanicells' world — anime, photography, music, projects, and more.",
     url: "https://yanicells.dev/discovery",
   },
   alternates: {
@@ -19,14 +20,7 @@ export const metadata: Metadata = {
 export default function DiscoveryPage() {
   return (
     <PageLayout>
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Discovery
-        </h1>
-        <p className="text-sm text-muted-foreground">
-          Interesting finds, resources, and things I&apos;ve stumbled upon.
-        </p>
-      </div>
+      <DiscoveryContent />
     </PageLayout>
   );
 }
