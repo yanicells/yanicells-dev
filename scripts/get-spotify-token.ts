@@ -51,7 +51,7 @@ console.log(`  CLIENT_SECRET: ${CLIENT_SECRET ? "✓ Found" : "✗ Missing"}\n`)
 
 if (!CLIENT_ID || !CLIENT_SECRET) {
   console.error(
-    "\x1b[31m✗ Set SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET in .env or .env.local first.\x1b[0m"
+    "\x1b[31m✗ Set SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET in .env or .env.local first.\x1b[0m",
   );
   process.exit(1);
 }
@@ -97,7 +97,9 @@ const server = createServer(async (req, res) => {
   if (!code) {
     console.error("\n\x1b[31m✗ No authorization code received.\x1b[0m\n");
     console.error("This usually means:");
-    console.error("  1. The redirect URI in Spotify Dashboard doesn't match exactly");
+    console.error(
+      "  1. The redirect URI in Spotify Dashboard doesn't match exactly",
+    );
     console.error(`     Expected: \x1b[33m${REDIRECT_URI}\x1b[0m`);
     console.error("  2. You clicked 'Cancel' on the authorization page\n");
     res.writeHead(400, { "Content-Type": "text/html" });
@@ -116,9 +118,7 @@ const server = createServer(async (req, res) => {
   }
 
   // Exchange code for tokens
-  const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString(
-    "base64"
-  );
+  const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
 
   const tokenRes = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -193,7 +193,9 @@ server.listen(PORT, () => {
   const url = authUrl.toString();
 
   console.log("\n\x1b[36mServer started on http://127.0.0.1:8888\x1b[0m\n");
-  console.log("\x1b[1mIMPORTANT:\x1b[0m Make sure your Spotify Dashboard has this exact redirect URI:");
+  console.log(
+    "\x1b[1mIMPORTANT:\x1b[0m Make sure your Spotify Dashboard has this exact redirect URI:",
+  );
   console.log(`  \x1b[33m${REDIRECT_URI}\x1b[0m\n`);
   console.log("Opening browser for authorization...\n");
   console.log(`If it doesn't open, visit:\n  ${url}\n`);

@@ -169,7 +169,7 @@ async function getAccessToken(): Promise<string> {
 
 async function spotifyFetch<T>(
   endpoint: string,
-  params?: Record<string, string>
+  params?: Record<string, string>,
 ): Promise<T | null> {
   const token = await getAccessToken();
   const url = new URL(`${SPOTIFY_API}${endpoint}`);
@@ -195,9 +195,7 @@ async function spotifyFetch<T>(
 // -----------------------------------------------------------------------------
 
 export async function getNowPlaying(): Promise<NowPlayingData> {
-  const raw = await spotifyFetch<NowPlayingRaw>(
-    "/me/player/currently-playing"
-  );
+  const raw = await spotifyFetch<NowPlayingRaw>("/me/player/currently-playing");
 
   if (!raw || !raw.item || raw.currently_playing_type !== "track") {
     return { isPlaying: false };
@@ -217,22 +215,22 @@ export async function getNowPlaying(): Promise<NowPlayingData> {
 
 export async function getTopTracks(
   timeRange: TimeRange = "medium_term",
-  limit = 20
+  limit = 20,
 ): Promise<SpotifyTrack[]> {
   const data = await spotifyFetch<PaginatedResponse<SpotifyTrack>>(
     "/me/top/tracks",
-    { time_range: timeRange, limit: String(limit) }
+    { time_range: timeRange, limit: String(limit) },
   );
   return data?.items ?? [];
 }
 
 export async function getTopArtists(
   timeRange: TimeRange = "medium_term",
-  limit = 20
+  limit = 20,
 ): Promise<SpotifyArtist[]> {
   const data = await spotifyFetch<PaginatedResponse<SpotifyArtist>>(
     "/me/top/artists",
-    { time_range: timeRange, limit: String(limit) }
+    { time_range: timeRange, limit: String(limit) },
   );
   return data?.items ?? [];
 }
@@ -240,7 +238,7 @@ export async function getTopArtists(
 export async function getRecommendations(
   seedArtists: string[],
   seedTracks: string[],
-  limit = 20
+  limit = 20,
 ): Promise<SpotifyTrack[]> {
   const params: Record<string, string> = { limit: String(limit) };
 
@@ -253,16 +251,16 @@ export async function getRecommendations(
 
   const data = await spotifyFetch<RecommendationsRaw>(
     "/recommendations",
-    params
+    params,
   );
   return data?.tracks ?? [];
 }
 
 export async function getRelatedArtists(
-  artistId: string
+  artistId: string,
 ): Promise<SpotifyArtist[]> {
   const data = await spotifyFetch<{ artists: SpotifyArtist[] }>(
-    `/artists/${artistId}/related-artists`
+    `/artists/${artistId}/related-artists`,
   );
   return data?.artists ?? [];
 }
