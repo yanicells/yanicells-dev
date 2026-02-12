@@ -184,16 +184,6 @@ function ChatPreviewCard({ chat }: { chat: (typeof chats)[number] }) {
 export function DiscoveryContent() {
   return (
     <div className="space-y-10">
-      {/* Header */}
-      <div>
-        <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-          Discovery
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground sm:text-base">
-          Explore everything in Yani&apos;s corner of the internet.
-        </p>
-      </div>
-
       {/* Yani's Cells Grid — bento-style */}
       <section>
         <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
