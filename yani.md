@@ -5,3 +5,7 @@ backlog
 - add pop up view for anime
 - add reco for anime just another tab
 - responsiveness double check
+
+home
+- please add the avatars or gif
+- add simple like redirects maybe to discovery, about me, and chats so there is a header, then the redirects, then chat, then premade questions
