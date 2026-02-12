@@ -1,8 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Heart, Eye, Play, Star } from "lucide-react";
+import { Heart, Eye, Play, Star, Sparkles, MessageCircle } from "lucide-react";
 import { type AnimeEntry } from "@/lib/data/anime";
 import { type AnimeApiData } from "@/lib/jikan";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 interface AnimeCardProps {
   entry: AnimeEntry;
@@ -36,6 +46,7 @@ const statusConfig = {
 } as const;
 
 export function AnimeCard({ entry, apiData }: AnimeCardProps) {
+  const [open, setOpen] = useState(false);
   const title = entry.title;
   const posterUrl = apiData?.large_image_url ?? null;
   const genres = apiData?.genres ?? [];
@@ -46,124 +57,285 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
   const year = apiData?.year;
 
   return (
-    <div className="group flex gap-4 rounded-lg border border-border bg-card p-3 transition-colors hover:border-primary/40">
-      {/* Poster */}
-      <div className="relative aspect-2/3 w-20 shrink-0 overflow-hidden rounded-md bg-muted sm:w-24">
-        {posterUrl ? (
-          <Image
-            src={posterUrl}
-            alt={title}
-            fill
-            sizes="(max-width: 640px) 80px, 96px"
-            className="object-cover"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center text-xs text-muted-foreground">
-            No Image
-          </div>
-        )}
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="group flex w-full cursor-pointer gap-4 rounded-lg border border-border bg-card p-3 text-left transition-colors hover:border-primary/40"
+      >
+        {/* Poster */}
+        <div className="relative aspect-2/3 w-20 shrink-0 overflow-hidden rounded-md bg-muted sm:w-24">
+          {posterUrl ? (
+            <Image
+              src={posterUrl}
+              alt={title}
+              fill
+              sizes="(max-width: 640px) 80px, 96px"
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center text-xs text-muted-foreground">
+              No Image
+            </div>
+          )}
 
-        {/* Rating overlay on poster */}
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-1 bg-black/70 py-1">
-          <Star className="size-3 fill-current text-yellow-400" />
-          <span className={`text-xs font-bold ${getRatingColor(entry.rating)}`}>
-            {entry.rating}
-          </span>
-          {entry.rating2 != null ? (
-            <>
-              <span className="text-[10px] text-muted-foreground">/</span>
-              <span
-                className={`text-xs font-bold ${getRatingColor(entry.rating2)}`}
-              >
-                {entry.rating2}
-              </span>
-            </>
-          ) : null}
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
-        <div className="space-y-1.5">
-          {/* Title */}
-          <h3 className="text-sm font-semibold leading-tight text-foreground sm:text-base">
-            {title}
-          </h3>
-
-          {/* Meta row */}
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
-            {type ? <span>{type}</span> : null}
-            {episodes ? (
+          {/* Rating overlay on poster */}
+          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-center gap-1 bg-black/70 py-1">
+            <Star className="size-3 fill-current text-yellow-400" />
+            <span
+              className={`text-xs font-bold ${getRatingColor(entry.rating)}`}
+            >
+              {entry.rating}
+            </span>
+            {entry.rating2 != null ? (
               <>
-                <span className="text-border">·</span>
-                <span>{episodes} eps</span>
-              </>
-            ) : null}
-            {year ? (
-              <>
-                <span className="text-border">·</span>
-                <span>{year}</span>
-              </>
-            ) : null}
-            {studio ? (
-              <>
-                <span className="text-border">·</span>
-                <span>{studio}</span>
-              </>
-            ) : null}
-          </div>
-
-          {/* MAL score comparison */}
-          {malScore ? (
-            <p className="text-xs text-muted-foreground">
-              MAL:{" "}
-              <span className="font-medium text-foreground">
-                {malScore.toFixed(2)}
-              </span>
-            </p>
-          ) : null}
-
-          {/* Genres */}
-          {genres.length > 0 ? (
-            <div className="flex flex-wrap gap-1">
-              {genres.slice(0, 3).map((genre) => (
-                <Badge
-                  key={genre}
-                  variant="secondary"
-                  className="px-1.5 py-0 text-[10px]"
+                <span className="text-[10px] text-muted-foreground">/</span>
+                <span
+                  className={`text-xs font-bold ${getRatingColor(entry.rating2)}`}
                 >
-                  {genre}
-                </Badge>
-              ))}
+                  {entry.rating2}
+                </span>
+              </>
+            ) : null}
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="flex min-w-0 flex-1 flex-col justify-between gap-2">
+          <div className="space-y-1.5">
+            {/* Title */}
+            <h3 className="text-sm font-semibold leading-tight text-foreground sm:text-base">
+              {title}
+            </h3>
+
+            {/* Meta row */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+              {type ? <span>{type}</span> : null}
+              {episodes ? (
+                <>
+                  <span className="text-border">·</span>
+                  <span>{episodes} eps</span>
+                </>
+              ) : null}
+              {year ? (
+                <>
+                  <span className="text-border">·</span>
+                  <span>{year}</span>
+                </>
+              ) : null}
+              {studio ? (
+                <>
+                  <span className="text-border">·</span>
+                  <span>{studio}</span>
+                </>
+              ) : null}
+            </div>
+
+            {/* MAL score comparison */}
+            {malScore ? (
+              <p className="text-xs text-muted-foreground">
+                MAL:{" "}
+                <span className="font-medium text-foreground">
+                  {malScore.toFixed(2)}
+                </span>
+              </p>
+            ) : null}
+
+            {/* Genres */}
+            {genres.length > 0 ? (
+              <div className="flex flex-wrap gap-1">
+                {genres.slice(0, 3).map((genre) => (
+                  <Badge
+                    key={genre}
+                    variant="secondary"
+                    className="px-1.5 py-0 text-[10px]"
+                  >
+                    {genre}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
+
+            {/* Personal note */}
+            {entry.note ? (
+              <p className="text-xs italic text-muted-foreground">
+                &ldquo;{entry.note}&rdquo;
+              </p>
+            ) : null}
+          </div>
+
+          {/* Status badges */}
+          {(entry.status && entry.status.length > 0) || entry.recommended ? (
+            <div className="flex flex-wrap gap-1">
+              {entry.recommended ? (
+                <span className="inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium bg-amber-500/15 text-amber-400 border-amber-500/30">
+                  <Sparkles className="size-2.5" />
+                  Recommended
+                </span>
+              ) : null}
+              {entry.status?.map((s) => {
+                const config = statusConfig[s];
+                return (
+                  <span
+                    key={s}
+                    className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium ${config.className}`}
+                  >
+                    <config.icon className="size-2.5" />
+                    {config.label}
+                  </span>
+                );
+              })}
             </div>
           ) : null}
-
-          {/* Personal note */}
-          {entry.note ? (
-            <p className="text-xs italic text-muted-foreground">
-              &ldquo;{entry.note}&rdquo;
-            </p>
-          ) : null}
         </div>
+      </button>
 
-        {/* Status badges */}
-        {entry.status && entry.status.length > 0 ? (
-          <div className="flex flex-wrap gap-1">
-            {entry.status.map((s) => {
-              const config = statusConfig[s];
-              return (
-                <span
-                  key={s}
-                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-medium ${config.className}`}
-                >
-                  <config.icon className="size-2.5" />
-                  {config.label}
+      {/* Detail Dialog */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-lg">{title}</DialogTitle>
+            {type || year ? (
+              <DialogDescription>
+                {[type, year, studio].filter(Boolean).join(" · ")}
+              </DialogDescription>
+            ) : null}
+          </DialogHeader>
+
+          <div className="flex flex-col gap-4">
+            {/* Poster */}
+            {posterUrl ? (
+              <div className="relative mx-auto aspect-2/3 w-48 overflow-hidden rounded-lg">
+                <Image
+                  src={posterUrl}
+                  alt={title}
+                  fill
+                  sizes="192px"
+                  className="object-cover"
+                />
+              </div>
+            ) : null}
+
+            {/* Ratings */}
+            <div className="flex items-center justify-center gap-6">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-xs text-muted-foreground">
+                  My Rating
                 </span>
-              );
-            })}
+                <div className="flex items-center gap-1">
+                  <Star className="size-4 fill-current text-yellow-400" />
+                  <span
+                    className={`text-lg font-bold ${getRatingColor(entry.rating)}`}
+                  >
+                    {entry.rating}
+                  </span>
+                  {entry.rating2 != null ? (
+                    <>
+                      <span className="text-sm text-muted-foreground">/</span>
+                      <span
+                        className={`text-lg font-bold ${getRatingColor(entry.rating2)}`}
+                      >
+                        {entry.rating2}
+                      </span>
+                    </>
+                  ) : null}
+                </div>
+              </div>
+              {malScore ? (
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-xs text-muted-foreground">
+                    MAL Score
+                  </span>
+                  <span className="text-lg font-bold text-foreground">
+                    {malScore.toFixed(2)}
+                  </span>
+                </div>
+              ) : null}
+            </div>
+
+            {/* Info grid */}
+            <div className="grid grid-cols-2 gap-2 text-sm">
+              {episodes ? (
+                <div>
+                  <span className="text-muted-foreground">Episodes: </span>
+                  <span className="font-medium">{episodes}</span>
+                </div>
+              ) : null}
+              {entry.watchedDate ? (
+                <div>
+                  <span className="text-muted-foreground">Watched: </span>
+                  <span className="font-medium">
+                    {new Date(entry.watchedDate).toLocaleDateString("en-US", {
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </span>
+                </div>
+              ) : null}
+            </div>
+
+            {/* All genres */}
+            {genres.length > 0 ? (
+              <div className="flex flex-wrap gap-1.5">
+                {genres.map((genre) => (
+                  <Badge key={genre} variant="secondary" className="text-xs">
+                    {genre}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
+
+            {/* Status badges */}
+            {(entry.status && entry.status.length > 0) || entry.recommended ? (
+              <div className="flex flex-wrap gap-1.5">
+                {entry.recommended ? (
+                  <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium bg-amber-500/15 text-amber-400 border-amber-500/30">
+                    <Sparkles className="size-3" />
+                    Recommended
+                  </span>
+                ) : null}
+                {entry.status?.map((s) => {
+                  const config = statusConfig[s];
+                  return (
+                    <span
+                      key={s}
+                      className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${config.className}`}
+                    >
+                      <config.icon className="size-3" />
+                      {config.label}
+                    </span>
+                  );
+                })}
+              </div>
+            ) : null}
+
+            {/* Note */}
+            {entry.note ? (
+              <p className="text-sm italic text-muted-foreground">
+                &ldquo;{entry.note}&rdquo;
+              </p>
+            ) : null}
+
+            {/* Comment */}
+            {entry.comment ? (
+              <div className="flex gap-2 rounded-lg border border-border bg-muted/50 p-3">
+                <MessageCircle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+                <p className="text-sm text-foreground">{entry.comment}</p>
+              </div>
+            ) : null}
+
+            {/* MAL link */}
+            <a
+              href={`https://myanimelist.net/anime/${entry.malId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+            >
+              View on MyAnimeList →
+            </a>
           </div>
-        ) : null}
-      </div>
-    </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }

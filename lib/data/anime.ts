@@ -22,8 +22,12 @@ export interface AnimeEntry {
   rating2?: number;
   /** Personal note / thoughts */
   note?: string;
+  /** Personal comment — longer thoughts or review */
+  comment?: string;
   /** Status markers */
   status?: AnimeStatus[];
+  /** Whether this anime is personally recommended */
+  recommended?: boolean;
   /** Date watched (approximate, from discord log) */
   watchedDate: string;
 }
@@ -66,6 +70,8 @@ export const animeList: AnimeEntry[] = [
     title: "Attack on Titan",
     rating: 10,
     status: ["favorite"],
+    recommended: true,
+    comment: "Peak storytelling — every season raises the bar.",
     watchedDate: "2021-06-11",
   },
   {
@@ -97,6 +103,8 @@ export const animeList: AnimeEntry[] = [
     title: "Rascal Does Not Dream of Bunny Girl Senpai",
     rating: 10,
     status: ["favorite"],
+    recommended: true,
+    comment: "Way deeper than the title suggests — beautiful character writing.",
     watchedDate: "2021-06-11",
   },
   {
@@ -135,6 +143,8 @@ export const animeList: AnimeEntry[] = [
     title: "Violet Evergarden",
     rating: 9,
     status: ["favorite"],
+    recommended: true,
+    comment: "Visually stunning and emotionally devastating. A must-watch.",
     watchedDate: "2021-06-20",
   },
   {
@@ -186,6 +196,8 @@ export const animeList: AnimeEntry[] = [
     title: "Demon Slayer",
     rating: 9.7,
     status: ["favorite"],
+    recommended: true,
+    comment: "Ufotable animation is unmatched. The fights are breathtaking.",
     watchedDate: "2021-07-13",
   },
   {
@@ -193,6 +205,8 @@ export const animeList: AnimeEntry[] = [
     title: "Kaguya-sama: Love Is War",
     rating: 10,
     status: ["favorite"],
+    recommended: true,
+    comment: "The best romcom anime — hilarious and genuinely heartwarming.",
     watchedDate: "2021-07-18",
   },
   {
@@ -471,6 +485,8 @@ export const animeList: AnimeEntry[] = [
     title: "Frieren: Beyond Journey's End",
     rating: 9.7,
     status: ["favorite"],
+    recommended: true,
+    comment: "A masterpiece about time, memory, and what it means to connect.",
     watchedDate: "2024-07-04",
   },
   {

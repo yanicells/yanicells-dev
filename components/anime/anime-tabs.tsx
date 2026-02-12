@@ -1,12 +1,13 @@
 "use client";
 
-type FilterTab = "all" | "favorites" | "top-rated" | "recent";
+type FilterTab = "all" | "favorites" | "top-rated" | "recent" | "recommendations";
 
 const tabs: { value: FilterTab; label: string }[] = [
   { value: "all", label: "All" },
   { value: "favorites", label: "Favorites" },
   { value: "top-rated", label: "Top Rated" },
   { value: "recent", label: "Recently Watched" },
+  { value: "recommendations", label: "Recommendations" },
 ];
 
 interface AnimeTabsProps {
