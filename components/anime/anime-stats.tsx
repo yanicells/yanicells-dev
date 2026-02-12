@@ -42,10 +42,10 @@ export function AnimeStats() {
           <div key={stat.label} className="flex items-center gap-2">
             <stat.icon className="size-4 text-muted-foreground" />
             <div className="flex items-baseline gap-2">
-              <span className="text-xs uppercase tracking-wider text-muted-foreground/60">
+              <span className="text-sm text-foreground">{stat.value}</span>
+              <span className="text-sm uppercase tracking-wider text-muted-foreground/60">
                 {stat.label}
               </span>
-              <span className="text-sm text-foreground">{stat.value}</span>
             </div>
           </div>
         ))}
