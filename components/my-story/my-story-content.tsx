@@ -107,7 +107,7 @@ export function MyStoryContent() {
       {/* Hero Image */}
       <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-border">
         <Image
-          src="/yani.png"
+          src="/story.JPG"
           alt="Yanicells — My Story"
           fill
           priority
