@@ -24,7 +24,7 @@ const featured = projects.find((p) => p.isFeatured) ?? projects[0];
 
 const quickLinks = [
   {
-    label: "Chat with Me",
+    label: "Chat",
     href: "/",
     icon: <MessageCircle className="size-4" />,
     color: "text-(--ctp-blue)",
@@ -100,10 +100,7 @@ export function DiscoveryContent() {
             {/* Decorative dots */}
             <div className="absolute right-4 top-4 grid grid-cols-3 gap-1 opacity-20">
               {Array.from({ length: 9 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="size-1 rounded-full bg-(--ctp-blue)"
-                />
+                <div key={i} className="size-1 rounded-full bg-(--ctp-blue)" />
               ))}
             </div>
 
@@ -226,12 +223,12 @@ export function DiscoveryContent() {
         <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
           Explore
         </h3>
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
           {quickLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-medium transition-all duration-200 ${link.hover}`}
+              className={`group flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-medium transition-all duration-200 ${link.hover}`}
             >
               <span className={link.color}>{link.icon}</span>
               <span className="text-foreground">{link.label}</span>
