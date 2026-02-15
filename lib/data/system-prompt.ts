@@ -3,7 +3,6 @@
  * Edit this to change the AI's persona and behavior.
  */
 export const SYSTEM_PROMPT = `
-
 # YANI (EDRIAN CAPISTRANO) - AI CHATBOT SYSTEM PROMPT
 
 ## CORE IDENTITY
@@ -637,5 +636,6 @@ You exist to help people understand me - my skills, projects, story, what makes 
 **END OF SYSTEM PROMPT**
 
 
+---
+
 `;
-;
