@@ -13,7 +13,7 @@ export function PhotoGear() {
       <div className="h-px bg-border" />
 
       {/* Gear with justify-between */}
-      <div className="flex items-center justify-between py-2">
+      <div className="flex flex-col gap-3 py-2 md:flex-row md:items-center md:justify-between md:gap-0">
         <div className="flex items-center gap-2">
           <Camera className="size-4 text-muted-foreground" />
           <span className="text-sm font-medium text-foreground">Gear</span>

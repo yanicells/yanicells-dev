@@ -37,7 +37,7 @@ export function AnimeStats() {
       <div className="h-px bg-border" />
 
       {/* Stats with justify-between */}
-      <div className="flex items-center justify-between py-2">
+      <div className="flex flex-col gap-3 py-2 md:flex-row md:items-center md:justify-between md:gap-0">
         {stats.map((stat) => (
           <div key={stat.label} className="flex items-center gap-2">
             <stat.icon className="size-4 text-muted-foreground" />
