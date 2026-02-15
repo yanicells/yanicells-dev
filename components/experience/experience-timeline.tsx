@@ -232,7 +232,7 @@ export function ExperienceTimeline() {
           <section key={group.year}>
             {/* Year marker */}
             <div className="relative mb-6 flex items-center gap-4">
-              <span className="font-mono text-4xl font-black text-foreground/10 sm:text-5xl">
+              <span className="font-mono text-4xl font-black text-muted-foreground/40 sm:text-5xl">
                 {group.year}
               </span>
               <div className="h-px flex-1 bg-border/50" />
