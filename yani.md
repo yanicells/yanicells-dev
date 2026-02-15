@@ -15,3 +15,4 @@ others
 - add dress up darling s2
 - update tech stack and to add load more if more than the default n to double chrck content
 - if possible if not currently playing then show pinakqrecently played
+- page load animation? like fade in or something simple
