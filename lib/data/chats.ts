@@ -16,101 +16,102 @@ export interface ChatEntry {
 
 export const chats: ChatConversation[] = [
   {
-    slug: "tech-stack-rundown",
-    title: "Tech stack rundown",
-    messages: [
-      {
-        role: "user",
-        content: "What's your go-to tech stack?",
-      },
-      {
-        role: "model",
-        content:
-          "My primary stack revolves around **Next.js** with **TypeScript** — it's my bread and butter for full-stack web dev.\n\nFor styling I use **Tailwind CSS** with **shadcn/ui** components built on top of **Base UI** primitives. It keeps things clean and accessible without a ton of custom CSS.\n\nOn the backend side, I reach for **Drizzle ORM** with **PostgreSQL** (usually hosted on **Neon**). For auth, **Clerk** has been my go-to lately.\n\nDeployments go straight to **Vercel** — the DX is unmatched for Next.js projects.",
-      },
-      {
-        role: "user",
-        content: "Why Next.js over something like plain React or Remix?",
-      },
-      {
-        role: "model",
-        content:
-          "A few reasons:\n\n1. **Server Components** — I can fetch data on the server without shipping unnecessary JS to the client. Huge for performance.\n2. **File-based routing** — simple, predictable, and works great with layouts.\n3. **Built-in optimizations** — image optimization, font loading, metadata API — all out of the box.\n4. **Vercel integration** — deploy with a git push and get preview deployments for every PR.\n\nRemix is solid too, but Next.js just fits my workflow better. The ecosystem and community are massive.",
-      },
-      {
-        role: "user",
-        content: "Any tools or libraries you can't live without?",
-      },
-      {
-        role: "model",
-        content:
-          "Oh definitely:\n\n- **pnpm** — faster, saves disk space, strict dependency resolution\n- **Lucide Icons** — consistent, lightweight icon set\n- **Zod** — runtime validation that plays perfectly with TypeScript\n- **date-fns** — lightweight date utilities (no moment.js bloat)\n- **react-markdown** — for rendering markdown content like this chat!\n\nAnd honestly, **VS Code** with GitHub Copilot has become an extension of my brain at this point.",
-      },
-    ],
-  },
-  {
-    slug: "how-this-site-was-built",
-    title: "How this site was built",
-    messages: [
-      {
-        role: "user",
-        content: "This portfolio looks cool. How'd you build it?",
-      },
-      {
-        role: "model",
-        content:
-          "Thanks! It's built with **Next.js 15** and **TypeScript** in strict mode. The whole thing is a single-page app with a sidebar layout — inspired by tools like ChatGPT and Linear.\n\nThe chat interface on the home page actually talks to **Google's Gemini API** through a streaming endpoint. So you're getting real-time AI responses, not canned text.\n\nFor the UI, I'm using **shadcn/ui** components styled with **Tailwind CSS**. The sidebar, buttons, skeletons — everything comes from that system.",
-      },
-      {
-        role: "user",
-        content: "What about the 'Chats' section? Is that AI too?",
-      },
-      {
-        role: "model",
-        content:
-          "Nope! The Chats section is actually **completely hardcoded** — it's just a TypeScript file with pre-written conversations. Think of it like a creative FAQ section.\n\nI wanted a way to share some personality and answer common questions without requiring the AI. Plus it loads instantly since there are no API calls.\n\nThe fun part is that it reuses the exact same `ChatMessage` component as the real AI chat, so it looks and feels the same.",
-      },
-      {
-        role: "user",
-        content: "That's clever. Any plans to add more features?",
-      },
-      {
-        role: "model",
-        content:
-          "Always iterating! Some things on my radar:\n\n- **Blog section** — probably using MDX for rich content\n- **Project case studies** — deeper dives into the thinking behind each project\n- **Dark/light theme toggle** — right now it's dark mode only\n- **Analytics dashboard** — might be cool to show real-time visitor stats\n\nBut honestly, the site is mostly a playground for me to try new things and keep my skills sharp. 🚀",
-      },
-    ],
-  },
-  {
     slug: "cs-student-life",
-    title: "CS student life",
+    title: "CS student at Ateneo",
     messages: [
       {
         role: "user",
-        content: "You're a CS student at Ateneo right? How's that going?",
+        content: "You're studying CS at Ateneo?",
       },
       {
         role: "model",
         content:
-          "Yep! I'm studying **Computer Science at Ateneo de Manila University**. It's been a wild ride honestly.\n\nThe coursework is heavy — algorithms, data structures, OS, databases, software engineering... the whole nine yards. But I genuinely enjoy it. The problem-solving aspect of CS is what got me hooked in the first place.",
+          "Yeah, I'm a 2nd year Computer Science student at Ateneo de Manila University. Also doing a dual degree in organizational management because I apparently hate having free time.\n\nIt's honestly a lot. Between coursework, org stuff, side projects, and trying to have an actual life, my schedule is pretty packed. But I'm learning a ton and building things I care about so it's worth it.",
       },
       {
         role: "user",
-        content: "How do you balance school and building projects?",
+        content: "How do you balance school and coding projects?",
       },
       {
         role: "model",
         content:
-          "It's a constant juggling act. Here's what works for me:\n\n1. **Build projects around coursework** — if I need to learn databases, might as well build something real with Drizzle + Postgres.\n2. **Time-box side projects** — I give myself weekends and breaks to go hard on personal stuff.\n3. **Don't chase perfection** — ship it, learn from it, iterate later.\n4. **Stay curious** — the best learning happens when you're genuinely interested in what you're building.\n\nSome semesters are rougher than others, but the portfolio grows regardless. 💪",
+          "Not gonna lie, it's messy. Some weeks I'm super productive, some weeks I'm just trying to survive.\n\nWhat helps: I try to build projects around what I'm learning in class. Studying databases? Build something with Postgres. Learning about APIs? Make a project that uses one. That way I'm learning twice.\n\nAlso I just don't aim for perfection. Ship it, learn from it, fix it later if needed. And I take breaks when I need to. Burnout isn't worth it.",
       },
       {
         role: "user",
-        content: "Any advice for other CS students?",
+        content: "What orgs are you in?",
       },
       {
         role: "model",
         content:
-          "A few things I wish someone told me earlier:\n\n- **Build things.** Seriously. Theory is important but nothing beats shipping real projects. Employers care about what you can *do*.\n- **Learn Git properly** — not just `git add . && git commit`. Understand branching, rebasing, and PRs.\n- **Pick a stack and go deep** — it's better to be really good at one thing than mediocre at five.\n- **Network** — go to hackathons, join dev communities, talk to people building cool stuff.\n- **Take breaks** — burnout is real. Your brain needs downtime to actually absorb what you're learning.\n\nAnd most importantly: **have fun with it.** If you're not enjoying the process, something needs to change.",
+          "I'm a Developer Officer at Computer Society of the Ateneo (CompSat). I help build internal tools, run workshops, stuff like that.\n\nI'm also involved with MISA and show up to GDG events sometimes. Org life is fun but exhausting. There's always something happening, but the people are cool and I've learned a lot just from being around other builders.",
+      },
+    ],
+  },
+  {
+    slug: "life-outside-code",
+    title: "Stuff I do outside coding",
+    messages: [
+      {
+        role: "user",
+        content: "Do you do anything besides coding?",
+      },
+      {
+        role: "model",
+        content:
+          "Yeah, I'd go insane if I only coded.\n\nI'm into photography and videography. I shoot with a Canon R50 and I've been slowly building up my lens collection. I like capturing moments and telling stories visually. Done some event coverage and a short film project.\n\nI also play badminton regularly. It's my main way to stay active and de-stress.",
+      },
+      {
+        role: "user",
+        content: "What do you watch or listen to?",
+      },
+      {
+        role: "model",
+        content:
+          "I watch a lot of anime. Currently keeping up with My Hero Academia. I'm into romcoms too like Oregairu and Fruits Basket.\n\nMusic-wise I'm all over the place on Spotify. Depends on my mood. Sometimes chill stuff while coding, sometimes hype music, sometimes just whatever.\n\nI also watch way too much YouTube. Tech tutorials, photography stuff, random video essays. And yeah, Reddit rabbit holes count.",
+      },
+      {
+        role: "user",
+        content: "Where are you based?",
+      },
+      {
+        role: "model",
+        content:
+          "I'm from Iligan originally but I'm in Quezon City now for school. Still adjusting to the big city life but honestly having fun with it. The commute is a whole different level compared to back home though.\n\nI'm usually around the university area but I explore BGC, Makati, and Ayala sometimes when I want a change of scenery or need decent wifi at a coffee shop.",
+      },
+    ],
+  },
+  {
+    slug: "how-this-site-works",
+    title: "How this portfolio works",
+    messages: [
+      {
+        role: "user",
+        content: "How did you build this site?",
+      },
+      {
+        role: "model",
+        content:
+          "It's a Next.js app with TypeScript and Tailwind CSS. I wanted something different from the usual static portfolio, so I made it ChatGPT-themed.\n\nThe chatbot on the homepage is actually calling Google's Gemini API with a custom prompt that knows about me and my work. So when you ask it questions, you're getting real AI responses tailored to my background.",
+      },
+      {
+        role: "user",
+        content: "Wait, so these preset chats are fake?",
+      },
+      {
+        role: "model",
+        content:
+          "Yeah, these are just hardcoded in a TypeScript file. It's basically a FAQ section that looks like a chat.\n\nThe nice thing is it uses the same chat components as the real AI, so it looks identical. But there's no API call, it just loads instantly. I wanted a way to answer common questions without making people type into the AI every time.",
+      },
+      {
+        role: "user",
+        content:
+          "Why go with the ChatGPT theme instead of a regular portfolio?",
+      },
+      {
+        role: "model",
+        content:
+          "I guess I was bored of the typical portfolio layout. Everyone has the same hero section, project cards, contact form setup. It works but it's not memorable.\n\nI wanted something interactive that actually shows how I think and what I care about. Plus the chatbot format lets people ask what they're curious about instead of forcing them to scroll through everything.\n\nAlso I just thought it'd be fun to build. This site is as much a project itself as it is a showcase of my work.",
       },
     ],
   },
