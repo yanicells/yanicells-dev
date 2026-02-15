@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { chats } from "@/lib/data/chats";
+import { projects } from "@/lib/data/projects";
 import {
   Clapperboard,
   Camera,
@@ -13,219 +14,336 @@ import {
   Briefcase,
   Layers,
   Mail,
-  ArrowRight,
+  ArrowUpRight,
+  Sparkles,
 } from "lucide-react";
 
-/** A card in the discovery grid. */
-interface DiscoveryCard {
-  title: string;
-  description: string;
-  href: string;
-  icon: React.ReactNode;
-  accent: string;
-  /** Tailwind classes for grid span on md+ */
-  gridClass?: string;
-  image?: string;
-}
+/* ── Static data ── */
 
-const yaniCellsCards: DiscoveryCard[] = [
-  {
-    title: "Anime",
-    description:
-      "My watchlist with personal ratings and thoughts on 70+ series",
-    href: "/anime",
-    icon: <Clapperboard className="size-5" />,
-    accent: "from-[var(--ctp-pink)]/20 to-[var(--ctp-lavender)]/10",
-    gridClass: "md:col-span-2 md:row-span-2",
-    image: "/yani.png",
-  },
-  {
-    title: "Photography",
-    description: "Moments and perspectives through the lens",
-    href: "/photography",
-    icon: <Camera className="size-5" />,
-    accent: "from-[var(--ctp-teal)]/20 to-[var(--ctp-blue)]/10",
-    gridClass: "md:col-span-1",
-  },
-  {
-    title: "Music",
-    description: "Top tracks and artists from Spotify",
-    href: "/music",
-    icon: <Music className="size-5" />,
-    accent: "from-[var(--ctp-green)]/20 to-[var(--ctp-teal)]/10",
-    gridClass: "md:col-span-1",
-  },
-  {
-    title: "My Story",
-    description: "How I stumbled into programming",
-    href: "/my-story",
-    icon: <BookOpen className="size-5" />,
-    accent: "from-[var(--ctp-peach)]/20 to-[var(--ctp-yellow)]/10",
-    gridClass: "md:col-span-2",
-  },
-];
+const featured = projects.find((p) => p.isFeatured) ?? projects[0];
 
-const mainCards: DiscoveryCard[] = [
+const quickLinks = [
   {
-    title: "Chat with Me",
-    description: "Talk to my AI-powered chatbot",
+    label: "Chat with Me",
     href: "/",
-    icon: <MessageCircle className="size-5" />,
-    accent: "from-[var(--ctp-blue)]/20 to-[var(--ctp-lavender)]/10",
-    gridClass: "md:col-span-1",
+    icon: <MessageCircle className="size-4" />,
+    color: "text-(--ctp-blue)",
+    hover: "hover:bg-(--ctp-blue)/10 hover:border-(--ctp-blue)/30",
   },
   {
-    title: "Projects",
-    description: "Full-stack apps and experiments",
+    label: "Projects",
     href: "/projects",
-    icon: <FolderKanban className="size-5" />,
-    accent: "from-[var(--ctp-lavender)]/20 to-[var(--ctp-pink)]/10",
-    gridClass: "md:col-span-1",
+    icon: <FolderKanban className="size-4" />,
+    color: "text-(--ctp-lavender)",
+    hover: "hover:bg-(--ctp-lavender)/10 hover:border-(--ctp-lavender)/30",
   },
   {
-    title: "Experience",
-    description: "Work and org timeline",
+    label: "Experience",
     href: "/experience",
-    icon: <Briefcase className="size-5" />,
-    accent: "from-[var(--ctp-yellow)]/20 to-[var(--ctp-peach)]/10",
-    gridClass: "md:col-span-1",
+    icon: <Briefcase className="size-4" />,
+    color: "text-(--ctp-yellow)",
+    hover: "hover:bg-(--ctp-yellow)/10 hover:border-(--ctp-yellow)/30",
   },
   {
-    title: "Tech Stack",
-    description: "Tools and technologies I use",
+    label: "Tech Stack",
     href: "/tech-stack",
-    icon: <Layers className="size-5" />,
-    accent: "from-[var(--ctp-mint)]/20 to-[var(--ctp-green)]/10",
-    gridClass: "md:col-span-1",
+    icon: <Layers className="size-4" />,
+    color: "text-(--ctp-mint)",
+    hover: "hover:bg-(--ctp-mint)/10 hover:border-(--ctp-mint)/30",
   },
   {
-    title: "Contact",
-    description: "Get in touch",
+    label: "Contact",
     href: "/contact",
-    icon: <Mail className="size-5" />,
-    accent: "from-[var(--ctp-red-pink)]/20 to-[var(--ctp-pink)]/10",
-    gridClass: "md:col-span-1",
+    icon: <Mail className="size-4" />,
+    color: "text-(--ctp-red-pink)",
+    hover: "hover:bg-(--ctp-red-pink)/10 hover:border-(--ctp-red-pink)/30",
   },
 ];
 
-function GridCard({ card }: { card: DiscoveryCard }) {
-  const isLarge = card.gridClass?.includes("row-span-2");
+const photoGrid = [
+  {
+    src: "/photos/1.png",
+    className: "col-span-2 row-span-2 h-44 sm:h-auto",
+  },
+  { src: "/photos/IMG_2032.jpg", className: "col-span-1 h-[108px] sm:h-auto" },
+  { src: "/photos/3.png", className: "col-span-1 h-[108px] sm:h-auto" },
+  { src: "/photos/5.png", className: "col-span-1 h-[108px] sm:h-auto" },
+  {
+    src: "/photos/IMG_2161.jpg",
+    className: "col-span-1 h-[108px] sm:h-auto",
+  },
+];
 
-  return (
-    <Link
-      href={card.href}
-      className={`group relative flex overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-muted-foreground/50 hover:shadow-lg ${card.gridClass ?? ""} ${isLarge ? "min-h-[280px] flex-col" : "min-h-[120px] flex-col justify-end"}`}
-    >
-      {/* Gradient background */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${card.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
-      />
-
-      {/* Image for large cards */}
-      {isLarge && card.image && (
-        <div className="relative flex-1">
-          <Image
-            src={card.image}
-            alt={card.title}
-            fill
-            className="object-cover opacity-40 transition-opacity duration-300 group-hover:opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
-        </div>
-      )}
-
-      {/* Content */}
-      <div
-        className={`relative z-10 flex flex-col gap-2 p-4 ${isLarge ? "mt-auto" : ""}`}
-      >
-        <div className="flex items-center gap-2 text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-          {card.icon}
-          <span className="text-xs font-medium uppercase tracking-wider">
-            {card.title}
-          </span>
-        </div>
-        <p
-          className={`font-semibold text-foreground ${isLarge ? "text-lg sm:text-xl" : "text-sm"}`}
-        >
-          {card.description}
-        </p>
-        <div className="flex items-center gap-1 text-xs text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100">
-          <span>Explore</span>
-          <ArrowRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5" />
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-function ChatPreviewCard({ chat }: { chat: (typeof chats)[number] }) {
-  const firstMessage = chat.messages[1]; // first model response
-  const preview = firstMessage?.content.slice(0, 80) + "...";
-
-  return (
-    <Link
-      href={`/chats/${chat.slug}`}
-      className="group flex flex-col gap-2 rounded-lg border border-border bg-card p-3.5 transition-all duration-300 hover:border-muted-foreground/50 hover:shadow-md"
-    >
-      <p className="text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-primary">
-        {chat.title}
-      </p>
-      <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-        {preview}
-      </p>
-      <div className="mt-auto flex items-center gap-1 text-xs text-muted-foreground/60 transition-colors duration-300 group-hover:text-primary">
-        <MessageCircle className="size-3" />
-        <span>{chat.messages.length} messages</span>
-      </div>
-    </Link>
-  );
-}
+/* ── Component ── */
 
 export function DiscoveryContent() {
   return (
-    <div className="space-y-10">
-      {/* Yani's Cells Grid — bento-style */}
+    <div className="space-y-14">
+      {/* ═══ Hero Mosaic ═══ */}
       <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Yani&apos;s Cells
-        </h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
-          {yaniCellsCards.map((card) => (
-            <GridCard key={card.title} card={card} />
+        <div className="grid auto-rows-[140px] grid-cols-2 gap-3 md:grid-cols-12 md:auto-rows-[155px]">
+          {/* ── Intro / About ── */}
+          <Link
+            href="/about"
+            className="group relative col-span-2 row-span-2 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-blue)/40 hover:shadow-xl hover:shadow-(--ctp-blue)/5 md:col-span-5"
+            style={{ animation: "fadeInUp 0.5s ease both" }}
+          >
+            <Image
+              src="/yani.png"
+              alt="Yani"
+              fill
+              className="object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-55"
+              priority
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-card via-card/65 to-card/20" />
+
+            {/* Decorative dots */}
+            <div className="absolute right-4 top-4 grid grid-cols-3 gap-1 opacity-20">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="size-1 rounded-full bg-(--ctp-blue)"
+                />
+              ))}
+            </div>
+
+            <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-6">
+              <span className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-(--ctp-blue)/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-(--ctp-blue) backdrop-blur-sm">
+                <Sparkles className="size-3" />
+                Welcome
+              </span>
+              <h1 className="text-2xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-3xl">
+                Yani&apos;s Cells
+              </h1>
+              <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                CS student · Full-stack dev · Photographer · Weeb — my corner of
+                the internet.
+              </p>
+            </div>
+          </Link>
+
+          {/* ── Photography ── */}
+          <Link
+            href="/photography"
+            className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-teal)/40 hover:shadow-xl hover:shadow-(--ctp-teal)/5 md:col-span-4"
+            style={{ animation: "fadeInUp 0.5s ease 0.06s both" }}
+          >
+            <Image
+              src="/photos/IMG_2084.jpg"
+              alt="Photography"
+              fill
+              className="object-cover opacity-35 transition-all duration-700 group-hover:scale-110 group-hover:opacity-50"
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
+            <div className="relative z-10 flex h-full flex-col justify-between p-4">
+              <div className="flex items-center gap-2 text-(--ctp-teal)">
+                <Camera className="size-4" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Photography
+                </span>
+              </div>
+              <p className="text-sm font-semibold text-foreground">
+                Moments &amp; perspectives through the lens
+              </p>
+            </div>
+          </Link>
+
+          {/* ── Music ── */}
+          <Link
+            href="/music"
+            className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-green)/40 hover:shadow-xl hover:shadow-(--ctp-green)/5 md:col-span-3"
+            style={{ animation: "fadeInUp 0.5s ease 0.12s both" }}
+          >
+            <div className="absolute inset-0 bg-linear-to-br from-(--ctp-green)/8 to-transparent transition-all duration-500 group-hover:from-(--ctp-green)/15" />
+            <div className="relative z-10 flex h-full flex-col justify-between p-4">
+              <div className="flex items-center gap-2 text-(--ctp-green)">
+                <Music className="size-4" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Music
+                </span>
+              </div>
+              <p className="text-sm font-semibold text-foreground">
+                Top tracks &amp; artists from Spotify
+              </p>
+            </div>
+          </Link>
+
+          {/* ── Anime ── */}
+          <Link
+            href="/anime"
+            className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-pink)/40 hover:shadow-xl hover:shadow-(--ctp-pink)/5 md:col-span-3"
+            style={{ animation: "fadeInUp 0.5s ease 0.18s both" }}
+          >
+            <div className="absolute inset-0 bg-linear-to-br from-(--ctp-pink)/8 to-transparent transition-all duration-500 group-hover:from-(--ctp-pink)/15" />
+            <div className="relative z-10 flex h-full flex-col justify-between p-4">
+              <div className="flex items-center gap-2 text-(--ctp-pink)">
+                <Clapperboard className="size-4" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em]">
+                  Anime
+                </span>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">
+                  70+ series rated
+                </p>
+                <p className="text-[11px] text-muted-foreground">
+                  Watchlist &amp; personal reviews
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          {/* ── My Story ── */}
+          <Link
+            href="/my-story"
+            className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-peach)/40 hover:shadow-xl hover:shadow-(--ctp-peach)/5 md:col-span-4"
+            style={{ animation: "fadeInUp 0.5s ease 0.24s both" }}
+          >
+            <Image
+              src="/story.JPG"
+              alt="My Story"
+              fill
+              className="object-cover opacity-25 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+            />
+            <div className="absolute inset-0 bg-linear-to-r from-card/95 via-card/60 to-transparent" />
+            <div className="relative z-10 flex h-full flex-col justify-between p-4">
+              <div className="flex items-center gap-2 text-(--ctp-peach)">
+                <BookOpen className="size-4" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.15em]">
+                  My Story
+                </span>
+              </div>
+              <p className="text-sm font-semibold text-foreground">
+                How I stumbled into programming
+              </p>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* ═══ Explore — Quick Nav Pills ═══ */}
+      <section style={{ animation: "fadeInUp 0.5s ease 0.3s both" }}>
+        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+          Explore
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {quickLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`group inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-medium transition-all duration-200 ${link.hover}`}
+            >
+              <span className={link.color}>{link.icon}</span>
+              <span className="text-foreground">{link.label}</span>
+              <ArrowUpRight className="size-3 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Main Pages Grid */}
-      <section>
-        <h2 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Main
-        </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
-          {mainCards.map((card) => (
-            <GridCard key={card.title} card={card} />
-          ))}
-        </div>
+      {/* ═══ Through My Lens — Photo Collage ═══ */}
+      <section style={{ animation: "fadeInUp 0.5s ease 0.36s both" }}>
+        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+          Through My Lens
+        </h3>
+        <Link href="/photography" className="block">
+          <div className="grid auto-rows-[120px] grid-cols-2 gap-2 sm:grid-cols-4 sm:auto-rows-[130px]">
+            {photoGrid.map((photo, i) => (
+              <div
+                key={photo.src}
+                className={`group relative overflow-hidden rounded-xl ${photo.className}`}
+              >
+                <Image
+                  src={photo.src}
+                  alt={`Photo ${i + 1}`}
+                  fill
+                  className="object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/5 transition-colors duration-300 group-hover:bg-black/0" />
+              </div>
+            ))}
+          </div>
+        </Link>
       </section>
 
-      {/* Premade Chats */}
-      <section>
+      {/* ═══ Project Spotlight ═══ */}
+      <section style={{ animation: "fadeInUp 0.5s ease 0.42s both" }}>
+        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+          Project Spotlight
+        </h3>
+        <Link
+          href={`/projects/${featured.slug}`}
+          className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-lavender)/40 hover:shadow-xl hover:shadow-(--ctp-lavender)/5 sm:flex-row"
+        >
+          <div className="relative aspect-video w-full sm:aspect-auto sm:w-[45%]">
+            <Image
+              src={featured.image}
+              alt={featured.title}
+              fill
+              className="object-cover transition-all duration-700 group-hover:scale-105"
+            />
+          </div>
+          <div className="flex flex-1 flex-col justify-center gap-3 p-5 sm:p-6">
+            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-(--ctp-lavender)/12 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-(--ctp-lavender)">
+              <FolderKanban className="size-3" />
+              Featured
+            </span>
+            <h3 className="text-lg font-bold text-foreground transition-colors duration-200 group-hover:text-(--ctp-lavender)">
+              {featured.title}
+            </h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {featured.shortDescription}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {featured.tech.slice(0, 5).map((t) => (
+                <span
+                  key={t}
+                  className="rounded-md bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Link>
+      </section>
+
+      {/* ═══ Conversations ═══ */}
+      <section style={{ animation: "fadeInUp 0.5s ease 0.48s both" }}>
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Premade Chats
-          </h2>
+          <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+            Conversations
+          </h3>
           <Link
             href="/chats"
             className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
           >
-            View all
-            <ArrowRight className="size-3" />
+            View all <ArrowUpRight className="size-3" />
           </Link>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {chats.map((chat) => (
-            <ChatPreviewCard key={chat.slug} chat={chat} />
-          ))}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {chats.map((chat) => {
+            const preview =
+              (chat.messages[1]?.content.slice(0, 100) ?? "") + "…";
+            return (
+              <Link
+                key={chat.slug}
+                href={`/chats/${chat.slug}`}
+                className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-muted-foreground/30 hover:shadow-lg"
+              >
+                <p className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
+                  {chat.title}
+                </p>
+                <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+                  {preview}
+                </p>
+                <div className="mt-auto flex items-center gap-1.5 text-[10px] text-muted-foreground/50">
+                  <MessageCircle className="size-3" />
+                  <span>{chat.messages.length} messages</span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </div>
