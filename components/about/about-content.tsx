@@ -129,12 +129,17 @@ export function AboutContent() {
           What I Do
         </h2>
         <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
-          I&apos;m a full-stack web developer specializing in building
-          performant, user-focused applications with{" "}
+          I&apos;m a 2nd year CS student at Ateneo who learns by building
+          things. I work mostly with{" "}
           <span className="text-[var(--ctp-mint)]">Next.js</span>,{" "}
           <span className="text-[var(--ctp-blue)]">TypeScript</span>, and{" "}
-          <span className="text-[var(--ctp-teal)]">Tailwind CSS</span>. I focus
-          on clean architecture, accessible interfaces, and shipping fast.
+          <span className="text-[var(--ctp-teal)]">Tailwind CSS</span>, and
+          I&apos;m active in a few tech orgs on campus doing dev work and
+          running workshops. Lately I&apos;ve been getting into AI integration
+          and want to move beyond just calling APIs to actually building AI
+          systems and workflows. I prefer shipping fast and iterating over
+          planning forever, and I use AI tools heavily to accelerate my learning
+          and coding.
         </p>
       </div>
 
@@ -162,15 +167,15 @@ export function AboutContent() {
         </h2>
         <ul className="space-y-2 text-sm text-foreground/90 sm:text-base">
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-green)]" />
+            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-green)]" />
             Studying BS Computer Science at Ateneo de Manila University
           </li>
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-blue)]" />
+            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-blue)]" />
             Building full-stack web apps and working on personal projects
           </li>
           <li className="flex items-start gap-2">
-            <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-peach)]" />
+            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-peach)]" />
             Open to internship and freelance opportunities
           </li>
         </ul>
