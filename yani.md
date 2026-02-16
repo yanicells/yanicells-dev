@@ -17,3 +17,6 @@ others
 - if possible if not currently playing then show pinakqrecently played
 - page load animation? like fade in or something simple
 - header always visible esp in mobile
+
+discovery
+- maybe after the main parts, its project spotlight, but to the right of it is the explore, then convo, then pics
