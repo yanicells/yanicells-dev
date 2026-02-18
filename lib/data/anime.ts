@@ -353,6 +353,12 @@ export const animeList: AnimeEntry[] = [
     watchedDate: "2022-03-29",
   },
   {
+    malId: 53065,
+    title: "My Dress-Up Darling Season 2",
+    rating: 8.2,
+    watchedDate: "2026-02-18",
+  },
+  {
     malId: 39535,
     title: "Mushoku Tensei: Jobless Reincarnation",
     rating: 10,

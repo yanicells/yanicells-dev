@@ -12,13 +12,10 @@ others
 - experience tab
 - contact tab
 - contents, projects, chats, tech stack, about
-- add dress up darling s2
-- update tech stack and to add load more if more than the default n to double chrck content
 - if possible if not currently playing then show pinakqrecently played
 - page load animation? like fade in or something simple
 - header always visible esp in mobile
 - certificates in experience? or separate tab?
-- add album in top tracks, in the middle of the card, like spotify
 
 discovery
 - maybe after the main parts, its project spotlight, but to the right of it is the explore, then convo, then pics
