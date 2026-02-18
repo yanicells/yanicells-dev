@@ -356,13 +356,13 @@ export function ChatInterface() {
             />
 
             {/* Quick question chips */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
               {quickQuestions.map((qq) => (
                 <button
                   key={qq.question}
                   type="button"
                   onClick={() => handleQuickQuestion(qq.question, qq.answer)}
-                  className="rounded-full border border-border bg-muted/50 px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="w-full rounded-full border border-border bg-muted/50 px-3 py-2 text-center text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:w-auto sm:px-4 sm:text-sm"
                 >
                   {qq.question}
                 </button>
