@@ -10,10 +10,13 @@ home
 others
 - experience tab
 - contact tab
+    - try maybe use discovery page sa perplexity, something fun
 - contents of projects (desc, slug), chats, tech stack, about
 - page load animation? like fade in or something simple
 - header always visible esp in mobile
 - certificates in experience? or separate tab?
+- chats
+`- add bisaya and tagalog chats make the topic actually appropriate for the language
 
 discovery
 - maybe after the main parts, its project spotlight, but to the right of it is the explore, then convo, then pics

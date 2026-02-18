@@ -204,7 +204,12 @@ async function spotifyFetch<T>(
 export async function getNowPlaying(): Promise<NowPlayingData> {
   const raw = await spotifyFetch<NowPlayingRaw>("/me/player/currently-playing");
 
-  if (raw && raw.item && raw.currently_playing_type === "track" && raw.is_playing) {
+  if (
+    raw &&
+    raw.item &&
+    raw.currently_playing_type === "track" &&
+    raw.is_playing
+  ) {
     return {
       isPlaying: raw.is_playing,
       title: raw.item.name,

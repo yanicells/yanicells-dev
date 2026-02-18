@@ -6,22 +6,11 @@ _petalite on twitter
 
 Basically chatgpt but customize it like having additional UI stuff and assets
 - add some fun animations or graphics
-- music activity, add vinyl, show now playing spinning, add some spotify stats like top artists, top songs, etc. and even recos
 
 And AI tab (say like talk to me in english, bisaya, or tagalog)
 Try to add a 2d or 3d of me
 
 assets like this https://vt.tiktok.com/ZS5CH3KhX/ 
-
-since spotify api used a lot, maybe just integrate to this or chika since its more fun and people will use it and have some fun data etc.
-
-consolidated feats
-- Yani's cells include, anime page (currently watching and/or recently watched, add section for like ratings and personal reco, maybe cards that can have some possibility for description for thoughts), music page (currently listening, top songs, artists, reco)
-
-(same with contact page - try maybe use discovery page sa perplexity)
-
-chats
-add bisaya and tagalog chats make the topic actually appropriate for the language
 
 Improve SEO and add to google search console 
 ai meta sam3d for 3d generation from picture
@@ -29,8 +18,6 @@ ai meta sam3d for 3d generation from picture
 some libraries
 - threejs motionjs animejs
 - accernity
-- some ai chat api
-
 
 Security Measures Added
 1. 🛡️ IP-Based Rate Limiting (
