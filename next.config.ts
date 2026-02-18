@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+        pathname: "/npm/simple-icons/**",
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/pmndrs/zustand/**",
+      },
+      {
+        protocol: "https",
         hostname: "cdn.myanimelist.net",
         pathname: "/images/**",
       },

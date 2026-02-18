@@ -22,7 +22,7 @@ const categoryOrder: TechCategory[] = [
   "tools",
 ];
 
-const INITIAL_VISIBLE = 4;
+const INITIAL_VISIBLE = 6;
 const LOAD_MORE_STEP = 2;
 
 const createInitialVisibleCounts = (): Record<TechCategory, number> => ({
@@ -109,15 +109,16 @@ export function TechStackGrid() {
         </div>
 
         {hasMoreFeatured && (
-          <div className="mt-3 flex justify-center">
+          <div className="mt-3">
             <Button
-              variant="ghost"
-              size="sm"
+              variant="outline"
+              size="default"
+              className="w-full rounded-full"
               onClick={() =>
                 setFeaturedVisibleCount((prev) => prev + LOAD_MORE_STEP)
               }
             >
-              See more ({visibleFeaturedTech.length}/{featuredTech.length})
+              See more
             </Button>
           </div>
         )}

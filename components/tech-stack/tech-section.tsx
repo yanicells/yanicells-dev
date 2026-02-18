@@ -46,9 +46,14 @@ export function TechSection({
       </div>
 
       {hasMore && onLoadMore && (
-        <div className="mt-3 flex justify-center">
-          <Button variant="ghost" size="sm" onClick={onLoadMore}>
-            See more ({displayedCount}/{sectionTotal})
+        <div className="mt-3">
+          <Button
+            variant="outline"
+            size="default"
+            className="w-full rounded-full"
+            onClick={onLoadMore}
+          >
+            See more
           </Button>
         </div>
       )}
