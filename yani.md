@@ -17,7 +17,7 @@ others
 - if possible if not currently playing then show pinakqrecently played
 - page load animation? like fade in or something simple
 - header always visible esp in mobile
-- add certificates (either in experience and/or tech stack which will be renamed to skills)
+- certificates in experience? or separate tab?
 - add album in top tracks, in the middle of the card, like spotify
 
 discovery

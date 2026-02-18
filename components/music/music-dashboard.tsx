@@ -34,6 +34,12 @@ const GENRE_COLORS = [
 ];
 
 const TRACK_TIERS = [5, 10, 20] as const;
+const ALBUM_MAX_CHARS = 28;
+
+function truncateLabel(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  return `${text.slice(0, maxChars - 3)}...`;
+}
 
 // ---------------------------------------------------------------------------
 // Main Dashboard
@@ -142,6 +148,11 @@ function TopTracksSection({ tracks }: { tracks: SerializedTrack[] }) {
                 {track.artist}
               </p>
             </div>
+
+            {/* Album (desktop) */}
+            <p className="hidden min-w-0 flex-[0_0_30%] truncate text-sm text-muted-foreground/70 md:block">
+              {truncateLabel(track.album, ALBUM_MAX_CHARS)}
+            </p>
 
             {/* Duration */}
             <span className="shrink-0 font-mono text-xs text-muted-foreground/50">
