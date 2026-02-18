@@ -66,6 +66,13 @@ interface NowPlayingRaw {
   currently_playing_type: string;
 }
 
+interface RecentlyPlayedRaw {
+  items: {
+    track: SpotifyTrack;
+    played_at: string;
+  }[];
+}
+
 interface RecommendationsRaw {
   tracks: SpotifyTrack[];
   seeds: { id: string; type: string }[];
@@ -197,20 +204,38 @@ async function spotifyFetch<T>(
 export async function getNowPlaying(): Promise<NowPlayingData> {
   const raw = await spotifyFetch<NowPlayingRaw>("/me/player/currently-playing");
 
-  if (!raw || !raw.item || raw.currently_playing_type !== "track") {
-    return { isPlaying: false };
+  if (raw && raw.item && raw.currently_playing_type === "track" && raw.is_playing) {
+    return {
+      isPlaying: raw.is_playing,
+      title: raw.item.name,
+      artist: raw.item.artists.map((a) => a.name).join(", "),
+      album: raw.item.album.name,
+      albumArt: raw.item.album.images[0]?.url ?? undefined,
+      url: raw.item.external_urls.spotify,
+      durationMs: raw.item.duration_ms,
+      progressMs: raw.progress_ms ?? undefined,
+    };
   }
 
-  return {
-    isPlaying: raw.is_playing,
-    title: raw.item.name,
-    artist: raw.item.artists.map((a) => a.name).join(", "),
-    album: raw.item.album.name,
-    albumArt: raw.item.album.images[0]?.url ?? undefined,
-    url: raw.item.external_urls.spotify,
-    durationMs: raw.item.duration_ms,
-    progressMs: raw.progress_ms ?? undefined,
-  };
+  const recent = await spotifyFetch<RecentlyPlayedRaw>(
+    "/me/player/recently-played",
+    { limit: "1" },
+  );
+
+  const latest = recent?.items?.[0]?.track;
+  if (latest) {
+    return {
+      isPlaying: false,
+      title: latest.name,
+      artist: latest.artists.map((a) => a.name).join(", "),
+      album: latest.album.name,
+      albumArt: latest.album.images[0]?.url ?? undefined,
+      url: latest.external_urls.spotify,
+      durationMs: latest.duration_ms,
+    };
+  }
+
+  return { isPlaying: false };
 }
 
 export async function getTopTracks(

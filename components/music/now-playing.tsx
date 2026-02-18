@@ -23,8 +23,8 @@ export function NowPlaying() {
     return () => clearInterval(interval);
   }, [fetchNowPlaying]);
 
-  // Nothing playing
-  if (!data?.isPlaying || !data.title) {
+  // Nothing available
+  if (!data?.title) {
     return (
       <div className="flex items-center gap-4 rounded-xl border border-border/40 bg-card/30 p-4 backdrop-blur-sm">
         <div className="flex size-12 items-center justify-center rounded-lg bg-muted/50">
@@ -52,6 +52,8 @@ export function NowPlaying() {
     );
   }
 
+  const isNowPlaying = data.isPlaying;
+
   const progress =
     data.durationMs && data.progressMs
       ? (data.progressMs / data.durationMs) * 100
@@ -65,20 +67,22 @@ export function NowPlaying() {
       className="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-(--ctp-blue)/20 bg-card/30 p-4 transition-all hover:border-(--ctp-blue)/40 hover:bg-card/40"
     >
       {/* Equalizer */}
-      <div className="absolute right-4 top-3 flex items-end gap-0.75">
-        <span
-          className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
-          style={{ animationDelay: "0s" }}
-        />
-        <span
-          className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
-          style={{ animationDelay: "0.2s" }}
-        />
-        <span
-          className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
-          style={{ animationDelay: "0.4s" }}
-        />
-      </div>
+      {isNowPlaying && (
+        <div className="absolute right-4 top-3 flex items-end gap-0.75">
+          <span
+            className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
+            style={{ animationDelay: "0s" }}
+          />
+          <span
+            className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
+            style={{ animationDelay: "0.2s" }}
+          />
+          <span
+            className="equalizer-bar inline-block w-0.75 rounded-full bg-(--ctp-blue)"
+            style={{ animationDelay: "0.4s" }}
+          />
+        </div>
+      )}
 
       {/* Album art */}
       {data.albumArt && (
@@ -97,7 +101,7 @@ export function NowPlaying() {
 
       <div className="min-w-0 flex-1">
         <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-(--ctp-blue)">
-          Now Playing
+          {isNowPlaying ? "Now Playing" : "Recently Played"}
         </p>
         <p className="mt-0.5 truncate text-sm font-semibold text-foreground">
           {data.title}
@@ -107,12 +111,14 @@ export function NowPlaying() {
         </p>
 
         {/* Progress bar */}
-        <div className="mt-2.5 h-0.5 w-full overflow-hidden rounded-full bg-muted/50">
-          <div
-            className="h-full rounded-full bg-(--ctp-blue)/70 transition-all duration-1000 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+        {isNowPlaying && (
+          <div className="mt-2.5 h-0.5 w-full overflow-hidden rounded-full bg-muted/50">
+            <div
+              className="h-full rounded-full bg-(--ctp-blue)/70 transition-all duration-1000 ease-linear"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        )}
       </div>
     </a>
   );

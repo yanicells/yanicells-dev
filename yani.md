@@ -11,7 +11,6 @@ others
 - experience tab
 - contact tab
 - contents of projects (desc, slug), chats, tech stack, about
-- if possible if not currently playing then show pinakqrecently played
 - page load animation? like fade in or something simple
 - header always visible esp in mobile
 - certificates in experience? or separate tab?

@@ -3,8 +3,6 @@ important: add security measures for my api route, specifically the chat, maybe 
 add pulsoid monitor heart rate 
 other data accessible with my watch like sleep or steps
 _petalite on twitter
-maybe do something like my spotify listening activity
-try to graph it also
 
 Basically chatgpt but customize it like having additional UI stuff and assets
 - add some fun animations or graphics
