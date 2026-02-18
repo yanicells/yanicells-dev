@@ -7,6 +7,7 @@ export type TabValue = "featured" | TechCategory;
 const tabOrder: TabValue[] = [
   "featured",
   "languages",
+  "certificates",
   "frontend",
   "backend",
   "database",

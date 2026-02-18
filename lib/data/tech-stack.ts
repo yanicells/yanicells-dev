@@ -1,5 +1,6 @@
 export type TechCategory =
   | "languages"
+  | "certificates"
   | "frontend"
   | "backend"
   | "database"
@@ -15,6 +16,7 @@ export interface TechItem {
 
 export const categoryLabels: Record<TechCategory, string> = {
   languages: "Languages",
+  certificates: "Certificates",
   frontend: "Frontend",
   backend: "Backend",
   database: "Database",
@@ -23,6 +25,7 @@ export const categoryLabels: Record<TechCategory, string> = {
 
 export const categoryDescriptions: Record<TechCategory, string> = {
   languages: "Core programming languages I work with",
+  certificates: "Recent certifications and intensive courses",
   frontend: "UI frameworks and styling tools",
   backend: "Server-side frameworks and runtimes",
   database: "Data storage and management",
@@ -64,6 +67,40 @@ export const techStack: TechItem[] = [
     phrase: "Web structure and styling",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     category: "languages",
+    isFeatured: false,
+  },
+
+  // Certificates
+  {
+    name: "Build a Fullstack Next.js App, v4",
+    phrase:
+      "Frontend Masters · Auth, Redis caching, CI/CD pipelines, and end-to-end testing",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    category: "certificates",
+    isFeatured: false,
+  },
+  {
+    name: "Intermediate React, v6",
+    phrase:
+      "Frontend Masters · RSCs, SSR/SSG patterns, and advanced performance tuning",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    category: "certificates",
+    isFeatured: false,
+  },
+  {
+    name: "Next.js Fundamentals, v4",
+    phrase:
+      "Frontend Masters · Routing, middleware, API routes, and practical caching strategies",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    category: "certificates",
+    isFeatured: false,
+  },
+  {
+    name: "Complete Intro to React, v9",
+    phrase:
+      "Frontend Masters · State management, testing workflows, and React 19 capabilities",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    category: "certificates",
     isFeatured: false,
   },
 

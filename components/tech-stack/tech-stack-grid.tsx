@@ -14,6 +14,7 @@ import { TechSection } from "./tech-section";
 
 const categoryOrder: TechCategory[] = [
   "languages",
+  "certificates",
   "frontend",
   "backend",
   "database",

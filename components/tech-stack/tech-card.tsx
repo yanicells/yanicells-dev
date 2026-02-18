@@ -7,8 +7,14 @@ interface TechCardProps {
 }
 
 export function TechCard({ tech, index }: TechCardProps) {
+  const isCertificate = tech.category === "certificates";
+
   return (
-    <div className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-muted">
+    <div
+      className={`group flex gap-4 rounded-lg p-3 transition-colors hover:bg-muted ${
+        isCertificate ? "items-start" : "items-center"
+      }`}
+    >
       {/* Number */}
       {index !== undefined && (
         <span className="w-4 shrink-0 text-sm text-muted-foreground">
@@ -30,7 +36,23 @@ export function TechCard({ tech, index }: TechCardProps) {
       {/* Text content */}
       <div className="min-w-0 flex-1">
         <h3 className="font-medium text-foreground">{tech.name}</h3>
-        <p className="truncate text-sm text-muted-foreground">{tech.phrase}</p>
+        <p
+          className={`text-sm text-muted-foreground ${
+            isCertificate ? "leading-snug" : "truncate"
+          }`}
+          style={
+            isCertificate
+              ? {
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }
+              : undefined
+          }
+        >
+          {tech.phrase}
+        </p>
       </div>
     </div>
   );
