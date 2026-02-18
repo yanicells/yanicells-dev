@@ -4,15 +4,28 @@ import {
   categoryDescriptions,
   type TechItem,
 } from "@/lib/data/tech-stack";
+import { Button } from "@/components/ui/button";
 import { TechCard } from "./tech-card";
 
 interface TechSectionProps {
   category: TechCategory;
   items: TechItem[];
+  totalCount?: number;
+  hasMore?: boolean;
+  onLoadMore?: () => void;
 }
 
-export function TechSection({ category, items }: TechSectionProps) {
+export function TechSection({
+  category,
+  items,
+  totalCount,
+  hasMore = false,
+  onLoadMore,
+}: TechSectionProps) {
   if (items.length === 0) return null;
+
+  const displayedCount = items.length;
+  const sectionTotal = totalCount ?? displayedCount;
 
   return (
     <section id={category} className="scroll-mt-32">
@@ -31,6 +44,14 @@ export function TechSection({ category, items }: TechSectionProps) {
           <TechCard key={tech.name} tech={tech} index={idx + 1} />
         ))}
       </div>
+
+      {hasMore && onLoadMore && (
+        <div className="mt-3 flex justify-center">
+          <Button variant="ghost" size="sm" onClick={onLoadMore}>
+            See more ({displayedCount}/{sectionTotal})
+          </Button>
+        </div>
+      )}
     </section>
   );
 }

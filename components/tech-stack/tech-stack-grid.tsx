@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import {
   techStack,
   getFeaturedTech,
   type TechCategory,
 } from "@/lib/data/tech-stack";
+import { Button } from "@/components/ui/button";
 import { TechStackHeader } from "./tech-stack-header";
 import { TechStackSearch } from "./tech-stack-search";
 import { TechStackTabs, type TabValue } from "./tech-stack-tabs";
@@ -21,9 +22,31 @@ const categoryOrder: TechCategory[] = [
   "tools",
 ];
 
+const INITIAL_VISIBLE = 4;
+const LOAD_MORE_STEP = 2;
+
+const createInitialVisibleCounts = (): Record<TechCategory, number> => ({
+  languages: INITIAL_VISIBLE,
+  certificates: INITIAL_VISIBLE,
+  frontend: INITIAL_VISIBLE,
+  backend: INITIAL_VISIBLE,
+  database: INITIAL_VISIBLE,
+  tools: INITIAL_VISIBLE,
+});
+
 export function TechStackGrid() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState<TabValue>("featured");
+  const [featuredVisibleCount, setFeaturedVisibleCount] =
+    useState(INITIAL_VISIBLE);
+  const [visibleCounts, setVisibleCounts] = useState<
+    Record<TechCategory, number>
+  >(createInitialVisibleCounts);
+
+  useEffect(() => {
+    setFeaturedVisibleCount(INITIAL_VISIBLE);
+    setVisibleCounts(createInitialVisibleCounts());
+  }, [searchQuery]);
 
   const handleTabChange = useCallback((tab: TabValue) => {
     setActiveTab(tab);
@@ -51,6 +74,9 @@ export function TechStackGrid() {
         tech.phrase.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
+  const visibleFeaturedTech = featuredTech.slice(0, featuredVisibleCount);
+  const hasMoreFeatured = featuredTech.length > visibleFeaturedTech.length;
+
   return (
     <div className="flex flex-col gap-2 sm:gap-10">
       <TechStackHeader />
@@ -77,10 +103,24 @@ export function TechStackGrid() {
 
         {/* Full width grid */}
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-          {featuredTech.map((tech) => (
+          {visibleFeaturedTech.map((tech) => (
             <FeaturedTechCard key={tech.name} tech={tech} />
           ))}
         </div>
+
+        {hasMoreFeatured && (
+          <div className="mt-3 flex justify-center">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() =>
+                setFeaturedVisibleCount((prev) => prev + LOAD_MORE_STEP)
+              }
+            >
+              See more ({visibleFeaturedTech.length}/{featuredTech.length})
+            </Button>
+          </div>
+        )}
       </section>
 
       {/* Category Sections */}
@@ -88,7 +128,25 @@ export function TechStackGrid() {
         const categoryItems = filteredTech.filter(
           (tech) => tech.category === cat,
         );
-        return <TechSection key={cat} category={cat} items={categoryItems} />;
+        const visibleCount = visibleCounts[cat] ?? INITIAL_VISIBLE;
+        const visibleItems = categoryItems.slice(0, visibleCount);
+        const hasMore = categoryItems.length > visibleItems.length;
+
+        return (
+          <TechSection
+            key={cat}
+            category={cat}
+            items={visibleItems}
+            totalCount={categoryItems.length}
+            hasMore={hasMore}
+            onLoadMore={() =>
+              setVisibleCounts((prev) => ({
+                ...prev,
+                [cat]: (prev[cat] ?? INITIAL_VISIBLE) + LOAD_MORE_STEP,
+              }))
+            }
+          />
+        );
       })}
     </div>
   );
