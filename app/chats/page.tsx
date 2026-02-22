@@ -7,6 +7,15 @@ export const metadata: Metadata = {
   title: "Chats",
   description:
     "Browse through curated conversations — FAQs, behind-the-scenes, and random thoughts from Yanicells.",
+  openGraph: {
+    title: "Chats | Yanicells",
+    description:
+      "Browse curated conversations — FAQs, behind-the-scenes, and random thoughts from Yanicells.",
+    url: "https://yanicells.dev/chats",
+  },
+  alternates: {
+    canonical: "https://yanicells.dev/chats",
+  },
 };
 
 export default function ChatsPage() {
@@ -14,7 +23,9 @@ export default function ChatsPage() {
     <PageLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">Chats</h1>
+          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
+            Chats
+          </h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Curated conversations — FAQs, behind-the-scenes, and random
             thoughts.

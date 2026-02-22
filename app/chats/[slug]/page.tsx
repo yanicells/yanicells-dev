@@ -26,6 +26,14 @@ export async function generateMetadata({
   return {
     title: chat.title,
     description: `Read the conversation: ${chat.title}`,
+    openGraph: {
+      title: `${chat.title} | Yanicells`,
+      description: `Read the conversation: ${chat.title}`,
+      url: `https://yanicells.dev/chats/${chat.slug}`,
+    },
+    alternates: {
+      canonical: `https://yanicells.dev/chats/${chat.slug}`,
+    },
   };
 }
 

@@ -23,12 +23,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: {
+    google: "RF2l99SOCq0azS151q2VTwDBU7eZOcslKbdRiv_8OpE",
+  },
   title: {
-    default: "yanicells — full-stack web developer",
+    default: "Yanicells — Full-Stack Web Developer",
     template: "%s | Yanicells",
   },
   description:
-    "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer, CS student at Ateneo de Manila University. Building with Next.js, React, and modern web technologies.",
+    "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University. Building with Next.js, React, and modern web technologies.",
   keywords: [
     "yanicells",
     "edrian miguel capistrano",
@@ -42,8 +45,8 @@ export const metadata: Metadata = {
     "philippines developer",
   ],
   authors: [{ name: "Edrian Miguel E. Capistrano", url: siteUrl }],
-  creator: "yanicells",
-  publisher: "yanicells",
+  creator: "Yanicells",
+  publisher: "Yanicells",
   robots: {
     index: true,
     follow: true,
@@ -59,24 +62,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "yanicells",
-    title: "yanicells — full-stack web developer",
+    siteName: "Yanicells",
+    title: "Yanicells — Full-Stack Web Developer",
     description:
-      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer and CS student at Ateneo de Manila University.",
+      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University.",
     images: [
       {
         url: "/yanicells-image.png",
         width: 1200,
         height: 630,
-        alt: "yanicells — full-stack web developer portfolio",
+        alt: "Yanicells — Full-Stack Web Developer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "yanicells — full-stack web developer",
+    title: "Yanicells — Full-Stack Web Developer",
     description:
-      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — full-stack web developer and CS student at Ateneo de Manila University.",
+      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University.",
     images: ["/yanicells-image.png"],
     creator: "@yanicells",
   },
