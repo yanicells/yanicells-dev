@@ -190,15 +190,15 @@ export function DiscoveryContent() {
             </div>
           </Link>
 
-          {/* ── My Story ── */}
+          {/* ── About Me ── */}
           <Link
-            href="/my-story"
+            href="/about"
             className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-peach)/40 hover:shadow-xl hover:shadow-(--ctp-peach)/5 md:col-span-4"
             style={{ animation: "fadeInUp 0.5s ease 0.24s both" }}
           >
             <Image
               src="/story.JPG"
-              alt="My Story"
+              alt="About Me"
               fill
               className="object-cover opacity-25 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
             />
@@ -207,7 +207,7 @@ export function DiscoveryContent() {
               <div className="flex items-center gap-2 text-(--ctp-peach)">
                 <BookOpen className="size-4" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.15em]">
-                  My Story
+                  About Me
                 </span>
               </div>
               <p className="text-sm font-semibold text-foreground">

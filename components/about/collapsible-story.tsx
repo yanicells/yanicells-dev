@@ -1,6 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+
+/** Story timeline sections with highlighted keywords */
 interface StorySection {
   title: string;
   content: string[];
@@ -34,6 +43,7 @@ const storySections: StorySection[] = [
   },
 ];
 
+/** Map of keywords/phrases to their Catppuccin highlight class */
 const highlights: Record<string, string> = {
   "Grade 6": "text-[var(--ctp-blue)]",
   "TLE class": "text-[var(--ctp-teal)]",
@@ -64,6 +74,7 @@ const highlights: Record<string, string> = {
   "Next.js": "text-[var(--ctp-mint)]",
 };
 
+/** Applies colored spans to known keywords within a paragraph */
 function highlightText(text: string): React.ReactNode {
   let result: (string | React.ReactNode)[] = [text];
 
@@ -92,39 +103,76 @@ function highlightText(text: string): React.ReactNode {
   return result;
 }
 
-export function MyStoryContent() {
-  return (
-    <article className="space-y-8">
-      {/* Header */}
-      <header className="space-y-4">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-            How I stumbled into programming and somehow ended up here.
-          </h1>
-        </div>
-      </header>
+/**
+ * Collapsible My Story section.
+ *
+ * Always visible: title, image teaser (with heavy gradient fade).
+ * Collapsible: full story sections.
+ * The image transitions from a short teaser to full height when expanded.
+ */
+export function CollapsibleStory() {
+  const [isOpen, setIsOpen] = useState(false);
 
-      {/* Hero Image */}
-      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-border">
-        <Image
-          src="/story.JPG"
-          alt="Yanicells — My Story"
-          fill
-          priority
-          className="object-cover"
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      {/* Trigger — always visible */}
+      <CollapsibleTrigger className="group flex w-full cursor-pointer items-start justify-between gap-4 text-left">
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
+            My Story
+          </p>
+          <h2 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+            How I stumbled into programming and somehow ended up here.
+          </h2>
+        </div>
+        <ChevronDown className="mt-6 size-5 shrink-0 text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-180" />
+      </CollapsibleTrigger>
+
+      {/* Story image teaser — always visible, expands when open */}
+      <div className="relative mt-6 w-full overflow-hidden rounded-xl border border-border">
+        <div
+          className={`relative w-full transition-all duration-500 ease-in-out ${
+            isOpen ? "aspect-21/9" : "aspect-21/6"
+          }`}
+        >
+          <Image
+            src="/story.JPG"
+            alt="Yanicells — My Story"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+        {/* Gradient overlay — heavier when collapsed to tease, lighter when open */}
+        <div
+          className={`pointer-events-none absolute inset-0 transition-opacity duration-500 ${
+            isOpen
+              ? "bg-linear-to-t from-background/60 via-transparent to-transparent opacity-100"
+              : "bg-linear-to-t from-background via-background/70 to-transparent opacity-100"
+          }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+        {/* "Read my story" hint when collapsed */}
+        {!isOpen && (
+          <div className="absolute inset-x-0 bottom-0 flex items-center justify-center pb-4">
+            <button
+              type="button"
+              onClick={() => setIsOpen(true)}
+              className="flex items-center gap-1.5 rounded-full border border-border/50 bg-card/80 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm transition-all duration-200 hover:border-primary/40 hover:text-primary"
+            >
+              Read my story
+              <ChevronDown className="size-3" />
+            </button>
+          </div>
+        )}
       </div>
 
-      <hr className="border-border" />
-
-      {/* Story Sections */}
-      <div className="space-y-10">
+      {/* Collapsible content — only the story text sections */}
+      <CollapsibleContent className="space-y-10 pt-8">
         {storySections.map((section) => (
           <section key={section.title}>
-            <h2 className="mb-4 text-xl font-bold text-foreground sm:text-2xl">
+            <h3 className="mb-4 text-lg font-bold text-foreground sm:text-xl">
               {section.title}
-            </h2>
+            </h3>
             <div className="space-y-4 text-sm leading-relaxed text-foreground/90 sm:text-base">
               {section.content.map((paragraph, index) => (
                 <p key={index}>{highlightText(paragraph)}</p>
@@ -132,21 +180,7 @@ export function MyStoryContent() {
             </div>
           </section>
         ))}
-      </div>
-
-      {/* Footer CTA */}
-      <div className="rounded-lg border border-border bg-card/50 p-5">
-        <p className="text-sm text-muted-foreground">
-          That&apos;s the story so far. Want to see what I&apos;ve been
-          building?{" "}
-          <Link
-            href="/projects"
-            className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
-          >
-            Check out my projects &rarr;
-          </Link>
-        </p>
-      </div>
-    </article>
+      </CollapsibleContent>
+    </Collapsible>
   );
 }

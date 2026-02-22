@@ -5,11 +5,11 @@ import { AboutContent } from "@/components/about/about-content";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Full-Stack Web Developer specializing in Next.js, TypeScript, and modern web technologies. CS Student at Ateneo de Manila University.",
+    "Full-Stack Web Developer & CS Student at Ateneo de Manila University. From Scratch games in grade school to building full-stack apps — my journey into programming.",
   openGraph: {
     title: "About | Yanicells",
     description:
-      "Full-Stack Web Developer specializing in Next.js, TypeScript, and modern web technologies.",
+      "Full-Stack Web Developer & CS Student — from Scratch games to full-stack web development.",
     url: "https://yanicells.dev/about",
   },
   alternates: {

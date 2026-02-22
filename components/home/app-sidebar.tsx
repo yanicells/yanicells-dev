@@ -31,7 +31,6 @@ import {
   Clapperboard,
   Camera,
   Music,
-  BookOpen,
 } from "lucide-react";
 
 const navItems = [
@@ -46,7 +45,6 @@ const navItems = [
 
 /** Items displayed under the "Yani's Cells" sidebar group. */
 const yanisCellsItems = [
-  { title: "My Story", url: "/my-story", icon: BookOpen },
   { title: "Anime", url: "/anime", icon: Clapperboard },
   { title: "Photography", url: "/photography", icon: Camera },
   { title: "Music", url: "/music", icon: Music },

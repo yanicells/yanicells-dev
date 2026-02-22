@@ -1,17 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CollapsibleStory } from "@/components/about/collapsible-story";
 
-const skills = [
-  { label: "Next.js", color: "text-[var(--ctp-mint)]" },
-  { label: "React", color: "text-[var(--ctp-blue)]" },
-  { label: "TypeScript", color: "text-[var(--ctp-blue)]" },
-  { label: "Tailwind CSS", color: "text-[var(--ctp-teal)]" },
-  { label: "Node.js", color: "text-[var(--ctp-green)]" },
-  { label: "PostgreSQL", color: "text-[var(--ctp-blue)]" },
-  { label: "Python", color: "text-[var(--ctp-yellow)]" },
-  { label: "Java", color: "text-[var(--ctp-peach)]" },
-];
-
+/** Hero section — profile image, name, role, social links */
 function AboutHero() {
   return (
     <div className="flex flex-col-reverse items-center gap-6 sm:flex-row sm:gap-8">
@@ -115,84 +106,81 @@ function AboutHero() {
   );
 }
 
+/** Brief intro blurb — kept short, no tech stack */
+function BriefIntro() {
+  return (
+    <div>
+      <h2 className="mb-3 text-2xl font-bold text-foreground sm:text-3xl">
+        About Me
+      </h2>
+      <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
+        I&apos;m a 2nd year CS student at Ateneo who learns by building things.
+        I&apos;m active in a few tech orgs on campus doing dev work and running
+        workshops. Lately I&apos;ve been getting into AI integration and want to
+        move beyond just calling APIs to actually building AI systems and
+        workflows. I prefer shipping fast and iterating over planning forever,
+        and I use AI tools heavily to accelerate my learning and coding.
+      </p>
+    </div>
+  );
+}
+
+/** What I'm up to right now — always visible */
+function Currently() {
+  return (
+    <div>
+      <h2 className="mb-3 text-2xl font-bold text-foreground sm:text-3xl">
+        Currently
+      </h2>
+      <ul className="space-y-2.5 text-sm text-foreground/90 sm:text-base">
+        <li className="flex items-start gap-2.5">
+          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-(--ctp-green)" />
+          Studying BS Computer Science at Ateneo de Manila University
+        </li>
+        <li className="flex items-start gap-2.5">
+          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-(--ctp-blue)" />
+          Building full-stack web apps and working on personal projects
+        </li>
+        <li className="flex items-start gap-2.5">
+          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-(--ctp-peach)" />
+          Open to internship and freelance opportunities
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 export function AboutContent() {
   return (
-    <div className="space-y-8">
-      {/* Hero Section */}
+    <article className="space-y-8">
+      {/* Hero — name, role, social links, profile pic */}
       <AboutHero />
 
       <hr className="border-border" />
 
-      {/* Professional Summary */}
-      <div>
-        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
-          What I Do
-        </h2>
-        <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
-          I&apos;m a 2nd year CS student at Ateneo who learns by building
-          things. I work mostly with{" "}
-          <span className="text-[var(--ctp-mint)]">Next.js</span>,{" "}
-          <span className="text-[var(--ctp-blue)]">TypeScript</span>, and{" "}
-          <span className="text-[var(--ctp-teal)]">Tailwind CSS</span>, and
-          I&apos;m active in a few tech orgs on campus doing dev work and
-          running workshops. Lately I&apos;ve been getting into AI integration
-          and want to move beyond just calling APIs to actually building AI
-          systems and workflows. I prefer shipping fast and iterating over
-          planning forever, and I use AI tools heavily to accelerate my learning
-          and coding.
-        </p>
-      </div>
-
-      {/* Skills */}
-      <div>
-        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
-          Technologies
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span
-              key={skill.label}
-              className={`rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium sm:text-sm ${skill.color}`}
-            >
-              {skill.label}
-            </span>
-          ))}
-        </div>
-      </div>
+      {/* Brief intro */}
+      <BriefIntro />
 
       {/* Currently */}
-      <div>
-        <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
-          Currently
-        </h2>
-        <ul className="space-y-2 text-sm text-foreground/90 sm:text-base">
-          <li className="flex items-start gap-2">
-            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-green)]" />
-            Studying BS Computer Science at Ateneo de Manila University
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-blue)]" />
-            Building full-stack web apps and working on personal projects
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-2.5 size-1.5 shrink-0 rounded-full bg-[var(--ctp-peach)]" />
-            Open to internship and freelance opportunities
-          </li>
-        </ul>
-      </div>
+      <Currently />
 
-      {/* CTA to My Story */}
-      <div className="rounded-lg border border-border bg-card/50 p-4">
+      <hr className="border-border" />
+
+      {/* Collapsible My Story — title + image teaser always visible */}
+      <CollapsibleStory />
+
+      {/* Footer CTA — always visible */}
+      <div className="rounded-lg border border-border bg-card/50 p-5">
         <p className="text-sm text-muted-foreground">
-          Want the full backstory?{" "}
+          Want to see what I&apos;ve been building?{" "}
           <Link
-            href="/my-story"
+            href="/projects"
             className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
           >
-            Read my story &rarr;
+            Check out my projects &rarr;
           </Link>
         </p>
       </div>
-    </div>
+    </article>
   );
 }
