@@ -7,6 +7,12 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    title: "AI Solution Development Intern",
+    organization: "Eskwelabs",
+    date: "February 2026 - Present",
+    description: "Design and deploy internal AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts using Python to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases."
+  },
+  {
     title: "Freelance Full-Stack Developer",
     organization: "Timoga Holiday Resort Iligan City",
     date: "December 2025 - Present",
@@ -37,21 +43,21 @@ export const experiences: Experience[] = [
   {
     title: "Geekshop Documentation Core Team",
     organization: "Computer Society of the Ateneo",
-    date: "July 2025 - Present",
+    date: "July 2025 - January 2026",
     description:
       "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for Ateneo's computer science community.",
   },
   {
     title: "Writing Assistant",
     organization: "ARISE - SOSE Newsletter",
-    date: "2025 - Present",
+    date: "February 2025 - September 2025",
     description:
       "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for Ateneo's SOSE community.",
   },
   {
     title: "STEM Strand Vice Governor",
     organization: "Supreme Student Government",
-    date: "2023 - 2024",
+    date: "August 2023 - May 2024",
     description:
       "Assisted events such as Sportsfest, La Salle Fair, and Jumpstart at La Salle Academy. Developed leadership, logistics, time management, and project coordination skills through event management.",
   },

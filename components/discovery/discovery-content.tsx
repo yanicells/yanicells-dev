@@ -84,7 +84,7 @@ export function DiscoveryContent() {
     <div className="space-y-10">
       {/* ═══ Page Title ═══ */}
       <h1
-        className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3"
+      className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3"
         style={{ animation: "fadeInUp 0.5s ease both" }}
       >
         Yani&apos;s Cells

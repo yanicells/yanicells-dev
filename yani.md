@@ -14,9 +14,6 @@ others
 - header always visible esp in mobile (consider the z index, so that its always above everything, and consider pages like anime and tech stack which also have sticky, ensure that the header is always still there regardless of the sticky)
 - certificates in experience? or separate tab?
 
-discovery
-- maybe after the main parts, its project spotlight, but to the right of it is the explore, then convo, then pics
-
 content specific
 - chats
     - add bisaya and tagalog chats make the topic actually appropriate for the language
