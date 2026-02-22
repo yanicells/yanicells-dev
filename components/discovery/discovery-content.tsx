@@ -20,7 +20,10 @@ import {
 
 /* ── Static data ── */
 
-const featured = projects.find((p) => p.isFeatured) ?? projects[0];
+const spotlightProjects = [
+  projects.find((p) => p.slug === "unisort"),
+  projects.find((p) => p.slug === "chika"),
+].filter(Boolean) as (typeof projects)[number][];
 
 const quickLinks = [
   {
@@ -78,7 +81,15 @@ const photoGrid = [
 
 export function DiscoveryContent() {
   return (
-    <div className="space-y-14">
+    <div className="space-y-10">
+      {/* ═══ Page Title ═══ */}
+      <h1
+        className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3"
+        style={{ animation: "fadeInUp 0.5s ease both" }}
+      >
+        Yani&apos;s Cells
+      </h1>
+
       {/* ═══ Hero Mosaic ═══ */}
       <section>
         <div className="grid auto-rows-[140px] grid-cols-2 gap-3 md:grid-cols-12 md:auto-rows-[155px]">
@@ -109,9 +120,9 @@ export function DiscoveryContent() {
                 <Sparkles className="size-3" />
                 Welcome
               </span>
-              <h1 className="text-2xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-3xl">
-                Yani&apos;s Cells
-              </h1>
+              <h2 className="text-2xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-3xl">
+                yanicells
+              </h2>
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
                 CS student · Full-stack dev · Photographer · Weeb — my corner of
                 the internet.
@@ -151,7 +162,13 @@ export function DiscoveryContent() {
             className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-green)/40 hover:shadow-xl hover:shadow-(--ctp-green)/5 md:col-span-3"
             style={{ animation: "fadeInUp 0.5s ease 0.12s both" }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-(--ctp-green)/8 to-transparent transition-all duration-500 group-hover:from-(--ctp-green)/15" />
+            <Image
+              src="/multo.png"
+              alt="Music"
+              fill
+              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-45"
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-green)">
                 <Music className="size-4" />
@@ -171,7 +188,13 @@ export function DiscoveryContent() {
             className="group relative col-span-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-pink)/40 hover:shadow-xl hover:shadow-(--ctp-pink)/5 md:col-span-3"
             style={{ animation: "fadeInUp 0.5s ease 0.18s both" }}
           >
-            <div className="absolute inset-0 bg-linear-to-br from-(--ctp-pink)/8 to-transparent transition-all duration-500 group-hover:from-(--ctp-pink)/15" />
+            <Image
+              src="/anime.png"
+              alt="Anime"
+              fill
+              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-45"
+            />
+            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-pink)">
                 <Clapperboard className="size-4" />
@@ -218,29 +241,130 @@ export function DiscoveryContent() {
         </div>
       </section>
 
-      {/* ═══ Explore — Quick Nav Pills ═══ */}
-      <section style={{ animation: "fadeInUp 0.5s ease 0.3s both" }}>
-        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          Explore
-        </h3>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
-          {quickLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`group flex items-center justify-center gap-2 rounded-full border border-border bg-card px-4 py-2.5 text-sm font-medium transition-all duration-200 ${link.hover}`}
-            >
-              <span className={link.color}>{link.icon}</span>
-              <span className="text-foreground">{link.label}</span>
-              <ArrowUpRight className="size-3 -translate-x-1 text-muted-foreground opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
-            </Link>
-          ))}
+      {/* ═══ Project Spotlight + Explore + Conversations ═══ */}
+      <section
+        className="grid grid-cols-1 gap-3 md:grid-cols-12 md:gap-6"
+        style={{ animation: "fadeInUp 0.5s ease 0.3s both" }}
+      >
+        {/* ── Project Spotlight (wide, 2 cards stacked) ── */}
+        <div className="flex flex-col md:col-span-8">
+          <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+            Project Spotlight
+          </h3>
+          <div className="flex flex-1 flex-col gap-3">
+            {spotlightProjects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="group relative flex flex-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-lavender)/40 hover:shadow-xl hover:shadow-(--ctp-lavender)/5"
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-all duration-700 group-hover:scale-105"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-card via-card/60 to-transparent" />
+                {/* Featured badge */}
+                <div className="absolute left-4 top-4 z-10">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-(--ctp-lavender) backdrop-blur-sm">
+                    <FolderKanban className="size-3" />
+                    Featured
+                  </span>
+                </div>
+                {/* Info at bottom */}
+                <div className="relative z-10 mt-auto flex flex-col gap-1.5 p-4">
+                  <h3 className="text-base font-bold text-foreground transition-colors duration-200 group-hover:text-(--ctp-lavender) sm:text-lg">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {project.shortDescription}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tech.slice(0, 4).map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-md bg-secondary/80 px-2 py-0.5 text-[10px] font-medium text-muted-foreground backdrop-blur-sm"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Explore + Conversations (stacked column) ── */}
+        <div className="space-y-6 md:col-span-4">
+          {/* Explore links */}
+          <div>
+            <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              Explore
+            </h3>
+            <div className="flex flex-row flex-wrap gap-2 md:flex-col">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-all duration-200 ${link.hover}`}
+                >
+                  <span className={link.color}>{link.icon}</span>
+                  <span className="flex-1 text-sm font-medium text-foreground">
+                    {link.label}
+                  </span>
+                  <ArrowUpRight className="size-3.5 text-muted-foreground opacity-0 transition-all duration-200 group-hover:opacity-100" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Conversations */}
+          <div>
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                Conversations
+              </h3>
+              <Link
+                href="/chats"
+                className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
+              >
+                View all <ArrowUpRight className="size-3" />
+              </Link>
+            </div>
+            <div className="flex flex-col gap-2">
+              {chats.map((chat) => {
+                const preview =
+                  (chat.messages[1]?.content.slice(0, 80) ?? "") + "…";
+                return (
+                  <Link
+                    key={chat.slug}
+                    href={`/chats/${chat.slug}`}
+                    className="group flex flex-col gap-2 rounded-xl border border-border bg-card p-3.5 transition-all duration-300 hover:border-muted-foreground/30 hover:shadow-lg"
+                  >
+                    <p className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
+                      {chat.title}
+                    </p>
+                    <p className="line-clamp-1 text-xs leading-relaxed text-muted-foreground">
+                      {preview}
+                    </p>
+                    <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground/50">
+                      <MessageCircle className="size-3" />
+                      <span>{chat.messages.length} messages</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ═══ Through My Lens — Photo Collage ═══ */}
-      <section style={{ animation: "fadeInUp 0.5s ease 0.36s both" }}>
-        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+      <section style={{ animation: "fadeInUp 0.5s ease 0.42s both" }}>
+        <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
           Through My Lens
         </h3>
         <Link href="/photography" className="block">
@@ -261,87 +385,6 @@ export function DiscoveryContent() {
             ))}
           </div>
         </Link>
-      </section>
-
-      {/* ═══ Project Spotlight ═══ */}
-      <section style={{ animation: "fadeInUp 0.5s ease 0.42s both" }}>
-        <h3 className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          Project Spotlight
-        </h3>
-        <Link
-          href={`/projects/${featured.slug}`}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-lavender)/40 hover:shadow-xl hover:shadow-(--ctp-lavender)/5 sm:flex-row"
-        >
-          <div className="relative aspect-video w-full sm:aspect-auto sm:w-[45%]">
-            <Image
-              src={featured.image}
-              alt={featured.title}
-              fill
-              className="object-cover transition-all duration-700 group-hover:scale-105"
-            />
-          </div>
-          <div className="flex flex-1 flex-col justify-center gap-3 p-5 sm:p-6">
-            <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-(--ctp-lavender)/12 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-(--ctp-lavender)">
-              <FolderKanban className="size-3" />
-              Featured
-            </span>
-            <h3 className="text-lg font-bold text-foreground transition-colors duration-200 group-hover:text-(--ctp-lavender)">
-              {featured.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {featured.shortDescription}
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {featured.tech.slice(0, 5).map((t) => (
-                <span
-                  key={t}
-                  className="rounded-md bg-secondary px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Link>
-      </section>
-
-      {/* ═══ Conversations ═══ */}
-      <section style={{ animation: "fadeInUp 0.5s ease 0.48s both" }}>
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
-            Conversations
-          </h3>
-          <Link
-            href="/chats"
-            className="flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-primary"
-          >
-            View all <ArrowUpRight className="size-3" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {chats.map((chat) => {
-            const preview =
-              (chat.messages[1]?.content.slice(0, 100) ?? "") + "…";
-            return (
-              <Link
-                key={chat.slug}
-                href={`/chats/${chat.slug}`}
-                className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-muted-foreground/30 hover:shadow-lg"
-              >
-                <p className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
-                  {chat.title}
-                </p>
-                <p className="line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                  {preview}
-                </p>
-                <div className="mt-auto flex items-center gap-1.5 text-[10px] text-muted-foreground/50">
-                  <MessageCircle className="size-3" />
-                  <span>{chat.messages.length} messages</span>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
       </section>
     </div>
   );
