@@ -10,7 +10,6 @@ others
 - contact tab
     - try maybe use discovery page sa perplexity, something fun
 - page load animation? like fade in or something simple
-- header always visible esp in mobile (consider the z index, so that its always above everything, and consider pages like anime and tech stack which also have sticky, ensure that the header is always still there regardless of the sticky)
 - certificates in experience? or separate tab?
 
 content specific
