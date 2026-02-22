@@ -1,5 +1,4 @@
 backlog
-- projects, in the carousel add like a title and short desc, maybe title top left, then desc is bot left. then there is a bit of tint for the picture
 - responsiveness double check
 
 home
@@ -7,7 +6,7 @@ home
 - add simple like redirects maybe to discovery, about me, and chats so there is a header, then the redirects, then chat, then premade questions
 
 others
-- experience tab
+- experience tab (if i want the middle or have it at the side, same ish as mobile of current)
 - contact tab
     - try maybe use discovery page sa perplexity, something fun
 - page load animation? like fade in or something simple
