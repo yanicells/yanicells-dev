@@ -21,9 +21,9 @@ export function PageLayout({ children, fullWidth = false }: PageLayoutProps) {
   return (
     <SidebarProvider defaultOpen={true}>
       <AppSidebar />
-      <SidebarInset>
+      <SidebarInset className="overflow-auto">
         {/* Mobile header */}
-        <div className="md:hidden">
+        <div className="sticky top-0 z-50 bg-background md:hidden">
           <header className="flex h-14 items-center justify-between px-4">
             <div className="flex items-center gap-3">
               <SidebarTrigger className="" />
@@ -46,7 +46,7 @@ export function PageLayout({ children, fullWidth = false }: PageLayoutProps) {
         </div>
 
         {/* Desktop header */}
-        <div className="hidden md:block">
+        <div className="sticky top-0 z-50 hidden bg-background md:block">
           <MainHeader />
         </div>
 

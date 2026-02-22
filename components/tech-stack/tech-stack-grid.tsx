@@ -82,7 +82,7 @@ export function TechStackGrid() {
       <TechStackHeader />
 
       {/* Sticky search + tabs */}
-      <div className="sticky top-0 z-10 -mx-6 bg-background px-6 py-4">
+      <div className="sticky top-14 z-40 -mx-6 bg-background px-6 py-4">
         <div className="flex flex-col gap-4">
           <TechStackSearch
             searchQuery={searchQuery}
@@ -93,7 +93,7 @@ export function TechStackGrid() {
       </div>
 
       {/* Featured Section */}
-      <section id="featured" className="scroll-mt-32">
+      <section id="featured" className="scroll-mt-44">
         <div className="mb-4">
           <h2 className="text-xl font-bold text-foreground">Featured</h2>
           <p className="text-sm text-muted-foreground">

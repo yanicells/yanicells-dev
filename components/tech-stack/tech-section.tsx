@@ -28,7 +28,7 @@ export function TechSection({
   const sectionTotal = totalCount ?? displayedCount;
 
   return (
-    <section id={category} className="scroll-mt-32">
+    <section id={category} className="scroll-mt-44">
       <div className="mb-4">
         <h2 className="text-xl font-bold text-foreground">
           {categoryLabels[category]}
