@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { experiences, type Experience } from "@/lib/data/experience";
 
 // ─── Shared Utilities ───────────────────────────────────────────────────────
@@ -164,97 +165,40 @@ function groupByYear(
     .map(([year, entries]) => ({ year, entries }));
 }
 
-// ─── DESIGN 2: "Alternating Spine" (with compact/expand on hover) ───────────
-// A centered vertical spine with cards alternating left and right.
-// Cards are compact by default — showing only title, org, month, and duration.
-// On hover, the description expands into view.
-
 function Design2() {
   const grouped = groupByYear(experiences);
-  let counter = 0;
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
+
+  const toggleCard = (cardKey: string) => {
+    setExpandedCard((current) => (current === cardKey ? null : cardKey));
+  };
 
   return (
     <section className="flex flex-col gap-6">
-      <div className="relative">
-        <div className="absolute left-4 top-0 h-full w-px bg-border/50 sm:left-1/2 sm:-translate-x-px" />
-
-        {grouped.map((group) => (
-          <div key={group.year}>
-            {/* ── Year marker on the spine ── */}
-            <div className="relative flex items-center pt-2 pb-20">
-              <div className="absolute left-4 top-1/2 -translate-x-1/2 sm:left-1/2">
-                <div className="flex h-10 w-20 items-center justify-center rounded-full border-2 border-[var(--ctp-lavender)]/40 bg-background">
-                  <span className="font-mono text-lg font-black tracking-tight text-foreground">
-                    {group.year}
-                  </span>
-                </div>
-              </div>
+      {grouped.map((group) => (
+        <div key={group.year} className="flex flex-col gap-4">
+          <div className="flex items-center">
+            <div className="inline-flex h-10 min-w-20 items-center justify-center rounded-full border-2 border-[var(--ctp-lavender)]/40 bg-background px-4">
+              <span className="font-mono text-lg font-black tracking-tight text-foreground">
+                {group.year}
+              </span>
             </div>
+          </div>
 
-            {/* ── Entries ── */}
+          <div className="relative">
+            <div className="absolute left-[2.5rem] top-0 h-full w-px bg-border/50" />
+
             {group.entries.map(({ exp, globalIndex }) => {
               const accent = ACCENT_COLORS[globalIndex % ACCENT_COLORS.length];
               const parsed = parseStartDate(exp.date);
               const end = parseEndDate(exp.date);
               const duration = calculateDuration(exp.date);
-              const isLeft = counter % 2 === 0;
-              counter++;
+              const cardKey = `${exp.title}-${exp.organization}-${exp.date}`;
+              const isExpanded = expandedCard === cardKey;
 
               return (
-                <div
-                  key={`${exp.title}-${exp.organization}`}
-                  className="relative flex items-start py-2"
-                >
-                  {/* ─ Card ─ */}
-                  <div className="ml-12 flex-1 sm:ml-0">
-                    <div
-                      className={`sm:w-[calc(50%-2rem)] ${
-                        isLeft
-                          ? "sm:mr-auto sm:pr-6 sm:text-right"
-                          : "sm:ml-auto sm:pl-6"
-                      }`}
-                    >
-                      <div className="group rounded-lg border border-border/40 bg-card/50 px-4 py-3 transition-all hover:border-border hover:bg-card/80">
-                        {/* Compact row: title + status */}
-                        <div
-                          className={`flex flex-wrap items-baseline gap-2 ${isLeft ? "sm:justify-end" : ""}`}
-                        >
-                          <h3 className="text-sm font-semibold text-foreground">
-                            {exp.title}
-                          </h3>
-                          {end.isPresent && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--ctp-green)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--ctp-green)]">
-                              <span className="size-1.5 animate-pulse rounded-full bg-[var(--ctp-green)]" />
-                              Active
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Compact row: org + duration */}
-                        <div
-                          className={`mt-0.5 flex flex-wrap items-baseline gap-x-2 ${isLeft ? "sm:justify-end" : ""}`}
-                        >
-                          <p className={`text-xs font-medium ${accent.text}`}>
-                            {exp.organization}
-                          </p>
-                          <span className="font-mono text-[10px] text-muted-foreground/50">
-                            · {duration}
-                          </span>
-                        </div>
-
-                        {/* Description — shows 3 lines by default, full on card hover */}
-                        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground line-clamp-3 transition-all group-hover:line-clamp-none sm:text-sm">
-                          {exp.description}
-                        </p>
-                        <p className="mt-1 font-mono text-[10px] text-muted-foreground/40">
-                          {exp.date}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* ─ Spine node (month + dot) ─ */}
-                  <div className="pointer-events-none absolute left-4 top-4 z-10 -translate-x-1/2 sm:left-1/2">
+                <div key={cardKey} className="relative pb-4 last:pb-0">
+                  <div className="pointer-events-none absolute left-[2.5rem] top-4 z-10 -translate-x-1/2">
                     <div className="flex flex-col items-center gap-1">
                       <div className={`size-3 rounded-full ${accent.bg}`} />
                       <span
@@ -264,12 +208,60 @@ function Design2() {
                       </span>
                     </div>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => toggleCard(cardKey)}
+                    aria-expanded={isExpanded}
+                    className="group ml-[4.5rem] block w-[calc(100%-4.25rem)] rounded-lg border border-border/40 bg-card/50 px-4 py-3 text-left transition-all hover:border-border hover:bg-card/80"
+                  >
+                    <div className="min-w-0">
+                      <div className="flex min-w-0 flex-wrap items-baseline gap-2">
+                        <h3 className="min-w-0 text-sm font-semibold text-foreground sm:text-base">
+                          {exp.title}
+                        </h3>
+                        {end.isPresent && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--ctp-green)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--ctp-green)]">
+                            <span className="size-1.5 animate-pulse rounded-full bg-[var(--ctp-green)]" />
+                            Active
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="mt-0.5 flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
+                        <p
+                          className={`min-w-0 text-xs font-medium ${accent.text}`}
+                        >
+                          {exp.organization}
+                        </p>
+                        <span className="font-mono text-[10px] text-muted-foreground/50">
+                          · {duration}
+                        </span>
+                      </div>
+
+                      <p
+                        className={`mt-1.5 text-xs leading-relaxed text-muted-foreground transition-all sm:text-sm ${
+                          isExpanded
+                            ? "line-clamp-none"
+                            : "line-clamp-3 sm:line-clamp-none"
+                        }`}
+                      >
+                        {exp.description}
+                      </p>
+                      <p className="mt-1 font-mono text-[10px] text-muted-foreground/40">
+                        {exp.date}
+                      </p>
+                      <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wide text-muted-foreground/50 sm:hidden">
+                        {isExpanded ? "Tap to collapse" : "Tap to expand"}
+                      </p>
+                    </div>
+                  </button>
                 </div>
               );
             })}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </section>
   );
 }
@@ -412,10 +404,7 @@ export function ExperienceTimeline() {
         </p>
       </div>
 
-      {/* Active design */}
       <Design2 />
-
-      {/* Design 5 (Editorial) — commented out for now */}
       {/* <Design5 /> */}
     </div>
   );
