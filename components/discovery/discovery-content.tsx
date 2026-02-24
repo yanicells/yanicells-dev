@@ -66,14 +66,14 @@ const quickLinks = [
 const photoGrid = [
   {
     src: "/photos/1.png",
-    className: "col-span-2 row-span-2 h-44 sm:h-auto",
+    className: "col-span-2 row-span-2",
   },
-  { src: "/photos/IMG_2032.jpg", className: "col-span-1 h-[108px] sm:h-auto" },
-  { src: "/photos/3.png", className: "col-span-1 h-[108px] sm:h-auto" },
-  { src: "/photos/5.png", className: "col-span-1 h-[108px] sm:h-auto" },
+  { src: "/photos/IMG_2032.jpg", className: "col-span-1" },
+  { src: "/photos/3.png", className: "col-span-1" },
+  { src: "/photos/5.png", className: "col-span-1" },
   {
     src: "/photos/IMG_2161.jpg",
-    className: "col-span-1 h-[108px] sm:h-auto",
+    className: "col-span-1",
   },
 ];
 
