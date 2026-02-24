@@ -19,7 +19,7 @@ export const projects: Project[] = [
     slug: "unisort",
     description:
       "A university matching platform featuring a weighted multi-dimensional scoring algorithm, research-backed quizzes, and an anonymous Freedom Wall with real-time analytics.",
-    shortDescription: "University matching platform with quizzes and analytics",
+    shortDescription: "Quiz-based university matching platform",
     tech: ["Next.js", "Drizzle", "Neon"],
     repo: "https://github.com/yanicells/UniSort",
     demo: "https://unisort.ycells.com",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     slug: "misayang-samahan",
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
-    shortDescription: "Pokémon-themed HR platform with quiz-based sorting",
+    shortDescription: "Pokémon-themed quiz-based sorting",
     tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
     demo: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     slug: "redhead-redemption",
     description:
       "A LAN-based multiplayer top-down shooter with custom networking, enemy AI, leveling systems, and hand-drawn pixel art assets.",
-    shortDescription: "LAN multiplayer top-down shooter with pixel art",
+    shortDescription: "Multiplayer top-down shooter",
     tech: ["Java", "Sockets", "Multithreading"],
     repo: "https://github.com/yanicells/Redhead-Redemption",
     demo: "https://drive.google.com/file/d/1TRlHSFsdRRIZ71WZ5kfUPuQtJw5qbnDf/view",
