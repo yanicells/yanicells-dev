@@ -83,7 +83,7 @@ export const animeList: AnimeEntry[] = [
   {
     malId: 34403,
     title: "My First Girlfriend is a Gal",
-    rating: 8,
+    rating: 7,
     watchedDate: "2021-06-11",
   },
   {
@@ -95,7 +95,7 @@ export const animeList: AnimeEntry[] = [
   {
     malId: 37982,
     title: "Domestic Girlfriend",
-    rating: 8,
+    rating: 6.5,
     watchedDate: "2021-06-11",
   },
   {
