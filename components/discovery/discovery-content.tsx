@@ -84,7 +84,7 @@ export function DiscoveryContent() {
     <div className="space-y-10">
       {/* ═══ Page Title ═══ */}
       <h1
-      className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3"
+        className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground mb-3"
         style={{ animation: "fadeInUp 0.5s ease both" }}
       >
         Yani&apos;s Cells
@@ -251,12 +251,12 @@ export function DiscoveryContent() {
           <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
             Project Spotlight
           </h3>
-          <div className="flex flex-1 flex-col gap-3">
+          <div className="flex flex-651 flex-col gap-3">
             {spotlightProjects.map((project) => (
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group relative flex flex-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-lavender)/40 hover:shadow-xl hover:shadow-(--ctp-lavender)/5"
+                className="group relative flex min-h-[185px] flex-1 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-(--ctp-lavender)/40 hover:shadow-xl hover:shadow-(--ctp-lavender)/5 sm:min-h-[210px]"
               >
                 <Image
                   src={project.image}
@@ -278,7 +278,7 @@ export function DiscoveryContent() {
                   <h3 className="text-base font-bold text-foreground transition-colors duration-200 group-hover:text-(--ctp-lavender) sm:text-lg">
                     {project.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
+                  <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground sm:line-clamp-none">
                     {project.shortDescription}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -304,12 +304,12 @@ export function DiscoveryContent() {
             <h3 className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
               Explore
             </h3>
-            <div className="flex flex-row flex-wrap gap-2 md:flex-col">
-              {quickLinks.map((link) => (
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-1">
+              {quickLinks.map((link, index) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-all duration-200 ${link.hover}`}
+                  className={`group flex min-h-12 items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-all duration-200 ${index === quickLinks.length - 1 ? "col-span-2 md:col-span-1" : ""} ${link.hover}`}
                 >
                   <span className={link.color}>{link.icon}</span>
                   <span className="flex-1 text-sm font-medium text-foreground">
