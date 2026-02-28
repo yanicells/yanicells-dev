@@ -162,7 +162,7 @@ export function AboutContent() {
       <BriefIntro />
 
       {/* Currently */}
-      <Currently />
+      {/* <Currently /> */}
 
       <hr className="border-border" />
 

@@ -17,7 +17,7 @@ interface StorySection {
 
 const storySections: StorySection[] = [
   {
-    title: "The Accidental Beginning",
+    title: "The Beginning",
     content: [
       `My first encounter with programming was in Grade 6, where for our TLE class we were learning about Scratch. I vividly remember that for our Performance Task we had to create a simple game. Panic kicked in because for that entire quarter, I really didn't pay attention. All I did in class was roam around the Lab Room, annoying my friends. Honestly, I don't remember how I even survived, but I am pretty sure my friend helped me with my game.`,
       `It was elementary; I still got a high grade, I think. My next encounter with it was the next year, again in our TLE class. This time around it was with HTML and CSS. The only thing I remember here was asking for help from my brother to create my website for the Performance Task (literally just plain HTML and just editing the font and color, it looked so ahh).`,
@@ -122,7 +122,7 @@ export function CollapsibleStory() {
             My Story
           </p>
           <h2 className="text-2xl font-bold leading-tight text-foreground sm:text-3xl">
-            How I stumbled into programming and somehow ended up here.
+            How I stumbled into programming and ended up here.
           </h2>
         </div>
         <ChevronDown className="mt-6 size-5 shrink-0 text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-180" />
