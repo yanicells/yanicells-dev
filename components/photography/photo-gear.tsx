@@ -32,7 +32,10 @@ export function PhotoGear() {
         </div>
 
         {gear.map((g) => (
-          <div key={`${g.type}-${g.mobileItem}`} className="flex items-baseline gap-2">
+          <div
+            key={`${g.type}-${g.mobileItem}`}
+            className="flex items-baseline gap-2"
+          >
             <span className="text-xs uppercase tracking-wider text-muted-foreground/60">
               {g.type}
             </span>
@@ -49,7 +52,10 @@ export function PhotoGear() {
         </div>
 
         {gear.map((g) => (
-          <div key={`${g.type}-${g.desktopItem}`} className="flex items-baseline gap-2">
+          <div
+            key={`${g.type}-${g.desktopItem}`}
+            className="flex items-baseline gap-2"
+          >
             <span className="text-xs uppercase tracking-wider text-muted-foreground/60">
               {g.type}
             </span>
