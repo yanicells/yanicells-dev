@@ -78,7 +78,7 @@ export function TechStackGrid() {
   const hasMoreFeatured = featuredTech.length > visibleFeaturedTech.length;
 
   return (
-    <div className="flex flex-col gap-2 sm:gap-10">
+    <div className="flex flex-col gap-2 sm:gap-4">
       <TechStackHeader />
 
       {/* Sticky search + tabs */}

@@ -29,7 +29,7 @@ export function TechSection({
 
   return (
     <section id={category} className="scroll-mt-44">
-      <div className="mb-4">
+      <div className="mb-4 mt-4">
         <h2 className="text-xl font-bold text-foreground">
           {categoryLabels[category]}
         </h2>
