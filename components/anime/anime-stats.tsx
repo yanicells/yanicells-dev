@@ -8,11 +8,13 @@ import { Heart, Star, TrendingUp, Tv } from "lucide-react";
 const stats = [
   {
     label: "Total Watched",
+    mobileLabel: "Watched",
     value: animeList.length.toString(),
     icon: Tv,
   },
   {
     label: "Average Rating",
+    mobileLabel: "Ave. Rating",
     value: getAverageRating().toFixed(1),
     icon: TrendingUp,
   },
@@ -37,13 +39,16 @@ export function AnimeStats() {
       <div className="h-px bg-border" />
 
       {/* Stats with justify-between */}
-      <div className="flex flex-col gap-3 py-2 md:flex-row md:items-center md:justify-between md:gap-0">
+      <div className="grid grid-cols-2 gap-3 py-2 md:flex md:items-center md:justify-between md:gap-0">
         {stats.map((stat) => (
           <div key={stat.label} className="flex items-center gap-2">
             <stat.icon className="size-4 text-muted-foreground" />
             <div className="flex items-baseline gap-2">
               <span className="text-sm text-foreground">{stat.value}</span>
-              <span className="text-sm uppercase tracking-wider text-muted-foreground/60">
+              <span className="text-sm uppercase tracking-wider text-muted-foreground/60 md:hidden">
+                {stat.mobileLabel ?? stat.label}
+              </span>
+              <span className="hidden text-sm uppercase tracking-wider text-muted-foreground/60 md:inline">
                 {stat.label}
               </span>
             </div>
