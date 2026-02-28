@@ -18,7 +18,7 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
   return (
     <>
       {/* Clean uniform grid - all photos same size */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
         {photos.map((photo, index) => (
           <button
             key={photo.src}
@@ -29,12 +29,12 @@ export function PhotoGallery({ photos }: PhotoGalleryProps) {
               src={photo.src}
               alt={photo.alt}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 767px) 50vw, (max-width: 1279px) 33vw, 25vw"
               className="object-cover transition-all duration-500 group-hover:scale-105"
             />
 
             {/* Subtle gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             {/* Photo number - appears on hover */}
             <div className="absolute bottom-3 left-3 font-mono text-xs text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
