@@ -39,7 +39,7 @@ export function ProjectsCarousel() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Gradient tint overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-transparent" />
               {/* Project info */}
               <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-1.5 p-4 sm:p-5">
                 <h3 className="text-base font-bold text-white sm:text-lg">
@@ -52,7 +52,7 @@ export function ProjectsCarousel() {
                   {project.tech.slice(0, 4).map((t) => (
                     <span
                       key={t}
-                      className="rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/80 backdrop-blur-sm"
+                      className="rounded-md bg-white/10 px-2 py-0.5 text-[10px] font-medium text-white/80 backdrop-blur-3xl"
                     >
                       {t}
                     </span>

@@ -62,9 +62,9 @@ export function AnimeList({ entries, apiDataMap }: AnimeListProps) {
   }, [entries, activeTab, searchQuery, apiDataMap]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2 sm:gap-4">
       {/* Sticky search + tabs */}
-      <div className="sticky top-14 z-40 -mx-6 bg-background px-6 py-4">
+      <div className="sticky top-14 z-40 -mx-6 bg-background px-6 pt-4 pb-2 sm:py-4">
         <div className="flex flex-col gap-4">
           <AnimeSearch
             searchQuery={searchQuery}

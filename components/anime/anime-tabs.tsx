@@ -29,7 +29,7 @@ export function AnimeTabs({
   totalCount,
 }: AnimeTabsProps) {
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
       <div
         className="overflow-x-auto"
         style={{
@@ -60,8 +60,8 @@ export function AnimeTabs({
       </div>
 
       {filteredCount != null && totalCount != null ? (
-        <p className="shrink-0 whitespace-nowrap text-xs text-muted-foreground">
-          Showing {filteredCount} of {totalCount} anime
+        <p className="self-end text-right text-xs text-muted-foreground sm:shrink-0 sm:self-auto sm:whitespace-nowrap">
+          Showing {filteredCount} of {totalCount} animes
         </p>
       ) : null}
     </div>
