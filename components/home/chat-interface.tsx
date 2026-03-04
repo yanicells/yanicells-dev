@@ -142,14 +142,19 @@ export function ChatInterface() {
     setGreeting(getGreeting());
   }, []);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const hasMessages = messages.length > 0;
 
-  // Auto-scroll to bottom when messages change
+  // Auto-scroll to bottom only when content overflows the container
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    if (container.scrollHeight > container.clientHeight) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, [messages]);
 
   // Re-focus the textarea after loading ends or when the textarea DOM node
@@ -362,7 +367,7 @@ export function ChatInterface() {
       {hasMessages ? (
         <>
           {/* Scrollable messages */}
-          <div className="flex-1 overflow-y-auto">
+          <div ref={scrollContainerRef} className="flex-1 overflow-y-auto">
             <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
               {messages.map((message) =>
                 message.role === "model" && message.content === "" ? (
@@ -375,8 +380,6 @@ export function ChatInterface() {
                   />
                 ),
               )}
-              {/* Bottom spacer — pushes latest messages to top of viewport */}
-              <div className="min-h-[40vh]" aria-hidden="true" />
               <div ref={messagesEndRef} />
             </div>
           </div>

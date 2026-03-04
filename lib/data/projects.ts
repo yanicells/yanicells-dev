@@ -50,7 +50,7 @@ export const projects: Project[] = [
     slug: "unisort",
     description:
       "A university matching platform featuring a weighted multi-dimensional scoring algorithm, research-backed quizzes, and an anonymous Freedom Wall with real-time analytics.",
-    shortDescription: "Quiz-based university matching platform",
+    shortDescription: "Quiz-based university matching",
     tech: ["Next.js", "Drizzle", "Neon"],
     repo: "https://github.com/yanicells/UniSort",
     live: "https://unisort.ycells.com",
@@ -192,7 +192,7 @@ export const projects: Project[] = [
     slug: "chika",
     description:
       "A personalized freedom wall app that allows users to post anonymous messages and interact with others' posts.",
-    shortDescription: "Anonymous freedom wall for posting messages",
+    shortDescription: "Personal blog and anonymous notes",
     tech: ["Next.js", "Neon", "PostgreSQL"],
     repo: "https://github.com/yanicells/chika",
     live: "https://chika.yanicells.dev",
