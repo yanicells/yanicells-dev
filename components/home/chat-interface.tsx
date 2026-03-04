@@ -16,11 +16,37 @@ import {
   ChatMessageSkeleton,
 } from "@/components/home/chat-message";
 import { quickQuestions } from "@/lib/data/quick-questions";
+import { getGreeting } from "@/lib/data/greetings";
 
 interface Message {
   id: string;
   role: "user" | "model";
   content: string;
+}
+
+/** Quick question chips — shown above the input at all times. */
+function QuickQuestionChips({
+  onSelect,
+  isLoading,
+}: {
+  onSelect: (question: string, answer: string) => void;
+  isLoading: boolean;
+}) {
+  return (
+    <div className="mx-auto flex w-full max-w-3xl flex-wrap justify-center gap-2 px-4">
+      {quickQuestions.map((qq) => (
+        <button
+          key={qq.question}
+          type="button"
+          disabled={isLoading}
+          onClick={() => onSelect(qq.question, qq.answer)}
+          className="rounded-full border border-border bg-muted/50 px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-50 sm:px-4 sm:text-sm"
+        >
+          {qq.display}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 /** Input bar — reused in both empty state and chat state. */
@@ -109,6 +135,12 @@ export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [greeting, setGreeting] = useState("");
+
+  // Set greeting on mount only (avoids hydration mismatch from Math.random / Date)
+  useEffect(() => {
+    setGreeting(getGreeting());
+  }, []);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -281,9 +313,11 @@ export function ChatInterface() {
     resetTextarea();
   }, [stopGeneration, resetTextarea]);
 
-  /** Handle a quick question click — inject both messages with no API call. */
+  /** Handle a quick question click — append messages and simulate typing. */
   const handleQuickQuestion = useCallback(
     (question: string, answer: string) => {
+      if (isLoading) return;
+
       const userMsg: Message = {
         id: crypto.randomUUID(),
         role: "user",
@@ -292,11 +326,35 @@ export function ChatInterface() {
       const modelMsg: Message = {
         id: crypto.randomUUID(),
         role: "model",
-        content: answer,
+        content: "",
       };
-      setMessages([userMsg, modelMsg]);
+
+      // Append to existing history, not replace
+      setMessages((prev) => [...prev, userMsg, modelMsg]);
+      setIsLoading(true);
+
+      // Simulate typing — stream answer character by character
+      let charIndex = 0;
+      const charsPerTick = 3;
+      const intervalMs = 10;
+
+      const interval = setInterval(() => {
+        charIndex = Math.min(charIndex + charsPerTick, answer.length);
+        const partial = answer.slice(0, charIndex);
+
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === modelMsg.id ? { ...m, content: partial } : m,
+          ),
+        );
+
+        if (charIndex >= answer.length) {
+          clearInterval(interval);
+          setIsLoading(false);
+        }
+      }, intervalMs);
     },
-    [],
+    [isLoading],
   );
 
   return (
@@ -317,12 +375,18 @@ export function ChatInterface() {
                   />
                 ),
               )}
+              {/* Bottom spacer — pushes latest messages to top of viewport */}
+              <div className="min-h-[40vh]" aria-hidden="true" />
               <div ref={messagesEndRef} />
             </div>
           </div>
 
-          {/* Bottom input */}
-          <div className="bg-background px-4 pb-6 pt-2">
+          {/* Bottom: quick questions + input */}
+          <div className="space-y-2 bg-background px-4 pb-6 pt-2">
+            <QuickQuestionChips
+              onSelect={handleQuickQuestion}
+              isLoading={isLoading}
+            />
             <ChatInputBar
               input={input}
               isLoading={isLoading}
@@ -337,10 +401,10 @@ export function ChatInterface() {
           </div>
         </>
       ) : (
-        /* Empty state — everything centered */
+        /* Empty state — greeting centered, chips below input */
         <div className="flex flex-1 flex-col items-center justify-center px-4">
           <h1 className="mb-8 text-2xl font-medium text-foreground/80 md:text-3xl">
-            What&apos;s on your mind today?
+            {greeting}
           </h1>
           <div className="w-full max-w-3xl space-y-4">
             <ChatInputBar
@@ -354,20 +418,11 @@ export function ChatInterface() {
               onStop={stopGeneration}
               onNewChat={handleNewChat}
             />
-
-            {/* Quick question chips */}
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center">
-              {quickQuestions.map((qq) => (
-                <button
-                  key={qq.question}
-                  type="button"
-                  onClick={() => handleQuickQuestion(qq.question, qq.answer)}
-                  className="w-full rounded-full border border-border bg-muted/50 px-3 py-2 text-center text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:w-auto sm:px-4 sm:text-sm"
-                >
-                  {qq.question}
-                </button>
-              ))}
-            </div>
+            {/* Quick question chips below input */}
+            <QuickQuestionChips
+              onSelect={handleQuickQuestion}
+              isLoading={isLoading}
+            />
           </div>
         </div>
       )}

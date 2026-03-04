@@ -116,10 +116,7 @@ function BriefIntro() {
       <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
         I&apos;m a 2nd year CS student at Ateneo who learns by building things.
         I&apos;m active in a few tech orgs on campus doing dev work and running
-        workshops. Lately I&apos;ve been getting into AI integration and want to
-        move beyond just calling APIs to actually building AI systems and
-        workflows. I prefer shipping fast and iterating over planning forever,
-        and I use AI tools heavily to accelerate my learning and coding.
+        workshops. I am currently interning as an AI Developer at Eskwelabs, while also doing personal projects. What I love about coding is the ability to create something out of nothing and see it come to life.
       </p>
     </div>
   );
