@@ -10,7 +10,8 @@ export const experiences: Experience[] = [
     title: "AI Solution Development Intern",
     organization: "Eskwelabs",
     date: "February 2026 - Present",
-    description: "Design and deploy internal AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts using Python to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases."
+    description:
+      "Design and deploy internal AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts using Python to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases.",
   },
   {
     title: "Freelance Full-Stack Developer",
@@ -53,6 +54,13 @@ export const experiences: Experience[] = [
     date: "February 2025 - September 2025",
     description:
       "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for Ateneo's SOSE community.",
+  },
+  {
+    title: "Bachelor of Science in Computer Science",
+    organization: "Ateneo de Manila University",
+    date: "August 2024 - Present",
+    description:
+      "Pursuing my BS Computer Science degree at my dream university — Ateneo de Manila University, consistently ranked as the top university in the Philippines. Admitted as a Financial Aid Scholar and DOST Scholar.",
   },
   {
     title: "STEM Strand Vice Governor",

@@ -35,11 +35,11 @@ import {
 
 const navItems = [
   { title: "Home", url: "/", icon: Home },
+  { title: "Discovery", url: "/discovery", icon: Compass },
   { title: "About Me", url: "/about", icon: User },
   { title: "Projects", url: "/projects", icon: FolderKanban },
   { title: "Experience", url: "/experience", icon: Briefcase },
   { title: "Tech Stack", url: "/tech-stack", icon: Layers },
-  { title: "Discovery", url: "/discovery", icon: Compass },
   { title: "Contact", url: "/contact", icon: Mail },
 ];
 
