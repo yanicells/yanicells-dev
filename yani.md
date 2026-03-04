@@ -11,6 +11,7 @@ others
     - try maybe use discovery page sa perplexity, something fun
 - page load animation? like fade in or something simple
 - certificates in experience? or separate tab?
+- re order sidebar (home discovery, about...)
 
 content specific
 - chats
