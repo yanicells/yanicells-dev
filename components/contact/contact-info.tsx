@@ -165,21 +165,29 @@ export function ContactInfo() {
       <div className="flex flex-col gap-8 sm:flex-row sm:gap-10">
         {/* Left — profile card */}
         <div className="flex flex-col items-center gap-4 sm:w-2/5">
-          <div className="relative size-24 overflow-hidden rounded-2xl ring-2 ring-border ring-offset-2 ring-offset-background">
-            <Image
-              src="/yani.png"
+          <div className="relative size-full overflow-hidden rounded-2xl">
+            {/* <Image
+              src="/newgif.gif"
               alt="Yanicells"
               fill
               className="object-cover"
-            />
+            /> */}
+            <video
+              controls={false}
+              autoPlay
+              loop
+              muted
+              playsInline
+              width="100%"
+            >
+              <source src="avatar.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div className="text-center">
-            <h2 className="text-lg font-bold text-foreground">
+            <h2 className="text-lg font-semibold text-foreground">
               Edrian Miguel Capistrano
             </h2>
-            <p className="text-xs text-muted-foreground">
-              Full-Stack Developer
-            </p>
           </div>
           <div className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
             <MapPin className="size-3 text-(--ctp-teal)" />
@@ -187,7 +195,7 @@ export function ContactInfo() {
           </div>
 
           {/* Quick icon row */}
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             {contactLinks.map((contact) => (
               <Link
                 key={contact.label}
@@ -211,6 +219,7 @@ export function ContactInfo() {
 
         {/* Right — contact links */}
         <div className="flex flex-1 flex-col gap-2">
+          <p className="text-sm text-muted-foreground">Contact & Socials</p>
           {/* Email — full width */}
           <ContactCard
             icon={email.icon}
@@ -252,6 +261,10 @@ export function ContactInfo() {
           </div>
 
           <div className="my-2 h-px bg-border" />
+
+          <p className="text-sm text-muted-foreground">
+            Qualifications & Experience
+          </p>
 
           {/* Resume + CV */}
           {resumeLinks.map((link) => (
