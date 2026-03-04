@@ -40,7 +40,7 @@ export function ProjectsGrid() {
   }, [searchQuery, activeTab]);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-2 sm:gap-4">
       <ProjectsHeader
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -48,22 +48,23 @@ export function ProjectsGrid() {
 
       <ProjectsCarousel />
 
-      <div className="flex flex-col gap-4">
+      {/* Sticky tabs — matches tech-stack/anime pattern */}
+      <div className="sticky top-14 z-40 -mx-6 bg-background px-6 py-4">
         <ProjectsTabs activeTab={activeTab} onTabChange={setActiveTab} />
-
-        {/* 2-column grid */}
-        <div className="grid grid-cols-1 gap-1 md:grid-cols-2">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <p className="py-8 text-center text-muted-foreground">
-            No projects found matching your search.
-          </p>
-        )}
       </div>
+
+      {/* 3-column grid for larger cards */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
+      </div>
+
+      {filteredProjects.length === 0 && (
+        <p className="py-8 text-center text-muted-foreground">
+          No projects found matching your search.
+        </p>
+      )}
     </div>
   );
 }

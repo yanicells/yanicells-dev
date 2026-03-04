@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Plus } from "lucide-react";
 import { PageLayout } from "@/components/shared/page-layout";
+import { Button } from "@/components/ui/button";
 import { chats } from "@/lib/data/chats";
 
 export const metadata: Metadata = {
@@ -21,15 +23,24 @@ export const metadata: Metadata = {
 export default function ChatsPage() {
   return (
     <PageLayout>
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
-            Chats
-          </h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Curated conversations — FAQs, behind-the-scenes, and random
-            thoughts.
-          </p>
+      <div className="flex flex-col gap-2 sm:gap-4">
+        {/* Header row — matches tech-stack styling */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
+              Chats
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Curated conversations — FAQs, behind-the-scenes, and random
+              thoughts.
+            </p>
+          </div>
+          <Button asChild size="sm" className="shrink-0 rounded-base">
+            <Link href="/">
+              <Plus className="size-4" />
+              New Chat
+            </Link>
+          </Button>
         </div>
 
         <hr className="border-border" />

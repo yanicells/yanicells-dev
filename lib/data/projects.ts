@@ -106,7 +106,7 @@ export const projects: Project[] = [
     live: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
     category: "webdev",
-    isFeatured: true,
+    isFeatured: false,
     date: "Sep 2025",
     blog: [
       {

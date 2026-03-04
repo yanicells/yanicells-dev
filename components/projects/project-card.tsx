@@ -1,30 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { type Project } from "@/lib/data/projects";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+/**
+ * Project card — larger layout inspired by Claude artifacts.
+ * Shows a tall image preview with title and description below.
+ */
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-muted"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-muted/30 transition-colors hover:bg-muted/60"
     >
-      {/* Project Image - larger */}
-      <div className="relative size-20 shrink-0 overflow-hidden rounded-lg bg-muted">
+      {/* Image */}
+      <div className="relative aspect-16/10 w-full overflow-hidden bg-muted">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
       {/* Text content */}
-      <div className="min-w-0 flex-1">
+      <div className="flex flex-col gap-1 p-4">
         <h3 className="font-medium text-foreground transition-colors group-hover:text-primary">
           {project.title}
         </h3>
@@ -32,9 +35,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.shortDescription}
         </p>
       </div>
-
-      {/* Chevron */}
-      <ChevronRight className="size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
     </Link>
   );
 }
