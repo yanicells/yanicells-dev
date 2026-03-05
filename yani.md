@@ -20,3 +20,18 @@ content specific
 - add github commit somewhere
 - update prompt sa chat to add about the cv/resume
 - add more quick questions
+- chat better ui, new message appear on top
+
+one chat idea
+
+Gi tigididing ka sa manila?
+oo lisod kaayo oy...
+adjust
+
+Kamusta buhay atenista
+answer tagalog
+
+check greetings, make sure can fit in mobile
+one liner, have max words, make it fitting to the desciption like im yani
+
+add date to chats check ai ui if they have - if not then decide if i want

@@ -166,9 +166,12 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-          <span className="px-2 py-1 text-xs font-medium text-muted-foreground">
-            Yani&apos;s Cells
-          </span>
+          <Link
+            href="/discovery"
+            className="px-2 py-1 text-xs font-medium text-muted-foreground transition-colors hover:text-sidebar-foreground"
+          >
+            Yani's Cells
+          </Link>
           <SidebarGroupContent>
             <SidebarMenu>
               {yanisCellsItems.map((item) => (
