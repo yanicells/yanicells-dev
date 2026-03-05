@@ -44,7 +44,7 @@ const timeGreetings: GreetingPool[] = [
       "Fresh start, let's go",
       "Rise and build",
       "The early coder catches the bug",
-      "Morning — coffee first, code second",
+      "Morning — coffee first",
     ],
   },
   {
@@ -53,7 +53,7 @@ const timeGreetings: GreetingPool[] = [
     endHour: 12,
     messages: [
       "Good morning!",
-      "Morning — what are we building?",
+      "Morning — how are you?",
       "Hey, good morning",
       "Top of the morning to you",
       "Bright and early, nice",

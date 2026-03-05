@@ -17,6 +17,7 @@ import {
 } from "@/components/home/chat-message";
 import { quickQuestions } from "@/lib/data/quick-questions";
 import { getGreeting } from "@/lib/data/greetings";
+import { HeroSection } from "@/components/home/hero-section";
 
 interface Message {
   id: string;
@@ -404,12 +405,10 @@ export function ChatInterface() {
           </div>
         </>
       ) : (
-        /* Empty state — greeting centered, chips below input */
+        /* Empty state — hero + input centered */
         <div className="flex flex-1 flex-col items-center justify-center px-4">
-          <h1 className="mb-8 text-2xl font-medium text-foreground/80 md:text-3xl">
-            {greeting}
-          </h1>
-          <div className="w-full max-w-3xl space-y-4">
+          <HeroSection greeting={greeting} />
+          <div className="mt-6 w-full max-w-3xl space-y-4 md:mt-8">
             <ChatInputBar
               input={input}
               isLoading={isLoading}
