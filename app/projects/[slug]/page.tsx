@@ -77,14 +77,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <PageLayout>
       <div className="flex flex-col gap-8">
-        {/* Back button */}
-        <Link
-          href="/projects"
-          className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="size-4" />
-          Back to Projects
-        </Link>
+        {/* Back button — sticky below header */}
+        <div className="sticky top-14 z-40 -mx-6 bg-background px-6 py-3">
+          <Link
+            href="/projects"
+            className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="size-4" />
+            Back to Projects
+          </Link>
+        </div>
 
         {/* Project Image */}
         <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted border-1">
@@ -111,9 +113,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.date}
               </span>
             )}
-            |
-
-            {/* Links */}
+            |{/* Links */}
             <div className="flex items-center gap-3">
               {project.repo && (
                 <a

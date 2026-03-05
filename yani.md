@@ -12,7 +12,7 @@ content specific
             - adjust
         - Kamusta buhay atenista
             - answer tagalog
-- contents of chats, tech stack, about, more quick questions (and answers update)
+- contents of chats, tech stack, about, more quick questions (and answers update), anime
 - update photography - pics, maybe separate like photos like folders - maybe use carousel like pixcells
 - add porfolio website in projects once done
 - add github commit somewhere

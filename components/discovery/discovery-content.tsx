@@ -151,7 +151,7 @@ export function DiscoveryContent() {
                 </span>
               </div>
               <p className="text-sm font-semibold text-foreground">
-                Moments &amp; perspectives through the lens
+                Moments through the lens
               </p>
             </div>
           </Link>
@@ -207,7 +207,7 @@ export function DiscoveryContent() {
                   70+ series rated
                 </p>
                 <p className="text-[11px] text-muted-foreground">
-                  Watchlist &amp; personal reviews
+                  Watchlist &amp; reviews
                 </p>
               </div>
             </div>

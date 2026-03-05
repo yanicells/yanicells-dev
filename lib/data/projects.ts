@@ -132,6 +132,72 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Yanicells",
+    slug: "portfolio-website",
+    description:
+      "A personal portfolio built with a ChatGPT-inspired UI, featuring an AI chatbot powered by Gemini, Spotify stats, an anime watchlist, photography gallery, and saved conversations.",
+    shortDescription: "Personal Portfolio Website",
+    tech: ["Next.js", "Gemini API", "TypeScript"],
+    live: "https://yanicells.dev",
+    repo: "https://github.com/yanicells/yanicells-dev",
+    image: "/projects/yani-portfolio.png",
+    category: "webdev",
+    isFeatured: false,
+    date: "Jan - Feb 2026",
+    blog: [
+      {
+        title: "The Inspiration",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Picking a design for a portfolio is genuinely one of the hardest parts. So many portfolios online start blending together after a while. The hero section, the about me, the projects grid, done. I knew I wanted something different but kept hitting a wall with inspiration. Then it clicked: the UI I spend the most time in isn't any portfolio, it's AI chatbots. ChatGPT, Claude, Perplexity. I'm in these constantly. So I just used that as my starting point and ran with it.",
+          },
+        ],
+      },
+      {
+        title: "How It Came Together",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I went through each chatbot I actually use and pulled what I liked from each. The projects page is a mix of Claude's artifacts panel and ChatGPT's apps UI. The tech stack page took inspo from the GPT explore section. The discovery page is basically my take on Perplexity's discover feed. It wasn't about copying any one thing, more like assembling a UI I already felt comfortable in and making it mine. Once I had that direction, everything else kind of fell into place.",
+          },
+        ],
+      },
+      {
+        title: "The Chatbot and the Saved Chats",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Adding a Gemini-powered chatbot was always part of the plan. I thought it would be a fun way to let people interact with the site. The fun part was tuning the prompt so it actually sounds like me and not just a generic assistant. I had to put guardrails in so it wouldn't go off and say something completely unhinged. The saved chats idea came later though, kind of randomly. I thought, if this is inspired by AI chat UIs, what if I actually used conversations as a form of blog posts? That realization pushed me to lean even harder into the whole concept.",
+          },
+        ],
+      },
+      {
+        title: "The Personal Stuff",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I think I took the word 'personal' in personal portfolio a little too literally, and I love that. You can see my Spotify stats (around 180k+ minutes in 2025, and yes, as my mental health gets worse, my listening minutes go up and my music taste gets better), browse my anime watchlist, and check out my photography. None of that was planned from the start. I just kept adding things as I went. The site kind of reflects how my brain works: one tab at a time, no strict structure, just whatever felt right.",
+          },
+        ],
+      },
+      {
+        title: "What I'm Most Proud Of",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "More than anything, I'm proud that this site actually feels like me. Not just a showcase of projects and skills, but a real window into what I'm into, what I'm listening to, what I'm watching, and how I think. Most portfolios tell you what someone can build. This one just lets you get to know me. And honestly, who knows, there might be even more tabs in the future.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: "Redhead Redemption",
     slug: "redhead-redemption",
     description:
