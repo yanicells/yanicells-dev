@@ -103,10 +103,10 @@ export function DiscoveryContent() {
               src="/yani.png"
               alt="Yani"
               fill
-              className="object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-55"
+              className="object-cover opacity-60 transition-all duration-700 group-hover:scale-105 group-hover:opacity-85"
               priority
             />
-            <div className="absolute inset-0 bg-linear-to-t from-card via-card/65 to-card/20" />
+            <div className="absolute inset-0 bg-linear-to-t from-card/90 via-card/30 to-card/10" />
 
             {/* Decorative dots */}
             <div className="absolute right-4 top-4 grid grid-cols-3 gap-1 opacity-20">
@@ -140,9 +140,9 @@ export function DiscoveryContent() {
               src="/photos/IMG_2084.jpg"
               alt="Photography"
               fill
-              className="object-cover opacity-35 transition-all duration-700 group-hover:scale-110 group-hover:opacity-50"
+              className="object-cover opacity-65 transition-all duration-700 group-hover:scale-110 group-hover:opacity-85"
             />
-            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-br from-card/70 via-card/25 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-teal)">
                 <Camera className="size-4" />
@@ -166,9 +166,9 @@ export function DiscoveryContent() {
               src="/multo.png"
               alt="Music"
               fill
-              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-45"
+              className="object-cover opacity-60 transition-all duration-700 group-hover:scale-110 group-hover:opacity-85"
             />
-            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-br from-card/70 via-card/25 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-green)">
                 <Music className="size-4" />
@@ -192,9 +192,9 @@ export function DiscoveryContent() {
               src="/anime.png"
               alt="Anime"
               fill
-              className="object-cover opacity-30 transition-all duration-700 group-hover:scale-110 group-hover:opacity-45"
+              className="object-cover opacity-60 transition-all duration-700 group-hover:scale-110 group-hover:opacity-85"
             />
-            <div className="absolute inset-0 bg-linear-to-br from-card/90 via-card/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-br from-card/70 via-card/25 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-pink)">
                 <Clapperboard className="size-4" />
@@ -223,9 +223,9 @@ export function DiscoveryContent() {
               src="/story.JPG"
               alt="About Me"
               fill
-              className="object-cover opacity-25 transition-all duration-700 group-hover:scale-105 group-hover:opacity-40"
+              className="object-cover opacity-65 transition-all duration-700 group-hover:scale-105 group-hover:opacity-85"
             />
-            <div className="absolute inset-0 bg-linear-to-r from-card/95 via-card/60 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-card/75 via-card/35 to-transparent" />
             <div className="relative z-10 flex h-full flex-col justify-between p-4">
               <div className="flex items-center gap-2 text-(--ctp-peach)">
                 <BookOpen className="size-4" />
@@ -265,7 +265,7 @@ export function DiscoveryContent() {
                   className="object-cover transition-all duration-700 group-hover:scale-105"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-card via-card/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-transparent" />
                 {/* Featured badge */}
                 <div className="absolute left-4 top-4 z-10">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-card/80 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] text-(--ctp-lavender) backdrop-blur-sm">
