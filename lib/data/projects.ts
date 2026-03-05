@@ -101,7 +101,7 @@ export const projects: Project[] = [
     slug: "misayang-samahan",
     description:
       "A Pokémon-themed HR platform for MISA with quiz-based sorting, admin tools, and family assignments used by 60+ members.",
-    shortDescription: "Pokémon-themed quiz-based sorting",
+    shortDescription: "Pokémon-themed quiz sorting",
     tech: ["Node.js", "PostgreSQL", "TailwindCSS"],
     live: "https://family.misa.org.ph",
     image: "/projects/misayang.png",
