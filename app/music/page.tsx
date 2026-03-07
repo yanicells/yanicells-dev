@@ -54,7 +54,9 @@ export default async function MusicPage() {
     <PageLayout>
       <div className="flex flex-col gap-8">
         <MusicHeader />
-        <NowPlaying />
+        <div className="sticky top-14 z-40 -mx-6 bg-background px-6">
+          <NowPlaying />
+        </div>
         <MusicDashboard data={data} />
       </div>
     </PageLayout>
