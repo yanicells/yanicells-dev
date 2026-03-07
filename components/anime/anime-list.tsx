@@ -28,9 +28,13 @@ export function AnimeList({ entries, apiDataMap }: AnimeListProps) {
         filtered = [...filtered].sort((a, b) => b.rating - a.rating);
         break;
       case "recent":
-        filtered = filtered.filter((e) =>
-          e.status?.includes("recently-watched"),
-        );
+        filtered = filtered
+          .filter((e) => e.status?.includes("recently-watched"))
+          .sort(
+            (a, b) =>
+              new Date(b.watchedDate).getTime() -
+              new Date(a.watchedDate).getTime(),
+          );
         break;
       case "recommendations":
         filtered = filtered.filter((e) => e.recommended);

@@ -30,7 +30,7 @@ export interface AnimeEntry {
   watchedDate: string;
 }
 
-export const animeList: AnimeEntry[] = [
+const rawAnimeList: AnimeEntry[] = [
   // ── 2021 ───────────────────────────────────────────────
   {
     malId: 20,
@@ -123,6 +123,7 @@ export const animeList: AnimeEntry[] = [
     malId: 42897,
     title: "Horimiya",
     rating: 9,
+    recommended: true,
     watchedDate: "2021-06-13",
   },
   {
@@ -141,8 +142,6 @@ export const animeList: AnimeEntry[] = [
     malId: 33352,
     title: "Violet Evergarden",
     rating: 9,
-    status: ["favorite"],
-    recommended: true,
     comment: "Visually stunning and emotionally devastating. A must-watch.",
     watchedDate: "2021-06-20",
   },
@@ -180,21 +179,18 @@ export const animeList: AnimeEntry[] = [
     malId: 36098,
     title: "I Want to Eat Your Pancreas",
     rating: 9,
-    status: ["favorite"],
     watchedDate: "2021-07-08",
   },
   {
     malId: 28851,
     title: "A Silent Voice",
     rating: 9,
-    status: ["favorite"],
     watchedDate: "2021-07-09",
   },
   {
     malId: 38000,
     title: "Demon Slayer",
     rating: 9.7,
-    status: ["favorite"],
     recommended: true,
     comment: "Ufotable animation is unmatched. The fights are breathtaking.",
     watchedDate: "2021-07-13",
@@ -212,7 +208,6 @@ export const animeList: AnimeEntry[] = [
     malId: 40748,
     title: "Jujutsu Kaisen",
     rating: 9.5,
-    status: ["favorite"],
     watchedDate: "2021-07-28",
   },
   {
@@ -341,6 +336,7 @@ export const animeList: AnimeEntry[] = [
     malId: 41457,
     title: "86: Eighty Six",
     rating: 10,
+    recommended: true,
     status: ["favorite"],
     watchedDate: "2022-03-27",
   },
@@ -354,13 +350,12 @@ export const animeList: AnimeEntry[] = [
     malId: 53065,
     title: "My Dress-Up Darling Season 2",
     rating: 8.2,
-    watchedDate: "2026-02-18",
+    watchedDate: "2025-11-18",
   },
   {
     malId: 39535,
     title: "Mushoku Tensei: Jobless Reincarnation",
     rating: 10,
-    status: ["favorite"],
     watchedDate: "2022-03-29",
   },
   {
@@ -504,20 +499,19 @@ export const animeList: AnimeEntry[] = [
     malId: 52299,
     title: "Solo Leveling",
     rating: 9.5,
-    status: ["recently-watched"],
     watchedDate: "2024-10-11",
   },
   {
     malId: 58567,
     title: "Solo Leveling Season 2",
     rating: 9.9,
-    status: ["recently-watched"],
     watchedDate: "2025-04-05", // approximate date for start of S2
   },
   {
     malId: 52588,
     title: "Kaiju No. 8",
     rating: 9.5,
+    recommended: true,
     watchedDate: "2024-10-11",
   },
   {
@@ -532,35 +526,30 @@ export const animeList: AnimeEntry[] = [
     malId: 58939,
     title: "Sakamoto Days",
     rating: 8.3,
-    status: ["recently-watched"],
     watchedDate: "2025-03-25",
   },
   {
     malId: 57334,
     title: "Dandadan",
     rating: 8.1,
-    status: ["recently-watched"],
     watchedDate: "2025-04-03",
   },
   {
     malId: 57181,
     title: "Blue Box",
     rating: 8.2,
-    status: ["recently-watched"],
     watchedDate: "2025-04-14",
   },
   {
     malId: 60489,
     title: "Takopi's Original Sin",
     rating: 7.8,
-    status: ["recently-watched"],
     watchedDate: "2025-11-10",
   },
   {
     malId: 59845,
     title: "The Fragrant Flower Blooms with Dignity",
     rating: 9.5,
-    status: ["recently-watched", "favorite"],
     watchedDate: "2025-12-14",
   },
 
@@ -569,7 +558,7 @@ export const animeList: AnimeEntry[] = [
     malId: 59192,
     title: "Demon Slayer: Infinity Castle",
     rating: 9,
-    watchedDate: "2026-07-25",
+    watchedDate: "2025-07-25",
   },
   {
     malId: 31964,
@@ -620,6 +609,29 @@ export const animeList: AnimeEntry[] = [
     watchedDate: "2026-03-01",
   },
 ];
+
+// Compute the top 16 most recently watched anime IDs
+const top16MalIds = new Set(
+  [...rawAnimeList]
+    .sort(
+      (a, b) =>
+        new Date(b.watchedDate).getTime() - new Date(a.watchedDate).getTime(),
+    )
+    .slice(0, 16)
+    .map((a) => a.malId),
+);
+
+export const animeList: AnimeEntry[] = rawAnimeList.map((anime) => {
+  if (top16MalIds.has(anime.malId)) {
+    return {
+      ...anime,
+      status: anime.status
+        ? [...new Set([...anime.status, "recently-watched" as AnimeStatus])]
+        : (["recently-watched"] as AnimeStatus[]),
+    };
+  }
+  return anime;
+});
 
 /** Get all anime sorted by rating (highest first) */
 export function getAnimeByRating(): AnimeEntry[] {
