@@ -81,16 +81,6 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
             >
               {entry.rating}
             </span>
-            {entry.rating2 != null ? (
-              <>
-                <span className="text-[10px] text-muted-foreground">/</span>
-                <span
-                  className={`text-xs font-bold ${getRatingColor(entry.rating2)}`}
-                >
-                  {entry.rating2}
-                </span>
-              </>
-            ) : null}
           </div>
         </div>
 
@@ -132,18 +122,6 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
                 <span className={`font-medium ${getRatingColor(entry.rating)}`}>
                   {entry.rating}
                 </span>
-                {entry.rating2 != null ? (
-                  <>
-                    <span className="mx-0.5 text-[10px] text-muted-foreground">
-                      /
-                    </span>
-                    <span
-                      className={`font-medium ${getRatingColor(entry.rating2)}`}
-                    >
-                      {entry.rating2}
-                    </span>
-                  </>
-                ) : null}
               </span>
               {malScore ? (
                 <>
@@ -255,16 +233,7 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
                   >
                     {entry.rating}
                   </span>
-                  {entry.rating2 != null ? (
-                    <>
-                      <span className="text-sm text-muted-foreground">/</span>
-                      <span
-                        className={`text-xl font-bold ${getRatingColor(entry.rating2)}`}
-                      >
-                        {entry.rating2}
-                      </span>
-                    </>
-                  ) : null}
+
                   <span className="text-xs text-muted-foreground">
                     My Rating
                   </span>

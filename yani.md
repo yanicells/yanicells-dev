@@ -6,7 +6,7 @@ others
 - add github commit somewhere
 - add date to chats check ai ui if they have, if not then decide if i want
 - contact: see if i want to make avatar more responsive (but still keep bigger size since i like) + add resume to like the small icon links
-- music - now playing as sticky?
+- music - now playing as sticky? (make the recent watched not hard coded, make it check last 16)
 - help ui and content
 
 chats

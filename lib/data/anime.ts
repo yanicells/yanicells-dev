@@ -18,8 +18,6 @@ export interface AnimeEntry {
   title: string;
   /** Personal rating out of 10 */
   rating: number;
-  /** Optional second rating (e.g. for season 2) */
-  rating2?: number;
   /** Personal note / thoughts */
   note?: string;
   /** Personal comment — longer thoughts or review */
@@ -506,16 +504,27 @@ export const animeList: AnimeEntry[] = [
     malId: 52299,
     title: "Solo Leveling",
     rating: 9.5,
-    rating2: 9.9,
     status: ["recently-watched"],
     watchedDate: "2024-10-11",
+  },
+  {
+    malId: 58567,
+    title: "Solo Leveling Season 2",
+    rating: 9.9,
+    status: ["recently-watched"],
+    watchedDate: "2025-04-05", // approximate date for start of S2
   },
   {
     malId: 52588,
     title: "Kaiju No. 8",
     rating: 9.5,
-    rating2: 8.5,
     watchedDate: "2024-10-11",
+  },
+  {
+    malId: 59177,
+    title: "Kaiju No. 8 Season 2",
+    rating: 8.5,
+    watchedDate: "2025-10-10", // S2 release
   },
 
   // ── 2025 ───────────────────────────────────────────────
