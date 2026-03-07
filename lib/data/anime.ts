@@ -554,6 +554,62 @@ export const animeList: AnimeEntry[] = [
     status: ["recently-watched", "favorite"],
     watchedDate: "2025-12-14",
   },
+
+  // ── 2026 ───────────────────────────────────────────────
+  {
+    malId: 59192,
+    title: "Demon Slayer: Infinity Castle",
+    rating: 9,
+    watchedDate: "2026-07-25",
+  },
+  {
+    malId: 31964,
+    title: "My Hero Academia Season 1",
+    rating: 8,
+    watchedDate: "2026-01-10",
+  },
+  {
+    malId: 33486,
+    title: "My Hero Academia Season 2",
+    rating: 8.3,
+    watchedDate: "2026-01-16",
+  },
+  {
+    malId: 36456,
+    title: "My Hero Academia Season 3",
+    rating: 8.5,
+    watchedDate: "2026-01-24",
+  },
+  {
+    malId: 38408,
+    title: "My Hero Academia Season 4",
+    rating: 8.8,
+    watchedDate: "2026-02-4",
+  },
+  {
+    malId: 41587,
+    title: "My Hero Academia Season 5",
+    rating: 8,
+    watchedDate: "2026-02-11",
+  },
+  {
+    malId: 49918,
+    title: "My Hero Academia Season 6",
+    rating: 9,
+    watchedDate: "2026-02-19",
+  },
+  {
+    malId: 54789,
+    title: "My Hero Academia Season 7",
+    rating: 9.3,
+    watchedDate: "2026-02-25",
+  },
+  {
+    malId: 60098,
+    title: "My Hero Academia Season 8",
+    rating: 9.6,
+    watchedDate: "2026-03-01",
+  },
 ];
 
 /** Get all anime sorted by rating (highest first) */

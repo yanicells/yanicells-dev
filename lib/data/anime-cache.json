@@ -462,6 +462,20 @@
     "studio": "White Fox",
     "year": 2016
   },
+  "31964": {
+    "mal_id": 31964,
+    "title": "Boku no Hero Academia",
+    "image_url": "https://cdn.myanimelist.net/images/anime/10/78745.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/10/78745l.webp",
+    "type": "TV",
+    "episodes": 13,
+    "score": 7.83,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
+    "year": 2016
+  },
   "32281": {
     "mal_id": 32281,
     "title": "Kimi no Na wa.",
@@ -506,6 +520,20 @@
     ],
     "studio": "Kyoto Animation",
     "year": 2018
+  },
+  "33486": {
+    "mal_id": 33486,
+    "title": "Boku no Hero Academia 2nd Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/12/85221.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/12/85221l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.05,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
+    "year": 2017
   },
   "34403": {
     "mal_id": 34403,
@@ -646,6 +674,20 @@
     "studio": null,
     "year": 2017
   },
+  "36456": {
+    "mal_id": 36456,
+    "title": "Boku no Hero Academia 3rd Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1319/92084.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1319/92084l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 7.98,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
+    "year": 2018
+  },
   "37450": {
     "mal_id": 37450,
     "title": "Seishun Buta Yarou wa Bunny Girl Senpai no Yume wo Minai",
@@ -752,6 +794,20 @@
       "Romance"
     ],
     "studio": "Tezuka Productions",
+    "year": 2019
+  },
+  "38408": {
+    "mal_id": 38408,
+    "title": "Boku no Hero Academia 4th Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1412/107914.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1412/107914l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 7.86,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
     "year": 2019
   },
   "38691": {
@@ -892,6 +948,20 @@
       "Sci-Fi"
     ],
     "studio": "A-1 Pictures",
+    "year": 2021
+  },
+  "41587": {
+    "mal_id": 41587,
+    "title": "Boku no Hero Academia 5th Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1911/113611.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1911/113611l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 7.35,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
     "year": 2021
   },
   "42249": {
@@ -1072,6 +1142,20 @@
     "studio": "8bit",
     "year": 2022
   },
+  "49918": {
+    "mal_id": 49918,
+    "title": "Boku no Hero Academia 6th Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1483/126005.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1483/126005l.webp",
+    "type": "TV",
+    "episodes": 25,
+    "score": 8.22,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
+    "year": 2022
+  },
   "50265": {
     "mal_id": 50265,
     "title": "Spy x Family",
@@ -1214,6 +1298,20 @@
     "studio": "CloverWorks",
     "year": 2025
   },
+  "54789": {
+    "mal_id": 54789,
+    "title": "Boku no Hero Academia 7th Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1529/140306.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1529/140306l.webp",
+    "type": "TV",
+    "episodes": 21,
+    "score": 8.12,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones",
+    "year": 2024
+  },
   "55701": {
     "mal_id": 55701,
     "title": "Kimetsu no Yaiba: Hashira Geiko-hen",
@@ -1304,6 +1402,21 @@
     "studio": "TMS Entertainment",
     "year": 2025
   },
+  "59192": {
+    "mal_id": 59192,
+    "title": "Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1681/148216.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1681/148216l.webp",
+    "type": "Movie",
+    "episodes": 1,
+    "score": 8.68,
+    "genres": [
+      "Action",
+      "Supernatural"
+    ],
+    "studio": "ufotable",
+    "year": null
+  },
   "59845": {
     "mal_id": 59845,
     "title": "Kaoru Hana wa Rin to Saku",
@@ -1317,6 +1430,20 @@
       "Romance"
     ],
     "studio": "CloverWorks",
+    "year": 2025
+  },
+  "60098": {
+    "mal_id": 60098,
+    "title": "Boku no Hero Academia: Final Season",
+    "image_url": "https://cdn.myanimelist.net/images/anime/1959/151055.webp",
+    "large_image_url": "https://cdn.myanimelist.net/images/anime/1959/151055l.webp",
+    "type": "TV",
+    "episodes": 11,
+    "score": 8.73,
+    "genres": [
+      "Action"
+    ],
+    "studio": "Bones Film",
     "year": 2025
   },
   "60489": {
