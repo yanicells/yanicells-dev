@@ -125,15 +125,38 @@ export function AnimeCard({ entry, apiData }: AnimeCardProps) {
               ) : null}
             </div>
 
-            {/* MAL score comparison */}
-            {malScore ? (
-              <p className="text-xs text-muted-foreground">
-                MAL:{" "}
-                <span className="font-medium text-foreground">
-                  {malScore.toFixed(2)}
+            {/* Score comparison */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+              <span>
+                My Rating:{" "}
+                <span className={`font-medium ${getRatingColor(entry.rating)}`}>
+                  {entry.rating}
                 </span>
-              </p>
-            ) : null}
+                {entry.rating2 != null ? (
+                  <>
+                    <span className="mx-0.5 text-[10px] text-muted-foreground">
+                      /
+                    </span>
+                    <span
+                      className={`font-medium ${getRatingColor(entry.rating2)}`}
+                    >
+                      {entry.rating2}
+                    </span>
+                  </>
+                ) : null}
+              </span>
+              {malScore ? (
+                <>
+                  <span className="text-border">·</span>
+                  <span>
+                    MAL:{" "}
+                    <span className="font-medium text-foreground">
+                      {malScore.toFixed(2)}
+                    </span>
+                  </span>
+                </>
+              ) : null}
+            </div>
 
             {/* Genres */}
             {genres.length > 0 ? (
