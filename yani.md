@@ -36,5 +36,6 @@ chore
 
 fixes
 - ensure the chat at / and saved chats, the scroll is only in the chat area, but the whole page should not be scrollable, so that the text input stays in the same place always (maybe just make the text input and quick message sticky?), the problem is that like when i chat, the text input gets clipped, and i have to scroll to see the bottom, which is annoying
+- please also fix the ui issue where new chat should appear at the top
 - update about me flow, since maybe the hero is a bit redundant, so maybe make it better formatted/layouted so that less redundant
 - medyo na cut ang right side sa avatar once wave (only in home, contact is fine)
