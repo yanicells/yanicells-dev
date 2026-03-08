@@ -6,13 +6,14 @@ others
 - add github commit somewhere
 - add date to chats check ai ui if they have, if not then decide if i want
 - contact: see if i want to make avatar more responsive (but still keep bigger size since i like) + add resume to like the small icon links
-- music - now playing as sticky? (make the recent watched not hard coded, make it check last 16)
 - anime card (too much white space)
 - there are other animes with notes "season 1 and 2" please update to separate
 - help ui and content
+- pls add like personal fav or masterpiece or idk tab sa spotify mga songs, naa sa tab sa top songs (last month, 6 months, all time, favs or idk) (medyo ako, multo, bubog, some olivia, bawat piyesa, sa'yo, iprapk, put to waste, hayaan) - slightly diff layout? or can be the same
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language
+- have around 4-6 chats
     - Gi tigididing ka sa manila?
         - oo lisod kaayo oy...
         - adjust
