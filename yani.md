@@ -10,6 +10,7 @@ others
 - there are other animes with notes "season 1 and 2" please update to separate
 - help ui and content
 - pls add like personal fav or masterpiece or idk tab sa spotify mga songs, naa sa tab sa top songs (last month, 6 months, all time, favs or idk) (medyo ako, multo, bubog, some olivia, bawat piyesa, sa'yo, iprapk, put to waste, hayaan) - slightly diff layout? or can be the same
+    - maybe not as list like the other tabs, but more cards ish? have some space for personal comments? like a description, maybe even pop up modal
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language, these are more personal
