@@ -13,6 +13,7 @@ others
     - maybe not as list like the other tabs, but more cards ish? have some space for personal comments? like a description, maybe even pop up modal
 - implement caching for spotify api calls, maybe a cron job? or ill manually update a json file, this is for the top tracks, artists, genres
 - update first user management, get the top endpoints result to work
+- read docs https://developer.spotify.com/documentation/web-api/references/changes/march-2026
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language, these are more personal
