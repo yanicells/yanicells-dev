@@ -40,8 +40,8 @@ export default async function MusicPage() {
             Spotify integration is not configured yet.
           </p>
           <p className="text-xs text-muted-foreground/60">
-            Set SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and
-            SPOTIFY_REFRESH_TOKEN in your environment.
+            Fix SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and
+            SPOTIFY_REFRESH_TOKEN env.
           </p>
         </div>
       </PageLayout>
