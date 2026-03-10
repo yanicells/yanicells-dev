@@ -6,9 +6,8 @@ export function MusicHeader() {
           <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
             Music
           </h1>
-          <p className="mt-2 max-w-lg text-sm text-muted-foreground">
-            What I&apos;ve been listening to &mdash; top
-            tracks, favorite artists, and the genres that keep me going.
+          <p className="text-sm text-muted-foreground">
+            My top tracks, favorite artists, and the genres that keep me going.
           </p>
         </div>
       </div>
