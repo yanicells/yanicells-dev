@@ -16,6 +16,9 @@ others
 - read docs https://developer.spotify.com/documentation/web-api/references/changes/march-2026
 - make the album cover in the now playing bigger, so that occupy same length as the now playing text, dont change gap
 - fix the now playing size when still fetching, since its not the same size when its done fetching (fix this so that clearner loading state for that component)
+- for the hero section, make the greeting just fade in, no more type (maybe can help ensure that the width of the hero is fixed, since right now, it moves if the greeting is long)
+- add short pause before the typing after I'm Yani - ... so that the greeting appears first, then the about me
+- update the ui for /discovery, it feels very out of place for some parts
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language, these are more personal
