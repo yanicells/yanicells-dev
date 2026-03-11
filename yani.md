@@ -15,6 +15,7 @@ others
 - update first user management, get the top endpoints result to work
 - read docs https://developer.spotify.com/documentation/web-api/references/changes/march-2026
 - make the album cover in the now playing bigger, so that occupy same length as the now playing text, dont change gap
+- fix the now playing size when still fetching, since its not the same size when its done fetching (fix this so that clearner loading state for that component)
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language, these are more personal
