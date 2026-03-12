@@ -19,6 +19,7 @@ others
 - for the hero section, make the greeting just fade in, no more type (maybe can help ensure that the width of the hero is fixed, since right now, it moves if the greeting is long)
 - add short pause before the typing after I'm Yani - ... so that the greeting appears first, then the about me
 - update the ui for /discovery, it feels very out of place for some parts
+- please update ai prompt, since its giving wrong and weird information, and please make sure the response animation (for typing) in the chatbot the same when you do quick message vs actually from ai
 
 chats
 - add bisaya and tagalog chats make the topic actually appropriate for the language, these are more personal
