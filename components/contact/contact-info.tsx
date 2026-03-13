@@ -106,7 +106,7 @@ function ContactCard({
         <Icon className={`size-4 ${color}`} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-medium text-foreground">{label}</p>
+        <p className="truncate text-sm font-medium text-foreground">{label}</p>
         <p className="truncate text-xs text-muted-foreground">{value}</p>
       </div>
       <ArrowUpRight className="size-4 shrink-0 text-muted-foreground/0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-muted-foreground" />
@@ -157,30 +157,27 @@ export function ContactInfo() {
         </h1>
         <p className="text-sm text-muted-foreground">
           I&apos;m always open to discussing new projects, creative ideas, or
-          opportunities to be part of something great.
+          opportunities to be part of.
         </p>
       </div>
 
       {/* Two-column body */}
-      <div className="flex flex-col gap-8 sm:flex-row sm:gap-10">
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
         {/* Left — profile card */}
-        <div className="flex flex-col items-center gap-4 sm:w-2/5">
-          <div className="relative size-full overflow-hidden rounded-2xl">
+        <div className="flex shrink-0 flex-col items-center gap-4 md:-ml-2 lg:-ml-4">
+          <div className="overflow-hidden rounded-3xl">
             <video
-              controls={false}
+              src="/avatar.mp4"
               autoPlay
               loop
               muted
               playsInline
-              width="100%"
-            >
-              <source src="avatar.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              className="h-80 w-72 object-cover md:h-84 md:w-72 lg:h-90 lg:w-84"
+            />
           </div>
           <div className="text-center">
             <h2 className="text-lg font-semibold text-foreground">
-              Edrian Miguel Capistrano
+              Edrian Miguel E. Capistrano
             </h2>
           </div>
           <div className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
@@ -189,23 +186,27 @@ export function ContactInfo() {
           </div>
 
           {/* Quick icon row */}
-          <div className="flex gap-3">
-            {contactLinks.map((contact) => (
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {[...contactLinks, resumeLinks[0]].map((link) => (
               <Link
-                key={contact.label}
-                href={contact.href}
-                target={
-                  contact.href.startsWith("mailto") ? undefined : "_blank"
-                }
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto") ? undefined : "_blank"}
                 rel={
-                  contact.href.startsWith("mailto")
+                  link.href.startsWith("mailto")
                     ? undefined
                     : "noopener noreferrer"
                 }
-                className={`flex size-8 items-center justify-center rounded-full ${contact.bgColor} transition-all hover:scale-110`}
-                title={contact.label}
+                className={`flex size-8 items-center justify-center rounded-full ${
+                  "bgColor" in link ? link.bgColor : "bg-(--ctp-yellow)/10"
+                } transition-all hover:scale-110`}
+                title={link.label}
               >
-                <contact.icon className={`size-3.5 ${contact.color}`} />
+                <link.icon
+                  className={`size-3.5 ${
+                    "color" in link ? link.color : "text-(--ctp-yellow)"
+                  }`}
+                />
               </Link>
             ))}
           </div>

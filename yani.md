@@ -5,7 +5,6 @@ others
 - page load animation? like fade in or something simple
 - add github commit somewhere
 - add date to chats check ai ui if they have, if not then decide if i want
-- contact: see if i want to make avatar more responsive (but still keep bigger size since i like) + add resume to like the small icon links
 - anime card (too much white space)
 - there are other animes with notes "season 1 and 2" please update to separate
 - help ui and content
