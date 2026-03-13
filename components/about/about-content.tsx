@@ -2,11 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { CollapsibleStory } from "@/components/about/collapsible-story";
 
-/** Hero section — profile image, name, role, social links */
 function AboutHero() {
   return (
     <div className="flex flex-col-reverse items-center gap-6 sm:flex-row sm:gap-8">
-      {/* Text Content */}
       <div className="flex-1 text-center sm:text-left">
         <p className="mb-1 text-sm font-medium text-primary sm:text-base">
           Hi, I&apos;m
@@ -21,7 +19,6 @@ function AboutHero() {
           BS Computer Science · Ateneo de Manila University
         </p>
 
-        {/* Social Links */}
         <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:justify-start">
           <a
             href="https://resume.yanicells.dev"
@@ -90,9 +87,8 @@ function AboutHero() {
         </div>
       </div>
 
-      {/* Profile Image */}
       <div className="shrink-0">
-        <div className="relative size-36 overflow-hidden rounded-full border-4 border-border shadow-xl transition-all duration-300 hover:scale-105 hover:border-muted-foreground sm:size-44">
+        <div className="relative size-36 overflow-hidden rounded-full border-4 border-border shadow-xl transition-all duration-300 hover:scale-105 hover:border-muted-foreground sm:size-40">
           <Image
             src="/yani.png"
             alt="Edrian Miguel E. Capistrano"
@@ -116,7 +112,9 @@ function BriefIntro() {
       <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
         I&apos;m a 2nd year CS student at Ateneo who learns by building things.
         I&apos;m active in a few tech orgs on campus doing dev work and running
-        workshops. I am currently interning as an AI Developer at Eskwelabs, while also doing personal projects. What I love about coding is the ability to create something out of nothing and see it come to life.
+        workshops. I am currently interning as an AI Developer at Eskwelabs,
+        while also doing personal projects. What I love about coding is the
+        ability to create something out of nothing and see it come to life.
       </p>
     </div>
   );
@@ -150,24 +148,12 @@ function Currently() {
 export function AboutContent() {
   return (
     <article className="space-y-8">
-      {/* Hero — name, role, social links, profile pic */}
       <AboutHero />
-
       <hr className="border-border" />
-
-      {/* Brief intro */}
       <BriefIntro />
-
-      {/* Currently */}
-      {/* <Currently /> */}
-
-      <hr className="border-border" />
-
-      {/* Collapsible My Story — title + image teaser always visible */}
       <CollapsibleStory />
 
-      {/* Footer CTA — always visible */}
-      <div className="rounded-lg border border-border bg-card/50 p-5">
+      <div className="rounded-lg border border-border p-5">
         <p className="text-sm text-muted-foreground">
           Want to see what I&apos;ve been building?{" "}
           <Link
