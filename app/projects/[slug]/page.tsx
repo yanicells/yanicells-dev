@@ -78,7 +78,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <PageLayout>
       <div className="flex flex-col gap-8">
         {/* Back button — sticky below header */}
-        <div className="sticky top-14 z-40 -mx-6 bg-background px-6 py-3">
+        <div className="sticky top-14 z-40 -mx-6 bg-background px-6 pt-2">
           <Link
             href="/projects"
             className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Project Image */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted border-1">
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted border-1 -mt-2">
           <Image
             src={project.image}
             alt={project.title}

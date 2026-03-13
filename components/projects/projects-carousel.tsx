@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
+import Link from "next/link";
 import {
   Carousel,
   CarouselContent,
@@ -21,7 +22,7 @@ export function ProjectsCarousel() {
       }}
       plugins={[
         Autoplay({
-          delay: 4500,
+          delay: 4000,
           stopOnInteraction: false,
           stopOnMouseEnter: true,
         }),
@@ -31,7 +32,10 @@ export function ProjectsCarousel() {
       <CarouselContent>
         {featuredProjects.map((project) => (
           <CarouselItem key={project.slug} className="basis-full">
-            <div className="group relative min-h-56 overflow-hidden rounded-xl bg-muted sm:aspect-16/7 sm:min-h-0 mt-4">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="block group relative min-h-56 overflow-hidden rounded-xl bg-muted sm:aspect-16/7 sm:min-h-0 mt-4 cursor-pointer"
+            >
               <Image
                 src={project.image}
                 alt={project.title}
@@ -59,7 +63,7 @@ export function ProjectsCarousel() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>

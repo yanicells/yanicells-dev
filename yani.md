@@ -45,7 +45,6 @@ chore
 - one liner, have max words, make it fitting to the desciption like im yani
 - maybe dont type the greeting anymore, just like fade or simple 
 - make in discovery - explore and convo, same like card color/design with the 2x2 in the home page
-- make project carousel a link, make all as default
 
 fixes
 - ensure the chat at / and saved chats, the scroll is only in the chat area, but the whole page should not be scrollable, so that the text input stays in the same place always (maybe just make the text input and quick message sticky?), the problem is that like when i chat, the text input gets clipped, and i have to scroll to see the bottom, which is annoying
