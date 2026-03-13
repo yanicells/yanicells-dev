@@ -13,7 +13,6 @@ others
 - update the ui for /discovery, it feels very out of place for some parts
 - please update ai prompt, since its giving wrong and weird information, and please make sure the response animation (for typing) in the chatbot the same when you do quick message vs actually from ai
 - save state for tabs (projects, and other pages that have like state for selected tabs) maybe just in the url? so that like if i select all for the projects, and pick a project, then go back, it should still have that selected
-- experience tab better font sizing (copy in projects)
 - maybe update text input in premade chats (maybe just unselectable idk)
 
 chats

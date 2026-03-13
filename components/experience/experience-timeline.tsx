@@ -178,8 +178,8 @@ function Design2() {
       {grouped.map((group) => (
         <div key={group.year} className="flex flex-col gap-4">
           <div className="flex items-center">
-            <div className="inline-flex h-10 min-w-20 items-center justify-center rounded-full border-2 border-[var(--ctp-lavender)]/40 bg-background px-4">
-              <span className="font-mono text-lg font-black tracking-tight text-foreground">
+            <div className="inline-flex h-10 min-w-20 items-center justify-center rounded-full border-2 border-[var(--ctp-lavender)]/40 bg-background px-3">
+              <span className="font-mono text-xl font-black tracking-tight text-foreground">
                 {group.year}
               </span>
             </div>
@@ -202,7 +202,7 @@ function Design2() {
                     <div className="flex flex-col items-center gap-1">
                       <div className={`size-3 rounded-full ${accent.bg}`} />
                       <span
-                        className={`font-mono text-[9px] font-bold tracking-wider ${accent.text} opacity-70`}
+                        className={`font-mono text-xs font-bold tracking-wider ${accent.text} opacity-70`}
                       >
                         {parsed.monthAbbr ?? "—"}
                       </span>
@@ -217,7 +217,7 @@ function Design2() {
                   >
                     <div className="min-w-0">
                       <div className="flex min-w-0 flex-wrap items-baseline gap-2">
-                        <h3 className="min-w-0 text-sm font-semibold text-foreground sm:text-base">
+                        <h3 className="min-w-0 text-base font-bold text-foreground sm:text-lg">
                           {exp.title}
                         </h3>
                         {end.isPresent && (
@@ -230,17 +230,17 @@ function Design2() {
 
                       <div className="mt-0.5 flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
                         <p
-                          className={`min-w-0 text-xs font-medium ${accent.text}`}
+                          className={`min-w-0 text-sm font-medium ${accent.text}`}
                         >
                           {exp.organization}
                         </p>
-                        <span className="font-mono text-[10px] text-muted-foreground/50">
+                        <span className="font-mono text-xs text-muted-foreground/50">
                           · {duration}
                         </span>
                       </div>
 
                       <p
-                        className={`mt-1.5 text-xs leading-relaxed text-muted-foreground transition-all sm:text-sm ${
+                        className={`mt-1.5 text-sm leading-relaxed text-muted-foreground transition-all sm:text-[15px] ${
                           isExpanded
                             ? "line-clamp-none"
                             : "line-clamp-3 sm:line-clamp-none"
@@ -248,7 +248,7 @@ function Design2() {
                       >
                         {exp.description}
                       </p>
-                      <p className="mt-1 font-mono text-[10px] text-muted-foreground/40">
+                      <p className="mt-1.5 font-mono text-[11px] text-muted-foreground/40">
                         {exp.date}
                       </p>
                       <p className="mt-1.5 font-mono text-[10px] uppercase tracking-wide text-muted-foreground/50 sm:hidden">

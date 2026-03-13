@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
     organization: "Eskwelabs",
     date: "February 2026 - Present",
     description:
-      "Design and deploy internal AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts using Python to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases.",
+      "Design and deploy AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases.",
   },
   {
     title: "Freelance Full-Stack Developer",
