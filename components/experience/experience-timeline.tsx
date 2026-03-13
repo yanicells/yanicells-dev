@@ -2,22 +2,35 @@
 
 import { useState } from "react";
 import { experiences, type Experience } from "@/lib/data/experience";
+import { cn } from "@/lib/utils";
 
 // ─── Shared Utilities ───────────────────────────────────────────────────────
 
-const MONTHS: Record<string, { abbr: string; index: number }> = {
-  january: { abbr: "JAN", index: 0 },
-  february: { abbr: "FEB", index: 1 },
-  march: { abbr: "MAR", index: 2 },
-  april: { abbr: "APR", index: 3 },
-  may: { abbr: "MAY", index: 4 },
-  june: { abbr: "JUN", index: 5 },
-  july: { abbr: "JUL", index: 6 },
-  august: { abbr: "AUG", index: 7 },
-  september: { abbr: "SEP", index: 8 },
-  october: { abbr: "OCT", index: 9 },
-  november: { abbr: "NOV", index: 10 },
-  december: { abbr: "DEC", index: 11 },
+const MONTHS: Record<string, { index: number }> = {
+  january: { index: 0 },
+  jan: { index: 0 },
+  february: { index: 1 },
+  feb: { index: 1 },
+  march: { index: 2 },
+  mar: { index: 2 },
+  april: { index: 3 },
+  apr: { index: 3 },
+  may: { index: 4 },
+  june: { index: 5 },
+  jun: { index: 5 },
+  july: { index: 6 },
+  jul: { index: 6 },
+  august: { index: 7 },
+  aug: { index: 7 },
+  september: { index: 8 },
+  sep: { index: 8 },
+  sept: { index: 8 },
+  october: { index: 9 },
+  oct: { index: 9 },
+  november: { index: 10 },
+  nov: { index: 10 },
+  december: { index: 11 },
+  dec: { index: 11 },
 };
 
 const ACCENT_COLORS = [
@@ -64,7 +77,6 @@ const ACCENT_COLORS = [
 ] as const;
 
 interface ParsedDate {
-  monthAbbr: string | null;
   monthFull: string | null;
   year: number;
   monthIndex: number | null;
@@ -78,7 +90,6 @@ function parseStartDate(dateStr: string): ParsedDate {
     const monthKey = parts[0].toLowerCase();
     const month = MONTHS[monthKey];
     return {
-      monthAbbr: month?.abbr ?? null,
       monthFull: parts[0],
       year: parseInt(parts[1], 10),
       monthIndex: month?.index ?? null,
@@ -86,7 +97,6 @@ function parseStartDate(dateStr: string): ParsedDate {
   }
 
   return {
-    monthAbbr: null,
     monthFull: null,
     year: parseInt(parts[0], 10),
     monthIndex: null,
@@ -202,9 +212,9 @@ function Design2() {
                     <div className="flex flex-col items-center gap-1">
                       <div className={`size-3 rounded-full ${accent.bg}`} />
                       <span
-                        className={`font-mono text-xs font-bold tracking-wider ${accent.text} opacity-70`}
+                        className={`font-mono text-xs font-bold tracking-wider ${accent.text} opacity-70 uppercase`}
                       >
-                        {parsed.monthAbbr ?? "—"}
+                        {parsed.monthFull ?? "—"}
                       </span>
                     </div>
                   </div>
@@ -213,15 +223,15 @@ function Design2() {
                     type="button"
                     onClick={() => toggleCard(cardKey)}
                     aria-expanded={isExpanded}
-                    className="group ml-[4.5rem] block w-[calc(100%-4.25rem)] rounded-lg border border-border/40 bg-card/50 px-4 py-3 text-left transition-all hover:border-border hover:bg-card/80"
+                    className="relative group ml-[4.5rem] block w-[calc(100%-4.25rem)] rounded-lg border border-border/40 bg-card/50 px-4 py-3 text-left transition-all hover:border-border hover:bg-card/80"
                   >
                     <div className="min-w-0">
-                      <div className="flex min-w-0 flex-wrap items-baseline gap-2">
+                      <div className="flex min-w-0 flex-wrap items-center gap-2 sm:pr-16">
                         <h3 className="min-w-0 text-base font-bold text-foreground sm:text-lg">
                           {exp.title}
                         </h3>
                         {end.isPresent && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--ctp-green)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--ctp-green)]">
+                          <span className="absolute bottom-3 right-4 inline-flex items-center gap-1 rounded-full bg-[var(--ctp-green)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--ctp-green)] sm:bottom-auto sm:top-3.5">
                             <span className="size-1.5 animate-pulse rounded-full bg-[var(--ctp-green)]" />
                             Active
                           </span>
@@ -229,10 +239,9 @@ function Design2() {
                       </div>
 
                       <div className="mt-0.5 flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
-                        <p
-                          className={`min-w-0 text-sm font-medium ${accent.text}`}
-                        >
-                          {exp.organization}
+                        <p className={cn("min-w-0 text-sm font-medium", accent.text)}>
+                          <span className="sm:hidden">{exp.org ?? exp.organization}</span>
+                          <span className="hidden sm:inline">{exp.organization}</span>
                         </p>
                         <span className="font-mono text-xs text-muted-foreground/50">
                           · {duration}
@@ -319,9 +328,9 @@ function Design5() {
                     {/* Month label */}
                     <div className="flex shrink-0 items-center gap-2 sm:w-24">
                       <span
-                        className={`font-mono text-xs font-bold tracking-widest ${accent.text}`}
+                        className={`font-mono text-xs font-bold tracking-widest ${accent.text} uppercase`}
                       >
-                        {parsed.monthAbbr ?? "—"}
+                        {parsed.monthFull ?? "—"}
                       </span>
                       <div
                         className={`hidden h-px w-4 sm:block ${accent.bg} opacity-30`}
