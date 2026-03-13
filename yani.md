@@ -43,7 +43,6 @@ content
 chore
 - check greetings, make sure can fit in mobile
 - one liner, have max words, make it fitting to the desciption like im yani
-- maybe dont type the greeting anymore, just like fade or simple 
 - make in discovery - explore and convo, same like card color/design with the 2x2 in the home page
 
 fixes

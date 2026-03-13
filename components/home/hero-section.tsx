@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Compass, User, FolderKanban, Mail, ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 /* ─── CTA Data ─────────────────────────────────────────────────────────────── */
 
@@ -56,40 +57,6 @@ const roles = [
 /* ─── Typing hooks ────────────────────────────────────────────────────────── */
 
 /**
- * Types out `text` once (no loop, no deletion).
- * Returns the partially typed string.
- */
-function useTypeOnce(text: string, speed = 40, delay = 300): string {
-  const [displayed, setDisplayed] = useState("");
-
-  useEffect(() => {
-    if (!text) return;
-    setDisplayed("");
-
-    let i = 0;
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const startTyping = () => {
-      const tick = () => {
-        i++;
-        setDisplayed(text.slice(0, i));
-        if (i < text.length) {
-          timeout = setTimeout(tick, speed);
-        }
-      };
-      timeout = setTimeout(tick, speed);
-    };
-
-    // Initial delay before typing starts
-    timeout = setTimeout(startTyping, delay);
-
-    return () => clearTimeout(timeout);
-  }, [text, speed, delay]);
-
-  return displayed;
-}
-
-/**
  * Cycles through `items`, typing each in then deleting it.
  * Returns the current visible substring.
  */
@@ -98,15 +65,23 @@ function useTypeLoop(
   typeSpeed = 70,
   deleteSpeed = 60,
   pauseMs = 2000,
+  initialDelay = 1500,
 ): string {
   const [index, setIndex] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const currentWord = items[index];
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
+
+    // Initial pause before starting the typing loop
+    if (!hasStarted) {
+      timeout = setTimeout(() => setHasStarted(true), initialDelay);
+      return () => clearTimeout(timeout);
+    }
 
     if (!isDeleting) {
       // Typing forward
@@ -140,6 +115,8 @@ function useTypeLoop(
     typeSpeed,
     deleteSpeed,
     pauseMs,
+    hasStarted,
+    initialDelay,
   ]);
 
   return displayed;
@@ -153,11 +130,15 @@ function useTypeLoop(
  * On mobile: stacked vertically, fits in viewport.
  */
 export function HeroSection({ greeting }: { greeting: string }) {
-  const typedGreeting = useTypeOnce(greeting, 40, 200);
-  const typedRole = useTypeLoop(roles);
+  const typedRole = useTypeLoop(roles, 70, 60, 2000, 1500);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 px-4 md:flex-row md:items-center md:gap-6 lg:gap-6">
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center gap-4 px-4 opacity-0 md:flex-row md:items-center md:gap-6 lg:gap-6",
+        greeting && "animate-fadeInUp",
+      )}
+    >
       {/* Left: Avatar video — no border */}
       <div className="shrink-0">
         <div className="overflow-hidden">
@@ -178,10 +159,9 @@ export function HeroSection({ greeting }: { greeting: string }) {
           yanicells.dev
         </p>
 
-        {/* Greeting — typed once */}
-        <h1 className="mb-1 text-2xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
-          {typedGreeting}
-          <span className="animate-pulse text-primary">|</span>
+        {/* Greeting */}
+        <h1 className="mb-1 min-h-[1.2em] text-2xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
+          {greeting || "\u00A0"}
         </h1>
 
         {/* Role line — typing loop */}
