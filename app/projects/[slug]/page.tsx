@@ -19,6 +19,20 @@ import { projects, getProjectBySlug } from "@/lib/data/projects";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ tab?: string | string[] }>;
+}
+
+function parseTabValue(tab: string | string[] | undefined) {
+  const value = Array.isArray(tab) ? tab[0] : tab;
+  if (
+    value === "featured" ||
+    value === "all" ||
+    value === "webdev" ||
+    value === "java"
+  ) {
+    return value;
+  }
+  return undefined;
 }
 
 export async function generateStaticParams() {
@@ -61,8 +75,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({
+  params,
+  searchParams,
+}: ProjectPageProps) {
   const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
+  const activeTab = parseTabValue(resolvedSearchParams.tab);
   const project = getProjectBySlug(slug);
 
   if (!project) {
@@ -74,13 +93,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const nextProject =
     currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
+  const projectsListHref =
+    activeTab && activeTab !== "featured"
+      ? { pathname: "/projects", query: { tab: activeTab } }
+      : "/projects";
+
+  const getProjectHref = (projectSlug: string) =>
+    activeTab && activeTab !== "featured"
+      ? { pathname: `/projects/${projectSlug}`, query: { tab: activeTab } }
+      : `/projects/${projectSlug}`;
+
   return (
     <PageLayout>
       <div className="flex flex-col gap-8">
         {/* Back button — sticky below header */}
         <div className="sticky top-14 z-40 -mx-6 bg-background px-6 pt-2">
           <Link
-            href="/projects"
+            href={projectsListHref}
             className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="size-4" />
@@ -239,7 +268,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="flex items-center justify-between gap-4">
           {prevProject ? (
             <Button asChild variant="ghost" className="gap-2 px-0">
-              <Link href={`/projects/${prevProject.slug}`}>
+              <Link href={getProjectHref(prevProject.slug)}>
                 <ArrowLeft className="size-4" />
                 <span className="flex flex-col text-left">
                   <span className="text-xs text-muted-foreground">
@@ -257,7 +286,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           {nextProject ? (
             <Button asChild variant="ghost" className="gap-2 px-0 text-right">
-              <Link href={`/projects/${nextProject.slug}`}>
+              <Link href={getProjectHref(nextProject.slug)}>
                 <span className="flex flex-col text-right">
                   <span className="text-xs text-muted-foreground">Next</span>
                   <span className="text-sm font-medium">

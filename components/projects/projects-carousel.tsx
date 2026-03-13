@@ -10,10 +10,15 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { projects } from "@/lib/data/projects";
+import { type TabValue } from "./projects-tabs";
 
 const featuredProjects = projects.filter((p) => p.isFeatured);
 
-export function ProjectsCarousel() {
+interface ProjectsCarouselProps {
+  activeTab: TabValue;
+}
+
+export function ProjectsCarousel({ activeTab }: ProjectsCarouselProps) {
   return (
     <Carousel
       opts={{
@@ -33,7 +38,14 @@ export function ProjectsCarousel() {
         {featuredProjects.map((project) => (
           <CarouselItem key={project.slug} className="basis-full">
             <Link
-              href={`/projects/${project.slug}`}
+              href={
+                activeTab === "featured"
+                  ? `/projects/${project.slug}`
+                  : {
+                      pathname: `/projects/${project.slug}`,
+                      query: { tab: activeTab },
+                    }
+              }
               className="block group relative min-h-56 overflow-hidden rounded-xl bg-muted sm:aspect-16/7 sm:min-h-0 mt-4 cursor-pointer"
             >
               <Image

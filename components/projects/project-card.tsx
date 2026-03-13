@@ -1,19 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { type Project } from "@/lib/data/projects";
+import { type TabValue } from "./projects-tabs";
 
 interface ProjectCardProps {
   project: Project;
+  activeTab: TabValue;
 }
 
 /**
  * Project card — larger layout inspired by Claude artifacts.
  * Shows a tall image preview with title and description below.
  */
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, activeTab }: ProjectCardProps) {
+  const href =
+    activeTab === "featured"
+      ? `/projects/${project.slug}`
+      : {
+          pathname: `/projects/${project.slug}`,
+          query: { tab: activeTab },
+        };
+
   return (
     <Link
-      href={`/projects/${project.slug}`}
+      href={href}
       className="group flex flex-col overflow-hidden rounded-xl border border-border bg-muted/30 transition-colors hover:bg-muted/60"
     >
       {/* Image */}
