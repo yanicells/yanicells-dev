@@ -140,7 +140,7 @@ export function HeroSection({ greeting }: { greeting: string }) {
       )}
     >
       {/* Left: Avatar video — no border */}
-      <div className="shrink-0">
+      <div className="shrink-0 md:-ml-8 lg:-ml-18">
         <div className="overflow-hidden">
           <video
             src="/avatar.mp4"
