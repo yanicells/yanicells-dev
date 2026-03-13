@@ -157,17 +157,17 @@ export function HeroSection({ greeting }: { greeting: string }) {
   const typedRole = useTypeLoop(roles);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 px-4 md:flex-row md:items-center md:gap-10 lg:gap-14">
+    <div className="flex flex-col items-center justify-center gap-4 px-4 md:flex-row md:items-center md:gap-6 lg:gap-6">
       {/* Left: Avatar video — no border */}
       <div className="shrink-0">
-        <div className="overflow-hidden rounded-3xl">
+        <div className="overflow-hidden">
           <video
             src="/avatar.mp4"
             autoPlay
             loop
             muted
             playsInline
-            className="h-56 w-44 object-cover sm:h-56 sm:w-44 md:h-72 md:w-56 lg:h-96 lg:w-72"
+            className="h-64 w-60 object-cover md:h-84 md:w-72 lg:h-96 lg:w-84"
           />
         </div>
       </div>

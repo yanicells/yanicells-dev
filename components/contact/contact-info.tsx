@@ -166,12 +166,6 @@ export function ContactInfo() {
         {/* Left — profile card */}
         <div className="flex flex-col items-center gap-4 sm:w-2/5">
           <div className="relative size-full overflow-hidden rounded-2xl">
-            {/* <Image
-              src="/newgif.gif"
-              alt="Yanicells"
-              fill
-              className="object-cover"
-            /> */}
             <video
               controls={false}
               autoPlay
