@@ -4,14 +4,13 @@ backlog
 others
 - page load animation? like fade in or something simple
 - add github commit somewhere
-- add date to chats check ai ui if they have, if not then decide if i want
 - anime card (too much white space)
 - there are other animes with notes "season 1 and 2" please update to separate
 - help ui and content
 - pls add like personal fav or masterpiece or idk tab sa spotify mga songs, naa sa tab sa top songs (last month, 6 months, all time, favs or idk) (medyo ako, multo, bubog, some olivia, bawat piyesa, sa'yo, iprapk, put to waste, hayaan) - slightly diff layout? or can be the same
     - maybe not as list like the other tabs, but more cards ish? have some space for personal comments? like a description, maybe even pop up modal
 - update the ui for /discovery, it feels very out of place for some parts
-- please update ai prompt, since its giving wrong and weird information, and please make sure the response animation (for typing) in the chatbot the same when you do quick message vs actually from ai
+- please update ai prompt, since its giving wrong and weird information, and please make sure the response animation (for typing) in the chatbot the same when you do quick message vs actually from ai, add also like only respond in bisaya/tagalog if the user is chatting in bisaya/tagalog, otherwise respond in english
 - maybe update text input in premade chats (maybe just unselectable idk)
 
 chats

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageLayout } from "@/components/shared/page-layout";
 import { ProjectsGrid } from "@/components/projects/projects-grid";
 
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <PageLayout>
-      <ProjectsGrid />
+      <Suspense fallback={null}>
+        <ProjectsGrid />
+      </Suspense>
     </PageLayout>
   );
 }
