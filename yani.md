@@ -1,4 +1,4 @@
-backlog
+final checks
 - responsiveness double check
 
 others
