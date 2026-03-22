@@ -46,3 +46,10 @@ check
 - implement caching for spotify api calls, maybe a cron job? or ill manually update a json file, this is for the top tracks, artists, genres
 - update first user management, get the top endpoints result to work
 - read docs https://developer.spotify.com/documentation/web-api/references/changes/march-2026
+
+brah:
+- add certificates and awards section
+    - old ones and new ones
+    - please do frontend masters so that it will be added
+    - im summit gdg etc.
+- update about me or something, like say that i used to think i was more of the type of person who likes black and white, math, logic, not more on creativity but now as i dig deeper into soft dev and web dev, i realized i also like being creative, i express this not through music, art, dance, or anything like that but through building things 
