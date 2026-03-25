@@ -5,6 +5,7 @@ important
 - finish certificates 
 - add certificates and awards page/section idk if need to be section or implemented somewhere, if so, maybe remove something like discovery? idk or still keep
 - some things to consider, about me, experience (with toggle + add more shit there like prev stuff (shs)), tech stack, discovery, separate page (either main or under yani's cells)
+- also think about maybe merging about me and discovery? since pretty similar
  
 others
 - page load animation? like fade in or something simple
