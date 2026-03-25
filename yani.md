@@ -1,6 +1,10 @@
 final checks
 - responsiveness double check
 
+important
+- finish certificates 
+- add certificates and awards page/section idk if need to be section or implemented somewhere, if so, maybe remove something like discovery? idk or still keep
+
 others
 - page load animation? like fade in or something simple
 - anime card (too much white space)
