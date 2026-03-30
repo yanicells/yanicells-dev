@@ -39,6 +39,8 @@ content
 - chat better ui, new message appear on top
 - see if i want to use smaller avatar for mobile
 - im summit + gdg with story (saying 2 ppt cram 1 hour before dedline not learning our lesson, maybe hackathon was friends we made)
+- add digitalino n scroll sa projs n content is more experience
+- add benkyo + make repo public
 
 chore
 - check greetings, make sure can fit in mobile
