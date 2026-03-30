@@ -41,6 +41,10 @@ content
 - im summit + gdg with story (saying 2 ppt cram 1 hour before dedline not learning our lesson, maybe hackathon was friends we made)
 - add digitalino n scroll sa projs n content is more experience
 - add benkyo + make repo public
+- add ycells to portfolio (check repo for guide)
+- devcells add
+    - devcells update sidebar and better ui for that, similar to react with its sub items, and fix also its like navigation since some nextjs stuff or tailwind or tanstack stuff redirect to react stuff which feels off for the ui
+
 
 chore
 - check greetings, make sure can fit in mobile
