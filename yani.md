@@ -45,6 +45,11 @@ content
 - devcells add
     - devcells update sidebar and better ui for that, similar to react with its sub items, and fix also its like navigation since some nextjs stuff or tailwind or tanstack stuff redirect to react stuff which feels off for the ui
 
+more tasks
+- on startup dont select directly text box, since mobile opens the keyboard which is ass, maybe just do it for mobile, pc is okay
+- as long as u keep the behavior that it selects text still after u send message
+- for project detail page, allow multiple image, maybe main image, right sidebar others to click
+
 chore
 - check greetings, make sure can fit in mobile
 - one liner, have max words, make it fitting to the desciption like im yani
