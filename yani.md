@@ -49,6 +49,7 @@ more tasks
 - on startup dont select directly text box, since mobile opens the keyboard which is ass, maybe just do it for mobile, pc is okay
 - as long as u keep the behavior that it selects text still after u send message
 - for project detail page, allow multiple image, maybe main image, right sidebar others to click
+- allow both album and song (in the same tab)
 
 chore
 - check greetings, make sure can fit in mobile
