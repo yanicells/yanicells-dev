@@ -46,6 +46,313 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Eskwelabs Capstone",
+    slug: "eskwelabs-capstone",
+    description:
+      "Two production-ready AI tools built during the Eskwelabs Innovation Fellowship: the Thought Leader Drafter and the Slide Deck Generator.",
+    shortDescription:
+      "Fellowship projects: Thought Leader Drafter & Slide Generator",
+    tech: ["Node.js", "LLMs", "Productization"],
+    repo: "https://github.com/yanicells/eskwelabs-capstone",
+    live: "https://eskwelabs.yanicells.dev/",
+    image: "/projects/eskwelabs.png",
+    category: "webdev",
+    isFeatured: false,
+    date: "Feb - May 2026",
+    blog: [
+      {
+        title: "Why I Joined",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I joined Cohort 9 of the Eskwelabs Innovation Fellowship for the AI Solution Development track. I wanted real AI and product experience outside of school. Something that ships, with stakeholders, with users, instead of another class project that lives and dies on a single grade.",
+          },
+        ],
+      },
+      {
+        title: "Two Problems, Two Tools",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The fellowship ran from February to May 2026. Two projects, both AI tools built for actual Eskwelabs internal use. The Thought Leader Drafter helps the CEO write articles in his own voice. The Slide Deck Generator helps Learning Experience Designers build instructor decks faster. Different problems, but both about taking the parts of someone's job that drain hours and seeing how far AI can take them, without producing the kind of generic output AI tools usually spit out.",
+          },
+        ],
+      },
+      {
+        title: "The Production-Ready Bar",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The biggest gap between this and school was the production-ready bar. School projects can be impressive in a demo and fall apart five minutes later. These tools needed to hold up. They needed to handle weird inputs, fail gracefully, and give outputs someone would actually use. None of that is novel as a concept, but actually doing it for the first time is what makes it click.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Benkyo",
+    slug: "benkyo",
+    description:
+      "A spaced repetition language learning app built with SM-2 algorithm, ease-factor tuning, and cloud sync. Designed for Japanese but works for any language. Offline-capable with conflict resolution and progress tracking.",
+    shortDescription: "Spaced repetition language learning app",
+    tech: ["Next.js", "TypeScript", "PostgreSQL"],
+    repo: "https://github.com/yanicells/Benkyo",
+    live: "https://benkyo.ycells.com",
+    image: "/projects/benkyo.png",
+    category: "webdev",
+    isFeatured: true,
+    date: "2026",
+    blog: [
+      {
+        title: "How It Started",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Gabe and I were classmates in our Foreign Language class for Japanese. We were both struggling. I randomly messaged him one day asking how he studied for it. He told me he built an app. Which was funny, because I had built one too.",
+          },
+        ],
+      },
+      {
+        title: "The Collaboration",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We compared notes. His approach and mine were different enough that it made sense to merge them. We both had the same problem and we were both too stubborn to just use Anki, so we built our own thing instead. That shared frustration is basically what became Benkyo.",
+          },
+        ],
+      },
+      {
+        title: "What It Is",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Benkyo is a spaced repetition language learning app. It uses an SM-2 algorithm with ease-factor tuning, lapse handling, and due-date scheduling. It works offline, syncs to the cloud with conflict resolution, and tracks your progress over time. We built it for Japanese but it works for anything.",
+          },
+        ],
+      },
+      {
+        title: "Why It Matters to Us",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "It started as two people struggling with the same class and making something out of it. That's still what it is. We use it ourselves. I think that's the part I like most about it.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Instructor Slides Generator",
+    slug: "instructor-slides-generator",
+    description:
+      "An AI-assisted slide generator that enforces non-generic content, frontend/back-end character limits, and resilient speaker notes generation for learning designers.",
+    shortDescription: "AI-assisted instructor slide generation",
+    tech: ["Node.js", "LLMs", "Prompt Engineering"],
+    live: "https://eskwelabs-instructor-slides.vercel.app/",
+    image: "/projects/slides-gen.png",
+    category: "webdev",
+    isFeatured: false,
+    date: "2026",
+    blog: [
+      {
+        title: "The Time Problem",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Learning Experience Designers were spending 24+ hours building decks for every 16-hour sprint. The v1 prototype already cut that to about 48 minutes, but the content quality was the catch. The decks ran, but they leaned generic, missed speaker notes, and overflowed text boxes regularly.",
+          },
+        ],
+      },
+      {
+        title: "v1.1: The Three Fixes",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "My sprint was v1.1. I focused on the AI side. Three pieces. The anti-generic content checker, which forced the model to ask itself 'could this sentence appear in a deck for a completely different topic?' before letting a slide pass. The character limit enforcement, where I mapped backend prompt constraints directly to frontend UI box limits so text never overflowed. And the fail-safe speaker notes generator, with a fallback prompt that ran independently if the main batch failed, written in first-person instructor voice.",
+          },
+        ],
+      },
+      {
+        title: "The Production Reality",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Prompt engineering for production AI is harder than people think. It's not 'write a clever prompt and you're done.' It's writing a prompt, watching it produce something subtly wrong on the 47th run, figuring out which constraint failed, and adding another guardrail. Fluff and hallucination aren't bugs you fix once. They're tendencies you have to keep pushing back against.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Schrollar",
+    slug: "schrollar",
+    description:
+      "A research discovery platform that feels like social media, running parallel search pipelines with LLM synthesis and NLI-based fact grounding.",
+    shortDescription: "Research discovery with LLM synthesis",
+    tech: ["Node.js", "LLMs", "NLI", "Search"],
+    repo: "https://github.com/CJ-Uy/schrollar",
+    live: "https://schrollar.cjuy.dev/",
+    demo: "https://drive.google.com/file/d/1byUEwg-Fru-AgKieDlz2bmeEbIneJ10c/view?usp=sharing",
+    image: "/projects/schrollar-dev.png",
+    category: "webdev",
+    isFeatured: true,
+    date: "2026",
+    blog: [
+      {
+        title: "How admulto formed",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I randomly messaged Niles. We were already working on something together and I wanted to join a hackathon. He was in. We thought of Gabe next, and even with other commitments he said yes. We didn't know who else to ask, so I took a long shot and invited Abby. She was super busy but she said yes too. Then Charles heard we were joining and wanted in. That's how admulto formed.",
+          },
+        ],
+      },
+      {
+        title: "The Chaos",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We did not read the submission specs. One hour before the initial deadline we realized we had to pass a slide deck. Scrambled, got it done, made it to the top 7. And then, because we apparently learn nothing, the exact same thing happened on the final day. Another deadline, another missing slide deck, another hour of panic. Somehow we still podiumed.",
+          },
+        ],
+      },
+      {
+        title: "The Project",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Schrollar was a research discovery platform built to feel more like social media than a library database. We ran a parallel search pipeline across multiple academic sources, ran LLM synthesis on top of it, and grounded every claim through NLI fact-checking. We spent a lot of nights in Aerie. We filmed a video. We had fun with it even when it was stressful, maybe especially when it was stressful.",
+          },
+        ],
+      },
+      {
+        title: "The Result",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "2nd Runner Up. We didn't think we'd make it to the top 3. Looking back, I think the chaos actually helped. It kept things loose and we weren't overthinking it. Wouldn't have done it any other way.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "DigiTALINO",
+    slug: "digitalino",
+    description:
+      "A modular governance platform for LGUs featuring e-services, payroll, and disaster risk management with SMS incident mapping.",
+    shortDescription: "Modular governance platform for LGUs",
+    tech: ["Node.js", "Express", "Postgres", "SMS/Telecom"],
+    repo: "https://github.com/yanicells/DigiTALINO",
+    live: "https://digitalino.ycells.com/",
+    image: "/projects/digitalino.png",
+    category: "webdev",
+    isFeatured: false,
+    date: "2024",
+    blog: [
+      {
+        title: "The Team",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Princess invited me. I was the lone 2nd year, everyone else was buried in thesis, and I said yes without really knowing what I was getting into. We called ourselves CSCI_67. We weren't confident about our idea going in, and it showed. We barely made it past eliminations, somewhere near the bottom of the list.",
+          },
+        ],
+      },
+      {
+        title: "The Turning Point",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We got a second chance and made the most of it. The mentorship sessions were genuinely useful and we actually paid attention. We redid the proposal from scratch, not just revised it, actually started over. Somehow we came out seeded 1st in the next round.",
+          },
+        ],
+      },
+      {
+        title: "The Demo",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I suggested we build a prototype. A working one, not just slides. Good thing we did, because during the defense we got commended for showing something real. DigiTALINO was a modular governance platform for LGUs, e-services, payroll, and a disaster risk management system with SMS incident mapping. It was a lot to pull off but having something to click through made the difference.",
+          },
+        ],
+      },
+      {
+        title: "The Defense",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We walked out of the room convinced we bombed it. The Q&A felt rough and we spent the wait replaying everything we said. Then our name got called for Grand Champion. I think none of us fully processed it in the moment.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "TL Drafter",
+    slug: "tl-drafter",
+    description:
+      "An author-focused drafting tool that replicates a CEO's voice by anchoring generation on past writing samples and A/B variant comparisons.",
+    shortDescription: "Voice-centered article drafting for executives",
+    tech: ["Node.js", "LLMs", "Prompt Engineering"],
+    live: "https://esk-tl-drafter-web.vercel.app/",
+    demo: "https://drive.google.com/file/d/1xz1TUKlXoN0JQCLbgFUBPlGjRD8nw7Ep/view",
+    image: "/projects/tldrafter.png",
+    category: "webdev",
+    isFeatured: false,
+    date: "2026",
+    blog: [
+      {
+        title: "The Voice Problem",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Executives spend 4 to 8 hours per article. AI tools and ghostwriters both fail at the same thing: voice. The output sounds smart but generic. The tool I worked on was built to fix that for the Eskwelabs CEO, using his past writing as the anchor.",
+          },
+        ],
+      },
+      {
+        title: "Phase 2: The Three Pieces",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "I inherited a Phase 1 MVP and owned Phase 2. Three pieces. The writing samples library, where users upload PDFs of past articles and the system extracts text and ties them to a writing session. The A/B comparison mode, which generates two variants side-by-side using a single LLM call with delimited output to keep cost and latency down. And the AI pipeline refactor, which made the system stable enough to handle three to five full articles injected into the prompt as style references.",
+          },
+        ],
+      },
+      {
+        title: "Architectural Bet",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We skipped RAG and embeddings entirely. The bet was that voice replication isn't really a retrieval problem. It's about giving the model enough connected, in-context style data to pattern-match the rhythm and word choice. Modern context windows are big enough that this works. The A/B mode made the difference visible. Variants with samples sounded like the author. Variants without sounded like AI.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: "UniSort",
     slug: "unisort",
     description:
