@@ -33,6 +33,7 @@ chats
         - answer tagalog
 
 content
+- REVISE ALL CONTENT (PROMPT, PROJECT (MORE PERSONAL AND BLOG), CHATS, ABOUT ME, ETC.)
 - contents of chats, tech stack, about, more quick questions (and answers update), anime
 - update photography - pics, maybe separate like photos like folders - maybe use carousel like pixcells
 - update prompt sa chat to add about the cv/resume
@@ -51,6 +52,7 @@ more tasks
 - for project detail page, allow multiple image, maybe main image, right sidebar others to click
 - allow both album and song (in the same tab)
 - add more tags to projects like hobby, team, personal, client/freelance
+- vibecode a graph of my music, like pina vector embeddings, matrix idk like ai rag
 
 chore
 - check greetings, make sure can fit in mobile
