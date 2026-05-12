@@ -53,6 +53,7 @@ more tasks
 - allow both album and song (in the same tab)
 - add more tags to projects like hobby, team, personal, client/freelance
 - vibecode a graph of my music, like pina vector embeddings, matrix idk like ai rag
+- add sso docu vol as experience (also add high school grad)
 
 chore
 - check greetings, make sure can fit in mobile
