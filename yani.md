@@ -45,6 +45,10 @@ content
 - add ycells to portfolio (check repo for guide)
 - devcells add
     - devcells update sidebar and better ui for that, similar to react with its sub items, and fix also its like navigation since some nextjs stuff or tailwind or tanstack stuff redirect to react stuff which feels off for the ui
+- eskwelabs
+    - kind of just reuse what we already have in the capstone, just add it to projects in my portfolio
+    - so add the portfolio as like a intern journal experience
+    - and add the two projects
 
 more tasks
 - on startup dont select directly text box, since mobile opens the keyboard which is ass, maybe just do it for mobile, pc is okay
