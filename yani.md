@@ -49,6 +49,8 @@ content
     - kind of just reuse what we already have in the capstone, just add it to projects in my portfolio
     - so add the portfolio as like a intern journal experience
     - and add the two projects
+- add diffusr and jway 
+    - my projects and impact
 
 more tasks
 - on startup dont select directly text box, since mobile opens the keyboard which is ass, maybe just do it for mobile, pc is okay
