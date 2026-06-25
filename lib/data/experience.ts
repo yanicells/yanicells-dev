@@ -2,18 +2,37 @@ export interface Experience {
   title: string;
   organization: string;
   org?: string; // Shorter version for mobile
+  location?: string;
   date: string;
   description: string;
 }
 
 export const experiences: Experience[] = [
   {
+    title: "AI Engineering Intern",
+    organization: "Diffusr",
+    org: "Diffusr",
+    location: "Remote",
+    date: "Jun 2026 - Present",
+    description:
+      "Extend AI UGC video pipelines and creator analytics infrastructure across cloud workflows. Improve vision QA gates, async GCP endpoints, scheduled refreshes, Supabase job tracking, and secret management for campaign operations.",
+  },
+  {
+    title: "AI Engineering & Product Innovation Intern",
+    organization: "JWay Group",
+    org: "JWay",
+    location: "Remote",
+    date: "May 2026 - Present",
+    description:
+      "Design agentic AI product workflows for legacy and memory use cases. Built a self-hosted n8n + RAG prototype with OCR/audio ingestion, vector retrieval, authenticated React webhooks, and startup-style PRD/ROI planning.",
+  },
+  {
     title: "AI Solution Development Intern",
     organization: "Eskwelabs",
     org: "Eskwelabs",
-    date: "Feb 2026 - Present",
+    date: "Feb 2026 - May 2026",
     description:
-      "Design and deploy AI agents and multi-step workflows that automate analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implement fallback logic and lightweight scripts to reduce manual review and speed QA cycles. Translate ambiguous requests into scoped AI use cases.",
+      "Designed and deployed AI agents and multi-step workflows that automated analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implemented fallback logic and lightweight scripts to reduce manual review and speed QA cycles. Translated ambiguous requests into scoped AI use cases.",
   },
   {
     title: "Freelance Full-Stack Developer",

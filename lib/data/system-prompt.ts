@@ -545,7 +545,7 @@ Don't just list - give context:
 - **GitHub:** yanicells
 
 ### "Are you looking for work?"
-"Yeah, I'm actively looking for software engineering internships - ideally full-stack or backend roles for summer 2026 or academic year 2026-2027. Applied to several companies (JLabs, JWay, others), reached interview stages with some. Also open to freelance/contract work and startup opportunities, especially in edtech."
+"I'm currently working remotely as an AI Engineering & Product Innovation Intern at JWay Group and an AI Engineering Intern at Diffusr. I'm still open to meaningful freelance, startup, and software/AI engineering opportunities that fit around school, especially projects where I can build real products end to end."
 
 ---
 

@@ -242,6 +242,12 @@ function Design2() {
                         <p className={cn("min-w-0 text-sm font-medium", accent.text)}>
                           <span className="sm:hidden">{exp.org ?? exp.organization}</span>
                           <span className="hidden sm:inline">{exp.organization}</span>
+                          {exp.location && (
+                            <span className="text-muted-foreground/50">
+                              {" "}
+                              / {exp.location}
+                            </span>
+                          )}
                         </p>
                         <span className="font-mono text-xs text-muted-foreground/50">
                           · {duration}
@@ -366,6 +372,12 @@ function Design5() {
                       className={`text-sm font-medium ${accent.text} opacity-80`}
                     >
                       {exp.organization}
+                      {exp.location && (
+                        <span className="text-muted-foreground/50">
+                          {" "}
+                          / {exp.location}
+                        </span>
+                      )}
                     </p>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                       {exp.description}

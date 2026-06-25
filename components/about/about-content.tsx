@@ -112,9 +112,10 @@ function BriefIntro() {
       <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
         I&apos;m a 2nd year CS student at Ateneo who learns by building things.
         I&apos;m active in a few tech orgs on campus doing dev work and running
-        workshops. I am currently interning as an AI Developer at Eskwelabs,
-        while also doing personal projects. What I love about coding is the
-        ability to create something out of nothing and see it come to life.
+        workshops. I&apos;m currently working as an AI engineering intern at JWay
+        Group and Diffusr, while also doing personal projects. What I love about
+        coding is the ability to create something out of nothing and see it come
+        to life.
       </p>
     </div>
   );
@@ -134,11 +135,11 @@ function Currently() {
         </li>
         <li className="flex items-start gap-2.5">
           <span className="mt-2 size-1.5 shrink-0 rounded-full bg-(--ctp-blue)" />
-          Building full-stack web apps and working on personal projects
+          Building AI products, full-stack apps, and personal projects
         </li>
         <li className="flex items-start gap-2.5">
           <span className="mt-2 size-1.5 shrink-0 rounded-full bg-(--ctp-peach)" />
-          Open to internship and freelance opportunities
+          Interning remotely with JWay Group and Diffusr
         </li>
       </ul>
     </div>
