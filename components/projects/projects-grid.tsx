@@ -8,7 +8,13 @@ import { ProjectsCarousel } from "./projects-carousel";
 import { ProjectsTabs, type TabValue } from "./projects-tabs";
 import { ProjectCard } from "./project-card";
 
-const validTabs = new Set<TabValue>(["featured", "all", "webdev", "java"]);
+const validTabs = new Set<TabValue>([
+  "featured",
+  "all",
+  "hackathons",
+  "webdev",
+  "java",
+]);
 
 function isTabValue(tab: string | null): tab is TabValue {
   return tab !== null && validTabs.has(tab as TabValue);

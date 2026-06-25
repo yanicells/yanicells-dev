@@ -7,11 +7,18 @@ export type TabValue = "featured" | "all" | ProjectCategory;
 const tabLabels: Record<TabValue, string> = {
   featured: "Featured",
   all: "All",
+  hackathons: "Hackathons",
   webdev: "Web Dev",
   java: "Java",
 };
 
-const tabOrder: TabValue[] = ["featured", "all", "webdev", "java"];
+const tabOrder: TabValue[] = [
+  "featured",
+  "all",
+  "hackathons",
+  "webdev",
+  "java",
+];
 
 interface ProjectsTabsProps {
   activeTab: TabValue;

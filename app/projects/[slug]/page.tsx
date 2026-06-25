@@ -27,6 +27,7 @@ function parseTabValue(tab: string | string[] | undefined) {
   if (
     value === "featured" ||
     value === "all" ||
+    value === "hackathons" ||
     value === "webdev" ||
     value === "java"
   ) {

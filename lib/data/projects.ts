@@ -1,4 +1,4 @@
-export type ProjectCategory = "webdev" | "java";
+export type ProjectCategory = "webdev" | "hackathons" | "java";
 
 export type BlogBlockType = "text" | "image" | "code";
 
@@ -45,6 +45,139 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Meera",
+    slug: "meera",
+    description:
+      "An agentic AI help desk front door that resolves student support issues when possible, routes structured cases across university offices, and ships across web, desktop, and Cloudflare Workers.",
+    shortDescription: "Agentic AI university help desk assistant",
+    tech: ["Next.js", "Electron", "Cloudflare Workers", "LLMs"],
+    repo: "https://github.com/CJ-Uy/meera",
+    live: "https://meera.cjuy.dev/",
+    demo: "https://drive.google.com/file/d/19wZtPs06FDva6LXOHqcWFxf73D_CtkwC/view?usp=sharing",
+    image: "/projects/Meera.png",
+    category: "hackathons",
+    isFeatured: true,
+    date: "2026",
+    blog: [
+      {
+        title: "The Help Desk Problem",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Every university help desk runs on the same broken loop: students send vague urgent emails, staff ask for missing details, and actually important cases sit in the queue. For the KPMG Academic Innovation Challenge, we built Meera as an agentic AI front door that tries to resolve the problem first and only escalates when a human is genuinely needed.",
+          },
+        ],
+      },
+      {
+        title: "Routing With Structure",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Students never pick a department. They describe the issue naturally, and Meera routes it across IT, Registrar, Finance, Health Services, or Student Services. If a human is needed, staff receive a structured case with summary, collected information, missing details, suggested next steps, confidence score, and an audit trail. The LLM proposes a department, then thresholded math over a knowledge graph confirms, corrects, or escalates the route.",
+          },
+        ],
+      },
+      {
+        title: "Same Engine, Different Experiences",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "We also built Battle Mode, a game-like interface over the exact same agent and ticket pipeline. It proved the architecture was flexible: once the underlying case model is solid, the user experience can change without redesigning the engine underneath.",
+          },
+        ],
+      },
+      {
+        title: "Desktop Assistant",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The desktop version was the part I was proudest of. Meera can draw transparent click-through overlays over any app on screen, using a vision model plus a zoom-refine second pass to locate the right UI target more reliably. It feels closer to someone pointing at your screen than a normal chatbot.",
+          },
+        ],
+      },
+      {
+        title: "Architecture and Guardrails",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Under the hood, it is one Next.js codebase running in the browser, Electron desktop, and Cloudflare Workers through runtime-selected adapters. Voice uses Whisper for speech-in and Deepgram Aura for speech-out. Model calls stay server-side, and the system never approves payments, changes records, or makes medical decisions. It gives people a head start while leaving real decisions to humans.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Academic Ally",
+    slug: "academic-ally",
+    description:
+      "An academic planning assistant that turns scattered syllabi into one adaptive study strategy with extraction review, workload planning, focus support, and cross-device companion sync.",
+    shortDescription: "AI syllabus-to-study-plan assistant",
+    tech: ["Electron", "LLMs", "Agent Orchestration"],
+    repo: "https://github.com/CJ-Uy/ally",
+    demo: "https://drive.google.com/file/d/15Q4Mmi2oSgDRhbCu9G_vdNG7KhKOb3uw/view?usp=sharing",
+    image: "/projects/Ally.png",
+    category: "hackathons",
+    isFeatured: true,
+    date: "2026",
+    blog: [
+      {
+        title: "The Syllabus Problem",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The semester usually starts with multiple syllabi, scattered deadlines, grading systems, readings, and exam dates. The problem is not that students do not care. It is that requirements live across PDFs and nothing pulls them into one useful view. Academic Ally turns static syllabi into an actual study strategy.",
+          },
+        ],
+      },
+      {
+        title: "Extraction With Confirmation",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Students upload their syllabi and Ally extracts courses, deadlines, exam dates, grading weights, and uncertain fields. It never silently saves important details without confirmation, because a wrong AI-generated deadline is worse than no automation at all. Each course gets its own folder while still rolling up into one centralized system.",
+          },
+        ],
+      },
+      {
+        title: "Adaptive Planning",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Ally looks at due dates, grading weight, difficulty, available hours, and progress to recommend what to work on next. The Today view surfaces overdue, at-risk, and upcoming work, while the assistant explains why each recommendation matters instead of leaving students with a flat to-do list.",
+          },
+        ],
+      },
+      {
+        title: "Focus Without Punishment",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "The focus mode keeps the current goal visible and tracks progress, but it adds just enough friction instead of blocking everything blindly. After each session, Ally logs what happened and folds that back into the plan so the schedule adapts to reality.",
+          },
+        ],
+      },
+      {
+        title: "Agent Architecture",
+        blocks: [
+          {
+            type: "text",
+            content:
+              "Architecturally, it uses a parent orchestrator coordinating five specialists: onboarding, syllabus intelligence, diagnostics, workload planning, and execution. We evaluated the agent structure with a test set before wiring it into the product, checking routing, extraction accuracy, and confirmation gates. It runs as an Electron app with a mobile companion synced through QR code.",
+          },
+        ],
+      },
+    ],
+  },
   {
     title: "Eskwelabs Capstone",
     slug: "eskwelabs-capstone",
@@ -204,7 +337,7 @@ export const projects: Project[] = [
     live: "https://schrollar.cjuy.dev/",
     demo: "https://drive.google.com/file/d/1byUEwg-Fru-AgKieDlz2bmeEbIneJ10c/view?usp=sharing",
     image: "/projects/schrollar-dev.png",
-    category: "webdev",
+    category: "hackathons",
     isFeatured: true,
     date: "2026",
     blog: [
@@ -260,7 +393,7 @@ export const projects: Project[] = [
     repo: "https://github.com/yanicells/DigiTALINO",
     live: "https://digitalino.ycells.com/",
     image: "/projects/digitalino.png",
-    category: "webdev",
+    category: "hackathons",
     isFeatured: false,
     date: "2024",
     blog: [
