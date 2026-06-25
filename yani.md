@@ -81,3 +81,7 @@ brah:
     - please do frontend masters so that it will be added
     - im summit gdg etc.
 - update about me or something, like say that i used to think i was more of the type of person who likes black and white, math, logic, not more on creativity but now as i dig deeper into soft dev and web dev, i realized i also like being creative, i express this not through music, art, dance, or anything like that but through building things 
+
+more improvements
+- generate more "gif" videos so that the home page can be different each time, and maybe incorporate the avatar more in the website so its more fun
+- or maybe even gamify my avatar (simple but addictive)
