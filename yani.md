@@ -85,3 +85,4 @@ brah:
 more improvements
 - generate more "gif" videos so that the home page can be different each time, and maybe incorporate the avatar more in the website so its more fun
 - or maybe even gamify my avatar (simple but addictive)
+- fix the weird background not blending in properly with the main color background
