@@ -55,7 +55,7 @@ export function FinderSidebar({
   return (
     <aside
       className={`hidden w-[184px] shrink-0 flex-col border-r border-black/70 @min-[600px]:flex ${
-        focused ? "glass-sidebar" : "bg-[#262628]"
+        focused ? "glass-sidebar" : "bg-[#2a2a2c]"
       }`}
     >
       <div data-drag-handle className="flex h-[52px] shrink-0 items-center pl-4">
