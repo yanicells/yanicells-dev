@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { useDesktop } from "./desktop-context";
 import { AppIcon, TrashIcon } from "./app-icons";
 import {
@@ -10,6 +11,47 @@ import {
   type AppId,
   type WindowState,
 } from "./window-manager";
+
+/** Pinned for looks only: the apps Yani actually keeps in his Dock. They don't open. */
+const PINNED = [
+  { name: "Zed", src: "/dock/zed.png" },
+  { name: "Claude", src: "/dock/claude.png" },
+  { name: "Codex", src: "/dock/codex.svg" },
+  { name: "Notion", src: "/dock/notion.png" },
+  { name: "Spotify", src: "/dock/spotify.png" },
+];
+
+function Tooltip({ label }: { label: string }) {
+  // Kept outside the Dock's glass so it can blur on its own.
+  return (
+    <span className="glass pointer-events-none absolute -top-10 rounded-lg px-2.5 py-1 text-[13px] whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+      {label}
+    </span>
+  );
+}
+
+/**
+ * The system PNGs carry Apple's standard transparent margin around the
+ * squircle; the Codex SVG and the drawn icons get the same margin here.
+ */
+function PinnedApp({ name, src }: { name: string; src: string }) {
+  const isSvg = src.endsWith(".svg");
+  return (
+    <li className="group relative flex flex-col items-center" aria-hidden>
+      <Tooltip label={name} />
+      <Image
+        src={src}
+        alt=""
+        width={50}
+        height={50}
+        unoptimized={isSvg}
+        draggable={false}
+        className={`size-[50px] ${isSvg ? "p-[5px] drop-shadow-[0_1px_2px_rgb(0_0_0/0.35)]" : ""}`}
+      />
+      <span className="mt-[3px] size-1" />
+    </li>
+  );
+}
 
 function DockItem({
   label,
@@ -26,15 +68,12 @@ function DockItem({
 }) {
   return (
     <li className="group relative flex flex-col items-center">
-      {/* Tooltip, kept outside the Dock's glass so it can blur on its own. */}
-      <span className="glass pointer-events-none absolute -top-10 rounded-lg px-2.5 py-1 text-[13px] whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
-        {label}
-      </span>
+      <Tooltip label={label} />
       <button
         type="button"
         aria-label={label}
         onClick={onClick}
-        className={`size-[50px] active:brightness-60 ${bounce ? "animate-dock-bounce" : ""}`}
+        className={`size-[50px] p-[5px] active:brightness-60 ${bounce ? "animate-dock-bounce" : ""}`}
       >
         {children}
       </button>
@@ -46,8 +85,8 @@ function DockItem({
 }
 
 /**
- * The Dock: Finder, then whichever apps have windows open (in launch order),
- * then the Trash. Nothing is pinned just to fill space.
+ * The Dock: Finder, the pinned apps, then whichever portfolio apps have
+ * windows open (in launch order), then the Trash.
  */
 export function Dock({ windows }: { windows: WindowState[] }) {
   const { dispatch, open } = useDesktop();
@@ -76,6 +115,9 @@ export function Dock({ windows }: { windows: WindowState[] }) {
         <DockItem label="Finder" running onClick={() => activate("finder")}>
           <AppIcon app="finder" />
         </DockItem>
+        {PINNED.map((app) => (
+          <PinnedApp key={app.name} {...app} />
+        ))}
         {running.map((app) => (
           <DockItem key={app} label={APP_NAMES[app]} running bounce onClick={() => activate(app)}>
             <AppIcon app={app} />
