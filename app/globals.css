@@ -29,6 +29,7 @@
   --animate-dock-bounce: dock-bounce 700ms ease-out;
   --animate-menu-in: menu-in 90ms ease-out;
   --animate-boot-progress: boot-progress 1400ms ease-in-out forwards;
+  --animate-equalizer: equalizer 0.9s ease-in-out infinite;
 }
 
 :root {
@@ -117,6 +118,16 @@ body {
   }
   100% {
     width: 100%;
+  }
+}
+
+@keyframes equalizer {
+  0%,
+  100% {
+    height: 30%;
+  }
+  50% {
+    height: 100%;
   }
 }
 

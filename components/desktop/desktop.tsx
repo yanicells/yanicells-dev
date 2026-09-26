@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo, useReducer, useState } from "react";
 import { StartupScreen } from "@/components/startup/startup-screen";
+import { SpotifyWidget } from "@/components/widgets/spotify-widget";
 import { DesktopContext } from "./desktop-context";
 import { DesktopIcons } from "./desktop-icons";
 import { Dock } from "./dock";
@@ -66,6 +67,7 @@ export function Desktop() {
         onPointerDown={() => setSelected(null)}
       >
         <MenuBar windows={state.windows} focused={focused} />
+        <SpotifyWidget />
         <DesktopIcons selected={selected} onSelect={setSelected} />
         {byCreation.map((win) => (
           <WindowFrame
