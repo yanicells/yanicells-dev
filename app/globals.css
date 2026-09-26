@@ -10,6 +10,8 @@
     -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue",
     "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-rounded:
+    ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 
   --color-accent: #0a84ff;
   --color-window: #1e1e1e;
