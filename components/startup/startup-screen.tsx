@@ -78,7 +78,7 @@ export function StartupScreen({ onUnlock, onDone }: { onUnlock: () => void; onDo
         onClick={unlock}
         disabled={phase === "boot"}
         aria-label="Unlock"
-        className="absolute inset-0 cursor-default bg-black bg-[url(/wallpaper.jpg)] bg-cover bg-center transition-transform ease-[cubic-bezier(0.7,0,0.25,1)] outline-none"
+        className="absolute inset-0 cursor-default bg-black bg-[url(/wallpaper.jpg)] bg-cover bg-center transition-transform max-sm:bg-[#181715] max-sm:bg-size-[165%_auto] max-sm:bg-no-repeat ease-[cubic-bezier(0.7,0,0.25,1)] outline-none"
         style={{
           transitionDuration: `${LEAVE_MS}ms`,
           transform: phase === "leaving" ? "translateY(-100%)" : "translateY(0)",

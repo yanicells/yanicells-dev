@@ -6,6 +6,7 @@ import { FileIcon } from "@/components/finder/file-icons";
 
 /**
  * Desktop items, stacked from the top-right corner like a default Mac.
+ * On phones they become a four-column home screen grid.
  * A single click opens the item; the last one clicked stays highlighted.
  */
 export function DesktopIcons({
@@ -20,7 +21,7 @@ export function DesktopIcons({
   return (
     <ul
       aria-label="Desktop"
-      className="absolute top-[calc(var(--menubar-h)+10px)] right-2.5 bottom-(--dock-space) flex flex-col flex-wrap-reverse content-start gap-y-1"
+      className="grid grid-cols-4 gap-y-4 sm:absolute sm:top-[calc(var(--menubar-h)+10px)] sm:right-2.5 sm:bottom-(--dock-space) sm:flex sm:flex-col sm:flex-wrap-reverse sm:content-start sm:gap-y-1"
     >
       {DESKTOP_ITEMS.map((item) => {
         const isSelected = selected === item.id;
@@ -33,7 +34,7 @@ export function DesktopIcons({
                 onSelect(item.id);
                 openItem(item);
               }}
-              className="flex w-[90px] flex-col items-center gap-1 rounded-md py-1 outline-accent focus-visible:outline-2"
+              className="flex w-[90px] flex-col items-center gap-1 rounded-md py-1 outline-accent focus-visible:outline-2 max-sm:w-full"
             >
               <span
                 className={`size-[64px] rounded-[6px] p-[3px] ${

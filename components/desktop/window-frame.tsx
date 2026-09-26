@@ -14,6 +14,13 @@ const ACTIVE_SHADOW =
 const INACTIVE_SHADOW =
   "0 0 0 0.5px rgb(0 0 0 / 0.75), 0 10px 30px rgb(0 0 0 / 0.35)";
 
+/**
+ * On phones every window is a full-screen sheet under the status bar. The
+ * overrides are `!important` so they beat the inline desktop geometry.
+ */
+const PHONE_SHEET =
+  "max-sm:inset-x-0! max-sm:top-(--menubar-h)! max-sm:bottom-0! max-sm:h-auto! max-sm:w-auto! max-sm:rounded-b-none max-sm:animate-sheet-in";
+
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
@@ -94,7 +101,7 @@ export function WindowFrame({
             dispatch({ type: "zoom", id: win.id });
           }
         }}
-        className={`absolute flex animate-window-in flex-col overflow-hidden rounded-[12px] ${
+        className={`absolute flex animate-window-in flex-col overflow-hidden rounded-[12px] ${PHONE_SHEET} ${
           win.minimized ? "hidden" : ""
         }`}
         style={{
@@ -105,7 +112,7 @@ export function WindowFrame({
       >
         {children}
         {/* Hairline highlight around the edge, drawn above the content. */}
-        <div className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_0_0_0.5px_rgb(255_255_255/0.16)]" />
+        <div className="pointer-events-none absolute inset-0 rounded-[12px] shadow-[inset_0_0_0_0.5px_rgb(255_255_255/0.16)] max-sm:rounded-b-none" />
       </div>
     </WindowContext>
   );

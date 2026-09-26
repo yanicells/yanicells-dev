@@ -29,8 +29,6 @@ interface Menu {
   label: string;
   bold?: boolean;
   items: MenuItem[];
-  /** Hidden on phones, where only the Apple and app menus fit. */
-  wide?: boolean;
 }
 
 /** Live clock in the menu bar's "Sat Sep 26  1:17 AM" format; client-only. */
@@ -127,7 +125,6 @@ export function MenuBar({
       id: "file",
       title: "File",
       label: "File",
-      wide: true,
       items: [
         ...(app === "finder"
           ? [{ label: "New Finder Window", onSelect: () => open(finderAt("projects")) }]
@@ -142,7 +139,6 @@ export function MenuBar({
       id: "edit",
       title: "Edit",
       label: "Edit",
-      wide: true,
       items: [
         { label: "Undo" },
         { label: "Redo" },
@@ -159,8 +155,7 @@ export function MenuBar({
             id: "view",
             title: "View",
             label: "View",
-            wide: true,
-            items: (["icons", "list"] as const).map((view) => ({
+                  items: (["icons", "list"] as const).map((view) => ({
               label: view === "icons" ? "as Icons" : "as List",
               checked: finder?.content.kind === "finder" && finder.content.view === view,
               onSelect: finder ? () => dispatch({ type: "view", id: finder.id, view }) : undefined,
@@ -170,8 +165,7 @@ export function MenuBar({
             id: "go",
             title: "Go",
             label: "Go",
-            wide: true,
-            items: [
+                  items: [
               {
                 label: "Back",
                 onSelect:
@@ -200,7 +194,6 @@ export function MenuBar({
       id: "window",
       title: "Window",
       label: "Window",
-      wide: true,
       items: [
         {
           label: "Minimize",
@@ -229,7 +222,6 @@ export function MenuBar({
       id: "help",
       title: "Help",
       label: "Help",
-      wide: true,
       items: [
         { label: "Contact Yani", onSelect: () => open({ kind: "contact" }) },
         { label: "Leave a Note", onSelect: () => open({ kind: "notes" }) },
@@ -242,13 +234,17 @@ export function MenuBar({
     <nav
       ref={barRef}
       aria-label="Menu bar"
-      className="fixed inset-x-0 top-0 z-[1000] flex h-(--menubar-h) items-center justify-between px-2 text-[13px] text-white"
+      className="fixed inset-x-0 top-0 z-[1000] flex h-(--menubar-h) items-center justify-between px-2 text-[13px] text-white max-sm:px-6 max-sm:text-[15px] max-sm:font-semibold"
     >
       {/* A sibling layer, so the menus' own glass isn't nested inside this one. */}
       <div className="glass-bar absolute inset-0 -z-10" />
-      <ul className="flex h-full items-center">
+      {/* Phones show an iOS status bar: the time on the left, no menus. */}
+      <span className="sm:hidden" aria-hidden>
+        <Clock />
+      </span>
+      <ul className="flex h-full items-center max-sm:hidden">
         {menus.map((menu) => (
-          <li key={menu.id} className={`relative h-full ${menu.wide ? "hidden sm:block" : ""}`}>
+          <li key={menu.id} className="relative h-full">
             <button
               type="button"
               aria-label={menu.label}
@@ -306,7 +302,13 @@ export function MenuBar({
           <SpotlightIcon />
           <ControlCenterIcon />
         </span>
-        <Clock />
+        <span className="flex items-center gap-1.5 sm:hidden">
+          <WifiIcon />
+          <BatteryIcon />
+        </span>
+        <span className="max-sm:hidden">
+          <Clock />
+        </span>
       </div>
     </nav>
   );

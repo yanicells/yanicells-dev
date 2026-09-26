@@ -59,7 +59,7 @@ function Tooltip({ label, hidden }: { label: string; hidden?: boolean }) {
   // Kept outside the Dock's glass so it can blur on its own.
   return (
     <span
-      className={`glass pointer-events-none absolute -top-10 rounded-lg px-2.5 py-1 text-[13px] whitespace-nowrap text-white opacity-0 transition-opacity ${
+      className={`glass pointer-events-none absolute -top-10 rounded-lg px-2.5 py-1 text-[13px] whitespace-nowrap text-white opacity-0 transition-opacity pointer-coarse:hidden ${
         hidden ? "" : "group-hover:opacity-100"
       }`}
     >
@@ -204,8 +204,14 @@ export function Dock({ windows }: { windows: WindowState[] }) {
     else if (app === "notes") open({ kind: "notes" });
   };
 
+  // Apps are full screen on phones, so the Dock steps aside while one is open.
+  const covered = windows.some((w) => !w.minimized);
+
   return (
-    <nav aria-label="Dock" className="fixed bottom-[5px] left-1/2 z-[900] -translate-x-1/2">
+    <nav
+      aria-label="Dock"
+      className={`fixed bottom-[5px] left-1/2 z-[900] -translate-x-1/2 ${covered ? "max-sm:hidden" : ""}`}
+    >
       <div className="glass absolute inset-0 -z-10 rounded-[22px]" />
       <ul className="flex items-end gap-1.5 px-[7px] pt-[7px] pb-[3px]">
         <DockItem label="Finder" src={APP_ICONS.finder} running onClick={() => activate("finder")} />

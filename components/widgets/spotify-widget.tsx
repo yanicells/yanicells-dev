@@ -89,7 +89,7 @@ export function SpotifyWidget() {
       target="_blank"
       rel="noopener noreferrer"
       onPointerDown={(event) => event.stopPropagation()}
-      className="glass absolute top-[calc(var(--menubar-h)+14px)] left-5 flex w-[316px] gap-3 rounded-[22px] p-3 text-white max-sm:hidden"
+      className="glass flex gap-3 rounded-[22px] p-3 text-white sm:absolute sm:top-[calc(var(--menubar-h)+14px)] sm:left-5 sm:w-[316px]"
     >
       {track.albumArt && (
         // Unoptimized: Spotify serves art from several CDN hosts, and an

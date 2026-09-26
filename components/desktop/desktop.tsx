@@ -22,6 +22,13 @@ import type { FinderItem } from "@/components/finder/finder-data";
 const INITIAL_STATE: DesktopState = { windows: [], nextId: 1 };
 
 /**
+ * On phones, `cover` blows the artwork up past the screen edges. Shrink it and
+ * sit it above the Dock instead, over the artwork's own paper color.
+ */
+const PHONE_WALLPAPER =
+  "max-sm:bg-[#181715] max-sm:bg-size-[165%_auto] max-sm:bg-position-[center_bottom_84px] max-sm:bg-no-repeat";
+
+/**
  * The whole site: wallpaper, desktop items, windows, menu bar, and Dock.
  * Window state lives in one reducer so the menu bar and Dock can act on it.
  */
@@ -64,13 +71,16 @@ export function Desktop() {
       )}
       <main
         inert={!unlocked}
-        className="relative h-dvh w-screen overflow-hidden bg-black bg-[url(/wallpaper.jpg)] bg-cover bg-center"
+        className={`relative h-dvh w-screen overflow-hidden bg-black bg-[url(/wallpaper.jpg)] bg-cover bg-center ${PHONE_WALLPAPER}`}
         onPointerDown={() => setSelected(null)}
       >
         <MenuBar windows={state.windows} focused={focused} />
         <FolderGradients />
-        <SpotifyWidget />
-        <DesktopIcons selected={selected} onSelect={setSelected} />
+        {/* Phones stack these like an iOS home screen; larger screens place each on its own. */}
+        <div className="max-sm:absolute max-sm:inset-x-0 max-sm:top-(--menubar-h) max-sm:flex max-sm:flex-col max-sm:gap-6 max-sm:px-4 max-sm:pt-4 sm:contents">
+          <SpotifyWidget />
+          <DesktopIcons selected={selected} onSelect={setSelected} />
+        </div>
         {byCreation.map((win) => (
           <WindowFrame
             key={win.id}
