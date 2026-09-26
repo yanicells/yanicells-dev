@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useDesktop } from "./desktop-context";
+import { useNow } from "./use-now";
 import {
   APP_NAMES,
   appOf,
@@ -34,13 +35,7 @@ interface Menu {
 
 /** Live clock in the menu bar's "Sat Sep 26  1:17 AM" format; client-only. */
 function Clock() {
-  const [now, setNow] = useState<Date | null>(null);
-  useEffect(() => {
-    const tick = () => setNow(new Date());
-    tick();
-    const timer = setInterval(tick, 10_000);
-    return () => clearInterval(timer);
-  }, []);
+  const now = useNow();
   if (!now) return null;
   const date = now.toLocaleDateString("en-US", {
     weekday: "short",
