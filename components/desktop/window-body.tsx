@@ -4,6 +4,7 @@ import { FinderWindow } from "@/components/finder/finder-window";
 import { AboutDocument } from "@/components/documents/about-document";
 import { ExperienceDocument } from "@/components/documents/experience-document";
 import { ProjectDocument } from "@/components/documents/project-document";
+import { WriteupDocument } from "@/components/documents/writeup-document";
 import { PhotoViewer } from "@/components/preview/photo-viewer";
 import { WebDocument } from "@/components/preview/web-document";
 import { ContactCard } from "@/components/contacts/contact-card";
@@ -21,6 +22,8 @@ export function WindowBody({ win }: { win: WindowState }) {
       return <ExperienceDocument />;
     case "project":
       return <ProjectDocument slug={content.slug} />;
+    case "writeup":
+      return <WriteupDocument slug={content.slug} />;
     case "photo":
       return <PhotoViewer index={content.index} />;
     case "web":

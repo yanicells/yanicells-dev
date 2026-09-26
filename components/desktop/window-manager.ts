@@ -1,5 +1,6 @@
 import { getProjectBySlug } from "@/lib/data/projects";
 import { photoCollection } from "@/lib/data/photos";
+import { getWriteupBySlug } from "@/lib/data/writeups";
 import {
   locationLabel,
   type FinderLocation,
@@ -20,6 +21,7 @@ export type WindowContent =
   | { kind: "experience" }
   | { kind: "contact" }
   | { kind: "project"; slug: string }
+  | { kind: "writeup"; slug: string }
   | { kind: "photo"; index: number }
   | { kind: "web"; doc: "resume" | "cv" };
 
@@ -101,6 +103,8 @@ export function titleOf(content: WindowContent): string {
       return "Contact";
     case "project":
       return getProjectBySlug(content.slug)?.title ?? "Untitled";
+    case "writeup":
+      return getWriteupBySlug(content.slug)?.title ?? "Untitled";
     case "photo":
       return photoCollection[content.index]?.alt ?? "Photo";
     case "web":
@@ -115,6 +119,8 @@ function identityOf(content: WindowContent): string {
       return `finder:${content.history[content.index]}`;
     case "project":
       return `project:${content.slug}`;
+    case "writeup":
+      return `writeup:${content.slug}`;
     case "web":
       return `web:${content.doc}`;
     default:
@@ -127,6 +133,7 @@ const PREFERRED_SIZE: Record<WindowContent["kind"], [number, number]> = {
   about: [660, 700],
   experience: [680, 700],
   project: [720, 740],
+  writeup: [720, 760],
   contact: [460, 540],
   photo: [800, 580],
   web: [860, 900],

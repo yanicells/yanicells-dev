@@ -1,6 +1,6 @@
 "use client";
 
-import { Folder, Image as ImageIcon, Monitor, type LucideIcon } from "lucide-react";
+import { Folder, Image as ImageIcon, Monitor, NotebookPen, type LucideIcon } from "lucide-react";
 import { useDesktop, useWindow } from "@/components/desktop/desktop-context";
 import { TrafficLights } from "@/components/desktop/window-chrome";
 import { TAGS, type FinderLocation } from "./finder-data";
@@ -8,6 +8,7 @@ import { TAGS, type FinderLocation } from "./finder-data";
 const FAVORITES: { location: FinderLocation; label: string; Icon: LucideIcon }[] = [
   { location: "desktop", label: "Desktop", Icon: Monitor },
   { location: "projects", label: "Projects", Icon: Folder },
+  { location: "writeups", label: "Write-ups", Icon: NotebookPen },
   { location: "photos", label: "Photos", Icon: ImageIcon },
 ];
 

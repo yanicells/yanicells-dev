@@ -1,11 +1,13 @@
 import { projects, type Project, type ProjectCategory } from "@/lib/data/projects";
 import { photoCollection } from "@/lib/data/photos";
+import { writeups } from "@/lib/data/writeups";
 import type { DocumentContent } from "@/components/desktop/window-manager";
 
 export type TagId = "featured" | ProjectCategory;
 export type FinderLocation =
   | "desktop"
   | "projects"
+  | "writeups"
   | "photos"
   | "trash"
   | `tag:${TagId}`;
@@ -51,6 +53,8 @@ export function locationLabel(location: FinderLocation): string {
       return "Desktop";
     case "projects":
       return "Projects";
+    case "writeups":
+      return "Write-ups";
     case "photos":
       return "Photos";
     case "trash":
@@ -71,6 +75,13 @@ export const DESKTOP_ITEMS: FinderItem[] = [
     kind: "Folder",
     icon: { type: "folder" },
     target: "projects",
+  },
+  {
+    id: "writeups",
+    name: "Write-ups",
+    kind: "Folder",
+    icon: { type: "folder" },
+    target: "writeups",
   },
   {
     id: "about",
@@ -121,6 +132,17 @@ const PROJECT_ITEMS: FinderItem[] = projects.map((project) => ({
   target: { kind: "project", slug: project.slug },
 }));
 
+const WRITEUP_ITEMS: FinderItem[] = writeups.map((writeup) => ({
+  id: writeup.slug,
+  name: writeup.title,
+  kind: "Write-up",
+  date: writeup.date,
+  comment: writeup.paragraphs[0],
+  icon: { type: "preview", src: writeup.image },
+  keywords: writeup.paragraphs.join(" "),
+  target: { kind: "writeup", slug: writeup.slug },
+}));
+
 const PHOTO_ITEMS: FinderItem[] = photoCollection.map((photo, index) => ({
   id: photo.src,
   name: photo.alt,
@@ -135,6 +157,8 @@ export function itemsAt(location: FinderLocation): FinderItem[] {
       return DESKTOP_ITEMS;
     case "projects":
       return PROJECT_ITEMS;
+    case "writeups":
+      return WRITEUP_ITEMS;
     case "photos":
       return PHOTO_ITEMS;
     case "trash":

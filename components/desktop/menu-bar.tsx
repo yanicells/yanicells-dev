@@ -190,6 +190,7 @@ export function MenuBar({
               "separator",
               { label: "Desktop", onSelect: () => go("desktop") },
               { label: "Projects", onSelect: () => go("projects") },
+              { label: "Write-ups", onSelect: () => go("writeups") },
               { label: "Photos", onSelect: () => go("photos") },
             ] satisfies MenuItem[],
           },
