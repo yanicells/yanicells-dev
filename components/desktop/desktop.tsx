@@ -62,7 +62,7 @@ export function Desktop() {
       )}
       <main
         inert={!unlocked}
-        className="relative h-dvh w-screen overflow-hidden bg-black bg-[url(/wallpaper.png)] bg-cover bg-center"
+        className="relative h-dvh w-screen overflow-hidden bg-black bg-[url(/wallpaper.jpg)] bg-cover bg-center"
         onPointerDown={() => setSelected(null)}
       >
         <MenuBar windows={state.windows} focused={focused} />
