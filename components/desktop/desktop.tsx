@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useReducer, useState } from "react";
+import { useCallback, useMemo, useReducer, useState } from "react";
+import { StartupScreen } from "@/components/startup/startup-screen";
 import { DesktopContext } from "./desktop-context";
 import { DesktopIcons } from "./desktop-icons";
 import { Dock } from "./dock";
@@ -40,9 +41,7 @@ export function Desktop() {
     [open],
   );
 
-  // Like a Mac restoring its session: start with About Me open, so visitors
-  // see who this is before they start clicking around.
-  useEffect(() => open({ kind: "about" }), [open]);
+  const [unlocked, setUnlocked] = useState(false);
 
   const api = useMemo(() => ({ dispatch, open, openItem }), [open, openItem]);
   const focused = focusedWindow(state);
@@ -53,7 +52,16 @@ export function Desktop() {
 
   return (
     <DesktopContext value={api}>
+      {!unlocked && (
+        <StartupScreen
+          // Open About Me as the lock screen slides away, so visitors land
+          // on who this is before they start clicking around.
+          onUnlock={() => open({ kind: "about" })}
+          onDone={() => setUnlocked(true)}
+        />
+      )}
       <main
+        inert={!unlocked}
         className="relative h-dvh w-screen overflow-hidden bg-black bg-[url(/wallpaper.png)] bg-cover bg-center"
         onPointerDown={() => setSelected(null)}
       >
