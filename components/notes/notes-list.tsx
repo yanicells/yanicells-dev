@@ -1,6 +1,5 @@
 "use client";
 
-import { Pin } from "lucide-react";
 import { listTime, notePreview, noteTitle, sectionFor } from "./note-text";
 
 export interface ListNote {
@@ -42,7 +41,7 @@ function Row({
 function SectionHeader({ first, children }: { first?: boolean; children: React.ReactNode }) {
   return (
     <h3
-      className={`mx-2 mb-1.5 flex items-center gap-1.5 border-b border-separator px-2 pb-2 text-[15px] font-bold text-white ${
+      className={`mx-2 mb-1.5 border-b border-separator px-2 pb-2 text-[15px] font-bold text-white ${
         first ? "mt-2" : "mt-4"
       }`}
     >
@@ -74,10 +73,7 @@ export function NotesList({
 
   return (
     <nav className="h-full overflow-y-auto px-2 pb-4">
-      <SectionHeader first>
-        <Pin className="size-3.5 rotate-45 fill-current text-[#ffd60a]" strokeWidth={2} />
-        Pinned
-      </SectionHeader>
+      <SectionHeader first>Pinned</SectionHeader>
       <ul>
         <Row
           title={noteTitle(pinned.text)}

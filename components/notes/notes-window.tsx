@@ -38,11 +38,13 @@ interface Active {
 }
 
 function CircleButton({ label, onClick, children }: { label: string; onClick?: () => void; children: ReactNode }) {
-  const className = "toolbar-button flex size-[34px] shrink-0 items-center justify-center";
-  // Buttons Notes has but this portfolio doesn't need are drawn, not wired.
+  const className =
+    "toolbar-button flex size-[34px] shrink-0 items-center justify-center transition-colors hover:bg-white/16 active:bg-white/24";
+  // Buttons Notes has but this portfolio doesn't need are drawn, not wired;
+  // they still respond to hover so the toolbar feels alive.
   if (!onClick) {
     return (
-      <span aria-hidden className={`${className} text-secondary-label`}>
+      <span aria-hidden data-no-drag className={`${className} text-secondary-label hover:text-label`}>
         {children}
       </span>
     );
@@ -141,21 +143,31 @@ export function NotesWindow({ clientId }: { clientId: string }) {
           )}
         </div>
 
-        <div className={`flex min-w-0 flex-1 items-center gap-2 pl-2 ${focused ? "" : "opacity-60"}`} data-no-drag>
+        <div className={`flex min-w-0 flex-1 items-center gap-2 pl-2 ${focused ? "" : "opacity-60"}`}>
           <CircleButton label="New Note" onClick={compose}>
             <SquarePen className="size-[17px]" strokeWidth={1.8} />
           </CircleButton>
           <div className="flex-1" />
           <span
             aria-hidden
-            className="toolbar-button hidden items-center gap-4 px-4 text-secondary-label @min-[760px]:flex"
+            data-no-drag
+            className="toolbar-button hidden items-center gap-0.5 px-1 text-secondary-label @min-[760px]:flex"
           >
-            <span className="text-[16px] font-medium">Aa</span>
-            <CircleCheck className="size-[17px]" strokeWidth={1.8} />
-            <Table className="size-[17px]" strokeWidth={1.8} />
-            <Paperclip className="size-[17px]" strokeWidth={1.8} />
-            <PenLine className="size-[17px]" strokeWidth={1.8} />
-            <Sparkles className="size-[17px]" strokeWidth={1.8} />
+            {[
+              <span key="aa" className="text-[16px] font-medium">Aa</span>,
+              <CircleCheck key="check" className="size-[17px]" strokeWidth={1.8} />,
+              <Table key="table" className="size-[17px]" strokeWidth={1.8} />,
+              <Paperclip key="clip" className="size-[17px]" strokeWidth={1.8} />,
+              <PenLine key="pen" className="size-[17px]" strokeWidth={1.8} />,
+              <Sparkles key="sparkles" className="size-[17px]" strokeWidth={1.8} />,
+            ].map((icon) => (
+              <span
+                key={icon.key}
+                className="flex h-[26px] min-w-[34px] items-center justify-center rounded-full px-1.5 transition-colors hover:bg-white/14 hover:text-label active:bg-white/22"
+              >
+                {icon}
+              </span>
+            ))}
           </span>
           <div className="flex-1" />
           <span className="hidden @min-[560px]:flex">
