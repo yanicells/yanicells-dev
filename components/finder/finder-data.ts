@@ -31,7 +31,8 @@ export type ItemIcon =
   | { type: "folder"; glyph?: "photo" }
   | { type: "document"; variant: "text" | "contact" | "pdf"; ext: string }
   | { type: "image"; src: string }
-  | { type: "preview"; src: string };
+  | { type: "preview"; src: string }
+  | { type: "app"; src: string };
 
 export interface FinderItem {
   id: string;
@@ -110,6 +111,13 @@ export const DESKTOP_ITEMS: FinderItem[] = [
     kind: "vCard",
     icon: { type: "document", variant: "contact", ext: "VCF" },
     target: { kind: "contact" },
+  },
+  {
+    id: "notes",
+    name: "Leave a Note",
+    kind: "Alias",
+    icon: { type: "app", src: "/dock/notes.png" },
+    target: { kind: "notes" },
   },
   {
     id: "photos",

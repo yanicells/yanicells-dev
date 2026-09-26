@@ -21,6 +21,7 @@ const APP_ICONS: Record<AppId, string> = {
   textedit: "/dock/textedit.png",
   preview: "/dock/preview.png",
   contacts: "/dock/contacts.png",
+  notes: "/dock/notes.png",
 };
 
 /** Yani's Dock, in his order. For looks: they can be rearranged but don't open. */
@@ -182,8 +183,8 @@ function PinnedApps() {
 }
 
 /**
- * The Dock: Finder, Yani's apps, then whichever portfolio apps have windows
- * open (in launch order), then the Trash.
+ * The Dock: Finder and Notes (both always there, both open), Yani's apps,
+ * then whichever portfolio apps have windows open (in launch order), then the Trash.
  */
 export function Dock({ windows }: { windows: WindowState[] }) {
   const { dispatch, open } = useDesktop();
@@ -194,12 +195,13 @@ export function Dock({ windows }: { windows: WindowState[] }) {
     launched.set(app, Math.min(launched.get(app) ?? Infinity, w.id));
   }
   const running = [...launched.keys()]
-    .filter((app) => app !== "finder")
+    .filter((app) => app !== "finder" && app !== "notes")
     .sort((a, b) => launched.get(a)! - launched.get(b)!);
 
   const activate = (app: AppId) => {
     if (launched.has(app)) dispatch({ type: "showApp", app });
     else if (app === "finder") open(finderAt("projects"));
+    else if (app === "notes") open({ kind: "notes" });
   };
 
   return (
@@ -207,6 +209,12 @@ export function Dock({ windows }: { windows: WindowState[] }) {
       <div className="glass absolute inset-0 -z-10 rounded-[22px]" />
       <ul className="flex items-end gap-1.5 px-[7px] pt-[7px] pb-[3px]">
         <DockItem label="Finder" src={APP_ICONS.finder} running onClick={() => activate("finder")} />
+        <DockItem
+          label="Notes"
+          src={APP_ICONS.notes}
+          running={launched.has("notes")}
+          onClick={() => activate("notes")}
+        />
         <PinnedApps />
         {running.map((app) => (
           <DockItem

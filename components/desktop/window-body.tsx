@@ -8,6 +8,7 @@ import { WriteupDocument } from "@/components/documents/writeup-document";
 import { PhotoViewer } from "@/components/preview/photo-viewer";
 import { WebDocument } from "@/components/preview/web-document";
 import { ContactCard } from "@/components/contacts/contact-card";
+import { NotesApp } from "@/components/notes/notes-app";
 import type { WindowState } from "./window-manager";
 
 /** Picks the app view for a window's content. */
@@ -30,5 +31,7 @@ export function WindowBody({ win }: { win: WindowState }) {
       return <WebDocument doc={content.doc} />;
     case "contact":
       return <ContactCard />;
+    case "notes":
+      return <NotesApp />;
   }
 }

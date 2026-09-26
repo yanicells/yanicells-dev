@@ -232,6 +232,7 @@ export function MenuBar({
       wide: true,
       items: [
         { label: "Contact Yani", onSelect: () => open({ kind: "contact" }) },
+        { label: "Leave a Note", onSelect: () => open({ kind: "notes" }) },
         { label: "Resume", onSelect: () => open({ kind: "web", doc: "resume" }) },
       ],
     },

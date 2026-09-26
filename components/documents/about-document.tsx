@@ -86,6 +86,7 @@ export function AboutDocument() {
         <PushButton onClick={() => open({ kind: "experience" })}>Experience</PushButton>
         <PushButton onClick={() => open({ kind: "web", doc: "resume" })}>Resume</PushButton>
         <PushButton onClick={() => open({ kind: "contact" })}>Contact</PushButton>
+        <PushButton onClick={() => open({ kind: "notes" })}>Leave a note</PushButton>
       </div>
 
       <SectionHeading>School</SectionHeading>

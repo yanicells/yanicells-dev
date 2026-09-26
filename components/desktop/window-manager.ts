@@ -7,7 +7,7 @@ import {
   type FinderView,
 } from "@/components/finder/finder-data";
 
-export type AppId = "finder" | "textedit" | "preview" | "contacts";
+export type AppId = "finder" | "textedit" | "preview" | "contacts" | "notes";
 
 /** What a window shows. Documents are single-instance; Finder is not. */
 export type WindowContent =
@@ -20,6 +20,7 @@ export type WindowContent =
   | { kind: "about" }
   | { kind: "experience" }
   | { kind: "contact" }
+  | { kind: "notes" }
   | { kind: "project"; slug: string }
   | { kind: "writeup"; slug: string }
   | { kind: "photo"; index: number }
@@ -71,6 +72,7 @@ export const APP_NAMES: Record<AppId, string> = {
   textedit: "TextEdit",
   preview: "Preview",
   contacts: "Contacts",
+  notes: "Notes",
 };
 
 export function finderAt(location: FinderLocation): WindowContent {
@@ -86,6 +88,8 @@ export function appOf(content: WindowContent): AppId {
       return "preview";
     case "contact":
       return "contacts";
+    case "notes":
+      return "notes";
     default:
       return "textedit";
   }
@@ -101,6 +105,8 @@ export function titleOf(content: WindowContent): string {
       return "Experience";
     case "contact":
       return "Contact";
+    case "notes":
+      return "Notes";
     case "project":
       return getProjectBySlug(content.slug)?.title ?? "Untitled";
     case "writeup":
@@ -135,6 +141,7 @@ const PREFERRED_SIZE: Record<WindowContent["kind"], [number, number]> = {
   project: [720, 740],
   writeup: [720, 760],
   contact: [460, 540],
+  notes: [880, 580],
   photo: [800, 580],
   web: [860, 900],
 };

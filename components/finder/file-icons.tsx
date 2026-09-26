@@ -86,6 +86,8 @@ export function FileIcon({ icon, size }: { icon: ItemIcon; size: number }) {
       return <FolderIcon glyph={icon.glyph} />;
     case "document":
       return <DocumentIcon variant={icon.variant} ext={icon.ext} />;
+    case "app":
+      return <Image src={icon.src} alt="" width={size} height={size} className="size-full" />;
     case "image":
     case "preview":
       // Finder shows file contents as the icon: letterboxed, with a hairline edge.
