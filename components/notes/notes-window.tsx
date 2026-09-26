@@ -29,6 +29,9 @@ Hey, it's Yani. Say hi, share feedback, or tell me about an opportunity.
 
 Hit the compose button up top to start a new note. It saves as you type, and only you and I can see the notes you write here.`;
 
+/** Phones show the list or the note, not both, like Notes on iPhone. */
+const isPhone = () => window.matchMedia("(width < 40rem)").matches;
+
 interface Active {
   /** Stable per opened note, so the editor never remounts mid-typing. */
   key: string;
@@ -67,7 +70,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
   const remove = useMutation(api.notes.remove);
 
   const [active, setActive] = useState<Active>({ key: WELCOME_KEY, id: null, openedAt: 0 });
-  const [showList, setShowList] = useState(true);
+  const [showList, setShowList] = useState(() => !isPhone());
   const [menuOpen, setMenuOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [draftCount, setDraftCount] = useState(0);
@@ -86,6 +89,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
     setError(null);
     setMenuOpen(false);
     setActive({ ...next, openedAt: Date.now() });
+    if (isPhone()) setShowList(false);
   };
 
   const compose = () => {
@@ -122,7 +126,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
         className="flex h-[52px] shrink-0 items-center border-b border-black/70 bg-[#262626] pr-3"
       >
         <div
-          className={`flex h-full shrink-0 items-center gap-3 pl-4 ${showList ? "w-[clamp(200px,32%,260px)] pr-2" : "pr-3"}`}
+          className={`flex h-full shrink-0 items-center gap-3 pl-4 max-sm:min-w-0 max-sm:flex-1 ${showList ? "w-[clamp(200px,32%,260px)] pr-2 max-sm:w-auto" : "pr-3"}`}
         >
           <span data-no-drag>
             <TrafficLights />
@@ -143,7 +147,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
           )}
         </div>
 
-        <div className={`flex min-w-0 flex-1 items-center gap-2 pl-2 ${focused ? "" : "opacity-60"}`}>
+        <div className={`flex min-w-0 flex-1 items-center gap-2 pl-2 max-sm:flex-none ${focused ? "" : "opacity-60"}`}>
           <CircleButton label="New Note" onClick={compose}>
             <SquarePen className="size-[17px]" strokeWidth={1.8} />
           </CircleButton>
@@ -200,7 +204,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
 
       <div className="flex min-h-0 flex-1">
         {showList && (
-          <div className="w-[clamp(200px,32%,260px)] shrink-0 border-r border-black/60">
+          <div className="w-[clamp(200px,32%,260px)] shrink-0 border-r border-black/60 max-sm:w-full max-sm:border-r-0">
             <NotesList
               pinned={{ key: WELCOME_KEY, text: WELCOME_TEXT, updatedAt: 0 }}
               notes={listNotes}
@@ -210,7 +214,7 @@ export function NotesWindow({ clientId }: { clientId: string }) {
           </div>
         )}
 
-        <div className="min-w-0 flex-1 overflow-y-auto px-8 pt-3">
+        <div className={`min-w-0 flex-1 overflow-y-auto px-8 pt-3 max-sm:px-5 ${showList ? "max-sm:hidden" : ""}`}>
           <p className="mb-4 text-center text-[12px] text-tertiary-label">
             {active.key === WELCOME_KEY ? "Pinned" : headerTime ? editorDate(headerTime) : ""}
           </p>
