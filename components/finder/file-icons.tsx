@@ -1,27 +1,37 @@
-import { useId } from "react";
 import Image from "next/image";
 import type { ItemIcon } from "./finder-data";
 
-/** Blue macOS folder, optionally with an embossed glyph like the Pictures folder. */
-function FolderIcon({ glyph }: { glyph?: "photo" }) {
-  const id = useId();
+/**
+ * The folder gradients, defined once for every folder icon on the page.
+ * Render this a single time near the root; it's zero-size rather than
+ * `display: none`, which would stop the gradients from painting.
+ */
+export function FolderGradients() {
   return (
-    <svg viewBox="0 0 64 64" className="size-full drop-shadow-[0_1px_1.5px_rgb(0_0_0/0.35)]" aria-hidden>
+    <svg aria-hidden className="absolute size-0">
       <defs>
-        <linearGradient id={`${id}b`} x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="folder-back" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#2f92e4" />
           <stop offset="1" stopColor="#1a6cc2" />
         </linearGradient>
-        <linearGradient id={`${id}f`} x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="folder-front" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#74c4fa" />
           <stop offset="1" stopColor="#3c9cec" />
         </linearGradient>
       </defs>
+    </svg>
+  );
+}
+
+/** Blue macOS folder, optionally with an embossed glyph like the Pictures folder. */
+function FolderIcon({ glyph }: { glyph?: "photo" }) {
+  return (
+    <svg viewBox="0 0 64 64" className="size-full drop-shadow-[0_1px_1.5px_rgb(0_0_0/0.35)]" aria-hidden>
       <path
         d="M4 16a5 5 0 0 1 5-5h15.6a5 5 0 0 1 3.5 1.45L31 15.5h24a5 5 0 0 1 5 5V51a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"
-        fill={`url(#${id}b)`}
+        fill="url(#folder-back)"
       />
-      <rect x="4" y="21" width="56" height="35" rx="5" fill={`url(#${id}f)`} />
+      <rect x="4" y="21" width="56" height="35" rx="5" fill="url(#folder-front)" />
       <rect x="4.5" y="21.5" width="55" height="1" rx="0.5" fill="rgb(255 255 255 / 0.4)" />
       {glyph === "photo" && (
         <g fill="#2b7ccb" opacity="0.85">
