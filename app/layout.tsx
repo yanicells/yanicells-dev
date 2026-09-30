@@ -1,22 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-});
 
 const siteUrl = "https://yanicells.dev";
 
 export const viewport: Viewport = {
-  themeColor: "#1e1e2e",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
@@ -98,10 +87,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
+    <html lang="en">
+      <body className="font-sans">
         {children}
         <Analytics />
       </body>
