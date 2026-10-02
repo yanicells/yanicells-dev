@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/portfolio/theme-toggle";
+import { HeaderFrame } from "@/components/portfolio/header-frame";
 
-export function SiteHeader() {
+export function SiteHeader({ opening = false }: { opening?: boolean }) {
   return (
-    <header className="site-header">
+    <HeaderFrame opening={opening}>
       <Link href="/" className="wordmark" aria-label="Yani Capistrano, home">
         yanicells
       </Link>
@@ -14,6 +15,6 @@ export function SiteHeader() {
         <Link href="/#contact">Contact</Link>
       </nav>
       <ThemeToggle />
-    </header>
+    </HeaderFrame>
   );
 }

@@ -14,8 +14,8 @@ const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portf
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#191b1f" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f6f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#171417" },
   ],
 };
 
