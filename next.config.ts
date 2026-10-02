@@ -1,34 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
+  async redirects() {
+    return [
+      { source: "/projects", destination: "/#work", permanent: true },
+      { source: "/experience", destination: "/#experience", permanent: true },
+      { source: "/about", destination: "/#about", permanent: true },
+      { source: "/contact", destination: "/#contact", permanent: true },
+      { source: "/tech-stack", destination: "/#about", permanent: true },
+      { source: "/my-story", destination: "/#about", permanent: true },
       {
-        protocol: "https",
-        hostname: "cdn.jsdelivr.net",
-        pathname: "/gh/devicons/devicon/**",
+        source: "/projects/tl-drafter",
+        destination: "/projects/eskwelabs-capstone",
+        permanent: true,
       },
       {
-        protocol: "https",
-        hostname: "cdn.jsdelivr.net",
-        pathname: "/npm/simple-icons/**",
+        source: "/projects/instructor-slides-generator",
+        destination: "/projects/eskwelabs-capstone",
+        permanent: true,
       },
-      {
-        protocol: "https",
-        hostname: "raw.githubusercontent.com",
-        pathname: "/pmndrs/zustand/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.myanimelist.net",
-        pathname: "/images/**",
-      },
-      {
-        protocol: "https",
-        hostname: "i.scdn.co",
-        pathname: "/image/**",
-      },
-    ],
+    ];
   },
 };
 

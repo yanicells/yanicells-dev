@@ -1,107 +1,64 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-sans",
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-});
-
-const siteUrl = "https://yanicells.dev";
+// Apply stored or system appearance before the first paint.
+const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portfolio-theme')}catch(e){}document.documentElement.dataset.theme=theme==='light'||theme==='dark'?theme:window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})()`;
 
 export const viewport: Viewport = {
-  themeColor: "#1e1e2e",
-  width: "device-width",
-  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#191b1f" },
+  ],
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  verification: {
-    google: "RF2l99SOCq0azS151q2VTwDBU7eZOcslKbdRiv_8OpE",
-  },
+  metadataBase: new URL("https://yanicells.dev"),
+  verification: { google: "RF2l99SOCq0azS151q2VTwDBU7eZOcslKbdRiv_8OpE" },
   title: {
-    default: "Yanicells — Full-Stack Web Developer",
-    template: "%s | Yanicells",
+    default: "Yani Capistrano | Software & AI engineering",
+    template: "%s | Yani Capistrano",
   },
   description:
-    "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University. Building with Next.js, React, and modern web technologies.",
-  keywords: [
-    "yanicells",
-    "edrian miguel capistrano",
-    "full-stack developer",
-    "web developer",
-    "next.js developer",
-    "react developer",
-    "ateneo de manila",
-    "portfolio",
-    "software engineer",
-    "philippines developer",
+    "Selected work by Edrian Miguel E. Capistrano (Yani): web applications, AI tools, and software for real teams. Computer Science student at Ateneo de Manila University.",
+  authors: [
+    { name: "Edrian Miguel E. Capistrano", url: "https://yanicells.dev" },
   ],
-  authors: [{ name: "Edrian Miguel E. Capistrano", url: siteUrl }],
-  creator: "Yanicells",
-  publisher: "Yanicells",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
-    siteName: "Yanicells",
-    title: "Yanicells — Full-Stack Web Developer",
+    url: "https://yanicells.dev",
+    siteName: "Yani Capistrano",
+    title: "Yani Capistrano | Software & AI engineering",
     description:
-      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University.",
-    images: [
-      {
-        url: "/yanicells-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Yanicells — Full-Stack Web Developer Portfolio",
-      },
-    ],
+      "Web applications, AI tools, and selected work. Computer Science at Ateneo de Manila University.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yanicells — Full-Stack Web Developer",
-    description:
-      "Portfolio of Edrian Miguel E. Capistrano (Yanicells) — Full-Stack Web Developer and CS Student at Ateneo de Manila University.",
-    images: ["/yanicells-image.png"],
     creator: "@yanicells",
-  },
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-  },
-  alternates: {
-    canonical: siteUrl,
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={hankenGrotesk.variable}>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         {children}
         <Analytics />
       </body>
