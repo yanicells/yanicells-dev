@@ -3,20 +3,19 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      { source: "/projects", destination: "/#work", permanent: true },
-      { source: "/experience", destination: "/#experience", permanent: true },
-      { source: "/about", destination: "/#about", permanent: true },
-      { source: "/contact", destination: "/#contact", permanent: true },
-      { source: "/tech-stack", destination: "/#about", permanent: true },
-      { source: "/my-story", destination: "/#about", permanent: true },
+      { source: "/tech-stack", destination: "/about", permanent: true },
+      { source: "/my-story", destination: "/about", permanent: true },
+      { source: "/music", destination: "/about#music", permanent: true },
+      { source: "/anime", destination: "/about#anime", permanent: true },
+      { source: "/photography", destination: "/about#photography", permanent: true },
       {
         source: "/projects/tl-drafter",
-        destination: "/projects/eskwelabs-capstone",
+        destination: "/projects",
         permanent: true,
       },
       {
         source: "/projects/instructor-slides-generator",
-        destination: "/projects/eskwelabs-capstone",
+        destination: "/projects",
         permanent: true,
       },
     ];

@@ -8,10 +8,13 @@ interface ProjectLink {
   href: string;
 }
 
+export type ProjectCategory = "AI" | "Web" | "Games" | "Org work";
+
 export interface Project {
   title: string;
   slug: string;
   context: string;
+  category: ProjectCategory;
   description: string;
   outcome: string;
   role: string;
@@ -30,8 +33,9 @@ export const projects: Project[] = [
     title: "UniSort",
     slug: "unisort",
     context: "Personal project, 2026",
+    category: "Web",
     description:
-      "A personality quiz matching students with Philippine universities, with student insights and an anonymous freedom wall.",
+      "A personality quiz matching students with Philippine universities.",
     outcome: "30,000+ visitors in its first two weeks.",
     role: "Design and full-stack development",
     tech: ["Next.js", "Drizzle", "Neon"],
@@ -61,44 +65,78 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Eskwelabs AI tools",
-    slug: "eskwelabs-capstone",
-    context: "Internship work, 2026",
+    title: "Academic Ally",
+    slug: "academic-ally",
+    context: "Team hackathon project, 2026",
+    category: "AI",
     description:
-      "Article drafting and slide generation tools built for the CEO and learning designers at Eskwelabs.",
-    outcome:
-      "Writing samples, draft comparisons, and more reliable slide output.",
-    role: "Article drafter Phase 2 and slide generator AI improvements",
-    tech: ["Node.js", "LLMs", "Prompt engineering"],
-    image: "/projects/tldrafter.png",
-    imageWidth: 1896,
-    imageHeight: 1054,
-    imageAlt:
-      "Thought Leader Drafter interface for generating articles from writing samples",
+      "A study companion that turns course syllabi into a plan for what to work on next.",
+    outcome: "From syllabus upload to a daily study plan.",
+    role: "Team development",
+    tech: ["Electron", "LLMs", "Agent orchestration"],
+    image: "/projects/Ally.png",
+    imageWidth: 2520,
+    imageHeight: 1630,
+    imageAlt: "Academic Ally's study planning interface",
     links: [
-      { label: "Project portfolio", href: "https://eskwelabs.yanicells.dev/" },
+      { label: "Source code", href: "https://github.com/CJ-Uy/ally" },
       {
-        label: "Article drafter",
-        href: "https://esk-tl-drafter-web.vercel.app/",
-      },
-      {
-        label: "Slide generator",
-        href: "https://eskwelabs-instructor-slides.vercel.app/",
+        label: "Watch demo",
+        href: "https://drive.google.com/file/d/15Q4Mmi2oSgDRhbCu9G_vdNG7KhKOb3uw/view?usp=sharing",
       },
     ],
     sections: [
       {
-        title: "Article drafting",
+        title: "A plan from the syllabus",
         paragraphs: [
-          "The Thought Leader Drafter uses past articles to help the Eskwelabs CEO draft in his own voice. I inherited the first MVP and owned the second phase.",
-          "I added a library of PDF writing samples, extracted their text, and connected them to drafting sessions. I also built side-by-side draft comparisons using one model call, then refactored the pipeline to handle three to five full articles as style references.",
+          "Our team built Ally to help students decide what to study next. Students upload their syllabi, review the extracted deadlines, exams, and grading weights, and confirm important details before anything is saved.",
+          "The study plan considers due dates, grading weights, difficulty, available hours, and progress. A Today view brings overdue work, upcoming deadlines, and tasks at risk into one place. Focus sessions feed back into the plan as students work.",
         ],
       },
       {
-        title: "Instructor slides",
+        title: "Making the agents work together",
         paragraphs: [
-          "I worked on version 1.1 of the slide generator, focusing on its AI output. I added a check for generic content, matched prompt character limits to the interface's text boxes, and built an independent fallback for speaker notes when the main generation failed.",
-          "Both projects were part of the Eskwelabs Innovation Fellowship, which ran from February to May 2026. They were built for internal use by the CEO and learning designers.",
+          "An orchestrator coordinates five specialist agents for onboarding, syllabus extraction, diagnostics, workload planning, and execution. We evaluated their routing, extraction accuracy, and confirmation steps on a test set before connecting them to the product.",
+          "The Electron app also has a mobile companion, paired through a QR code so the study plan can move between devices.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Schrollar",
+    slug: "schrollar",
+    context: "Team hackathon project, 2026",
+    category: "AI",
+    description:
+      "A research feed for discovering papers, with summaries checked against their sources.",
+    outcome: "Hackathon 2nd runner-up.",
+    role: "Team development",
+    tech: ["Node.js", "LLMs", "NLI", "Search"],
+    image: "/projects/schrollar-dev.png",
+    imageWidth: 1607,
+    imageHeight: 1058,
+    imageAlt: "Schrollar's research discovery feed",
+    links: [
+      { label: "Visit website", href: "https://schrollar.cjuy.dev/" },
+      { label: "Source code", href: "https://github.com/CJ-Uy/schrollar" },
+      {
+        label: "Watch demo",
+        href: "https://drive.google.com/file/d/1byUEwg-Fru-AgKieDlz2bmeEbIneJ10c/view?usp=sharing",
+      },
+    ],
+    sections: [
+      {
+        title: "Research you can scroll through",
+        paragraphs: [
+          "Schrollar presents research in a feed, making it easier to browse papers before opening the full text. Our team built parallel search pipelines across academic sources and used LLMs to synthesize the results.",
+          "We used natural language inference to check whether generated claims were supported by the source material. The aim was to make summaries useful without losing the connection to the papers behind them.",
+        ],
+      },
+      {
+        title: "The hackathon part",
+        paragraphs: [
+          "I messaged Niles about joining, then we brought in Gabe, Abby, and Charles. That became admulto. We spent late nights working at Aerie and filmed a demo together.",
+          "We realized about an hour before the initial deadline that we still needed a submission deck. We rushed it, made the top seven, and somehow repeated the deck scramble on finals day. We finished as 2nd runner-up.",
         ],
       },
     ],
@@ -107,6 +145,7 @@ export const projects: Project[] = [
     title: "Meera",
     slug: "meera",
     context: "Team hackathon project, 2026",
+    category: "AI",
     description:
       "An AI university help desk that answers student questions and hands structured cases to the right office.",
     outcome: "University support across web and desktop.",
@@ -146,6 +185,7 @@ export const projects: Project[] = [
     title: "MISAyang Samahan",
     slug: "misayang-samahan",
     context: "Student organization work, 2025",
+    category: "Org work",
     description:
       "A registration and quiz platform that assigns Ateneo MISA members to families, with tools for administrators.",
     outcome: "Used by 60+ members.",
@@ -166,6 +206,47 @@ export const projects: Project[] = [
         ],
       },
     ],
+  },
+];
+
+export interface ProjectPreview {
+  title: string;
+  href: string;
+  description: string;
+  outcome?: string;
+  image: string;
+  imageAlt: string;
+  category: ProjectCategory;
+}
+
+// Case-study text stays on the server; the gallery receives these small records.
+export const projectPreviews: ProjectPreview[] = [
+  ...projects.map(({ title, slug, description, outcome, image, imageAlt, category }) => ({
+    title, href: `/projects/${slug}`, description, outcome, image, imageAlt, category,
+  })),
+  {
+    title: "Benkyo",
+    href: "https://github.com/yanicells/Benkyo",
+    description: "Japanese vocabulary practice, built with a classmate.",
+    image: "/projects/benkyo.png",
+    imageAlt: "Benkyo's language learning interface",
+    category: "Web",
+  },
+  {
+    title: "Redhead Redemption",
+    href: "https://github.com/yanicells/Redhead-Redemption",
+    description: "A multiplayer Java game with pixel art and LAN play.",
+    image: "/projects/redemption.png",
+    imageAlt: "Redhead Redemption's top-down pixel art game",
+    category: "Games",
+  },
+  {
+    title: "Musicells",
+    href: "https://github.com/yanicells/musicells",
+    description: "A Spotify album browser with saved favourites.",
+    image: "/projects/musicells.png",
+    imageAlt: "Musicells' music discovery interface",
+    category: "Web",
   },
 ];
 

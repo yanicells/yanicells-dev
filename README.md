@@ -3,10 +3,9 @@
 A minimal portfolio for Yani Capistrano, built with Next.js 16, React 19,
 TypeScript, and Tailwind CSS v4.
 
-The home page contains selected projects, experience, a short introduction, and
-contact information. Four project pages give more detail about the work and
-Yani's contribution. Light and dark themes follow the system appearance until
-a preference is saved with the theme toggle.
+The home page is a short overview. Projects, Experience, About, and Contact have
+separate pages, with a filterable gallery, five write-ups, and a few personal favourites. The site
+starts in dark mode and saves a visitor's light/dark choice in localStorage.
 
 ## Development
 
@@ -20,6 +19,7 @@ Open http://localhost:3000.
 ```sh
 pnpm lint
 pnpm exec tsc --noEmit
+node scripts/check-theme.mjs
 pnpm build
 ```
 
@@ -33,5 +33,5 @@ pnpm build
 Experience entries use recorded start dates instead of assuming that every
 role is still current. Project metrics describe the documented launch period.
 
-Core links from the previous portfolio redirect to the corresponding home-page
-sections. The sitemap includes the home page and the four selected projects.
+Older hobby links redirect to the relevant sections of About. The sitemap
+includes the home page, the four overview pages, and the five selected projects.

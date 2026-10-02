@@ -49,8 +49,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <div className="site-shell">
       <SiteHeader />
       <main id="main-content" className="project-page">
-        <Link className="back-link" href="/#work">
-          Back to selected work
+        <Link className="back-link" href="/projects">
+          Back to all projects
         </Link>
         <article>
           <header className="project-page-header">

@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { MineralBackdrop } from "@/components/portfolio/mineral-backdrop";
-import { projects } from "@/lib/data/projects";
+import { ProjectList } from "@/components/portfolio/project-list";
+import { projectPreviews } from "@/lib/data/projects";
 import { experiences } from "@/lib/data/experience";
 import { contact } from "@/lib/data/contact";
 
@@ -33,37 +33,13 @@ export default function HomePage() {
             className="home-section"
             aria-labelledby="work-heading"
           >
-            <h2 id="work-heading">Selected work</h2>
-            <div className="project-list">
-              {projects.map((project) => (
-                <article className="project-row" key={project.slug}>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="project-preview"
-                    aria-label={`View ${project.title}`}
-                    tabIndex={-1}
-                  >
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt}
-                      fill
-                      sizes="(max-width: 540px) calc(100vw - 48px), 200px"
-                      className="project-preview-image"
-                    />
-                  </Link>
-                  <div className="project-summary">
-                    <p className="project-context">{project.context}</p>
-                    <h3>
-                      <Link href={`/projects/${project.slug}`}>
-                        {project.title}
-                      </Link>
-                    </h3>
-                    <p className="project-description">{project.description}</p>
-                    <p className="project-outcome">{project.outcome}</p>
-                  </div>
-                </article>
-              ))}
+            <div className="section-heading">
+              <h2 id="work-heading">Selected projects</h2>
+              <Link className="text-link" href="/projects">
+                All projects ↗
+              </Link>
             </div>
+            <ProjectList projects={projectPreviews.slice(0, 3)} featured />
           </section>
 
           <section
@@ -73,9 +49,9 @@ export default function HomePage() {
           >
             <div className="section-heading">
               <h2 id="experience-heading">Experience</h2>
-              <a className="text-link" href={contact.resume}>
-                View resume
-              </a>
+              <Link className="text-link" href="/experience">
+                Full experience ↗
+              </Link>
             </div>
             <div className="experience-list">
               {experiences.map((experience) => (
@@ -86,9 +62,7 @@ export default function HomePage() {
                   <div>
                     <h3>{experience.organization}</h3>
                     <p className="experience-role">{experience.title}</p>
-                    <p className="experience-description">
-                      {experience.description}
-                    </p>
+                    <p className="experience-description">{experience.summary}</p>
                   </div>
                   <p className="experience-date">{experience.date}</p>
                 </article>
@@ -101,7 +75,12 @@ export default function HomePage() {
             className="home-section about"
             aria-labelledby="about-heading"
           >
-            <h2 id="about-heading">A little about me</h2>
+            <div className="section-heading">
+              <h2 id="about-heading">A little about me</h2>
+              <Link className="text-link" href="/about">
+                More about me ↗
+              </Link>
+            </div>
             <div className="about-copy">
               <p>
                 I’m Edrian Miguel E. Capistrano, usually Yani. I study Computer
@@ -110,8 +89,8 @@ export default function HomePage() {
               </p>
               <p>
                 My work has taken me from student organization websites to AI
-                engineering internships and software for a local resort. I also
-                enjoy photography outside of coding.
+                engineering internships and software for a local resort. Outside
+                of coding, I enjoy photography, music, and anime.
               </p>
             </div>
           </section>

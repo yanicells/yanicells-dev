@@ -9,7 +9,7 @@ export function HeaderFrame({
   opening: boolean;
   children: ReactNode;
 }) {
-  const [compact, setCompact] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const marker = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export function HeaderFrame({
     if (!target) return;
 
     const observer = new IntersectionObserver(([entry]) => {
-      setCompact(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+      setScrolled(!entry.isIntersecting && entry.boundingClientRect.top < 0);
     });
 
     observer.observe(target);
@@ -25,11 +25,13 @@ export function HeaderFrame({
   }, []);
 
   return (
-    <div className={`header-slot${opening ? " header-slot-opening" : ""}`}>
-      <header className={`site-header${compact ? " is-compact" : ""}`}>
-        {children}
-      </header>
+    <>
       <span className="header-scroll-marker" ref={marker} aria-hidden="true" />
-    </div>
+      <header
+        className={`site-header${opening ? " header-opening" : ""}${scrolled ? " is-scrolled" : ""}`}
+      >
+        <div className="site-shell header-content">{children}</div>
+      </header>
+    </>
   );
 }
