@@ -9,14 +9,11 @@ const hankenGrotesk = Hanken_Grotesk({
   display: "swap",
 });
 
-// Apply stored or system appearance before the first paint.
-const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portfolio-theme')}catch(e){}document.documentElement.dataset.theme=theme==='light'||theme==='dark'?theme:window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'})()`;
+// Restore the saved choice before paint; first-time visits start in dark mode.
+const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portfolio-theme')}catch(e){}document.documentElement.dataset.theme=theme==='light'?'light':'dark'})()`;
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f6f3" },
-    { media: "(prefers-color-scheme: dark)", color: "#171417" },
-  ],
+  themeColor: "#171417",
 };
 
 export const metadata: Metadata = {
@@ -51,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

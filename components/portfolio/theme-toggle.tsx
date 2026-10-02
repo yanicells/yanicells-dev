@@ -1,66 +1,22 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-
-const storageKey = "portfolio-theme";
-const themeEvent = "portfolio-theme-change";
-
-type Theme = "light" | "dark";
-
-function getTheme(): Theme {
-  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-}
-
-function subscribe(onChange: () => void) {
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
-
-  function syncTheme() {
-    let preference: string | null = null;
-    try {
-      preference = localStorage.getItem(storageKey);
-    } catch {
-      // System appearance still works when browser storage is unavailable.
-    }
-    document.documentElement.dataset.theme =
-      preference === "light" || preference === "dark"
-        ? preference
-        : media.matches
-          ? "dark"
-          : "light";
-    onChange();
-  }
-
-  window.addEventListener(themeEvent, onChange);
-  window.addEventListener("storage", syncTheme);
-  media.addEventListener("change", syncTheme);
-
-  return () => {
-    window.removeEventListener(themeEvent, onChange);
-    window.removeEventListener("storage", syncTheme);
-    media.removeEventListener("change", syncTheme);
-  };
-}
-
 export function ThemeToggle() {
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "light");
-
   function toggleTheme() {
-    const nextTheme = getTheme() === "dark" ? "light" : "dark";
+    const nextTheme =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = nextTheme;
     try {
-      localStorage.setItem(storageKey, nextTheme);
+      localStorage.setItem("portfolio-theme", nextTheme);
     } catch {
       // The toggle can still change appearance for this visit.
     }
-    window.dispatchEvent(new Event(themeEvent));
   }
 
   return (
     <button
       className="theme-toggle"
       type="button"
-      aria-label="Dark mode"
-      aria-pressed={theme === "dark"}
+      aria-label="Toggle light and dark mode"
       onClick={toggleTheme}
       title="Toggle light and dark mode"
     >
