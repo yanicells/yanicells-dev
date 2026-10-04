@@ -383,6 +383,7 @@ h3 {
   font-size: 18px;
   letter-spacing: -0.4px;
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 .project-summary h3 a:hover {
   color: var(--accent);
@@ -395,6 +396,29 @@ h3 {
 }
 .project-summary {
   margin-top: 14px;
+}
+.project-card-text {
+  border-top: 1px solid var(--border);
+}
+.project-card-text .project-summary {
+  margin-top: 16px;
+}
+.recognition-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+  list-style: none;
+}
+.recognition-list strong,
+.recognition-list span {
+  display: block;
+  font-size: 14px;
+}
+.recognition-list strong {
+  font-weight: 500;
+}
+.recognition-list span {
+  color: var(--muted);
 }
 .project-grid-featured {
   margin-top: 28px;
@@ -853,6 +877,10 @@ h3 {
     grid-template-columns: 100px minmax(0, 1fr);
     gap: 18px;
     align-items: start;
+  }
+  .project-grid-featured .project-card-text {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 16px;
   }
   .project-grid-featured .project-preview {
     aspect-ratio: 1.2;

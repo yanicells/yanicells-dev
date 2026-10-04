@@ -29,13 +29,15 @@ export async function generateMetadata({
       title: `${project.title} | Yani Capistrano`,
       description: project.description,
       url: `/projects/${project.slug}`,
-      images: [{ url: project.image, alt: project.imageAlt }],
+      ...(project.image && {
+        images: [{ url: project.image.src, alt: project.image.alt }],
+      }),
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Yani Capistrano`,
       description: project.description,
-      images: [project.image],
+      ...(project.image && { images: [project.image.src] }),
     },
   };
 }
@@ -50,7 +52,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <SiteHeader />
       <main id="main-content" className="project-page">
         <Link className="back-link" href="/projects">
-          Back to all projects
+          Back to projects
         </Link>
         <article>
           <header className="project-page-header">
@@ -60,17 +62,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="project-page-outcome">{project.outcome}</p>
           </header>
 
-          <div className="project-page-image">
-            <Image
-              src={project.image}
-              alt={project.imageAlt}
-              width={project.imageWidth}
-              height={project.imageHeight}
-              sizes="(max-width: 848px) calc(100vw - 48px), 800px"
-              className="project-detail-image"
-              priority
-            />
-          </div>
+          {project.image && (
+            <div className="project-page-image">
+              <Image
+                src={project.image.src}
+                alt={project.image.alt}
+                width={project.image.width}
+                height={project.image.height}
+                sizes="(max-width: 848px) calc(100vw - 48px), 800px"
+                className="project-detail-image"
+                priority
+              />
+            </div>
+          )}
 
           <dl className="project-facts">
             <div>
@@ -105,9 +109,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </article>
         <nav className="more-work" aria-label="Other selected projects">
-          <h2>More work</h2>
+          <h2>More projects</h2>
           {projects
-            .filter((other) => other.slug !== project.slug)
+            .filter((other) => other.featured && other.slug !== project.slug)
             .map((other) => (
               <Link href={`/projects/${other.slug}`} key={other.slug}>
                 {other.title}

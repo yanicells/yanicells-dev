@@ -8,42 +8,49 @@ interface ProjectLink {
   href: string;
 }
 
-export type ProjectCategory = "AI" | "Web" | "Games" | "Org work";
+interface ProjectImage {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+export type ProjectCategory = "AI" | "Web" | "Desktop" | "Games" | "Org work";
 
 export interface Project {
   title: string;
   slug: string;
   context: string;
   category: ProjectCategory;
+  featured: boolean;
   description: string;
   outcome: string;
   role: string;
   tech: string[];
-  image: string;
-  imageWidth: number;
-  imageHeight: number;
-  imageAlt: string;
+  image?: ProjectImage;
   links: ProjectLink[];
   sections: ProjectSection[];
 }
 
-// Curated from the portfolio's project records; team work is credited explicitly.
+// Curated from the October 2026 career update; team contributions stay explicit.
 export const projects: Project[] = [
   {
     title: "UniSort",
     slug: "unisort",
-    context: "Personal project, 2026",
+    context: "Personal project, 2025–2026",
     category: "Web",
+    featured: true,
     description:
       "A personality quiz matching students with Philippine universities.",
-    outcome: "30,000+ visitors in its first two weeks.",
+    outcome: "55,000+ visitors and 35,000+ quiz entries as of Oct 2026.",
     role: "Design and full-stack development",
     tech: ["Next.js", "Drizzle", "Neon"],
-    image: "/projects/unisort.png",
-    imageWidth: 1610,
-    imageHeight: 984,
-    imageAlt:
-      "UniSort's university quiz, with match results for Ateneo, La Salle, UP, and UST",
+    image: {
+      src: "/projects/unisort.png",
+      width: 1610,
+      height: 984,
+      alt: "UniSort's university quiz, with match results for Ateneo, La Salle, UP, and UST",
+    },
     links: [
       { label: "Visit website", href: "https://unisort.ycells.com" },
       { label: "Source code", href: "https://github.com/yanicells/UniSort" },
@@ -60,6 +67,68 @@ export const projects: Project[] = [
         title: "What happened after launch",
         paragraphs: [
           "After I shared it in university subreddits, the app reached over 30,000 visitors, 20,000 quiz entries, and 60,000 pageviews in two weeks. Those figures describe the launch period in February 2026.",
+          "As of October 2026, the figures I recorded from Vercel analytics were 55,000+ visitors, approximately 130,000+ page views, and 35,000+ quiz entries.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Airosu",
+    slug: "airosu",
+    context: "Personal project, 2026",
+    category: "Games",
+    featured: true,
+    description:
+      "A browser rhythm game played with hand movements in front of a webcam.",
+    outcome: "On-device hand tracking and local osu! beatmaps.",
+    role: "Product and development",
+    tech: ["TypeScript", "MediaPipe", "PixiJS", "Web Audio"],
+    links: [{ label: "Source code", href: "https://github.com/yanicells/airosu" }],
+    sections: [
+      {
+        title: "Playing with your hands",
+        paragraphs: [
+          "Airosu turns webcam hand movement into a cursor for playing osu! beatmaps in the browser. The playable version loads local .osz files and handles circles, sliders, spinners, scoring, and results. Camera frames stay on the device.",
+          "The controls are calibrated and smoothed for a forgiving webcam experience. When tracking is lost, the game handles that state explicitly rather than treating an unreliable cursor as normal input.",
+        ],
+      },
+      {
+        title: "Keeping time",
+        paragraphs: [
+          "Gameplay follows the Web Audio clock. Hit detection and scoring live separately from rendering, so their timing rules can be checked without running the visual game.",
+          "The current public version is an offline browser game. Account, leaderboard, and other online features remain work in progress.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "SimplifyTrabaho",
+    slug: "simplifytrabaho",
+    context: "Personal project, 2026",
+    category: "Web",
+    featured: true,
+    description:
+      "A Philippine job directory refreshed from employers’ official hiring feeds.",
+    outcome: "15,000+ active listings in the Oct 2, 2026 data snapshot.",
+    role: "Product, data pipeline, and web development",
+    tech: ["TypeScript", "Next.js", "GitHub Actions"],
+    links: [
+      { label: "Visit website", href: "https://simplifytrabaho.ycells.com" },
+      { label: "Source code", href: "https://github.com/yanicells/SimplifyTrabaho" },
+    ],
+    sections: [
+      {
+        title: "Jobs from the source",
+        paragraphs: [
+          "SimplifyTrabaho brings Philippine job listings together from employers’ official applicant-tracking systems. It keeps listing facts and official application links, with filters, saved preferences, and a local application tracker.",
+          "The pipeline normalizes thirteen different hiring-system formats into one listing schema. Daily refreshes run through GitHub Actions; inactive listings remain in the data instead of disappearing from its history.",
+        ],
+      },
+      {
+        title: "When a source fails",
+        paragraphs: [
+          "A failed or incomplete fetch does not mark unseen jobs as closed. Source failures remain visible, and stable record IDs keep refreshes from creating duplicates.",
+          "Workday receives stricter treatment: robots checks, spaced requests, bounded pagination, and a persistent stop when a source blocks requests. The October 2 snapshot contained 15,262 active listings.",
         ],
       },
     ],
@@ -67,17 +136,20 @@ export const projects: Project[] = [
   {
     title: "Academic Ally",
     slug: "academic-ally",
-    context: "Team hackathon project, 2026",
+    context: "Team hackathon prototype, 2026",
     category: "AI",
+    featured: true,
     description:
       "A study companion that turns course syllabi into a plan for what to work on next.",
-    outcome: "From syllabus upload to a daily study plan.",
-    role: "Team development",
+    outcome: "Top 10 in Round 1, KPMG x Microsoft Academic Innovation Challenge 2026.",
+    role: "Product requirements, desktop experience, and planner integration",
     tech: ["Electron", "LLMs", "Agent orchestration"],
-    image: "/projects/Ally.png",
-    imageWidth: 2520,
-    imageHeight: 1630,
-    imageAlt: "Academic Ally's study planning interface",
+    image: {
+      src: "/projects/Ally.png",
+      width: 2520,
+      height: 1630,
+      alt: "Academic Ally's study planning interface",
+    },
     links: [
       { label: "Source code", href: "https://github.com/CJ-Uy/ally" },
       {
@@ -89,15 +161,15 @@ export const projects: Project[] = [
       {
         title: "A plan from the syllabus",
         paragraphs: [
-          "Our team built Ally to help students decide what to study next. Students upload their syllabi, review the extracted deadlines, exams, and grading weights, and confirm important details before anything is saved.",
-          "The study plan considers due dates, grading weights, difficulty, available hours, and progress. A Today view brings overdue work, upcoming deadlines, and tasks at risk into one place. Focus sessions feed back into the plan as students work.",
+          "Our team developed Ally to help students decide what to study next. The prototype parses syllabus deadlines, exams, grading weights, and topics, with planning tools for tasks and calendars.",
+          "It explores onboarding, diagnostics, focus sessions, and a mobile companion. Some dashboard and calendar areas remain static or partial; this is a hackathon prototype.",
         ],
       },
       {
-        title: "Making the agents work together",
+        title: "My part in the team",
         paragraphs: [
-          "An orchestrator coordinates five specialist agents for onboarding, syllabus extraction, diagnostics, workload planning, and execution. We evaluated their routing, extraction accuracy, and confirmation steps on a test set before connecting them to the product.",
-          "The Electron app also has a mobile companion, paired through a QR code so the study plan can move between devices.",
+          "I worked on product requirements, the Electron shell, time-block behavior, calendar and task surfaces, desktop-orb chat, and local/cloud model integration.",
+          "The five-agent architecture is shared team work. Ally reached the Top 10 in Round 1 of the KPMG x Microsoft Academic Innovation Challenge.",
         ],
       },
     ],
@@ -105,17 +177,20 @@ export const projects: Project[] = [
   {
     title: "Schrollar",
     slug: "schrollar",
-    context: "Team hackathon project, 2026",
+    context: "Team hackathon prototype, 2026",
     category: "AI",
+    featured: true,
     description:
-      "A research feed for discovering papers, with summaries checked against their sources.",
-    outcome: "Hackathon 2nd runner-up.",
-    role: "Team development",
+      "A research feed for discovering papers, with source-linked summaries and claim checks.",
+    outcome: "2nd runner-up, HackFest 2026 Axis Case Challenge.",
+    role: "Research workflow, interface integration, and model configuration",
     tech: ["Node.js", "LLMs", "NLI", "Search"],
-    image: "/projects/schrollar-dev.png",
-    imageWidth: 1607,
-    imageHeight: 1058,
-    imageAlt: "Schrollar's research discovery feed",
+    image: {
+      src: "/projects/schrollar-dev.png",
+      width: 1607,
+      height: 1058,
+      alt: "Schrollar's research discovery feed",
+    },
     links: [
       { label: "Visit website", href: "https://schrollar.cjuy.dev/" },
       { label: "Source code", href: "https://github.com/CJ-Uy/schrollar" },
@@ -130,6 +205,7 @@ export const projects: Project[] = [
         paragraphs: [
           "Schrollar presents research in a feed, making it easier to browse papers before opening the full text. Our team built parallel search pipelines across academic sources and used LLMs to synthesize the results.",
           "We used natural language inference to check whether generated claims were supported by the source material. The aim was to make summaries useful without losing the connection to the papers behind them.",
+          "My contributions focused on feed and detail views, onboarding, export, comments, source presentation, and model prompts/configuration, alongside some processing and grounding work. Search and infrastructure ownership are shared across the team.",
         ],
       },
       {
@@ -144,18 +220,20 @@ export const projects: Project[] = [
   {
     title: "Meera",
     slug: "meera",
-    context: "Team hackathon project, 2026",
+    context: "Team competition project, 2026",
     category: "AI",
+    featured: true,
     description:
       "An AI university help desk that answers student questions and hands structured cases to the right office.",
-    outcome: "University support across web and desktop.",
-    role: "Team development, including the desktop assistant",
+    outcome: "Top 3, KPMG x Microsoft Academic Innovation Challenge 2026.",
+    role: "Team development across AI routing, voice, and the desktop assistant",
     tech: ["Next.js", "Electron", "Cloudflare Workers", "LLMs"],
-    image: "/projects/Meera.png",
-    imageWidth: 2882,
-    imageHeight: 1536,
-    imageAlt:
-      "Meera's university support interface and on-screen guidance preview",
+    image: {
+      src: "/projects/Meera.png",
+      width: 2882,
+      height: 1536,
+      alt: "Meera's university support interface and on-screen guidance preview",
+    },
     links: [
       { label: "Visit website", href: "https://meera.cjuy.dev/" },
       { label: "Source code", href: "https://github.com/CJ-Uy/meera" },
@@ -168,13 +246,14 @@ export const projects: Project[] = [
       {
         title: "The help desk",
         paragraphs: [
-          "Our team built Meera for the KPMG Academic Innovation Challenge. Students describe a problem, and Meera tries to answer it or route it to IT, the Registrar, Finance, Health Services, or Student Services.",
+          "Our team built Meera for the KPMG x Microsoft Academic Innovation Challenge. Students describe a problem, and Meera tries to answer it or route it to IT, the Registrar, Finance, Health Services, or Student Services. We finished in the competition’s Top 3.",
           "When a person needs to take over, the system passes along a case summary, collected information, missing details, and suggested next steps. A knowledge graph checks the department proposed by the model before the case is routed.",
         ],
       },
       {
         title: "The desktop assistant",
         paragraphs: [
+          "My contributions span graph-based routing, AI persistence, provider integration, voice interaction, and the desktop experience. The wider architecture is shared team work.",
           "The desktop assistant uses transparent, click-through overlays to point at interface elements in other applications. A vision model locates the target, then a second, closer pass refines its position. This was the part of the project I was proudest of.",
           "The team used runtime adapters to run one Next.js codebase in the browser, Electron, and Cloudflare Workers. Model calls stay on the server. The assistant provides guidance and leaves payments, record changes, and medical decisions to people.",
         ],
@@ -186,23 +265,67 @@ export const projects: Project[] = [
     slug: "misayang-samahan",
     context: "Student organization work, 2025",
     category: "Org work",
+    featured: false,
     description:
       "A registration and quiz platform that assigns Ateneo MISA members to families, with tools for administrators.",
-    outcome: "Used by 60+ members.",
+    outcome: "Used by 70+ members.",
     role: "Development with another MISA developer",
     tech: ["Node.js", "PostgreSQL", "Tailwind CSS"],
-    image: "/projects/misayang.png",
-    imageWidth: 1412,
-    imageHeight: 912,
-    imageAlt:
-      "MISAyang Samahan's Pokémon-themed member registration and family assignment platform",
+    image: {
+      src: "/projects/misayang.png",
+      width: 1412,
+      height: 912,
+      alt: "MISAyang Samahan's Pokémon-themed member registration and family assignment platform",
+    },
     links: [{ label: "Visit website", href: "https://family.misa.org.ph" }],
     sections: [
       {
         title: "The platform",
         paragraphs: [
           "Members register, take a personality quiz, and get assigned to a family within Ateneo MISA. The platform also gives administrators tools to manage those assignments.",
-          "I worked with another developer on a two-week deadline. More than 60 members used the platform. It was my first experience building software for an organization with real users and collaborating on a shared repository.",
+          "I worked with another developer on a two-week deadline, contributing application/database setup, family-balancing logic, and interface integration. More than 70 members used the platform. It was my first experience building software for an organization with real users and collaborating on a shared repository.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Rusty Gallery",
+    slug: "rusty-gallery",
+    context: "Personal tool, 2026",
+    category: "Desktop",
+    featured: false,
+    description: "A native photo and video browser for my local media library.",
+    outcome: "Personal tool, available as source code.",
+    role: "Personal application development",
+    tech: ["Rust", "GPUI", "macOS Quick Look"],
+    links: [{ label: "Source code", href: "https://github.com/yanicells/rustygallery" }],
+    sections: [
+      {
+        title: "A tool for my own library",
+        paragraphs: [
+          "Rusty Gallery is a native browser for folders of photos and videos, with search, lightbox navigation, favorites, and file operations. It is a personal tool, currently available as source code.",
+          "Thumbnails and previews are prepared away from the interface thread. Results from an old selection are discarded, corrupt caches can be regenerated, and macOS preview tools provide fallbacks for formats that do not decode directly.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "StudyBuddy",
+    slug: "studybuddy",
+    context: "Personal tool, 2026",
+    category: "Web",
+    featured: false,
+    description: "A personal flashcard library with imports and spaced review.",
+    outcome: "Built around my own study workflow.",
+    role: "Personal application development",
+    tech: ["TanStack Start", "React", "TypeScript", "Convex"],
+    links: [{ label: "Source code", href: "https://github.com/yanicells/studybuddy" }],
+    sections: [
+      {
+        title: "Studying from my notes",
+        paragraphs: [
+          "StudyBuddy organizes flashcards into nested folders and decks, with plain-text and Markdown imports, cloze questions, and sessions scoped to different parts of the library. It is a tool for my own studying.",
+          "Learning sessions bring wrong answers back into the queue, while a separate scheduler handles long-term review intervals. Feedback appears immediately, and updates for the same card are saved in order so persistence does not interrupt a session or reorder progress.",
         ],
       },
     ],
@@ -214,41 +337,51 @@ export interface ProjectPreview {
   href: string;
   description: string;
   outcome?: string;
-  image: string;
-  imageAlt: string;
+  image?: Pick<ProjectImage, "src" | "alt">;
   category: ProjectCategory;
+  featured: boolean;
 }
 
 // Case-study text stays on the server; the gallery receives these small records.
 export const projectPreviews: ProjectPreview[] = [
-  ...projects.map(({ title, slug, description, outcome, image, imageAlt, category }) => ({
-    title, href: `/projects/${slug}`, description, outcome, image, imageAlt, category,
+  ...projects.map(({ title, slug, description, outcome, image, category, featured }) => ({
+    title,
+    href: `/projects/${slug}`,
+    description,
+    outcome,
+    image: image ? { src: image.src, alt: image.alt } : undefined,
+    category,
+    featured,
   })),
   {
     title: "Benkyo",
     href: "https://github.com/yanicells/Benkyo",
-    description: "Japanese vocabulary practice, built with a classmate.",
-    image: "/projects/benkyo.png",
-    imageAlt: "Benkyo's language learning interface",
+    description: "Japanese vocabulary practice with spaced review and local/cloud progress sync.",
+    image: { src: "/projects/benkyo.png", alt: "Benkyo's language learning interface" },
     category: "Web",
+    featured: false,
   },
   {
     title: "Redhead Redemption",
     href: "https://github.com/yanicells/Redhead-Redemption",
     description: "A multiplayer Java game with pixel art and LAN play.",
-    image: "/projects/redemption.png",
-    imageAlt: "Redhead Redemption's top-down pixel art game",
+    image: { src: "/projects/redemption.png", alt: "Redhead Redemption's top-down pixel art game" },
     category: "Games",
+    featured: false,
   },
   {
     title: "Musicells",
     href: "https://github.com/yanicells/musicells",
-    description: "A Spotify album browser with saved favourites.",
-    image: "/projects/musicells.png",
-    imageAlt: "Musicells' music discovery interface",
+    description: "An early Spotify album-browser project with saved favourites.",
+    image: { src: "/projects/musicells.png", alt: "Musicells' music discovery interface" },
     category: "Web",
+    featured: false,
   },
 ];
+
+export const homepageProjectPreviews = projectPreviews.filter(({ href }) =>
+  ["/projects/unisort", "/projects/airosu", "/projects/meera"].includes(href),
+);
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);

@@ -33,16 +33,17 @@ export default function AboutPage() {
           <h1>Yani, outside the tabs.</h1>
           <p>
             I’m Edrian Miguel E. Capistrano, usually Yani. I study Computer
-            Science at Ateneo de Manila University, where I’m a Financial Aid
-            and DOST scholar.
+            Science at Ateneo de Manila University, specializing in Data
+            Science and Analytics. I’m a Financial Aid and DOST scholar,
+            expecting to graduate in 2028.
           </p>
         </header>
         <div className="about-introduction">
           <p>
-            I build web applications and native apps, and I’m exploring AI,
-            machine learning, and neural networks. My projects have taken me
-            from student organization websites to AI tools and software for a
-            local resort.
+            I work on web and desktop applications, AI products, and software
+            for teams and businesses. Alongside internships and freelance work,
+            I lead MISA’s IT Skills and Development team. Outside that, I’m
+            usually taking photos, listening to music, or watching anime.
           </p>
           <nav className="interest-links" aria-label="On this page">
             <a className="text-link" href="#photography">Photography ↓</a>
@@ -50,6 +51,28 @@ export default function AboutPage() {
             <a className="text-link" href="#anime">Anime ↓</a>
           </nav>
         </div>
+
+        <section className="interest-section" aria-labelledby="recognition-heading">
+          <h2 id="recognition-heading">Competition results</h2>
+          <ul className="recognition-list">
+            <li>
+              <strong>Meera — Top 3</strong>
+              <span>KPMG x Microsoft Academic Innovation Challenge 2026</span>
+            </li>
+            <li>
+              <strong>Academic Ally — Top 10, Round 1</strong>
+              <span>KPMG x Microsoft Academic Innovation Challenge 2026</span>
+            </li>
+            <li>
+              <strong>DigiTALINO — Grand Champion</strong>
+              <span>IM Summit 2026 Business Case Competition</span>
+            </li>
+            <li>
+              <strong>Schrollar — 2nd runner-up</strong>
+              <span>HackFest 2026 Axis Case Challenge</span>
+            </li>
+          </ul>
+        </section>
 
         <section id="photography" className="interest-section" aria-labelledby="photo-heading">
           <div className="section-heading">

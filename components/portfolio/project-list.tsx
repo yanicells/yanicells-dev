@@ -12,22 +12,24 @@ export function ProjectList({
   return (
     <div className={`project-grid${featured ? " project-grid-featured" : ""}`}>
       {projects.map((project) => (
-        <article className="project-card" key={project.href}>
-          <Link
-            href={project.href}
-            className="project-preview"
-            aria-label={`View ${project.title}`}
-            tabIndex={-1}
-          >
-            <Image
-              src={project.image}
-              alt={project.imageAlt}
-              fill
-              loading={featured ? "eager" : "lazy"}
-              sizes="(max-width: 540px) 160px, (max-width: 680px) 280px, 250px"
-              className="project-preview-image"
-            />
-          </Link>
+        <article className={`project-card${project.image ? "" : " project-card-text"}`} key={project.href}>
+          {project.image && (
+            <Link
+              href={project.href}
+              className="project-preview"
+              aria-label={`View ${project.title}`}
+              tabIndex={-1}
+            >
+              <Image
+                src={project.image.src}
+                alt={project.image.alt}
+                fill
+                loading={featured ? "eager" : "lazy"}
+                sizes="(max-width: 540px) 160px, (max-width: 680px) 280px, 250px"
+                className="project-preview-image"
+              />
+            </Link>
+          )}
           <div className="project-summary">
             {!featured && <p className="project-context">{project.category}</p>}
             <h3>

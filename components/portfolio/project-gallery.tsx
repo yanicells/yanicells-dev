@@ -4,11 +4,17 @@ import { useState } from "react";
 import { ProjectList } from "@/components/portfolio/project-list";
 import type { ProjectCategory, ProjectPreview } from "@/lib/data/projects";
 
-const filters: ("All" | ProjectCategory)[] = ["All", "AI", "Web", "Games", "Org work"];
+type ProjectFilter = "Featured" | "All" | ProjectCategory;
+
+const filters: ProjectFilter[] = ["Featured", "All", "AI", "Web", "Desktop", "Games", "Org work"];
 
 export function ProjectGallery({ projects }: { projects: ProjectPreview[] }) {
-  const [filter, setFilter] = useState<(typeof filters)[number]>("All");
-  const visible = filter === "All" ? projects : projects.filter((project) => project.category === filter);
+  const [filter, setFilter] = useState<ProjectFilter>("Featured");
+  const visible = projects.filter((project) => {
+    if (filter === "All") return true;
+    if (filter === "Featured") return project.featured;
+    return project.category === filter;
+  });
 
   return (
     <>

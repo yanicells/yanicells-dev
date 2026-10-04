@@ -3,8 +3,8 @@ import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { MineralBackdrop } from "@/components/portfolio/mineral-backdrop";
 import { ProjectList } from "@/components/portfolio/project-list";
-import { projectPreviews } from "@/lib/data/projects";
-import { experiences } from "@/lib/data/experience";
+import { homepageProjectPreviews } from "@/lib/data/projects";
+import { homepageExperiences } from "@/lib/data/experience";
 import { contact } from "@/lib/data/contact";
 
 export default function HomePage() {
@@ -18,8 +18,9 @@ export default function HomePage() {
             <h1 id="intro-heading">Yani Capistrano</h1>
             <p className="intro-role">Software &amp; AI engineering</p>
             <p className="intro-description">
-              I build web applications and AI tools. I’m also a Computer Science
-              student at Ateneo de Manila University.
+              I build web and desktop applications, with a focus on AI tools
+              and practical workflows. I study Computer Science at Ateneo de
+              Manila University.
             </p>
             <div className="intro-links">
               <a href={contact.github}>GitHub</a>
@@ -36,10 +37,10 @@ export default function HomePage() {
             <div className="section-heading">
               <h2 id="work-heading">Selected projects</h2>
               <Link className="text-link" href="/projects">
-                All projects ↗
+                More projects ↗
               </Link>
             </div>
-            <ProjectList projects={projectPreviews.slice(0, 3)} featured />
+            <ProjectList projects={homepageProjectPreviews} featured />
           </section>
 
           <section
@@ -54,7 +55,7 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="experience-list">
-              {experiences.map((experience) => (
+              {homepageExperiences.map((experience) => (
                 <article
                   className="experience-row"
                   key={experience.organization}
@@ -84,13 +85,13 @@ export default function HomePage() {
             <div className="about-copy">
               <p>
                 I’m Edrian Miguel E. Capistrano, usually Yani. I study Computer
-                Science at Ateneo de Manila University, where I’m a Financial
-                Aid and DOST scholar.
+                Science at Ateneo de Manila University, specializing in Data
+                Science and Analytics. I’m a Financial Aid and DOST scholar.
               </p>
               <p>
                 My work has taken me from student organization websites to AI
-                engineering internships and software for a local resort. Outside
-                of coding, I enjoy photography, music, and anime.
+                engineering internships and freelance product development.
+                Outside of coding, I enjoy photography, music, and anime.
               </p>
             </div>
           </section>

@@ -19,7 +19,7 @@ export default function ExperiencePage() {
         <header className="page-heading">
           <p className="eyebrow">Experience</p>
           <h1>Work with teams.</h1>
-          <p>AI engineering, product prototypes, and full-stack development.</p>
+          <p>Software and AI engineering, freelance work, and developer leadership.</p>
           <a className="text-link" href={contact.resume}>View resume ↗</a>
         </header>
         <div className="experience-list experience-list-full">
@@ -29,6 +29,9 @@ export default function ExperiencePage() {
                 <h2>{experience.organization}</h2>
                 <p className="experience-role">{experience.title}</p>
                 <p className="experience-description">{experience.description}</p>
+                {experience.previousRole && (
+                  <p className="experience-description">Previously: {experience.previousRole}.</p>
+                )}
               </div>
               <p className="experience-date">{experience.date}</p>
             </article>
