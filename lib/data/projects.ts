@@ -273,6 +273,92 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "Python Workshop",
+    slug: "misa-python-workshop",
+    context: "Student organization teaching, 2026",
+    category: "Org work",
+    featured: false,
+    description:
+      "A beginner Python and Git workshop where students build a MISA cluster quiz.",
+    outcome: "Delivered to 30+ attendees.",
+    role: "Workshop material development and teaching with MISA eServices",
+    tech: ["Python", "Git", "Astro", "Starlight", "Google Colab"],
+    image: {
+      src: "/projects/misa-python-workshop.png",
+      width: 2920,
+      height: 1830,
+      alt: "The Python Workshop guide, with step-by-step lessons for building a MISA cluster quiz",
+    },
+    links: [
+      { label: "Workshop repository", href: "https://github.com/yanicells/misa-python-workshop" },
+    ],
+    sections: [
+      {
+        title: "Learning by building",
+        paragraphs: [
+          "The workshop introduces first-year BS MIS students to Python and Git through a cluster personality quiz. Lessons progress from input and conditions to loops, functions, and a complete 15-question weighted quiz.",
+          "I developed the teaching material and helped deliver the workshop with MISA eServices. The guide includes reference checkpoints and recovery instructions, with Colab notebooks for students who cannot use a local setup. The workshop had 30+ attendees.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Cluster Finder",
+    slug: "misa-cluster-finder",
+    context: "Student organization work, 2026",
+    category: "Org work",
+    featured: false,
+    description:
+      "A short quiz that helps students find their strongest matches across MISA’s seven clusters.",
+    outcome: "The workshop quiz adapted into a web experience.",
+    role: "Web application development",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: {
+      src: "/projects/misa-cluster-finder.png",
+      width: 2374,
+      height: 1722,
+      alt: "Cluster Finder's welcome screen, with a name tag and a Find my cluster button",
+    },
+    links: [],
+    sections: [
+      {
+        title: "From workshop to website",
+        paragraphs: [
+          "I adapted the Python workshop’s quiz into a responsive name-tag, question, and results flow. It preserves the same 15 questions, answer weights, and seven cluster descriptions.",
+          "Results show the three highest positive score levels and keep every tie. Names and answers stay in browser memory and clear when the quiz is restarted or the page is refreshed.",
+        ],
+      },
+    ],
+  },
+  {
+    title: "MISA Website",
+    slug: "misa-website",
+    context: "Student organization work, 2026",
+    category: "Org work",
+    featured: false,
+    description:
+      "Ateneo MISA’s organization website, covering events, departments, and technology services.",
+    outcome: "Website revamp and Services page integration.",
+    role: "Website development and team integration",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    image: {
+      src: "/projects/misa-website.png",
+      width: 2700,
+      height: 1808,
+      alt: "Ateneo MISA's homepage, with an announcement, organization introduction, and group photo",
+    },
+    links: [{ label: "Visit website", href: "https://misa.org.ph" }],
+    sections: [
+      {
+        title: "The organization’s home online",
+        paragraphs: [
+          "The revamp brings MISA’s home, events, departments, about, and contact pages into a shared visual system, with responsive navigation and layouts.",
+          "I rebuilt major website surfaces and implemented the contact form’s Google Sheets integration. Later, I integrated the team’s Services page work, reconciling the design, artwork, interactions, and mobile layouts.",
+        ],
+      },
+    ],
+  },
+  {
     title: "MISAyang Samahan",
     slug: "misayang-samahan",
     context: "Student organization work, 2025",

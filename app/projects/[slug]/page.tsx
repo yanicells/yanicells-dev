@@ -85,16 +85,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <dt>Built with</dt>
               <dd>{project.tech.join(", ")}</dd>
             </div>
-            <div>
-              <dt>Links</dt>
-              <dd className="project-links">
-                {project.links.map((link) => (
-                  <a className="text-link" href={link.href} key={link.href}>
-                    {link.label}
-                  </a>
-                ))}
-              </dd>
-            </div>
+            {project.links.length > 0 && (
+              <div>
+                <dt>Links</dt>
+                <dd className="project-links">
+                  {project.links.map((link) => (
+                    <a className="text-link" href={link.href} key={link.href}>
+                      {link.label}
+                    </a>
+                  ))}
+                </dd>
+              </div>
+            )}
           </dl>
 
           <div className="project-story">
