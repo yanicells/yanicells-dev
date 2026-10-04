@@ -6,7 +6,7 @@ import type { ProjectCategory, ProjectPreview } from "@/lib/data/projects";
 
 type ProjectFilter = "Featured" | "All" | ProjectCategory;
 
-const filters: ProjectFilter[] = ["Featured", "All", "AI", "Web", "Desktop", "Games", "Org work"];
+const filters: ProjectFilter[] = ["Featured", "All", "AI", "Web", "Games", "Org work"];
 
 export function ProjectGallery({ projects }: { projects: ProjectPreview[] }) {
   const [filter, setFilter] = useState<ProjectFilter>("Featured");

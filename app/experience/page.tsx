@@ -22,21 +22,21 @@ export default function ExperiencePage() {
           <p>Software and AI engineering, freelance work, and developer leadership.</p>
           <a className="text-link" href={contact.resume}>View resume ↗</a>
         </header>
-        <div className="experience-list experience-list-full">
+        <ol className="experience-timeline">
           {experiences.map((experience) => (
-            <article className="experience-row" key={experience.organization}>
+            <li className="experience-entry" key={experience.organization}>
+              <p className="experience-entry-date">{experience.date}</p>
               <div>
                 <h2>{experience.organization}</h2>
-                <p className="experience-role">{experience.title}</p>
-                <p className="experience-description">{experience.description}</p>
+                <p className="experience-entry-role">{experience.title}</p>
+                <p className="experience-entry-description">{experience.description}</p>
                 {experience.previousRole && (
-                  <p className="experience-description">Previously: {experience.previousRole}.</p>
+                  <p className="experience-entry-previous">Previously {experience.previousRole}</p>
                 )}
               </div>
-              <p className="experience-date">{experience.date}</p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </main>
       <SiteFooter />
     </div>

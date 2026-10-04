@@ -15,7 +15,7 @@ interface ProjectImage {
   alt: string;
 }
 
-export type ProjectCategory = "AI" | "Web" | "Desktop" | "Games" | "Org work";
+export type ProjectCategory = "AI" | "Web" | "Games" | "Org work";
 
 export interface Project {
   title: string;
@@ -83,6 +83,12 @@ export const projects: Project[] = [
     outcome: "On-device hand tracking and local osu! beatmaps.",
     role: "Product and development",
     tech: ["TypeScript", "MediaPipe", "PixiJS", "Web Audio"],
+    image: {
+      src: "/projects/airosu.png",
+      width: 2146,
+      height: 1170,
+      alt: "Airosu's main menu, with settings, play, rankings, and profile options",
+    },
     links: [{ label: "Source code", href: "https://github.com/yanicells/airosu" }],
     sections: [
       {
@@ -112,6 +118,12 @@ export const projects: Project[] = [
     outcome: "15,000+ active listings in the Oct 2, 2026 data snapshot.",
     role: "Product, data pipeline, and web development",
     tech: ["TypeScript", "Next.js", "GitHub Actions"],
+    image: {
+      src: "/projects/simplifytrabaho.png",
+      width: 2012,
+      height: 1258,
+      alt: "The SimplifyTrabaho logo, a smiling briefcase beside the wordmark",
+    },
     links: [
       { label: "Visit website", href: "https://simplifytrabaho.ycells.com" },
       { label: "Source code", href: "https://github.com/yanicells/SimplifyTrabaho" },
@@ -284,48 +296,6 @@ export const projects: Project[] = [
         paragraphs: [
           "Members register, take a personality quiz, and get assigned to a family within Ateneo MISA. The platform also gives administrators tools to manage those assignments.",
           "I worked with another developer on a two-week deadline, contributing application/database setup, family-balancing logic, and interface integration. More than 70 members used the platform. It was my first experience building software for an organization with real users and collaborating on a shared repository.",
-        ],
-      },
-    ],
-  },
-  {
-    title: "Rusty Gallery",
-    slug: "rusty-gallery",
-    context: "Personal tool, 2026",
-    category: "Desktop",
-    featured: false,
-    description: "A native photo and video browser for my local media library.",
-    outcome: "Personal tool, available as source code.",
-    role: "Personal application development",
-    tech: ["Rust", "GPUI", "macOS Quick Look"],
-    links: [{ label: "Source code", href: "https://github.com/yanicells/rustygallery" }],
-    sections: [
-      {
-        title: "A tool for my own library",
-        paragraphs: [
-          "Rusty Gallery is a native browser for folders of photos and videos, with search, lightbox navigation, favorites, and file operations. It is a personal tool, currently available as source code.",
-          "Thumbnails and previews are prepared away from the interface thread. Results from an old selection are discarded, corrupt caches can be regenerated, and macOS preview tools provide fallbacks for formats that do not decode directly.",
-        ],
-      },
-    ],
-  },
-  {
-    title: "StudyBuddy",
-    slug: "studybuddy",
-    context: "Personal tool, 2026",
-    category: "Web",
-    featured: false,
-    description: "A personal flashcard library with imports and spaced review.",
-    outcome: "Built around my own study workflow.",
-    role: "Personal application development",
-    tech: ["TanStack Start", "React", "TypeScript", "Convex"],
-    links: [{ label: "Source code", href: "https://github.com/yanicells/studybuddy" }],
-    sections: [
-      {
-        title: "Studying from my notes",
-        paragraphs: [
-          "StudyBuddy organizes flashcards into nested folders and decks, with plain-text and Markdown imports, cloze questions, and sessions scoped to different parts of the library. It is a tool for my own studying.",
-          "Learning sessions bring wrong answers back into the queue, while a separate scheduler handles long-term review intervals. Feedback appears immediately, and updates for the same card are saved in order so persistence does not interrupt a session or reorder progress.",
         ],
       },
     ],

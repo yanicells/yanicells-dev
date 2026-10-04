@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   openGraph: { title: "Contact | Yani Capistrano", url: "/contact" },
 };
 
+const links = [
+  { label: "Email", href: `mailto:${contact.email}`, text: contact.email },
+  { label: "GitHub", href: contact.github, text: "github.com/yanicells" },
+  { label: "LinkedIn", href: contact.linkedin, text: "linkedin.com/in/yanicells" },
+  { label: "Resume", href: contact.resume, text: "resume.yanicells.dev" },
+];
+
 export default function ContactPage() {
   return (
     <div className="site-shell">
@@ -18,14 +25,19 @@ export default function ContactPage() {
         <header className="page-heading">
           <p className="eyebrow">Contact</p>
           <h1>Get in touch.</h1>
-          <p>For work, a project, or a conversation.</p>
+          <p>For work, collaborations, or a conversation.</p>
         </header>
-        <a className="contact-email" href={`mailto:${contact.email}`}>{contact.email}</a>
-        <div className="contact-profiles">
-          <a className="text-link" href={contact.github}>GitHub ↗</a>
-          <a className="text-link" href={contact.linkedin}>LinkedIn ↗</a>
-          <a className="text-link" href={contact.resume}>Resume ↗</a>
-        </div>
+        <ul className="contact-list">
+          {links.map((link) => (
+            <li key={link.label}>
+              <span className="contact-label">{link.label}</span>
+              <a className="contact-link" href={link.href}>
+                {link.text}
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </main>
       <SiteFooter />
     </div>
