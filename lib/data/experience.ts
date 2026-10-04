@@ -33,9 +33,9 @@ export const experiences: Experience[] = [
     organization: "Maui Cart by Pasifika Hub",
     title: "Freelance Software Engineer",
     date: "Jun 2026–present",
-    summary: "Share product and engineering ownership with one other developer on a commerce platform.",
+    summary: "Product development for a commerce platform covering shopping, fulfillment, and vendor operations.",
     description:
-      "Work with one other developer on a shopping and operations platform for Pasifika Hub’s customers in American Samoa. We share responsibility for product decisions, development, and delivery, bringing customer shopping and staff/vendor operations into one application. The platform is still in development.",
+      "Work on product planning and full-stack development for Pasifika Hub’s commerce platform in American Samoa. The application connects customer shopping and checkout with payment review, order fulfillment, and vendor operations. The platform is still in development.",
     homepage: true,
   },
   {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { PhotoCarousel } from "@/components/portfolio/photo-carousel";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 
@@ -14,6 +14,12 @@ const photos = [
   { src: "/photos/1.png", width: 5954, height: 3969, alt: "A bronze statue framed by yellow flowers" },
   { src: "/photos/IMG_2084.jpg", width: 6000, height: 4000, alt: "Performers on a concert stage under pink and red lights" },
   { src: "/photos/3.png", width: 6000, height: 4000, alt: "An ornate church tower under an overcast sky" },
+  { src: "/photos/8.png", width: 6000, height: 4000, alt: "Red sunset clouds over a city skyline" },
+  { src: "/photos/5.png", width: 6000, height: 4000, alt: "Friends talking around a table outside a brightly lit shop at night" },
+  { src: "/photos/6.png", width: 6000, height: 4000, alt: "Brake lights through a rain-covered windshield at dusk" },
+  { src: "/photos/9.png", width: 5609, height: 3739, alt: "Three silhouettes against an orange sunset through a window" },
+  { src: "/photos/2.png", width: 6000, height: 4000, alt: "A golden church altar surrounded by statues and ornate columns" },
+  { src: "/photos/7.png", width: 6000, height: 4000, alt: "Lit balconies reflected in a swimming pool at night" },
 ];
 
 export default function AboutPage() {
@@ -68,19 +74,7 @@ export default function AboutPage() {
             <span className="interest-note">Canon R50</span>
           </div>
           <p>Some photos from my camera roll.</p>
-          <div className="photo-strip">
-            {photos.map((photo) => (
-              <a href={photo.src} key={photo.src} aria-label={`Open photo: ${photo.alt}`}>
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  sizes="(max-width: 540px) calc(100vw - 48px), 300px"
-                />
-              </a>
-            ))}
-          </div>
+          <PhotoCarousel photos={photos} />
         </section>
       </main>
       <SiteFooter />
