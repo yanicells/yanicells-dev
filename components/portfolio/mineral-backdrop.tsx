@@ -1,4 +1,48 @@
+import type { CSSProperties } from "react";
+
+// Resting faces of the backdrop. On load they start packed into a small rock
+// (solid `core` fill keeps it legible) and drift apart as the rock opens.
+const facets = [
+  {
+    d: "M769 133 1135 58 1500 379 1160 568 900 425Z",
+    fill: "url(#stone-face)",
+    core: "var(--mineral-stone)",
+    coreOpacity: 0.9,
+    drift: "6px -34px",
+  },
+  {
+    d: "m1135 58 365 321-285 107-158-219Z",
+    fill: "url(#copper-face)",
+    core: "var(--mineral-copper)",
+    coreOpacity: 0.95,
+    drift: "34px -22px",
+  },
+  {
+    d: "m1057 267 158 219-392 381 77-442Z",
+    fill: "url(#ruby-face)",
+    core: "var(--mineral-ruby)",
+    coreOpacity: 0.95,
+    drift: "-6px 12px",
+  },
+  {
+    d: "m1215 486 285-107-40 395-637 93Z",
+    fill: "url(#copper-face)",
+    core: "var(--mineral-copper)",
+    coreOpacity: 0.7,
+    drift: "28px 30px",
+  },
+  {
+    d: "m900 425 157-158-288-134-161 408 215 326Z",
+    fill: "url(#stone-face)",
+    opacity: 0.52,
+    core: "var(--mineral-stone)",
+    coreOpacity: 0.6,
+    drift: "-38px 8px",
+  },
+];
+
 // Abstract mineral planes keep the supplied reference's color and depth.
+// The planes open from a small rock once per mount; the resting art is static.
 export function MineralBackdrop() {
   return (
     <div className="mineral-backdrop" aria-hidden="true">
@@ -86,32 +130,39 @@ export function MineralBackdrop() {
               />
             </linearGradient>
           </defs>
-          <path
-            d="M769 133 1135 58 1500 379 1160 568 900 425Z"
-            fill="url(#stone-face)"
-          />
-          <path
-            d="m1135 58 365 321-285 107-158-219Z"
-            fill="url(#copper-face)"
-          />
-          <path d="m1057 267 158 219-392 381 77-442Z" fill="url(#ruby-face)" />
-          <path d="m1215 486 285-107-40 395-637 93Z" fill="url(#copper-face)" />
-          <path
-            d="m900 425 157-158-288-134-161 408 215 326Z"
-            fill="url(#stone-face)"
-            opacity="0.52"
-          />
-          <path
-            d="m1057 267-157 158-77 442"
-            stroke="url(#mineral-seam)"
-            strokeWidth="1.25"
-          />
-          <path
-            d="m900 425 315 61 285-107"
-            stroke="url(#mineral-seam)"
-            strokeWidth="0.8"
-            opacity="0.6"
-          />
+          <g className="mineral-rock">
+            {facets.map((facet) => (
+              <g
+                key={facet.d}
+                className="mineral-facet"
+                style={{ "--drift": facet.drift } as CSSProperties}
+              >
+                <path
+                  className="mineral-core"
+                  d={facet.d}
+                  fill={facet.core}
+                  style={
+                    { "--core-opacity": facet.coreOpacity } as CSSProperties
+                  }
+                />
+                <path d={facet.d} fill={facet.fill} opacity={facet.opacity} />
+              </g>
+            ))}
+            <path
+              className="mineral-seam"
+              d="m1057 267-157 158-77 442"
+              stroke="url(#mineral-seam)"
+              strokeWidth="1.25"
+            />
+            <path
+              className="mineral-seam"
+              d="m900 425 315 61 285-107"
+              stroke="url(#mineral-seam)"
+              strokeWidth="0.8"
+              opacity="0.6"
+            />
+            <path className="mineral-glint" d="M1135 58 1500 379" />
+          </g>
         </svg>
       </div>
       <div className="mineral-grain" />

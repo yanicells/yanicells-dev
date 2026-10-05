@@ -112,18 +112,46 @@ h3 {
     radial-gradient(ellipse at 88% 22%, var(--mineral-ruby), transparent 46%),
     radial-gradient(ellipse at 65% 64%, var(--mineral-copper), transparent 43%),
     radial-gradient(ellipse at 22% 4%, var(--mineral-stone), transparent 48%);
-  animation: mineral-light-in 2.8s ease-out both;
+  animation: mineral-light-in 1.8s ease-out backwards;
 }
 .mineral-planes {
   position: absolute;
   inset: -20px 0 0;
   opacity: var(--mineral-opacity);
-  animation: mineral-arrive 2.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: mineral-planes-settle 1.8s ease-out backwards;
 }
 .mineral-planes svg {
   display: block;
   width: 100%;
   height: 100%;
+}
+/* Intro (1.8s, once per mount): a small rock appears (0-450ms), its faces
+   open into the resting planes (450-1300ms), then the colors settle.
+   Every animation uses backwards fill, so the resting styles below are the
+   untouched final art. */
+.mineral-rock {
+  transform-box: view-box;
+  transform-origin: var(--rock-origin, 1060px 330px);
+  animation: mineral-rock 1.8s backwards;
+}
+.mineral-facet {
+  animation: mineral-facet 1.8s backwards;
+}
+.mineral-core {
+  opacity: 0;
+  animation: mineral-core 1.8s ease-in-out backwards;
+}
+.mineral-seam {
+  animation: mineral-seam 1.3s ease-in-out backwards;
+}
+.mineral-glint {
+  opacity: 0;
+  fill: none;
+  stroke: color-mix(in srgb, var(--mineral-copper), #fff 60%);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-dasharray: 90 600;
+  animation: mineral-glint 1.8s ease-in-out backwards;
 }
 .mineral-grain {
   position: absolute;
@@ -858,6 +886,9 @@ h3 {
   .mineral-backdrop {
     height: 740px;
   }
+  .mineral-planes {
+    --rock-origin: 900px 330px;
+  }
   .intro-description {
     font-size: 18px;
   }
@@ -891,6 +922,7 @@ h3 {
   .mineral-planes {
     inset-inline: -240px -160px;
     --planes-strength: 0.6;
+    --rock-origin: 880px 330px;
     opacity: calc(var(--mineral-opacity) * var(--planes-strength));
   }
   .intro h1 {
@@ -999,6 +1031,11 @@ h3 {
   .intro,
   .mineral-light,
   .mineral-planes,
+  .mineral-rock,
+  .mineral-facet,
+  .mineral-core,
+  .mineral-seam,
+  .mineral-glint,
   .header-opening {
     animation: none;
   }
@@ -1025,21 +1062,91 @@ h3 {
     opacity: 1;
   }
 }
-@keyframes mineral-arrive {
-  from {
-    opacity: 0;
-    transform: translateY(24px) scale(1.035);
+@keyframes mineral-planes-settle {
+  0%,
+  40% {
+    opacity: 1;
   }
   to {
     opacity: calc(var(--mineral-opacity) * var(--planes-strength, 1));
-    transform: translateY(0) scale(1);
   }
 }
 @keyframes mineral-light-in {
-  from {
+  0%,
+  30% {
     opacity: 0;
   }
   to {
     opacity: var(--mineral-glow);
+  }
+}
+@keyframes mineral-rock {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.15) rotate(-6deg);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
+  }
+  14% {
+    opacity: 1;
+    transform: translateY(-5px) scale(0.18) rotate(2deg);
+    animation-timing-function: ease-in-out;
+  }
+  25% {
+    transform: translateY(0) scale(0.18) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.2, 1);
+  }
+  72%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes mineral-facet {
+  0%,
+  25% {
+    translate: 0 0;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    translate: var(--drift);
+    animation-timing-function: ease-in-out;
+  }
+  72%,
+  100% {
+    translate: 0 0;
+  }
+}
+@keyframes mineral-core {
+  0%,
+  28% {
+    opacity: var(--core-opacity);
+  }
+  62%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes mineral-seam {
+  0%,
+  35% {
+    stroke-width: 7;
+  }
+}
+@keyframes mineral-glint {
+  0%,
+  10% {
+    opacity: 0;
+    stroke-dashoffset: 90;
+  }
+  18% {
+    opacity: 1;
+  }
+  32% {
+    opacity: 0.9;
+  }
+  42%,
+  100% {
+    opacity: 0;
+    stroke-dashoffset: -500;
   }
 }
