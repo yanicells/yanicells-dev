@@ -129,7 +129,7 @@ h3 {
   opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23888' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
 }
-/* Homepage entrance (~2.2s): the backdrop facets assemble into a small
+/* Homepage entrance (~2.7s): the backdrop facets assemble into a small
    crystal mark near the center of the first screen, hold, then unfold into
    their resting places. The page content fades in as they settle.
    --mark-x/y move the facets' centroid (1135, 460) to the SVG's center, in
@@ -141,17 +141,17 @@ h3 {
 .mineral-facet {
   transform-box: view-box;
   transform-origin: 1135px 460px;
-  animation: mineral-unfold 1.9s both;
+  animation: mineral-unfold 2.4s both;
   animation-delay: calc(var(--i) * 45ms);
 }
 .home-page .mineral-light {
-  animation: mineral-glow-arrive 2s ease-out backwards;
+  animation: mineral-glow-arrive 2.5s ease-out backwards;
 }
 .home-page .site-shell {
-  animation: header-arrive 800ms ease-out 1.2s backwards;
+  animation: header-arrive 800ms ease-out 1.65s backwards;
 }
 .home-page .intro {
-  animation-delay: 1.2s;
+  animation-delay: 1.65s;
 }
 /* Skip when landing on (or jumping to) a fragment. */
 body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
@@ -1063,8 +1063,8 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
       rotate(-18deg);
     animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
-  28%,
-  46% {
+  42%,
+  56% {
     opacity: 1;
     transform: translate(var(--mark-x), var(--mark-y)) scale(0.22);
     animation-timing-function: cubic-bezier(0.7, 0, 0.15, 1);
@@ -1076,7 +1076,7 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 }
 @keyframes mineral-glow-arrive {
   0%,
-  50% {
+  55% {
     opacity: 0;
   }
 }
