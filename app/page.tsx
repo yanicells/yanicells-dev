@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 import { MineralBackdrop } from "@/components/portfolio/mineral-backdrop";
+import { MineralIntro } from "@/components/portfolio/mineral-intro";
 import { ProjectList } from "@/components/portfolio/project-list";
 import { homepageProjectPreviews } from "@/lib/data/projects";
 import { homepageExperiences } from "@/lib/data/experience";
@@ -10,6 +11,7 @@ import { contact } from "@/lib/data/contact";
 export default function HomePage() {
   return (
     <div className="home-page">
+      <MineralIntro />
       <MineralBackdrop />
       <div className="site-shell">
         <SiteHeader opening />
