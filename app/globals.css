@@ -7,6 +7,7 @@
   --muted: #70696b;
   --border: #dfdad5;
   --surface: #eeeae5;
+  --paper: #fffefc;
   --accent: #922c41;
   --header-background: rgb(247 246 243 / 90%);
   --mineral-ruby: #b52f48;
@@ -24,6 +25,7 @@
   --muted: #b3a5a5;
   --border: #3a2b2f;
   --surface: #241e22;
+  --paper: #2a2327;
   --accent: #e29992;
   --header-background: rgb(23 20 23 / 90%);
   --mineral-ruby: #a72c40;
@@ -753,71 +755,50 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   color: var(--muted);
   font-size: 13px;
 }
-.photo-carousel {
-  max-width: 560px;
-  margin-top: 24px;
+/* Photos sit like loose prints on a table and straighten up on hover. */
+.photo-prints {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 24px;
+  padding: 0;
+  margin: 32px 0 0;
+  list-style: none;
 }
-.photo-carousel-track {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  border-radius: 4px;
+.photo-prints li {
+  transform: rotate(var(--tilt));
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.photo-carousel-track::-webkit-scrollbar {
-  display: none;
+.photo-prints li:nth-child(3n + 2) {
+  margin-top: 36px;
 }
-.photo-carousel-track:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 5px;
+.photo-prints li:hover,
+.photo-prints li:focus-within {
+  position: relative;
+  z-index: 1;
+  transform: rotate(0deg) translateY(-6px) scale(1.04);
 }
-.photo-slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  scroll-snap-align: start;
+.photo-print {
+  display: block;
+  padding: 8px 8px 0;
+  background: var(--paper);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 8px 24px -12px rgb(0 0 0 / 25%);
 }
-.photo-slide:focus-visible {
-  outline-offset: -4px;
-}
-.photo-slide img {
+.photo-print img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
 }
-.photo-carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 12px;
+.photo-print span {
+  display: block;
+  padding: 7px 2px 9px;
   color: var(--muted);
-  font-size: 13px;
-  font-variant-numeric: tabular-nums;
-}
-.photo-carousel-controls > div {
-  display: flex;
-  gap: 8px;
-}
-.photo-carousel-controls button {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--foreground);
-  font-size: 18px;
-  cursor: pointer;
-}
-.photo-carousel-controls button:hover:not(:disabled) {
-  background: var(--surface);
-}
-.photo-carousel-controls button:disabled {
-  opacity: 0.35;
-  cursor: default;
+  font-size: 12px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .contact-page {
   min-height: calc(100svh - 164px);
@@ -907,6 +888,19 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 @media (max-width: 540px) {
   :root {
     --intro-height: 480px;
+  }
+  .photo-prints {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+  }
+  .photo-prints li:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+  .photo-prints li:nth-child(even) {
+    margin-top: 28px;
+  }
+  .photo-print {
+    padding: 6px 6px 0;
   }
   .intro {
     padding: 52px 0 96px;
@@ -1025,6 +1019,9 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .photo-prints li {
+    transition: none;
   }
   .intro,
   .header-opening {
