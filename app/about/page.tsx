@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 };
 
 const photos: Photo[] = [
-  { src: "/photos/8.png", width: 6000, height: 4000, alt: "Red sunset clouds over a city skyline", caption: "Red sky over the city", tilt: -2 },
-  { src: "/photos/IMG_2084.jpg", width: 6000, height: 4000, alt: "Performers on a concert stage under pink and red lights", caption: "Pink stage lights", tilt: 1.5 },
-  { src: "/photos/1.png", width: 5954, height: 3969, alt: "A bronze statue framed by yellow flowers", caption: "Statue in bloom", tilt: -1 },
-  { src: "/photos/6.png", width: 6000, height: 4000, alt: "Brake lights through a rain-covered windshield at dusk", caption: "Traffic, as usual", tilt: 1 },
-  { src: "/photos/9.png", width: 5609, height: 3739, alt: "Three silhouettes against an orange sunset through a window", caption: "Golden hour company", tilt: -1.5 },
-  { src: "/photos/3.png", width: 6000, height: 4000, alt: "An ornate church tower under an overcast sky", caption: "Grey-day bell tower", tilt: 2 },
-  { src: "/photos/5.png", width: 6000, height: 4000, alt: "Friends talking around a table outside a brightly lit shop at night", caption: "Late-night tambay", tilt: 1.5 },
-  { src: "/photos/2.png", width: 6000, height: 4000, alt: "A golden church altar surrounded by statues and ornate columns", caption: "All that gold", tilt: -2 },
-  { src: "/photos/7.png", width: 6000, height: 4000, alt: "Lit balconies reflected in a swimming pool at night", caption: "Pool at night", tilt: 1 },
+  { src: "/photos/8.png", width: 6000, height: 4000, alt: "Red sunset clouds over a city skyline", caption: "Red sky over the city" },
+  { src: "/photos/IMG_2084.jpg", width: 6000, height: 4000, alt: "Performers on a concert stage under pink and red lights", caption: "Pink stage lights" },
+  { src: "/photos/1.png", width: 5954, height: 3969, alt: "A bronze statue framed by yellow flowers", caption: "Statue in bloom" },
+  { src: "/photos/6.png", width: 6000, height: 4000, alt: "Brake lights through a rain-covered windshield at dusk", caption: "Traffic, as usual" },
+  { src: "/photos/9.png", width: 5609, height: 3739, alt: "Three silhouettes against an orange sunset through a window", caption: "Golden hour company" },
+  { src: "/photos/3.png", width: 6000, height: 4000, alt: "An ornate church tower under an overcast sky", caption: "Grey-day bell tower" },
+  { src: "/photos/5.png", width: 6000, height: 4000, alt: "Friends talking around a table outside a brightly lit shop at night", caption: "Late-night tambay" },
+  { src: "/photos/2.png", width: 6000, height: 4000, alt: "A golden church altar surrounded by statues and ornate columns", caption: "All that gold" },
+  { src: "/photos/7.png", width: 6000, height: 4000, alt: "Lit balconies reflected in a swimming pool at night", caption: "Pool at night" },
 ];
 
 export default function AboutPage() {

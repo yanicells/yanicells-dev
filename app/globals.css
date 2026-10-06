@@ -7,7 +7,7 @@
   --muted: #70696b;
   --border: #dfdad5;
   --surface: #eeeae5;
-  --paper: #fffefc;
+  --film: #1d1918;
   --accent: #922c41;
   --header-background: rgb(247 246 243 / 90%);
   --mineral-ruby: #b52f48;
@@ -25,7 +25,7 @@
   --muted: #b3a5a5;
   --border: #3a2b2f;
   --surface: #241e22;
-  --paper: #2a2327;
+  --film: #30262a;
   --accent: #e29992;
   --header-background: rgb(23 20 23 / 90%);
   --mineral-ruby: #a72c40;
@@ -758,85 +758,81 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   color: var(--muted);
   font-size: 13px;
 }
-/* Photos hang from a line like prints left to dry; hovering one swings it straight. */
+/* Photos sit on a film strip lying a little crooked on the page. */
 .photo-strip {
-  position: relative;
-  margin-top: 24px;
-}
-.photo-strip::before {
-  content: "";
-  position: absolute;
-  inset: 18px 0 auto;
-  border-top: 1px solid var(--border);
+  margin-top: 32px;
 }
 .photo-strip-track {
+  --hole: var(--background);
   display: flex;
-  gap: 24px;
-  padding: 18px 8px 28px;
+  gap: 14px;
+  padding: 30px 14px;
   margin: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 8px;
+  scroll-padding-inline: 14px;
   scrollbar-width: none;
   list-style: none;
-  mask-image: linear-gradient(to right, #000 85%, transparent);
+  background-color: var(--film);
+  /* Sprocket holes along both edges; `local` scrolls them with the frames. */
+  background-image:
+    linear-gradient(to right, transparent 8px, var(--hole) 8px 18px, transparent 18px),
+    linear-gradient(to right, transparent 8px, var(--hole) 8px 18px, transparent 18px);
+  background-size: 26px 10px;
+  background-repeat: repeat-x;
+  background-position: 0 10px, 0 calc(100% - 10px);
+  background-attachment: local;
+  border-radius: 3px;
+  box-shadow: 0 12px 28px -18px rgb(0 0 0 / 60%);
+  transform: rotate(-1.5deg);
+  mask-image: linear-gradient(to right, #000 88%, transparent);
 }
 .photo-strip-track::-webkit-scrollbar {
   display: none;
 }
 .photo-strip-track li {
-  position: relative;
-  flex: 0 0 240px;
+  flex: 0 0 220px;
   scroll-snap-align: start;
-  transform: rotate(var(--tilt));
-  transform-origin: 50% -8px;
-  transition: transform 600ms cubic-bezier(0.34, 1.8, 0.5, 1);
+  transition: opacity 250ms ease;
 }
-/* The clip holding each print to the line. */
-.photo-strip-track li::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  z-index: 1;
-  width: 8px;
-  height: 16px;
-  border-radius: 2px;
-  background: var(--accent);
-  transform: translateX(-50%);
+.photo-strip-track:hover li:not(:hover) {
+  opacity: 0.55;
 }
-.photo-strip-track li:hover,
-.photo-strip-track li:focus-within {
-  transform: rotate(0deg);
-}
-.photo-print {
+.photo-frame {
   display: block;
-  padding: 8px 8px 0;
-  background: var(--paper);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 8px 24px -12px rgb(0 0 0 / 25%);
 }
-.photo-print:focus-visible {
+.photo-frame:focus-visible {
   outline-offset: 3px;
 }
-.photo-print img {
+.photo-frame img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
+  border-radius: 2px;
 }
-.photo-print span {
-  display: block;
-  padding: 7px 2px 9px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.3;
-  white-space: nowrap;
+/* Frame number and caption, printed like film edge markings. */
+.photo-frame > span {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  color: #d9925a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.photo-frame > span span {
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  opacity: 0.75;
 }
 .photo-strip-controls {
   display: flex;
+  margin-top: 20px;
   justify-content: flex-end;
   gap: 8px;
 }
@@ -949,11 +945,8 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   :root {
     --intro-height: 480px;
   }
-  .photo-strip-track {
-    gap: 18px;
-  }
   .photo-strip-track li {
-    flex-basis: 200px;
+    flex-basis: 180px;
   }
   .intro {
     padding: 52px 0 96px;

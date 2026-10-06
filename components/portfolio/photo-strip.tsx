@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useRef, useState, type CSSProperties } from "react";
+import { useId, useRef, useState } from "react";
 
 export interface Photo {
   src: string;
@@ -9,11 +9,9 @@ export interface Photo {
   height: number;
   alt: string;
   caption: string;
-  /** Resting angle in degrees, so each print hangs a little crooked. */
-  tilt: number;
 }
 
-/** A single scrollable row of photo prints clipped to a line. Arrows page through it. */
+/** A scrollable strip of film frames. Arrows page through it. */
 export function PhotoStrip({ photos }: { photos: Photo[] }) {
   const trackId = useId();
   const track = useRef<HTMLUListElement>(null);
@@ -42,17 +40,20 @@ export function PhotoStrip({ photos }: { photos: Photo[] }) {
   return (
     <div className="photo-strip" role="region" aria-label="Photography">
       <ul id={trackId} ref={track} className="photo-strip-track" onScroll={updateEdges}>
-        {photos.map((photo) => (
-          <li key={photo.src} style={{ "--tilt": `${photo.tilt}deg` } as CSSProperties}>
-            <a className="photo-print" href={photo.src} aria-label={`Open photo: ${photo.alt}`}>
+        {photos.map((photo, index) => (
+          <li key={photo.src}>
+            <a className="photo-frame" href={photo.src} aria-label={`Open photo: ${photo.alt}`}>
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 width={photo.width}
                 height={photo.height}
-                sizes="(max-width: 540px) 200px, 240px"
+                sizes="(max-width: 540px) 180px, 220px"
               />
-              <span aria-hidden="true">{photo.caption}</span>
+              <span aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+                <span>{photo.caption}</span>
+              </span>
             </a>
           </li>
         ))}
