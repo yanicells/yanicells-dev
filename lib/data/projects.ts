@@ -425,14 +425,6 @@ export const projectPreviews: ProjectPreview[] = [
     category: "Games",
     featured: false,
   },
-  {
-    title: "Musicells",
-    href: "https://github.com/yanicells/musicells",
-    description: "An early Spotify album-browser project with saved favourites.",
-    image: { src: "/projects/musicells.png", alt: "Musicells' music discovery interface" },
-    category: "Web",
-    featured: false,
-  },
 ];
 
 export const homepageProjectPreviews = projectPreviews.filter(({ href }) =>

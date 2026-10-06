@@ -13,7 +13,7 @@ export const experiences: Experience[] = [
   {
     organization: "Diffusr",
     title: "AI and Software Engineering Intern",
-    date: "Jun 2026–Present",
+    date: "May 2026–Present",
     summary: "Software and AI workflows for video production and campaign operations.",
     description:
       "Work on the software around the team’s AI video-production pipeline, from desktop tools to media processing and operational reliability. My role involves making complex runs easier to review, manage, and recover, alongside contributions to the team’s advertising-management application.",
