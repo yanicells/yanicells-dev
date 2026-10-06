@@ -743,6 +743,9 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   max-width: 640px;
   color: var(--muted);
 }
+.about-introduction p + p {
+  margin-top: 16px;
+}
 .interest-section {
   margin-top: 64px;
 }
@@ -755,33 +758,65 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   color: var(--muted);
   font-size: 13px;
 }
-/* Photos sit like loose prints on a table and straighten up on hover. */
-.photo-prints {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px 24px;
-  padding: 0;
-  margin: 32px 0 0;
-  list-style: none;
-}
-.photo-prints li {
-  transform: rotate(var(--tilt));
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.photo-prints li:nth-child(3n + 2) {
-  margin-top: 36px;
-}
-.photo-prints li:hover,
-.photo-prints li:focus-within {
+/* Photos hang from a line like prints left to dry; hovering one swings it straight. */
+.photo-strip {
   position: relative;
+  margin-top: 24px;
+}
+.photo-strip::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0 auto;
+  border-top: 1px solid var(--border);
+}
+.photo-strip-track {
+  display: flex;
+  gap: 24px;
+  padding: 18px 8px 28px;
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 8px;
+  scrollbar-width: none;
+  list-style: none;
+  mask-image: linear-gradient(to right, #000 85%, transparent);
+}
+.photo-strip-track::-webkit-scrollbar {
+  display: none;
+}
+.photo-strip-track li {
+  position: relative;
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  transform: rotate(var(--tilt));
+  transform-origin: 50% -8px;
+  transition: transform 600ms cubic-bezier(0.34, 1.8, 0.5, 1);
+}
+/* The clip holding each print to the line. */
+.photo-strip-track li::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
   z-index: 1;
-  transform: rotate(0deg) translateY(-6px) scale(1.04);
+  width: 8px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: translateX(-50%);
+}
+.photo-strip-track li:hover,
+.photo-strip-track li:focus-within {
+  transform: rotate(0deg);
 }
 .photo-print {
   display: block;
   padding: 8px 8px 0;
   background: var(--paper);
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 8px 24px -12px rgb(0 0 0 / 25%);
+}
+.photo-print:focus-visible {
+  outline-offset: 3px;
 }
 .photo-print img {
   display: block;
@@ -799,6 +834,31 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.photo-strip-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.photo-strip-controls button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 18px;
+  cursor: pointer;
+}
+.photo-strip-controls button:hover:not(:disabled) {
+  background: var(--surface);
+}
+.photo-strip-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 .contact-page {
   min-height: calc(100svh - 164px);
@@ -889,18 +949,11 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   :root {
     --intro-height: 480px;
   }
-  .photo-prints {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 14px;
+  .photo-strip-track {
+    gap: 18px;
   }
-  .photo-prints li:nth-child(3n + 2) {
-    margin-top: 0;
-  }
-  .photo-prints li:nth-child(even) {
-    margin-top: 28px;
-  }
-  .photo-print {
-    padding: 6px 6px 0;
+  .photo-strip-track li {
+    flex-basis: 200px;
   }
   .intro {
     padding: 52px 0 96px;
@@ -1020,7 +1073,7 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   html {
     scroll-behavior: auto;
   }
-  .photo-prints li {
+  .photo-strip-track li {
     transition: none;
   }
   .intro,

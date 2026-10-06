@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import type { CSSProperties } from "react";
-import Image from "next/image";
+import { PhotoStrip, type Photo } from "@/components/portfolio/photo-strip";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 
@@ -11,8 +10,7 @@ export const metadata: Metadata = {
   openGraph: { title: "About | Yani Capistrano", url: "/about" },
 };
 
-// Each photo is laid out like a loose print; `tilt` is its resting angle in degrees.
-const photos = [
+const photos: Photo[] = [
   { src: "/photos/8.png", width: 6000, height: 4000, alt: "Red sunset clouds over a city skyline", caption: "Red sky over the city", tilt: -2 },
   { src: "/photos/IMG_2084.jpg", width: 6000, height: 4000, alt: "Performers on a concert stage under pink and red lights", caption: "Pink stage lights", tilt: 1.5 },
   { src: "/photos/1.png", width: 5954, height: 3969, alt: "A bronze statue framed by yellow flowers", caption: "Statue in bloom", tilt: -1 },
@@ -41,21 +39,25 @@ export default function AboutPage() {
         </header>
         <div className="about-introduction">
           <p>
-            I learn by building things, though it didn’t start that way. My
-            Grade 6 Scratch game was mostly my friend’s work, and my first HTML
-            page was mostly my brother’s. C++ in Grade 9, in the middle of the
-            pandemic, was the first time watching weird syntax turn into
-            something that worked actually felt fun. Grade 10 robotics had us
-            wiring Arduino robots with code the teacher handed us. I didn’t
-            learn much, but I had a great time.
+            Software development is my way of expressing my creativity. Growing
+            up, I was more drawn to maths and sciences than creative pursuits,
+            so I didn’t really think of myself as a creative person. Through
+            software, I’ve found a soft intersection between the two. I get to
+            create something out of nothing and see it come to life.
           </p>
           <p>
-            Ateneo is where I really learned to code. These days I build web
-            and desktop apps and AI products, intern at Diffusr and JWay Group,
-            take on freelance work, and lead MISA’s IT Skills and Development
-            team. What keeps me going is the same thing from Grade 6: making
-            something out of nothing and seeing it come to life. When I’m not
-            coding, I’m usually out with my camera.
+            It took me a while to get here, though. My Grade 6 Scratch game?
+            Pretty sure my friend made most of it, since I spent that whole
+            quarter roaming the lab and annoying everyone. My first website
+            the year after was plain HTML that my brother helped me with, and
+            it looked so ahh. It was C++ in Grade 9, in the middle of the
+            pandemic, when I first had a hunch I’d actually enjoy this (wehh,
+            pag sure ba?).
+          </p>
+          <p>
+            Ateneo is where I actually learned how to code, even if my QPI
+            says otherwise. Now most of my time goes to building things, for
+            internships, freelance clients, MISA, or just because I want to.
           </p>
         </div>
 
@@ -86,23 +88,8 @@ export default function AboutPage() {
             <h2 id="photo-heading">Through the camera</h2>
             <span className="interest-note">Canon R50</span>
           </div>
-          <p>A few prints from my camera roll. Tap one to see it full size.</p>
-          <ul className="photo-prints">
-            {photos.map((photo) => (
-              <li key={photo.src} style={{ "--tilt": `${photo.tilt}deg` } as CSSProperties}>
-                <a className="photo-print" href={photo.src} aria-label={`Open photo: ${photo.alt}`}>
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    width={photo.width}
-                    height={photo.height}
-                    sizes="(max-width: 540px) calc(50vw - 36px), 240px"
-                  />
-                  <span aria-hidden="true">{photo.caption}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p>A few prints from my camera roll.</p>
+          <PhotoStrip photos={photos} />
         </section>
       </main>
       <SiteFooter />
