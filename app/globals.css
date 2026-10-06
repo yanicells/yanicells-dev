@@ -7,7 +7,6 @@
   --muted: #70696b;
   --border: #dfdad5;
   --surface: #eeeae5;
-  --film: #1d1918;
   --accent: #922c41;
   --header-background: rgb(247 246 243 / 90%);
   --mineral-ruby: #b52f48;
@@ -25,7 +24,6 @@
   --muted: #b3a5a5;
   --border: #3a2b2f;
   --surface: #241e22;
-  --film: #30262a;
   --accent: #e29992;
   --header-background: rgb(23 20 23 / 90%);
   --mineral-ruby: #a72c40;
@@ -758,85 +756,46 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   color: var(--muted);
   font-size: 13px;
 }
-/* Photos sit on a film strip lying a little crooked on the page. */
-.photo-strip {
-  margin-top: 32px;
+.photo-carousel {
+  max-width: 560px;
+  margin-top: 24px;
 }
-.photo-strip-track {
-  --hole: var(--background);
+.photo-carousel-track {
   display: flex;
-  gap: 14px;
-  padding: 30px 14px;
-  margin: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-inline: 14px;
   scrollbar-width: none;
-  list-style: none;
-  background-color: var(--film);
-  /* Sprocket holes along both edges; `local` scrolls them with the frames. */
-  background-image:
-    linear-gradient(to right, transparent 8px, var(--hole) 8px 18px, transparent 18px),
-    linear-gradient(to right, transparent 8px, var(--hole) 8px 18px, transparent 18px);
-  background-size: 26px 10px;
-  background-repeat: repeat-x;
-  background-position: 0 10px, 0 calc(100% - 10px);
-  background-attachment: local;
-  border-radius: 3px;
-  box-shadow: 0 12px 28px -18px rgb(0 0 0 / 60%);
-  transform: rotate(-1.5deg);
-  mask-image: linear-gradient(to right, #000 88%, transparent);
+  border-radius: 4px;
 }
-.photo-strip-track::-webkit-scrollbar {
+.photo-carousel-track::-webkit-scrollbar {
   display: none;
 }
-.photo-strip-track li {
-  flex: 0 0 220px;
+.photo-carousel-track:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+.photo-slide {
+  flex: 0 0 100%;
+  min-width: 0;
   scroll-snap-align: start;
-  transition: opacity 250ms ease;
 }
-.photo-strip-track:hover li:not(:hover) {
-  opacity: 0.55;
+.photo-slide:focus-visible {
+  outline-offset: -4px;
 }
-.photo-frame {
-  display: block;
-}
-.photo-frame:focus-visible {
-  outline-offset: 3px;
-}
-.photo-frame img {
+.photo-slide img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  border-radius: 2px;
 }
-/* Frame number and caption, printed like film edge markings. */
-.photo-frame > span {
+.photo-carousel-controls {
   display: flex;
-  gap: 10px;
-  margin-top: 8px;
-  color: #d9925a;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-.photo-frame > span span {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  opacity: 0.75;
-}
-.photo-strip-controls {
-  display: flex;
-  margin-top: 20px;
   justify-content: flex-end;
   gap: 8px;
+  margin-top: 12px;
 }
-.photo-strip-controls button {
+.photo-carousel-controls button {
   display: grid;
   place-items: center;
   width: 40px;
@@ -849,10 +808,10 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
   font-size: 18px;
   cursor: pointer;
 }
-.photo-strip-controls button:hover:not(:disabled) {
+.photo-carousel-controls button:hover:not(:disabled) {
   background: var(--surface);
 }
-.photo-strip-controls button:disabled {
+.photo-carousel-controls button:disabled {
   opacity: 0.35;
   cursor: default;
 }
@@ -944,9 +903,6 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 @media (max-width: 540px) {
   :root {
     --intro-height: 480px;
-  }
-  .photo-strip-track li {
-    flex-basis: 180px;
   }
   .intro {
     padding: 52px 0 96px;
@@ -1065,9 +1021,6 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .photo-strip-track li {
-    transition: none;
   }
   .intro,
   .header-opening {
