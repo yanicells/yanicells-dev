@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PhotoCarousel } from "@/components/portfolio/photo-carousel";
+import { PhotoMarquee } from "@/components/portfolio/photo-marquee";
 import { SiteHeader } from "@/components/portfolio/site-header";
 import { SiteFooter } from "@/components/portfolio/site-footer";
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
             <span className="interest-note">Canon R50</span>
           </div>
           <p>Some photos from my camera roll.</p>
-          <PhotoCarousel photos={photos} />
+          <PhotoMarquee photos={photos} />
         </section>
       </main>
       <SiteFooter />
