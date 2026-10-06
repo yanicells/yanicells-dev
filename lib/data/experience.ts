@@ -1,101 +1,61 @@
-export interface Experience {
-  title: string;
+interface Experience {
   organization: string;
-  org?: string; // Shorter version for mobile
-  location?: string;
+  title: string;
   date: string;
+  summary: string;
   description: string;
+  homepage: boolean;
+  previousRole?: string;
 }
 
+// Dates and roles reflect the October 2026 career update.
 export const experiences: Experience[] = [
   {
-    title: "AI Engineering Intern",
     organization: "Diffusr",
-    org: "Diffusr",
-    location: "Remote",
-    date: "Jun 2026 - Present",
+    title: "AI and Software Engineering Intern",
+    date: "May 2026–Present",
+    summary: "Software and AI workflows for video production and campaign operations.",
     description:
-      "Extend AI UGC video pipelines and creator analytics infrastructure across cloud workflows. Improve vision QA gates, async GCP endpoints, scheduled refreshes, Supabase job tracking, and secret management for campaign operations.",
+      "Work on the software around the team’s AI video-production pipeline, from desktop tools to media processing and operational reliability. My role involves making complex runs easier to review, manage, and recover, alongside contributions to the team’s advertising-management application.",
+    homepage: true,
   },
   {
-    title: "AI Engineering & Product Innovation Intern",
+    organization: "Ateneo MISA",
+    title: "Assistant Vice President for IT Skills and Development",
+    date: "Aug 2026–Present",
+    summary: "Lead 15+ developers across organization and client projects, workshops, and mentorship.",
+    description:
+      "Lead a team of 15+ developers working on software, AI, data, and automation projects inside and outside Ateneo. I oversee project intake and delivery, coordinate with clients, and support developers through workshops and mentorship. Our Python workshop welcomed 30+ attendees.",
+    homepage: true,
+    previousRole: "IT Skills and Development Officer, Aug 2025–Jul 2026",
+  },
+  {
+    organization: "Maui Cart by Pasifika Hub",
+    title: "Freelance Software Engineer",
+    date: "Jun 2026–Present",
+    summary: "Product development for a commerce platform covering shopping, fulfillment, and vendor operations.",
+    description:
+      "Work on product planning and full-stack development for Pasifika Hub’s commerce platform in American Samoa. The application connects customer shopping and checkout with payment review, order fulfillment, and vendor operations. The platform is still in development.",
+    homepage: true,
+  },
+  {
     organization: "JWay Group",
-    org: "JWay",
-    location: "Remote",
-    date: "May 2026 - Present",
+    title: "AI Engineering Intern, AI Strategy and Automation",
+    date: "May 2026–Present",
+    summary: "AI product engineering for personal stories, memories, and evidence-based answers.",
     description:
-      "Design agentic AI product workflows for legacy and memory use cases. Built a self-hosted n8n + RAG prototype with OCR/audio ingestion, vector retrieval, authenticated React webhooks, and startup-style PRD/ROI planning.",
+      "Work on Eternal Love Connection, a product for recording personal stories and preserving memories. My role spans product planning and full-stack AI engineering, with an emphasis on guided capture, human review, and answers grounded in a person’s source material. The current application extends the original n8n prototype with voice and photo/video stories.",
+    homepage: false,
   },
   {
-    title: "AI Solution Development Intern",
-    organization: "Eskwelabs",
-    org: "Eskwelabs",
-    date: "Feb 2026 - May 2026",
-    description:
-      "Designed and deployed AI agents and multi-step workflows that automated analytics, content, and operational tasks. Built reusable prompt templates and structured output schemas. Implemented fallback logic and lightweight scripts to reduce manual review and speed QA cycles. Translated ambiguous requests into scoped AI use cases.",
-  },
-  {
-    title: "Freelance Full-Stack Developer",
     organization: "Timoga Holiday Resort",
-    org: "Timoga Holiday",
-    date: "Dec 2025 - Present",
+    title: "Freelance Software Engineer",
+    date: "Dec 2025–Jun 2026",
+    summary: "Point-of-sale, reservations, and payroll management software.",
     description:
-      "Developing a full-stack POS and management system handling entrance tracking, multi-cottage reservations, and payroll automation. Created a promotional website with online booking, interactive gallery, and AI-powered customer support using Next.js and Drizzle ORM.",
-  },
-  {
-    title: "IT Skills & Development Officer",
-    organization: "Ateneo Management Information Systems Association",
-    org: "Ateneo MISA",
-    date: "Aug 2025 - Present",
-    description:
-      "Organize technical skill trainings and workshops for students interested in information systems and technology. Assist in developing and maintaining organizational websites and systems to support association activities.",
-  },
-  {
-    title: "Developer",
-    organization: "Computer Society of the Ateneo",
-    org: "CompSAt",
-    date: "Oct 2025 - Present",
-    description:
-      "Developed and deployed software solutions for organizational events and client projects including websites and web applications. Ensured software implementations met professional standards and served project requirements effectively.",
-  },
-  {
-    title: "Backend Developer",
-    organization: "Google Developer Groups on Campus Loyola",
-    org: "GDGoc - Loyola",
-    date: "Sept 2025 - Present",
-    description:
-      "Designed and maintained server-side applications, databases, and APIs ensuring secure and scalable data handling. Collaborated with front-end developers to integrate user-facing features with back-end logic. Monitored and optimized system performance to maintain reliability and speed.",
-  },
-  {
-    title: "Geekshop Documentation Core Team",
-    organization: "Computer Society of the Ateneo",
-    org: "CompSAt",
-    date: "Jul 2025 - Jan 2026",
-    description:
-      "Managed photo and video documentation for events and tracked organizational records. Contributed to event coverage and visual storytelling for Ateneo's computer science community.",
-  },
-  {
-    title: "Writing Assistant",
-    organization: "ARISE - SOSE Newsletter",
-    org: "ARISE",
-    date: "Feb 2025 - Sept 2025",
-    description:
-      "Contributed to interviewing, article writing, and editing for the School of Science and Engineering newsletter. Collaborated with editorial team to produce engaging content for Ateneo's SOSE community.",
-  },
-  {
-    title: "Bachelor of Science in Computer Science",
-    organization: "Ateneo de Manila University",
-    org: "ADMU",
-    date: "Aug 2024 - Present",
-    description:
-      "Pursuing my BS Computer Science degree at my dream university — Ateneo de Manila University, consistently ranked as the top university in the Philippines. Admitted as a Financial Aid Scholar and DOST Scholar.",
-  },
-  {
-    title: "STEM Strand Vice Governor",
-    organization: "Supreme Student Government",
-    org: "SSG",
-    date: "Aug 2023 - May 2024",
-    description:
-      "Assisted events such as Sportsfest, La Salle Fair, and Jumpstart at La Salle Academy. Developed leadership, logistics, time management, and project coordination skills through event management.",
+      "Owned development of an internal operations system for a local resort in Iligan City. The work centered on translating entrance, cottage-booking, daily-closeout, and payroll routines into software that preserves historical prices and operational records.",
+    homepage: false,
   },
 ];
+
+export const homepageExperiences = experiences.filter(({ homepage }) => homepage);

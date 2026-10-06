@@ -1,60 +1,37 @@
 # yanicells.dev
 
-Personal website built with Next.js. Inspired by the ChatGPT UI.
+A minimal portfolio for Yani Capistrano, built with Next.js 16, React 19,
+TypeScript, and Tailwind CSS v4.
 
-## Tech stack
+The home page is a short overview. Projects, Experience, About, and Contact have
+separate pages, with a filterable gallery, five write-ups, and a few personal favourites. The site
+starts in dark mode and saves a visitor's light/dark choice in localStorage.
 
-- Next.js 16 (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui components
-- Vercel Analytics
-- Google Gemini API (chat feature)
+## Development
 
-## APIs used
+```sh
+pnpm install
+pnpm dev
+```
 
-- Google Gemini API (`@google/generative-ai`) for chat
-- Spotify Web API for now playing and top music data
-- Jikan API (MyAnimeList) for anime metadata and posters
+Open http://localhost:3000.
 
-## Pages and features
+```sh
+pnpm lint
+pnpm exec tsc --noEmit
+node scripts/check-theme.mjs
+pnpm build
+```
 
-- `/` Home: chat-style landing page and quick navigation.
-- `/about`: short personal introduction.
-- `/my-story`: longer personal background.
-- `/experience`: timeline of work and project experience.
-- `/projects`: project list with detail pages at `/projects/[slug]`.
-- `/tech-stack`: skills page with category tabs (languages, certificates, frontend, backend, database, tools).
-- `/anime`: personal anime list with ratings, search, tabs, and MAL poster data from cache.
-- `/music`: Spotify-powered page with now playing, top tracks, top artists, and top genres.
-- `/photography`: photo gallery and gear section.
-- `/discovery`: curated findings and personal discoveries.
-- `/contact`: contact information and links.
-- `/chats`: saved chats list with dynamic pages at `/chats/[slug]`.
+## Content
 
-## How to add anime
+- `lib/data/projects.ts`: selected work and project write-ups
+- `lib/data/experience.ts`: professional experience
+- `lib/data/contact.ts`: contact and profile links
+- `public/projects/`: existing project screenshots
 
-1. Open [lib/data/anime.ts](lib/data/anime.ts).
-2. Add a new item in `animeList` with at least:
-   - `malId`
-   - `title`
-   - `rating`
-   - `watchedDate`
-3. Refresh the local anime cache:
+Experience entries use recorded start dates instead of assuming that every
+role is still current. Project metrics describe the documented launch period.
 
-   `npx tsx scripts/fetch-anime-cache.ts`
-
-4. Confirm the new MAL ID exists in [lib/data/anime-cache.json](lib/data/anime-cache.json).
-
-The anime page reads from the cache file, not live Jikan requests.
-
-## Local development
-
-Install and run:
-
-`pnpm install`
-
-`pnpm dev`
-
-Open `http://localhost:3000`.
+Older hobby links redirect to the relevant sections of About. The sitemap
+includes the home page, the four overview pages, and the five selected projects.

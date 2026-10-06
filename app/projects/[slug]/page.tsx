@@ -2,44 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Github,
-  ExternalLink,
-  Play,
-  CalendarDays,
-} from "lucide-react";
-
-import { PageLayout } from "@/components/shared/page-layout";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
+import { SiteHeader } from "@/components/portfolio/site-header";
+import { SiteFooter } from "@/components/portfolio/site-footer";
 import { projects, getProjectBySlug } from "@/lib/data/projects";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ tab?: string | string[] }>;
 }
 
-function parseTabValue(tab: string | string[] | undefined) {
-  const value = Array.isArray(tab) ? tab[0] : tab;
-  if (
-    value === "featured" ||
-    value === "all" ||
-    value === "hackathons" ||
-    value === "webdev" ||
-    value === "java"
-  ) {
-    return value;
-  }
-  return undefined;
-}
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
+export function generateStaticParams() {
+  return projects.map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -47,261 +19,109 @@ export async function generateMetadata({
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-
-  if (!project) {
-    return { title: "Project Not Found" };
-  }
+  if (!project) return { title: "Project not found" };
 
   return {
     title: project.title,
     description: project.description,
+    alternates: { canonical: `/projects/${project.slug}` },
     openGraph: {
-      title: `${project.title} | Yanicells`,
-      description: project.shortDescription,
-      url: `https://yanicells.dev/projects/${project.slug}`,
-      images: project.image
-        ? [
-            {
-              url: project.image,
-              width: 1200,
-              height: 675,
-              alt: project.title,
-            },
-          ]
-        : undefined,
+      title: `${project.title} | Yani Capistrano`,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+      ...(project.image && {
+        images: [{ url: project.image.src, alt: project.image.alt }],
+      }),
     },
-    alternates: {
-      canonical: `https://yanicells.dev/projects/${project.slug}`,
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Yani Capistrano`,
+      description: project.description,
+      ...(project.image && { images: [project.image.src] }),
     },
   };
 }
 
-export default async function ProjectPage({
-  params,
-  searchParams,
-}: ProjectPageProps) {
+export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const resolvedSearchParams = await searchParams;
-  const activeTab = parseTabValue(resolvedSearchParams.tab);
   const project = getProjectBySlug(slug);
-
-  if (!project) {
-    notFound();
-  }
-
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const nextProject =
-    currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
-
-  const projectsListHref =
-    activeTab && activeTab !== "featured"
-      ? { pathname: "/projects", query: { tab: activeTab } }
-      : "/projects";
-
-  const getProjectHref = (projectSlug: string) =>
-    activeTab && activeTab !== "featured"
-      ? { pathname: `/projects/${projectSlug}`, query: { tab: activeTab } }
-      : `/projects/${projectSlug}`;
+  if (!project) notFound();
 
   return (
-    <PageLayout>
-      <div className="flex flex-col gap-8">
-        {/* Back button — sticky below header */}
-        <div className="sticky top-14 z-40 -mx-6 bg-background px-6 pt-2">
-          <Link
-            href={projectsListHref}
-            className="inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="size-4" />
-            Back to Projects
-          </Link>
-        </div>
+    <div className="site-shell">
+      <SiteHeader />
+      <main id="main-content" className="project-page">
+        <Link className="back-link" href="/projects">
+          Back to projects
+        </Link>
+        <article>
+          <header className="project-page-header">
+            <p className="project-context">{project.context}</p>
+            <h1>{project.title}</h1>
+            <p className="project-page-description">{project.description}</p>
+            <p className="project-page-outcome">{project.outcome}</p>
+          </header>
 
-        {/* Project Image */}
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-muted border-1 -mt-2">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        {/* Info Container: Consistent Gap-3 for Title, Meta, Desc, Stack */}
-        <div className="flex flex-col gap-3">
-          <h1 className="text-3xl font-bold text-foreground tracking-tight">
-            {project.title}
-          </h1>
-
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            {/* Date */}
-            {project.date && (
-              <span className="flex items-center gap-2">
-                <CalendarDays className="size-4" />
-                {project.date}
-              </span>
-            )}
-            |{/* Links */}
-            <div className="flex items-center gap-3">
-              {project.repo && (
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-                >
-                  <Github className="size-4" />
-                  Repo
-                </a>
-              )}
-              {project.live && (
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-                >
-                  <ExternalLink className="size-4" />
-                  Live
-                </a>
-              )}
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-                >
-                  <Play className="size-4" />
-                  Demo
-                </a>
-              )}
+          {project.image && (
+            <div className="project-page-image">
+              <Image
+                src={project.image.src}
+                alt={project.image.alt}
+                width={project.image.width}
+                height={project.image.height}
+                sizes="(max-width: 848px) calc(100vw - 48px), 800px"
+                className="project-detail-image"
+                priority
+              />
             </div>
-          </div>
+          )}
 
-          {/* Description */}
-          <p className="text-muted-foreground leading-relaxed mt-1">
-            {project.description}
-          </p>
+          <dl className="project-facts">
+            <div>
+              <dt>My role</dt>
+              <dd>{project.role}</dd>
+            </div>
+            <div>
+              <dt>Built with</dt>
+              <dd>{project.tech.join(", ")}</dd>
+            </div>
+            {project.links.length > 0 && (
+              <div>
+                <dt>Links</dt>
+                <dd className="project-links">
+                  {project.links.map((link) => (
+                    <a className="text-link" href={link.href} key={link.href}>
+                      {link.label}
+                    </a>
+                  ))}
+                </dd>
+              </div>
+            )}
+          </dl>
 
-          {/* Tech Stack */}
-          <div className="flex flex-wrap items-center gap-2 mt-1">
-            {project.tech.map((tech) => (
-              <Badge
-                key={tech}
-                variant="outline"
-                className="border-border font-mono text-sm px-3 py-1"
-              >
-                {tech}
-              </Badge>
+          <div className="project-story">
+            {project.sections.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </section>
             ))}
           </div>
-        </div>
-
-        {/* Blog sections */}
-        {project.blog && project.blog.length > 0 && (
-          <>
-            <Separator />
-            <div className="flex flex-col gap-10">
-              {project.blog.map((section, i) => (
-                <div key={i} className="flex flex-col gap-4">
-                  <h2 className="text-xl font-semibold text-foreground">
-                    {section.title}
-                  </h2>
-                  <div className="flex flex-col gap-4">
-                    {section.blocks.map((block, j) => {
-                      if (block.type === "text") {
-                        return (
-                          <p
-                            key={j}
-                            className="text-muted-foreground leading-relaxed"
-                          >
-                            {block.content}
-                          </p>
-                        );
-                      }
-                      if (block.type === "image") {
-                        return (
-                          <figure key={j} className="flex flex-col gap-2">
-                            <div className="relative w-full overflow-hidden rounded-lg bg-muted">
-                              <Image
-                                src={block.src}
-                                alt={block.alt}
-                                width={1200}
-                                height={675}
-                                className="h-auto w-full object-contain"
-                              />
-                            </div>
-                            {block.caption && (
-                              <figcaption className="text-center text-xs text-muted-foreground">
-                                {block.caption}
-                              </figcaption>
-                            )}
-                          </figure>
-                        );
-                      }
-                      if (block.type === "code") {
-                        return (
-                          <div key={j} className="flex flex-col gap-1">
-                            <pre className="overflow-x-auto rounded-lg bg-muted p-4 text-sm font-mono text-foreground">
-                              <code>{block.content}</code>
-                            </pre>
-                            {block.caption && (
-                              <p className="text-xs text-muted-foreground">
-                                {block.caption}
-                              </p>
-                            )}
-                          </div>
-                        );
-                      }
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {/* Nav: prev / next project */}
-        <Separator />
-        <div className="flex items-center justify-between gap-4">
-          {prevProject ? (
-            <Button asChild variant="ghost" className="gap-2 px-0">
-              <Link href={getProjectHref(prevProject.slug)}>
-                <ArrowLeft className="size-4" />
-                <span className="flex flex-col text-left">
-                  <span className="text-xs text-muted-foreground">
-                    Previous
-                  </span>
-                  <span className="text-sm font-medium">
-                    {prevProject.title}
-                  </span>
-                </span>
+        </article>
+        <nav className="more-work" aria-label="Other selected projects">
+          <h2>More projects</h2>
+          {projects
+            .filter((other) => other.featured && other.slug !== project.slug)
+            .map((other) => (
+              <Link href={`/projects/${other.slug}`} key={other.slug}>
+                {other.title}
               </Link>
-            </Button>
-          ) : (
-            <div />
-          )}
-
-          {nextProject ? (
-            <Button asChild variant="ghost" className="gap-2 px-0 text-right">
-              <Link href={getProjectHref(nextProject.slug)}>
-                <span className="flex flex-col text-right">
-                  <span className="text-xs text-muted-foreground">Next</span>
-                  <span className="text-sm font-medium">
-                    {nextProject.title}
-                  </span>
-                </span>
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          ) : (
-            <div />
-          )}
-        </div>
-      </div>
-    </PageLayout>
+            ))}
+        </nav>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }

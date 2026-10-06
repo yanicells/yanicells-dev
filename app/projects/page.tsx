@@ -1,29 +1,29 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { PageLayout } from "@/components/shared/page-layout";
-import { ProjectsGrid } from "@/components/projects/projects-grid";
+import { SiteHeader } from "@/components/portfolio/site-header";
+import { SiteFooter } from "@/components/portfolio/site-footer";
+import { ProjectGallery } from "@/components/portfolio/project-gallery";
+import { projectPreviews } from "@/lib/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description:
-    "Explore Yanicells' projects — from UniSort (university matching platform) to multiplayer games, music apps, and more. Built with Next.js, React, Java, and modern web technologies.",
-  openGraph: {
-    title: "Projects | Yanicells",
-    description:
-      "Explore Yanicells' web development and software projects built with Next.js, React, Java, and more.",
-    url: "https://yanicells.dev/projects",
-  },
-  alternates: {
-    canonical: "https://yanicells.dev/projects",
-  },
+  description: "Web applications, AI tools, games, and projects built with friends and teams.",
+  alternates: { canonical: "/projects" },
+  openGraph: { title: "Projects | Yani Capistrano", url: "/projects" },
 };
 
 export default function ProjectsPage() {
   return (
-    <PageLayout>
-      <Suspense fallback={null}>
-        <ProjectsGrid />
-      </Suspense>
-    </PageLayout>
+    <div className="site-shell">
+      <SiteHeader />
+      <main id="main-content" className="index-page">
+        <header className="page-heading">
+          <p className="eyebrow">Projects</p>
+          <h1>Things I’ve built.</h1>
+          <p>Personal projects, team experiments, and software people use.</p>
+        </header>
+        <ProjectGallery projects={projectPreviews} />
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
