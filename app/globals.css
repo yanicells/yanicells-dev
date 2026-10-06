@@ -759,12 +759,12 @@ body:has(:target) :is(.mineral-facet, .mineral-light, .site-shell, .intro) {
 .photo-marquee {
   margin-top: 24px;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 1.2%, #000 98.8%, transparent);
 }
 .photo-marquee-track {
   display: flex;
   width: max-content;
-  animation: photo-marquee 60s linear infinite;
+  animation: photo-marquee 40s linear infinite;
 }
 .photo-marquee:hover .photo-marquee-track,
 .photo-marquee:focus-within .photo-marquee-track {
