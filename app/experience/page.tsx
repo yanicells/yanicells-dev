@@ -20,7 +20,7 @@ export default function ExperiencePage() {
           <p className="eyebrow">Experience</p>
           <h1>Work with teams.</h1>
           <p>Software and AI engineering, freelance work, and developer leadership.</p>
-          <a className="text-link" href={contact.resume}>View resume ↗</a>
+          <a className="text-link" href={contact.resume}>View resume ↗︎</a>
         </header>
         <ol className="experience-timeline">
           {experiences.map((experience) => (

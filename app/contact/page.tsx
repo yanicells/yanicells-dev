@@ -33,7 +33,7 @@ export default function ContactPage() {
               <span className="contact-label">{link.label}</span>
               <a className="contact-link" href={link.href}>
                 {link.text}
-                <span aria-hidden="true"> ↗</span>
+                <span aria-hidden="true"> ↗︎</span>
               </a>
             </li>
           ))}
