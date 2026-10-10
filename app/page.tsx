@@ -37,7 +37,7 @@ export default function HomePage() {
             <div className="section-heading">
               <h2 id="work-heading">Selected projects</h2>
               <Link className="text-link" href="/projects">
-                More projects ↗
+                More projects ↗︎
               </Link>
             </div>
             <ProjectList projects={homepageProjectPreviews} featured />
@@ -51,7 +51,7 @@ export default function HomePage() {
             <div className="section-heading">
               <h2 id="experience-heading">Experience</h2>
               <Link className="text-link" href="/experience">
-                Full experience ↗
+                Full experience ↗︎
               </Link>
             </div>
             <div className="experience-list">
@@ -79,7 +79,7 @@ export default function HomePage() {
             <div className="section-heading">
               <h2 id="about-heading">A little about me</h2>
               <Link className="text-link" href="/about">
-                More about me ↗
+                More about me ↗︎
               </Link>
             </div>
             <div className="about-copy">

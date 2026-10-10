@@ -35,7 +35,7 @@ export function ProjectList({
             <h3>
               <Link href={project.href}>
                 {project.title}
-                <span aria-hidden="true"> ↗</span>
+                <span aria-hidden="true"> ↗︎</span>
               </Link>
             </h3>
             <p className="project-description">{project.description}</p>
