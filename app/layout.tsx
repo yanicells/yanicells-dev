@@ -9,11 +9,14 @@ const hankenGrotesk = Hanken_Grotesk({
   display: "swap",
 });
 
-// Restore the saved choice before paint; first-time visits start in dark mode.
-const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portfolio-theme')}catch(e){}document.documentElement.dataset.theme=theme==='light'?'light':'dark'})()`;
+// Restore the saved choice before paint; first-time visits follow the system setting.
+const themeScript = `(function(){var theme;try{theme=localStorage.getItem('portfolio-theme')}catch(e){}if(theme!=='light'&&theme!=='dark'){theme=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=theme})()`;
 
 export const viewport: Viewport = {
-  themeColor: "#171417",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f6f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#171417" },
+  ],
 };
 
 export const metadata: Metadata = {
