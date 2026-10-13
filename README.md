@@ -5,7 +5,7 @@ TypeScript, and Tailwind CSS v4.
 
 The home page is a short overview. Projects, Experience, About, and Contact have
 separate pages, with a filterable gallery, five write-ups, and a few personal favourites. The site
-starts in dark mode and saves a visitor's light/dark choice in localStorage.
+follows the system color scheme and saves a visitor's light/dark choice in localStorage.
 
 ## Development
 
