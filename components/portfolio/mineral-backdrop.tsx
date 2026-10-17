@@ -3,6 +3,14 @@ import type { CSSProperties } from "react";
 // Stagger index for each facet's unfold animation.
 const facet = (i: number) => ({ "--i": i }) as CSSProperties;
 
+// Runs during HTML parsing, before first paint: maps the viewport center into
+// SVG user space and sets --mark-x/y so the folded crystal lands there on any
+// screen size. Only the opening keyframes read these vars; the resting
+// backdrop is unchanged. Client-side navigations keep the CSS fallback.
+// Numbers: facet transform-origin (1135, 460), facets' bbox center
+// (1054, 462), and the hold scale 0.22 from `mineral-unfold`.
+const centerMarkScript = `(function(){var svg=document.currentScript.previousElementSibling,m=svg&&svg.getScreenCTM&&svg.getScreenCTM();if(!m)return;var p=new DOMPoint(innerWidth/2,innerHeight/2).matrixTransform(m.inverse()),k=.22;svg.querySelector('.mineral-crystal').style.cssText='--mark-x:'+(p.x-1135-(1054-1135)*k)+'px;--mark-y:'+(p.y-460-(462-460)*k)+'px'})()`;
+
 // Abstract mineral planes keep the supplied reference's color and depth.
 // On load the facets start folded into a small centered crystal mark, then
 // unfold into place as the backdrop (see `mineral-unfold` in globals.css).
@@ -93,7 +101,7 @@ export function MineralBackdrop() {
               />
             </linearGradient>
           </defs>
-          <g className="mineral-crystal">
+          <g className="mineral-crystal" suppressHydrationWarning>
             <path
               className="mineral-facet"
               style={facet(0)}
@@ -142,6 +150,7 @@ export function MineralBackdrop() {
             />
           </g>
         </svg>
+        <script dangerouslySetInnerHTML={{ __html: centerMarkScript }} />
       </div>
       <div className="mineral-grain" />
     </div>
